@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RabiesX (Xbox)", "GameStateManagementSample\RabiesX (Xbox).csproj", "{8E7AAF7C-11D5-47A0-A9C3-3D63285F9145}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RabiesX (Xbox)", "RabiesX\RabiesX (Xbox).csproj", "{8E7AAF7C-11D5-47A0-A9C3-3D63285F9145}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Content", "Content\Content.contentproj", "{B7219195-3990-4557-87D7-856DB165635D}"
 EndProject
