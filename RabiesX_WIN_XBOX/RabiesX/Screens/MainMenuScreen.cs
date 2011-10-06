@@ -25,7 +25,7 @@ namespace RabiesX
         /// Constructor fills in the menu contents.
         /// </summary>
         public MainMenuScreen()
-            : base("Main Menu")
+            : base("Rabies-X")
         {
             // Create our menu entries.
             MenuEntry playGameMenuEntry = new MenuEntry("Play Game");
@@ -73,7 +73,7 @@ namespace RabiesX
         /// </summary>
         protected override void OnCancel(PlayerIndex playerIndex)
         {
-            const string message = "Are you sure you want to exit this sample?";
+            const string message = "Are you sure you want to exit the game?";
 
             MessageBoxScreen confirmExitMessageBox = new MessageBoxScreen(message);
 
