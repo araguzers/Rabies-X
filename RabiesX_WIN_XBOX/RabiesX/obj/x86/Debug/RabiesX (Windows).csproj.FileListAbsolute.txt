@@ -20,3 +20,5 @@ C:\Users\Nshidbaby\Documents\College\COSC 4348\Rabies-X\Rabies-X\RabiesX_WIN_XBO
 C:\Users\Nshidbaby\Documents\College\COSC 4348\Rabies-X\Rabies-X\RabiesX_WIN_XBOX\RabiesX\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
 C:\Users\Nshidbaby\Documents\College\COSC 4348\Rabies-X\Rabies-X\RabiesX_WIN_XBOX\RabiesX\obj\x86\Debug\GameStateManagementSample.exe
 C:\Users\Nshidbaby\Documents\College\COSC 4348\Rabies-X\Rabies-X\RabiesX_WIN_XBOX\RabiesX\obj\x86\Debug\GameStateManagementSample.pdb
+C:\Users\Nshidbaby\Documents\College\COSC 4348\Rabies-X\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Models\p1_wedge.xnb
+C:\Users\Nshidbaby\Documents\College\COSC 4348\Rabies-X\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\textures\wedge_p1_diff_v1_0.xnb

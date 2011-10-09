@@ -11,6 +11,7 @@
 using System;
 using System.Threading;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
@@ -23,15 +24,29 @@ namespace RabiesX
     /// placeholder to get the idea across: you'll probably want to
     /// put some more interesting gameplay in here!
     /// </summary>
+    /// 
     class GameplayScreen : GameScreen
     {
         #region Fields
-
+        
         ContentManager content;
         SpriteFont gameFont;
 
         Vector2 playerPosition = new Vector2(100, 100);
         Vector2 enemyPosition = new Vector2(100, 100);
+        
+        // Set the position of the model in world space, and set the rotation.
+        Vector3 modelPosition = Vector3.Zero;
+        float modelRotation = 0.0f;
+
+        // Set the position of the camera in world space, for our view matrix.
+        Vector3 cameraPosition = new Vector3(0.0f, 50.0f, 5000.0f);
+        
+        // Set the 3D model to draw.
+        Model myModel;
+
+        // The aspect ratio determines how to scale 3d to 2d projection
+        float aspectRatio;
 
         Random random = new Random();
 
@@ -67,10 +82,15 @@ namespace RabiesX
             // while, giving you a chance to admire the beautiful loading screen.
             Thread.Sleep(1000);
 
-            // once the load has finished, we use ResetElapsedTime to tell the game's
+            // Once the load has finished, we use ResetElapsedTime to tell the game's
             // timing mechanism that we have just finished a very long frame, and that
             // it should not try to catch up.
             ScreenManager.Game.ResetElapsedTime();
+
+            // Load model and set aspect ratio
+            myModel = content.Load<Model>("Models\\p1_wedge");
+
+            aspectRatio = ScreenManager.Game.GraphicsDevice.Viewport.AspectRatio;
         }
 
 
@@ -119,6 +139,9 @@ namespace RabiesX
 
                 enemyPosition = Vector2.Lerp(enemyPosition, targetPosition, 0.05f);
 
+                modelRotation += (float)gameTime.ElapsedGameTime.TotalMilliseconds * MathHelper.ToRadians(0.1f);
+
+                base.Update(gameTime, otherScreenHasFocus, false);
                 // TODO: this game isn't very fun! You could probably improve
                 // it by inserting something more interesting in this space :-)
             }
@@ -201,6 +224,26 @@ namespace RabiesX
                                    enemyPosition, Color.DarkRed);
 
             spriteBatch.End();
+
+            // Copy any parent transforms.
+            Matrix[] transforms = new Matrix[myModel.Bones.Count];
+            myModel.CopyAbsoluteBoneTransformsTo(transforms);
+
+            // Draw the model. A model can have multiple meshes, so loop.
+            foreach (ModelMesh mesh in myModel.Meshes)
+            {
+                // This is where the mesh orientation is set, as well as our camera and projection.
+                foreach (BasicEffect effect in mesh.Effects)
+                {
+                    effect.EnableDefaultLighting();
+                    effect.World = transforms[mesh.ParentBone.Index] * Matrix.CreateRotationY(modelRotation) * Matrix.CreateTranslation(modelPosition);
+                    effect.View = Matrix.CreateLookAt(cameraPosition, Vector3.Zero, Vector3.Up);
+                    effect.Projection = Matrix.CreatePerspectiveFieldOfView(MathHelper.ToRadians(45.0f), aspectRatio, 1.0f, 10000.0f);
+                }
+                // Draw the mesh using the effects set above.
+                mesh.Draw();
+            }
+            base.Draw(gameTime);
 
             // If the game is transitioning on or off, fade it out to black.
             if (TransitionPosition > 0 || pauseAlpha > 0)
