@@ -39,6 +39,9 @@ namespace RabiesX
         Vector3 modelPosition = Vector3.Zero;
         float modelRotation = 0.0f;
 
+        // Set the velocity of the model, applied each frame to the model's position.
+        Vector3 modelVelocity = Vector3.Zero;
+
         // Set the position of the camera in world space, for our view matrix.
         Vector3 cameraPosition = new Vector3(0.0f, 50.0f, 5000.0f);
         
@@ -139,7 +142,22 @@ namespace RabiesX
 
                 enemyPosition = Vector2.Lerp(enemyPosition, targetPosition, 0.05f);
 
-                modelRotation += (float)gameTime.ElapsedGameTime.TotalMilliseconds * MathHelper.ToRadians(0.1f);
+                // Apply a stabilizing force to stop the test model moving off the screen.
+                //Vector3 modeltargetPosition = new Vector3(
+                //    (ScreenManager.GraphicsDevice.Viewport.Width / 2 + ScreenManager.GraphicsDevice.Viewport.Height / 2 + ScreenManager.GraphicsDevice.Viewport.MaxDepth / 2) / 3);
+
+                //modeltargetPosition = Vector3.Lerp(modelPosition, modeltargetPosition, 0.05f);
+
+                //modelRotation += (float)gameTime.ElapsedGameTime.TotalMilliseconds * MathHelper.ToRadians(0.1f);
+
+                // Get some input.
+                UpdateInput();
+
+                // Add velocity to the current position.
+                modelPosition += modelVelocity;
+
+                // Bleed off velocity over time.
+                modelVelocity *= 0.95f;
 
                 base.Update(gameTime, otherScreenHasFocus, false);
                 // TODO: this game isn't very fun! You could probably improve
@@ -147,6 +165,58 @@ namespace RabiesX
             }
         }
 
+        protected void UpdateInput()
+        {
+            // Get the keyboard state.
+            KeyboardState currentState = Keyboard.GetState(PlayerIndex.One);
+            if (currentState.IsKeyDown(Keys.Space) || currentState.IsKeyDown(Keys.Up) || currentState.IsKeyDown(Keys.Down) ||
+                currentState.IsKeyDown(Keys.Left) || currentState.IsKeyDown(Keys.Right))
+            {
+                Vector2 movement = Vector2.Zero;
+
+                if (currentState.IsKeyDown(Keys.Left))
+                    movement.X--;
+
+                if (currentState.IsKeyDown(Keys.Right))
+                    movement.X++;
+
+                if (currentState.IsKeyDown(Keys.Up))
+                    movement.Y--;
+
+                if (currentState.IsKeyDown(Keys.Down))
+                    movement.Y++;
+
+                float thrusters = 0.0f;
+
+                if (currentState.IsKeyDown(Keys.Space))
+                    thrusters += 1.1f;
+
+                // Rotate the model using the left thumbstick, and scale it down.
+                modelRotation -= movement.X * 0.10f;
+
+                // Create some velocity if the right trigger is down.
+                Vector3 modelVelocityAdd = Vector3.Zero;
+
+                // Find out what direction we should be thrusting, using rotation.
+                modelVelocityAdd.X = -(float)Math.Sin(modelRotation);
+                modelVelocityAdd.Z = -(float)Math.Cos(modelRotation);
+
+                // Now scale our direction by when the SpaceBar is down.
+                modelVelocityAdd *= thrusters;
+
+                // Finally, add this vector to our velocity.
+                modelVelocity += modelVelocityAdd;
+                
+
+                // In case you get lost, press LeftShift to warp back to the center.
+                if (currentState.IsKeyDown(Keys.LeftShift) == true)
+                {
+                    modelPosition = Vector3.Zero;
+                    modelVelocity = Vector3.Zero;
+                    modelRotation = 0.0f;
+                }
+            }
+        }
 
         /// <summary>
         /// Lets the game respond to player input. Unlike the Update method,
@@ -178,19 +248,19 @@ namespace RabiesX
             {
                 // Otherwise move the player position.
                 Vector2 movement = Vector2.Zero;
-
-                if (keyboardState.IsKeyDown(Keys.Left))
+                
+                if (keyboardState.IsKeyDown(Keys.A))
                     movement.X--;
 
-                if (keyboardState.IsKeyDown(Keys.Right))
+                if (keyboardState.IsKeyDown(Keys.D))
                     movement.X++;
 
-                if (keyboardState.IsKeyDown(Keys.Up))
+                if (keyboardState.IsKeyDown(Keys.W))
                     movement.Y--;
 
-                if (keyboardState.IsKeyDown(Keys.Down))
+                if (keyboardState.IsKeyDown(Keys.S))
                     movement.Y++;
-
+                
                 Vector2 thumbstick = gamePadState.ThumbSticks.Left;
 
                 movement.X += thumbstick.X;
@@ -203,7 +273,7 @@ namespace RabiesX
             }
         }
 
-
+   
         /// <summary>
         /// Draws the gameplay screen.
         /// </summary>
