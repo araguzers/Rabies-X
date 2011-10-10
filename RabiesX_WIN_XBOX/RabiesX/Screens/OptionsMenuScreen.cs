@@ -24,6 +24,8 @@ namespace RabiesX
 
         MenuEntry ungulateMenuEntry;
         MenuEntry languageMenuEntry;
+        MenuEntry difficultyMenuEntry;
+        MenuEntry soundMenuEntry;
         MenuEntry frobnicateMenuEntry;
         MenuEntry elfMenuEntry;
 
@@ -38,6 +40,11 @@ namespace RabiesX
 
         static string[] languages = { "C#", "French", "Deoxyribonucleic acid" };
         static int currentLanguage = 0;
+
+        static string[] difficulties = { "Easy", "Normal", "Hard" };
+        static int currentDifficulty = 1;
+
+        static bool sound = true;
 
         static bool frobnicate = true;
 
@@ -57,6 +64,8 @@ namespace RabiesX
             // Create our menu entries.
             ungulateMenuEntry = new MenuEntry(string.Empty);
             languageMenuEntry = new MenuEntry(string.Empty);
+            difficultyMenuEntry = new MenuEntry(string.Empty);
+            soundMenuEntry = new MenuEntry(string.Empty);
             frobnicateMenuEntry = new MenuEntry(string.Empty);
             elfMenuEntry = new MenuEntry(string.Empty);
 
@@ -67,6 +76,8 @@ namespace RabiesX
             // Hook up menu event handlers.
             ungulateMenuEntry.Selected += UngulateMenuEntrySelected;
             languageMenuEntry.Selected += LanguageMenuEntrySelected;
+            difficultyMenuEntry.Selected += DifficultyMenuEntrySelected;
+            soundMenuEntry.Selected += SoundMenuEntrySelected;
             frobnicateMenuEntry.Selected += FrobnicateMenuEntrySelected;
             elfMenuEntry.Selected += ElfMenuEntrySelected;
             back.Selected += OnCancel;
@@ -74,6 +85,8 @@ namespace RabiesX
             // Add entries to the menu.
             MenuEntries.Add(ungulateMenuEntry);
             MenuEntries.Add(languageMenuEntry);
+            MenuEntries.Add(difficultyMenuEntry);
+            MenuEntries.Add(soundMenuEntry);
             MenuEntries.Add(frobnicateMenuEntry);
             MenuEntries.Add(elfMenuEntry);
             MenuEntries.Add(back);
@@ -87,6 +100,8 @@ namespace RabiesX
         {
             ungulateMenuEntry.Text = "Preferred ungulate: " + currentUngulate;
             languageMenuEntry.Text = "Language: " + languages[currentLanguage];
+            difficultyMenuEntry.Text = "Difficulty: " + difficulties[currentDifficulty];
+            soundMenuEntry.Text = "Sound: " + (sound ? "on" : "off");
             frobnicateMenuEntry.Text = "Frobnicate: " + (frobnicate ? "on" : "off");
             elfMenuEntry.Text = "elf: " + elf;
         }
@@ -121,6 +136,25 @@ namespace RabiesX
             SetMenuEntryText();
         }
 
+        /// <summary>
+        /// Event handler for when the Difficulty menu entry is selected.
+        /// </summary>
+        void DifficultyMenuEntrySelected(object sender, PlayerIndexEventArgs e)
+        {
+            currentDifficulty = (currentDifficulty + 1) % difficulties.Length;
+
+            SetMenuEntryText();
+        }
+
+        /// <summary>
+        /// Event handler for when the Sound menu entry is selected.
+        /// </summary>
+        void SoundMenuEntrySelected(object sender, PlayerIndexEventArgs e)
+        {
+            sound = !sound;
+
+            SetMenuEntryText();
+        }
 
         /// <summary>
         /// Event handler for when the Frobnicate menu entry is selected.
