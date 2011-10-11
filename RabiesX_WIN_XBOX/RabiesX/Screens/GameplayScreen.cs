@@ -34,20 +34,13 @@ namespace RabiesX
 
         Vector2 playerPosition = new Vector2(100, 100);
         Vector2 enemyPosition = new Vector2(100, 100);
+
+        // Set the 3D model to draw.
+        RabiesX.ModelManager.MyModel shipModel;
         
-        // Set the position of the model in world space, and set the rotation.
-        Vector3 modelPosition = Vector3.Zero;
-        float modelRotation = 0.0f;
-
-        // Set the velocity of the model, applied each frame to the model's position.
-        Vector3 modelVelocity = Vector3.Zero;
-
         // Set the position of the camera in world space, for our view matrix.
         Vector3 cameraPosition = new Vector3(0.0f, 50.0f, 5000.0f);
-        
-        // Set the 3D model to draw.
-        Model myModel;
-
+ 
         // The aspect ratio determines how to scale 3d to 2d projection
         float aspectRatio;
 
@@ -90,8 +83,8 @@ namespace RabiesX
             // it should not try to catch up.
             ScreenManager.Game.ResetElapsedTime();
 
-            // Load model and set aspect ratio
-            myModel = content.Load<Model>("Models\\p1_wedge");
+            // Load models and set aspect ratio
+            shipModel = new ModelManager.MyModel("Models\\p1_wedge", content);
 
             aspectRatio = ScreenManager.Game.GraphicsDevice.Viewport.AspectRatio;
         }
@@ -154,10 +147,10 @@ namespace RabiesX
                 UpdateInput();
 
                 // Add velocity to the current position.
-                modelPosition += modelVelocity;
+                shipModel.Position += shipModel.Velocity;
 
                 // Bleed off velocity over time.
-                modelVelocity *= 0.95f;
+                shipModel.Velocity *= 0.95f;
 
                 base.Update(gameTime, otherScreenHasFocus, false);
                 // TODO: this game isn't very fun! You could probably improve
@@ -192,28 +185,28 @@ namespace RabiesX
                     thrusters += 1.1f;
 
                 // Rotate the model using the left thumbstick, and scale it down.
-                modelRotation -= movement.X * 0.10f;
+                shipModel.rX -= movement.X * 0.10f;
 
                 // Create some velocity if the right trigger is down.
                 Vector3 modelVelocityAdd = Vector3.Zero;
 
                 // Find out what direction we should be thrusting, using rotation.
-                modelVelocityAdd.X = -(float)Math.Sin(modelRotation);
-                modelVelocityAdd.Z = -(float)Math.Cos(modelRotation);
+                modelVelocityAdd.X = -(float)Math.Sin(shipModel.rX);
+                modelVelocityAdd.Z = -(float)Math.Cos(shipModel.rX);
 
                 // Now scale our direction by when the SpaceBar is down.
                 modelVelocityAdd *= thrusters;
 
                 // Finally, add this vector to our velocity.
-                modelVelocity += modelVelocityAdd;
+                shipModel.Velocity += modelVelocityAdd;
                 
 
                 // In case you get lost, press LeftShift to warp back to the center.
                 if (currentState.IsKeyDown(Keys.LeftShift) == true)
                 {
-                    modelPosition = Vector3.Zero;
-                    modelVelocity = Vector3.Zero;
-                    modelRotation = 0.0f;
+                    shipModel.Position = Vector3.Zero;
+                    shipModel.Velocity = Vector3.Zero;
+                    shipModel.Rotation = Vector3.Zero;
                 }
             }
         }
@@ -296,17 +289,17 @@ namespace RabiesX
             spriteBatch.End();
 
             // Copy any parent transforms.
-            Matrix[] transforms = new Matrix[myModel.Bones.Count];
-            myModel.CopyAbsoluteBoneTransformsTo(transforms);
+            Matrix[] transforms = new Matrix[shipModel.ModelHeld.Bones.Count];
+            shipModel.ModelHeld.CopyAbsoluteBoneTransformsTo(transforms);
 
             // Draw the model. A model can have multiple meshes, so loop.
-            foreach (ModelMesh mesh in myModel.Meshes)
+            foreach (ModelMesh mesh in shipModel.ModelHeld.Meshes)
             {
                 // This is where the mesh orientation is set, as well as our camera and projection.
                 foreach (BasicEffect effect in mesh.Effects)
                 {
                     effect.EnableDefaultLighting();
-                    effect.World = transforms[mesh.ParentBone.Index] * Matrix.CreateRotationY(modelRotation) * Matrix.CreateTranslation(modelPosition);
+                    effect.World = transforms[mesh.ParentBone.Index] * Matrix.CreateRotationY(shipModel.rX) * Matrix.CreateTranslation(shipModel.Position);
                     effect.View = Matrix.CreateLookAt(cameraPosition, Vector3.Zero, Vector3.Up);
                     effect.Projection = Matrix.CreatePerspectiveFieldOfView(MathHelper.ToRadians(45.0f), aspectRatio, 1.0f, 10000.0f);
                 }
