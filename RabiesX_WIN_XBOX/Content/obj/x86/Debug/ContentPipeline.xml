@@ -83,6 +83,15 @@
       <Output>C:\Users\Nshidbaby\Documents\College\COSC 4348\Rabies-X\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\textures\wedge_p1_diff_v1_0.xnb</Output>
       <Time>2007-12-09T17:15:44-06:00</Time>
     </Item>
+    <Item>
+      <Source>Textures\wedge_p1_diff_v1.tga</Source>
+      <Name>Textures\wedge_p1_diff_v1</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Nshidbaby\Documents\College\COSC 4348\Rabies-X\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Textures\wedge_p1_diff_v1.xnb</Output>
+      <Time>2007-12-09T17:15:44-06:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <TargetPlatform>Windows</TargetPlatform>

@@ -37,11 +37,11 @@ namespace RabiesX
 
         // Set the 3D model to draw.
         RabiesX.ModelManager.MyModel shipModel;
-        
+             
         // Set the position of the camera in world space, for our view matrix.
         Vector3 cameraPosition = new Vector3(0.0f, 50.0f, 5000.0f);
  
-        // The aspect ratio determines how to scale 3d to 2d projection
+        // Aspect ratio determines how to scale 3d to 2d projection.
         float aspectRatio;
 
         Random random = new Random();
@@ -85,6 +85,8 @@ namespace RabiesX
 
             // Load models and set aspect ratio
             shipModel = new ModelManager.MyModel("Models\\p1_wedge", content);
+
+            shipModel.Texture("Textures\\wedge_p1_diff_v1", content); 
 
             aspectRatio = ScreenManager.Game.GraphicsDevice.Viewport.AspectRatio;
         }
@@ -137,9 +139,11 @@ namespace RabiesX
 
                 // Apply a stabilizing force to stop the test model moving off the screen.
                 //Vector3 modeltargetPosition = new Vector3(
+                //    (ScreenManager.GraphicsDevice.Viewport.Width / 2 - shipModel.getTexture.Width / 2));
+                //Vector3 modeltargetPosition = new Vector3(
                 //    (ScreenManager.GraphicsDevice.Viewport.Width / 2 + ScreenManager.GraphicsDevice.Viewport.Height / 2 + ScreenManager.GraphicsDevice.Viewport.MaxDepth / 2) / 3);
 
-                //modeltargetPosition = Vector3.Lerp(modelPosition, modeltargetPosition, 0.05f);
+                //shipModel.Position = Vector3.Lerp(shipModel.Position, modeltargetPosition, 0.05f);
 
                 //modelRotation += (float)gameTime.ElapsedGameTime.TotalMilliseconds * MathHelper.ToRadians(0.1f);
 
@@ -153,6 +157,7 @@ namespace RabiesX
                 shipModel.Velocity *= 0.95f;
 
                 base.Update(gameTime, otherScreenHasFocus, false);
+
                 // TODO: this game isn't very fun! You could probably improve
                 // it by inserting something more interesting in this space :-)
             }
@@ -200,7 +205,6 @@ namespace RabiesX
                 // Finally, add this vector to our velocity.
                 shipModel.Velocity += modelVelocityAdd;
                 
-
                 // In case you get lost, press LeftShift to warp back to the center.
                 if (currentState.IsKeyDown(Keys.LeftShift) == true)
                 {
@@ -209,6 +213,27 @@ namespace RabiesX
                     shipModel.Rotation = Vector3.Zero;
                 }
             }
+
+            // Get current screen width and height.
+            int screenWidth = ScreenManager.Game.GraphicsDevice.Viewport.Width;
+            int screenHeight = ScreenManager.Game.GraphicsDevice.Viewport.Height;
+
+            // Prevent model from moving off the left edge of the screen.
+            if (shipModel.Position.X < screenHeight * -5)
+                shipModel.Position = new Vector3(screenHeight * -5, shipModel.Position.Y, shipModel.Position.Z);
+
+            // Prevent model from moving off the right edge of the screen.
+            if (shipModel.Position.X > screenHeight * 5)
+                shipModel.Position = new Vector3(screenHeight * 5, shipModel.Position.Y, shipModel.Position.Z);
+
+            //Console.WriteLine("ship position = {0}", shipModel.pX);
+            //Console.WriteLine("screen position = {0}", ScreenManager.Game.GraphicsDevice.Viewport.Width);
+            //Console.WriteLine("screen position = {0}", ScreenManager.Game.GraphicsDevice.Viewport.Height);
+
+            // Prevent model from moving off the right edge of the screen.
+            //int rightEdge = screenWidth - shipModel.getTexture.Width;
+            //if (shipModel.Position.X > rightEdge)
+            //    shipModel.Position = new Vector3(rightEdge, shipModel.Position.Y, shipModel.Position.Z);
         }
 
         /// <summary>
