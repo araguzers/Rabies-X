@@ -35,6 +35,9 @@ namespace RabiesX
         Vector2 playerPosition = new Vector2(100, 100);
         Vector2 enemyPosition = new Vector2(100, 100);
 
+        // Set background for level.
+        Texture2D stars;
+
         // Set the 3D model to draw.
         RabiesX.ModelManager.MyModel shipModel;
              
@@ -47,6 +50,9 @@ namespace RabiesX
         Random random = new Random();
 
         float pauseAlpha;
+
+        int screenWidth;
+        int screenHeight;
 
         #endregion
 
@@ -82,13 +88,20 @@ namespace RabiesX
             // timing mechanism that we have just finished a very long frame, and that
             // it should not try to catch up.
             ScreenManager.Game.ResetElapsedTime();
-
-            // Load models and set aspect ratio
+            
+            // Load models and set aspect ratio.
             shipModel = new ModelManager.MyModel("Models\\p1_wedge", content);
 
             shipModel.Texture("Textures\\wedge_p1_diff_v1", content); 
 
             aspectRatio = ScreenManager.Game.GraphicsDevice.Viewport.AspectRatio;
+
+            // Get current screen width and height.
+            screenWidth = ScreenManager.Game.GraphicsDevice.Viewport.Width;
+            screenHeight = ScreenManager.Game.GraphicsDevice.Viewport.Height;
+
+            // Load background texture.
+            stars = content.Load<Texture2D>("Textures/B1_stars");
         }
 
 
@@ -214,9 +227,9 @@ namespace RabiesX
                 }
             }
 
-            // Get current screen width and height.
-            int screenWidth = ScreenManager.Game.GraphicsDevice.Viewport.Width;
-            int screenHeight = ScreenManager.Game.GraphicsDevice.Viewport.Height;
+            //// Get current screen width and height.
+            //int screenWidth = ScreenManager.Game.GraphicsDevice.Viewport.Width;
+            //int screenHeight = ScreenManager.Game.GraphicsDevice.Viewport.Height;
 
             // Prevent model from moving off the left edge of the screen.
             if (shipModel.Position.X < screenHeight * -5)
@@ -300,11 +313,14 @@ namespace RabiesX
             // This game has a blue background. Why? Because!
             ScreenManager.GraphicsDevice.Clear(ClearOptions.Target,
                                                Color.CornflowerBlue, 0, 0);
-
+            
             // Our player and enemy are both actually just text strings.
             SpriteBatch spriteBatch = ScreenManager.SpriteBatch;
 
             spriteBatch.Begin();
+
+            // Background is set before other objects to be in back.
+            spriteBatch.Draw(stars, new Rectangle(0, 0, screenWidth, screenHeight), Color.White);
 
             spriteBatch.DrawString(gameFont, "// TODO", playerPosition, Color.Green);
 

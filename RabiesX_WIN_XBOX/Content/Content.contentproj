@@ -66,7 +66,13 @@
       <Processor>ModelProcessor</Processor>
     </Compile>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Compile Include="Textures\B1_stars.tga">
+      <Name>B1_stars</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
   <ItemGroup>
     <Compile Include="Textures\wedge_p1_diff_v1.tga">
       <Name>wedge_p1_diff_v1</Name>
