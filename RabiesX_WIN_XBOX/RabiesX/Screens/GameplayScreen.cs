@@ -35,14 +35,18 @@ namespace RabiesX
         Vector2 playerPosition = new Vector2(100, 100);
         Vector2 enemyPosition = new Vector2(100, 100);
 
+        // Set sky and terrain for level.
+        Model terrain;
+        RabiesX.MapManager.Sky sky;
+
         // Set background for level.
-        Texture2D stars;
+        //Texture2D stars;
 
         // Set the 3D model to draw.
         RabiesX.ModelManager.MyModel shipModel;
              
         // Set the position of the camera in world space, for our view matrix.
-        Vector3 cameraPosition = new Vector3(0.0f, 50.0f, 5000.0f);
+        //static Vector3 cameraPosition = new Vector3(0.0f, 50.0f, 5000.0f);
  
         // Aspect ratio determines how to scale 3d to 2d projection.
         float aspectRatio;
@@ -53,6 +57,30 @@ namespace RabiesX
 
         int screenWidth;
         int screenHeight;
+
+        // Set camera and projection views.
+        Matrix view;
+        Matrix proj;
+
+        // Set the avatar position and rotation variables.
+        static Vector3 avatarPosition = new Vector3(0, 0, -50);
+        static Vector3 cameraPosition = avatarPosition;
+
+        float avatarYaw;
+
+        // Set the direction the camera points without rotation.
+        Vector3 cameraReference = new Vector3(0, 0, 1);
+
+        // Set rates in world units per 1/60th second (the default fixed-step interval).
+        float rotationSpeed = 1f / 60f;
+        float forwardSpeed = 50f / 60f;
+
+        // Set field of view of the camera in radians (pi/4 is 45 degrees).
+        static float viewAngle = MathHelper.PiOver4;
+
+        // Set distance from the camera of the near and far clipping planes.
+        static float nearClip = 1.0f;
+        static float farClip = 2000.0f;
 
         #endregion
 
@@ -66,6 +94,12 @@ namespace RabiesX
         {
             TransitionOnTime = TimeSpan.FromSeconds(1.5);
             TransitionOffTime = TimeSpan.FromSeconds(0.5);
+            #if WINDOWS_PHONE
+                        // Frame rate is 30 fps by default for Windows Phone.
+                        ScreenManager.Game.TargetElapsedTime = TimeSpan.FromTicks(333333);
+
+                        graphics.IsFullScreen = true;
+            #endif
         }
 
 
@@ -94,14 +128,20 @@ namespace RabiesX
 
             shipModel.Texture("Textures\\wedge_p1_diff_v1", content); 
 
-            aspectRatio = ScreenManager.Game.GraphicsDevice.Viewport.AspectRatio;
+            //aspectRatio = ScreenManager.Game.GraphicsDevice.Viewport.AspectRatio;
+            
+            aspectRatio = (float)ScreenManager.Game.GraphicsDevice.Viewport.Width / (float)ScreenManager.Game.GraphicsDevice.Viewport.Height;
 
             // Get current screen width and height.
             screenWidth = ScreenManager.Game.GraphicsDevice.Viewport.Width;
             screenHeight = ScreenManager.Game.GraphicsDevice.Viewport.Height;
 
             // Load background texture.
-            stars = content.Load<Texture2D>("Textures/B1_stars");
+            //stars = content.Load<Texture2D>("Textures/B1_stars");
+
+            // Load terrain and sky.
+            terrain = content.Load<Model>("terrain");
+            sky = content.Load<RabiesX.MapManager.Sky>("sky");
         }
 
 
@@ -137,6 +177,13 @@ namespace RabiesX
 
             if (IsActive)
             {
+                // Get some input.
+                UpdateInput();
+
+                // Update camera and avatar position.
+                UpdateAvatarPosition();
+                UpdateCamera();
+
                 // Apply some random jitter to make the enemy move around.
                 const float randomization = 10;
 
@@ -160,11 +207,10 @@ namespace RabiesX
 
                 //modelRotation += (float)gameTime.ElapsedGameTime.TotalMilliseconds * MathHelper.ToRadians(0.1f);
 
-                // Get some input.
-                UpdateInput();
-
                 // Add velocity to the current position.
                 shipModel.Position += shipModel.Velocity;
+
+                //shipModel.Position = cameraPosition;
 
                 // Bleed off velocity over time.
                 shipModel.Velocity *= 0.95f;
@@ -174,6 +220,66 @@ namespace RabiesX
                 // TODO: this game isn't very fun! You could probably improve
                 // it by inserting something more interesting in this space :-)
             }
+        }
+
+        /// <summary>
+        /// Updates the position and direction of the avatar.
+        /// </summary>
+        void UpdateAvatarPosition()
+        {
+            KeyboardState keyboardState = Keyboard.GetState();
+            GamePadState currentState = GamePad.GetState(PlayerIndex.One);
+
+            if (keyboardState.IsKeyDown(Keys.A) || (currentState.DPad.Left == ButtonState.Pressed))
+            {
+                // Rotate left.
+                avatarYaw += rotationSpeed;
+            }
+            if (keyboardState.IsKeyDown(Keys.D) || (currentState.DPad.Right == ButtonState.Pressed))
+            {
+                // Rotate right.
+                avatarYaw -= rotationSpeed;
+            }
+            if (keyboardState.IsKeyDown(Keys.W) || (currentState.DPad.Up == ButtonState.Pressed))
+            {
+                Matrix forwardMovement = Matrix.CreateRotationY(avatarYaw);
+                Vector3 v = new Vector3(0, 0, forwardSpeed);
+                v = Vector3.Transform(v, forwardMovement);
+                avatarPosition.Z += v.Z;
+                avatarPosition.X += v.X;
+            }
+            if (keyboardState.IsKeyDown(Keys.S) || (currentState.DPad.Down == ButtonState.Pressed))
+            {
+                Matrix forwardMovement = Matrix.CreateRotationY(avatarYaw);
+                Vector3 v = new Vector3(0, 0, -forwardSpeed);
+                v = Vector3.Transform(v, forwardMovement);
+                avatarPosition.Z += v.Z;
+                avatarPosition.X += v.X;
+            }
+        }
+
+        /// <summary>
+        /// Updates the position and direction of the camera relative to the avatar.
+        /// </summary>
+        void UpdateCamera()
+        {
+            // Calculate the camera's current position.
+
+            Matrix rotationMatrix = Matrix.CreateRotationY(avatarYaw);
+
+            // Create a vector pointing the direction the camera is facing.
+            Vector3 transformedReference = Vector3.Transform(cameraReference, rotationMatrix);
+
+            // Calculate the position the camera is looking at.
+            Vector3 cameraLookat = cameraPosition + transformedReference;
+
+            // Set up the view matrix and projection matrix.
+            view = Matrix.CreateLookAt(cameraPosition, cameraLookat, new Vector3(0.0f, 1.0f, 0.0f));
+
+            //proj = Matrix.CreatePerspectiveFieldOfView(viewAngle, ScreenManager.Game.GraphicsDevice.Viewport.AspectRatio,
+            //                                              nearClip, farClip);
+
+            proj = Matrix.CreatePerspectiveFieldOfView(viewAngle, aspectRatio, nearClip, farClip);
         }
 
         protected void UpdateInput()
@@ -311,23 +417,68 @@ namespace RabiesX
         public override void Draw(GameTime gameTime)
         {
             // This game has a blue background. Why? Because!
-            ScreenManager.GraphicsDevice.Clear(ClearOptions.Target,
-                                               Color.CornflowerBlue, 0, 0);
+            //ScreenManager.GraphicsDevice.Clear(ClearOptions.Target,
+            //                                   Color.CornflowerBlue, 0, 0);
+           
+            ScreenManager.GraphicsDevice.Clear(Color.Black);
+             
+            //// Calculate the projection matrix.
+            //Matrix projection = Matrix.CreatePerspectiveFieldOfView(MathHelper.PiOver4,
+            //                                                        ScreenManager.GraphicsDevice.Viewport.AspectRatio,
+            //                                                        1, 10000);
+
+            //proj = Matrix.CreatePerspectiveFieldOfView(MathHelper.PiOver4,
+            //                                            ScreenManager.GraphicsDevice.Viewport.AspectRatio,
+            //                                            1, 10000);
+
+            // Calculate a view matrix, moving the camera around a circle.
+            //float time = (float)gameTime.TotalGameTime.TotalSeconds * 0.333f;
+
+            //float cameraX = (float)Math.Cos(time) - shipModel.Position.X;
+            //float cameraY = (float)Math.Sin(time) - shipModel.Position.Y;
+
+            //float cameraX = shipModel.Position.X;
+            //float cameraY = shipModel.Position.Y;
+     
+            //Vector3 cameraPosition = new Vector3(cameraX, 0, cameraY) * 64;
+            //Vector3 cameraFront = new Vector3(-cameraY, 0, cameraX);
+
+            //Matrix view = Matrix.CreateLookAt(cameraPosition,
+            //                                  cameraPosition + cameraFront,
+            //                                  Vector3.Up);
             
-            // Our player and enemy are both actually just text strings.
-            SpriteBatch spriteBatch = ScreenManager.SpriteBatch;
+            // Draw the terrain first, then the sky. This is faster than
+            // drawing the sky first, because the depth buffer can skip
+            // bothering to draw sky pixels that are covered up by the
+            // terrain. This trick works because the code used to draw
+            // the sky forces all the sky vertices to be as far away as
+            // possible, and turns depth testing on but depth writes off.
 
-            spriteBatch.Begin();
+            DrawTerrain(view, proj);
 
-            // Background is set before other objects to be in back.
-            spriteBatch.Draw(stars, new Rectangle(0, 0, screenWidth, screenHeight), Color.White);
+            sky.Draw(view, proj);
+            
+            //DrawTerrain(view, projection);
 
-            spriteBatch.DrawString(gameFont, "// TODO", playerPosition, Color.Green);
+            //sky.Draw(view, projection);
 
-            spriteBatch.DrawString(gameFont, "Insert Gameplay Here",
-                                   enemyPosition, Color.DarkRed);
+            // If there was any alpha blended translucent geometry in
+            // the scene, that would be drawn here, after the sky.
 
-            spriteBatch.End();
+            //// Our player and enemy are both actually just text strings.
+            //SpriteBatch spriteBatch = ScreenManager.SpriteBatch;
+
+            //spriteBatch.Begin();
+
+            //// Background is set before other objects to be in back.
+            ////spriteBatch.Draw(stars, new Rectangle(0, 0, screenWidth, screenHeight), Color.White);
+
+            //spriteBatch.DrawString(gameFont, "// TODO", playerPosition, Color.Green);
+
+            //spriteBatch.DrawString(gameFont, "Insert Gameplay Here",
+            //                       enemyPosition, Color.DarkRed);
+
+            //spriteBatch.End();
 
             // Copy any parent transforms.
             Matrix[] transforms = new Matrix[shipModel.ModelHeld.Bones.Count];
@@ -358,6 +509,35 @@ namespace RabiesX
             }
         }
 
+        /// <summary>
+        /// Helper for drawing the terrain model.
+        /// </summary>
+        void DrawTerrain(Matrix view, Matrix projection)
+        {
+            foreach (ModelMesh mesh in terrain.Meshes)
+            {
+                foreach (BasicEffect effect in mesh.Effects)
+                {
+                    effect.View = view;
+                    effect.Projection = projection;
+
+                    effect.EnableDefaultLighting();
+
+                    // Set the specular lighting to match the sky color.
+                    effect.SpecularColor = new Vector3(0.6f, 0.4f, 0.2f);
+                    effect.SpecularPower = 8;
+
+                    // Set the fog to match the distant mountains
+                    // that are drawn into the sky texture.
+                    effect.FogEnabled = true;
+                    effect.FogColor = new Vector3(0.15f);
+                    effect.FogStart = 100;
+                    effect.FogEnd = 320;
+                }
+
+                mesh.Draw();
+            }
+        }
 
         #endregion
     }
