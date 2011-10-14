@@ -28,3 +28,4 @@ C:\Users\Nshidbaby\Documents\College\COSC 4348\Rabies-X\Rabies-X\RabiesX_WIN_XBO
 C:\Users\Nshidbaby\Documents\College\COSC 4348\Rabies-X\Rabies-X\RabiesX_WIN_XBOX\RabiesX\obj\x86\Debug\Rabies-X.exe
 C:\Users\Nshidbaby\Documents\College\COSC 4348\Rabies-X\Rabies-X\RabiesX_WIN_XBOX\RabiesX\obj\x86\Debug\Rabies-X.pdb
 C:\Users\Nshidbaby\Documents\College\COSC 4348\Rabies-X\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\healthbar.xnb
+C:\Users\Nshidbaby\Documents\College\COSC 4348\Rabies-X\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Audio\Waves\menu_1.xnb

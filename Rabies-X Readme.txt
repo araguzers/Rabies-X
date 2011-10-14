@@ -1,7 +1,13 @@
 Rabies-X Readme
+---------------
 
+Controls:
+=========
 
+Camera: A, D, S, W
 
-"Add info"
+"Todo" Text: A, D, S, W
 
-Testing!
+Test Model: Left, Right, Up, Down, Spacebar (Thrusters), Shift (Reset)
+
+Health Bar: PageUp, PageDown

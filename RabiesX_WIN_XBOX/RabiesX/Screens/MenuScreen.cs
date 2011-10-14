@@ -11,6 +11,8 @@
 using System;
 using System.Collections.Generic;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Audio;
+using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input.Touch;
 using Microsoft.Xna.Framework.Input;
@@ -26,9 +28,15 @@ namespace RabiesX
     {
         #region Fields
 
+        ContentManager content;
+
         List<MenuEntry> menuEntries = new List<MenuEntry>();
         int selectedEntry = 0;
         string menuTitle;
+
+        // Set sound effects to use for selecting menu items.
+        SoundEffect soundMenu;
+        SoundEffectInstance soundMenuInstance;
 
         #endregion
 
@@ -61,6 +69,22 @@ namespace RabiesX
             TransitionOffTime = TimeSpan.FromSeconds(0.5);
         }
 
+        /// <summary>
+        /// Loads sound effects content for this screen. This uses the shared ContentManager
+        /// provided by the Game class, so the content will remain loaded forever.
+        /// Whenever a subsequent MenuScreen tries to load this same content,
+        /// it will just get back another reference to the already loaded data.
+        /// </summary>
+        public override void LoadContent()
+        {
+            if (content == null)
+                content = new ContentManager(ScreenManager.Game.Services, "Content");
+
+            // Load menu sound effect and initialize volume.
+            soundMenu = content.Load<SoundEffect>("Audio\\Waves\\menu_1");
+            soundMenuInstance = soundMenu.CreateInstance();
+            soundMenuInstance.Volume = 0.50f;
+        }
 
         #endregion
 
@@ -77,6 +101,8 @@ namespace RabiesX
             if (input.IsMenuUp(ControllingPlayer))
             {
                 selectedEntry--;
+                
+                soundMenuInstance.Play(); // play menu sound effect
 
                 if (selectedEntry < 0)
                     selectedEntry = menuEntries.Count - 1;
@@ -86,6 +112,8 @@ namespace RabiesX
             if (input.IsMenuDown(ControllingPlayer))
             {
                 selectedEntry++;
+
+                soundMenuInstance.Play(); // play menu sound effect
 
                 if (selectedEntry >= menuEntries.Count)
                     selectedEntry = 0;

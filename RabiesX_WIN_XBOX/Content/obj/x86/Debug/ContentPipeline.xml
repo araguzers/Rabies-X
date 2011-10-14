@@ -8,7 +8,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Nshidbaby\Documents\College\COSC 4348\Rabies-X\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\background.xnb</Output>
-      <Time>2011-10-12T22:36:44.2122477-05:00</Time>
+      <Time>2011-10-14T15:15:30.7775942-05:00</Time>
     </Item>
     <Item>
       <Source>blank.png</Source>
@@ -17,7 +17,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Nshidbaby\Documents\College\COSC 4348\Rabies-X\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\blank.xnb</Output>
-      <Time>2011-10-12T22:36:44.2122477-05:00</Time>
+      <Time>2011-10-14T15:15:30.7775942-05:00</Time>
     </Item>
     <Item>
       <Source>gradient.png</Source>
@@ -26,7 +26,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Nshidbaby\Documents\College\COSC 4348\Rabies-X\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\gradient.xnb</Output>
-      <Time>2011-10-12T22:36:44.2278478-05:00</Time>
+      <Time>2011-10-14T15:15:30.7775942-05:00</Time>
     </Item>
     <Item>
       <Source>Textures\B1_stars.tga</Source>
@@ -35,7 +35,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Nshidbaby\Documents\College\COSC 4348\Rabies-X\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Textures\B1_stars.xnb</Output>
-      <Time>2011-10-12T22:36:44.1810477-05:00</Time>
+      <Time>2011-10-14T15:15:30.7619942-05:00</Time>
     </Item>
     <Item>
       <Source>Textures\wedge_p1_diff_v1.tga</Source>
@@ -44,7 +44,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Nshidbaby\Documents\College\COSC 4348\Rabies-X\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Textures\wedge_p1_diff_v1.xnb</Output>
-      <Time>2011-10-12T22:36:44.1966477-05:00</Time>
+      <Time>2011-10-14T15:15:30.7775942-05:00</Time>
     </Item>
     <Item>
       <Source>sky.bmp</Source>
@@ -53,7 +53,7 @@
       <Processor>SkyProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Nshidbaby\Documents\College\COSC 4348\Rabies-X\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\sky.xnb</Output>
-      <Time>2010-09-15T11:13:14-05:00</Time>
+      <Time>2011-10-14T15:15:30.9023944-05:00</Time>
     </Item>
     <Item>
       <Source>terrain.bmp</Source>
@@ -62,8 +62,17 @@
       <Processor>TerrainProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Nshidbaby\Documents\College\COSC 4348\Rabies-X\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\terrain.xnb</Output>
-      <Time>2010-09-15T11:13:14-05:00</Time>
+      <Time>2011-10-14T15:15:30.9023944-05:00</Time>
       <Request>C:\Users\Nshidbaby\Documents\College\COSC 4348\Rabies-X\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\rocks_0.xnb</Request>
+    </Item>
+    <Item>
+      <Source>healthbar.png</Source>
+      <Name>healthbar</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Nshidbaby\Documents\College\COSC 4348\Rabies-X\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\healthbar.xnb</Output>
+      <Time>2011-10-14T15:15:30.7775942-05:00</Time>
     </Item>
     <Item>
       <Source>menufont.spritefont</Source>
@@ -72,7 +81,7 @@
       <Processor>FontDescriptionProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Nshidbaby\Documents\College\COSC 4348\Rabies-X\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\menufont.xnb</Output>
-      <Time>2011-10-12T22:36:44.2278478-05:00</Time>
+      <Time>2011-10-14T15:15:30.7931942-05:00</Time>
     </Item>
     <Item>
       <Source>gamefont.spritefont</Source>
@@ -81,7 +90,7 @@
       <Processor>FontDescriptionProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Nshidbaby\Documents\College\COSC 4348\Rabies-X\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\gamefont.xnb</Output>
-      <Time>2011-10-12T22:36:44.2278478-05:00</Time>
+      <Time>2011-10-14T15:15:30.7775942-05:00</Time>
     </Item>
     <Item>
       <Source>Models\p1_wedge.fbx</Source>
@@ -90,10 +99,10 @@
       <Processor>ModelProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Nshidbaby\Documents\College\COSC 4348\Rabies-X\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Models\p1_wedge.xnb</Output>
-      <Time>2011-10-12T22:36:44.1654477-05:00</Time>
+      <Time>2011-10-14T15:15:30.7619942-05:00</Time>
       <Dependency>
         <Key>obj\x86\Debug\Models\p1_wedge_0.xml</Key>
-        <Value>2011-10-13T00:00:38.6977593-05:00</Value>
+        <Value>2011-10-14T15:17:59.379829-05:00</Value>
       </Dependency>
       <Request>C:\Users\Nshidbaby\Documents\College\COSC 4348\Rabies-X\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\textures\wedge_p1_diff_v1_0.xnb</Request>
     </Item>
@@ -111,14 +120,14 @@
       </Parameters>
       <Options>None</Options>
       <Output>C:\Users\Nshidbaby\Documents\College\COSC 4348\Rabies-X\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\rocks_0.xnb</Output>
-      <Time>2010-09-15T11:13:14-05:00</Time>
+      <Time>2011-10-14T15:15:30.8555943-05:00</Time>
     </Item>
     <Item>
       <Source>Models\p1_wedge.fbx</Source>
       <Importer>FbxImporter</Importer>
       <Options>IntermediateFile, DontCacheImportedData</Options>
       <Output>obj\x86\Debug\Models\p1_wedge_0.xml</Output>
-      <Time>2011-10-12T22:36:44.1654477-05:00</Time>
+      <Time>2011-10-14T15:15:30.7619942-05:00</Time>
     </Item>
     <Item>
       <Source>textures\wedge_p1_diff_v1.tga</Source>
@@ -134,16 +143,16 @@
       </Parameters>
       <Options>None</Options>
       <Output>C:\Users\Nshidbaby\Documents\College\COSC 4348\Rabies-X\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\textures\wedge_p1_diff_v1_0.xnb</Output>
-      <Time>2011-10-12T22:36:44.1966477-05:00</Time>
+      <Time>2011-10-14T15:15:30.7775942-05:00</Time>
     </Item>
     <Item>
-      <Source>healthbar.png</Source>
-      <Name>healthbar</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
+      <Source>Audio\Waves\menu_1.wav</Source>
+      <Name>Audio\Waves\menu_1</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Nshidbaby\Documents\College\COSC 4348\Rabies-X\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\healthbar.xnb</Output>
-      <Time>2011-10-14T12:11:01.9220853-05:00</Time>
+      <Output>C:\Users\Nshidbaby\Documents\College\COSC 4348\Rabies-X\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Audio\Waves\menu_1.xnb</Output>
+      <Time>2003-09-13T05:48:10-05:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
@@ -159,7 +168,7 @@
     <Assemblies>
       <Assembly>
         <Key>C:\Users\Nshidbaby\Documents\College\COSC 4348\Rabies-X\Rabies-X\RabiesX_WIN_XBOX\RabiesXPipeline\bin\x86\Debug\RabiesXPipeline.dll</Key>
-        <Value>2011-10-13T00:00:32.5707376-05:00</Value>
+        <Value>2011-10-14T15:15:31.1987949-05:00</Value>
       </Assembly>
       <Assembly>
         <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.XImporter.dll</Key>
