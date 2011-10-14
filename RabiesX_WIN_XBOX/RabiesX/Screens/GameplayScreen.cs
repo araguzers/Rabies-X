@@ -256,6 +256,9 @@ namespace RabiesX
                 avatarPosition.Z += v.Z;
                 avatarPosition.X += v.X;
             }
+
+            // Fix camera up and down zoom with avatar;
+            cameraPosition = avatarPosition; 
         }
 
         /// <summary>
