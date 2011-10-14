@@ -132,7 +132,6 @@ namespace RabiesX
         void LanguageMenuEntrySelected(object sender, PlayerIndexEventArgs e)
         {
             currentLanguage = (currentLanguage + 1) % languages.Length;
-
             SetMenuEntryText();
         }
 

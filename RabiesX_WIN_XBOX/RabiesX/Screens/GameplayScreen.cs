@@ -35,6 +35,13 @@ namespace RabiesX
         Vector2 playerPosition = new Vector2(100, 100);
         Vector2 enemyPosition = new Vector2(100, 100);
 
+        // Set health bar for level.
+        SpriteBatch mBatch;
+        Texture2D mHealthBar;
+
+        // Set current health for level.
+        int mCurrentHealth = 100;
+        
         // Set sky and terrain for level.
         Model terrain;
         RabiesX.MapManager.Sky sky;
@@ -112,6 +119,12 @@ namespace RabiesX
                 content = new ContentManager(ScreenManager.Game.Services, "Content");
 
             gameFont = content.Load<SpriteFont>("gamefont");
+
+            // Initialize the sprite batch for the health bar.
+            mBatch = new SpriteBatch(ScreenManager.GraphicsDevice);
+
+            // Load the health bar image.
+            mHealthBar = content.Load<Texture2D>("healthbar");
 
             // A real game would probably have more content than this sample, so
             // it would take longer to load. We simulate that by delaying for a
@@ -356,6 +369,27 @@ namespace RabiesX
             //int rightEdge = screenWidth - shipModel.getTexture.Width;
             //if (shipModel.Position.X > rightEdge)
             //    shipModel.Position = new Vector3(rightEdge, shipModel.Position.Y, shipModel.Position.Z);
+
+            // Test current health bar.
+            
+            // If Page Up is pressed, increase the health bar.
+            if (currentState.IsKeyDown(Keys.PageUp) == true)
+            {                
+                mCurrentHealth += 1;
+            }             
+            // If Page Down is pressed, decrease the health bar.
+            if (currentState.IsKeyDown(Keys.PageDown) == true)
+            {                
+                mCurrentHealth -= 1;            
+            }
+            //Force the health to remain between 0 and 100.           
+            mCurrentHealth = (int)MathHelper.Clamp(mCurrentHealth, 0, 100);
+
+            if (mCurrentHealth == 0)
+            {
+                // Game is over, so go to continue or quit screen.
+                ScreenManager.AddScreen(new GameOverScreen(), ControllingPlayer);
+            }
         }
 
         /// <summary>
@@ -424,7 +458,7 @@ namespace RabiesX
             //                                   Color.CornflowerBlue, 0, 0);
            
             ScreenManager.GraphicsDevice.Clear(Color.Black);
-             
+
             //// Calculate the projection matrix.
             //Matrix projection = Matrix.CreatePerspectiveFieldOfView(MathHelper.PiOver4,
             //                                                        ScreenManager.GraphicsDevice.Viewport.AspectRatio,
@@ -457,10 +491,12 @@ namespace RabiesX
             // the sky forces all the sky vertices to be as far away as
             // possible, and turns depth testing on but depth writes off.
 
+            
+            sky.Draw(view, proj);
+
             DrawTerrain(view, proj);
 
-            sky.Draw(view, proj);
-            
+
             //DrawTerrain(view, projection);
 
             //sky.Draw(view, projection);
@@ -468,20 +504,33 @@ namespace RabiesX
             // If there was any alpha blended translucent geometry in
             // the scene, that would be drawn here, after the sky.
 
+            mBatch.Begin(0, BlendState.AlphaBlend);
+
+            //Draw the negative space for the health bar.
+            mBatch.Draw(mHealthBar, new Rectangle(ScreenManager.Game.GraphicsDevice.Viewport.Width - mHealthBar.Width - 30, 30, mHealthBar.Width, 25), new Rectangle(0, 45, mHealthBar.Width, 25), Color.Gray);
+            
+            // Draw the current health for the health bar.
+            mBatch.Draw(mHealthBar, new Rectangle(ScreenManager.Game.GraphicsDevice.Viewport.Width - mHealthBar.Width - 30, 30, (int)(mHealthBar.Width * ((double)mCurrentHealth / 100)), 25), new Rectangle(0, 45, mHealthBar.Width, 25), Color.DarkRed);
+
+            // Draw the box around the health bar.
+            mBatch.Draw(mHealthBar, new Rectangle(ScreenManager.Game.GraphicsDevice.Viewport.Width - mHealthBar.Width - 30, 30, mHealthBar.Width, 25), new Rectangle(0, 0, mHealthBar.Width, 25), Color.White);
+
+            mBatch.End();
+
             //// Our player and enemy are both actually just text strings.
-            //SpriteBatch spriteBatch = ScreenManager.SpriteBatch;
+            SpriteBatch spriteBatch = ScreenManager.SpriteBatch;
 
-            //spriteBatch.Begin();
+            spriteBatch.Begin(0, BlendState.AlphaBlend);
 
-            //// Background is set before other objects to be in back.
-            ////spriteBatch.Draw(stars, new Rectangle(0, 0, screenWidth, screenHeight), Color.White);
+            // Background is set before other objects to be in back.
+            //spriteBatch.Draw(stars, new Rectangle(0, 0, screenWidth, screenHeight), Color.White);
 
-            //spriteBatch.DrawString(gameFont, "// TODO", playerPosition, Color.Green);
+            spriteBatch.DrawString(gameFont, "// TODO", playerPosition, Color.Green);
 
-            //spriteBatch.DrawString(gameFont, "Insert Gameplay Here",
-            //                       enemyPosition, Color.DarkRed);
-
-            //spriteBatch.End();
+            spriteBatch.DrawString(gameFont, "Insert Gameplay Here",
+                                   enemyPosition, Color.DarkRed);
+            
+            spriteBatch.End();
 
             // Copy any parent transforms.
             Matrix[] transforms = new Matrix[shipModel.ModelHeld.Bones.Count];
