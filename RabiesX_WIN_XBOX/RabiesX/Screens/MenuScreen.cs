@@ -308,7 +308,8 @@ namespace RabiesX
                         keyboardEntry = ""; // default entry for other keyboard input
                     }
                 }
-            } else if (menuoption == "Play Game")
+            }
+            else if ((menuoption == "Play Game") || (menuoption == "Restart Game"))
             {
                 if (keyboardEntry == "Escape")
                 {
