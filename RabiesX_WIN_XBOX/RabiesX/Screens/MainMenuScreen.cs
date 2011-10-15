@@ -18,6 +18,7 @@ namespace RabiesX
     /// </summary>
     class MainMenuScreen : MenuScreen
     {
+
         #region Initialization
 
 

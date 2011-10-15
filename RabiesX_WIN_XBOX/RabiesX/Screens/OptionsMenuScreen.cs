@@ -21,7 +21,7 @@ namespace RabiesX
     class OptionsMenuScreen : MenuScreen
     {
         #region Fields
-
+        
         //MenuEntry ungulateMenuEntry;
         MenuEntry languageMenuEntry;
         MenuEntry difficultyMenuEntry;
@@ -91,7 +91,6 @@ namespace RabiesX
             //MenuEntries.Add(elfMenuEntry);
             MenuEntries.Add(back);
         }
-
 
         /// <summary>
         /// Fills in the latest values for the options screen menu text.

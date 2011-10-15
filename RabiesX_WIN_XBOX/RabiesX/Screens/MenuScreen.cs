@@ -35,8 +35,11 @@ namespace RabiesX
         string menuTitle;
 
         // Set sound effects to use for selecting menu items.
-        SoundEffect soundMenu;
-        SoundEffectInstance soundMenuInstance;
+        public static SoundEffect soundMenu1;
+        public static SoundEffect soundMenu2;
+        public static SoundEffectInstance soundMenu1Instance;
+        public static SoundEffectInstance soundMenu2Instance;
+        string keyboardEntry; 
 
         #endregion
 
@@ -80,10 +83,22 @@ namespace RabiesX
             if (content == null)
                 content = new ContentManager(ScreenManager.Game.Services, "Content");
 
-            // Load menu sound effect and initialize volume.
-            soundMenu = content.Load<SoundEffect>("Audio\\Waves\\menu_1");
-            soundMenuInstance = soundMenu.CreateInstance();
-            soundMenuInstance.Volume = 0.50f;
+            // Load menu entries sound effects.
+            soundMenu1 = content.Load<SoundEffect>("Audio\\Waves\\menu_1");
+
+            // Load menu background sound effects.
+            if (soundMenu2 == null)
+            {
+                soundMenu2 = content.Load<SoundEffect>("Audio\\Waves\\menu_2");
+                soundMenu2Instance = soundMenu2.CreateInstance();
+                soundMenu2Instance.IsLooped.Equals(true);
+            }
+
+            if (soundMenu2Instance.State == SoundState.Stopped)
+            {
+                soundMenu2Instance.IsLooped.Equals(true);
+                soundMenu2Instance.Play(); // play menu sound effect
+            }
         }
 
         #endregion
@@ -101,11 +116,13 @@ namespace RabiesX
             if (input.IsMenuUp(ControllingPlayer))
             {
                 selectedEntry--;
-                
-                soundMenuInstance.Play(); // play menu sound effect
 
                 if (selectedEntry < 0)
                     selectedEntry = menuEntries.Count - 1;
+
+                soundMenu1Instance = soundMenu1.CreateInstance();
+                soundMenu1Instance.Volume = 0.50f;
+                soundMenu1Instance.Play(); // play menu sound effect
             }
 
             // Move to the next menu entry?
@@ -113,10 +130,12 @@ namespace RabiesX
             {
                 selectedEntry++;
 
-                soundMenuInstance.Play(); // play menu sound effect
-
                 if (selectedEntry >= menuEntries.Count)
                     selectedEntry = 0;
+
+                soundMenu1Instance = soundMenu1.CreateInstance();
+                soundMenu1Instance.Volume = 0.50f;
+                soundMenu1Instance.Play(); // play menu sound effect
             }
 
             // Accept or cancel the menu? We pass in our ControllingPlayer, which may
@@ -134,6 +153,19 @@ namespace RabiesX
             {
                 OnCancel(playerIndex);
             }
+
+            if (input.CurrentKeyboardStates[(int)playerIndex].IsKeyDown(Keys.Escape))
+            {
+                keyboardEntry = "Escape";
+            }
+            else if (input.CurrentKeyboardStates[(int)playerIndex].IsKeyDown(Keys.Enter) || input.CurrentKeyboardStates[(int)playerIndex].IsKeyDown(Keys.Space))
+            {
+                keyboardEntry = "Enter";
+            } 
+            else
+            {
+                keyboardEntry = ""; // default entry for other keyboard input
+            }
         }
 
 
@@ -142,6 +174,10 @@ namespace RabiesX
         /// </summary>
         protected virtual void OnSelectEntry(int entryIndex, PlayerIndex playerIndex)
         {
+            if (menuEntries[entryIndex].Text == "Play Game")
+            {
+                keyboardEntry = ""; // default entry for other keyboard input
+            }
             menuEntries[entryIndex].OnSelectEntry(playerIndex);
         }
 
@@ -220,8 +256,80 @@ namespace RabiesX
 
                 menuEntries[i].Update(this, isSelected, gameTime);
             }
+
+            // Update menu background music.
+            UpdateBGM(menuEntries[selectedEntry].Text); 
         }
 
+        // Updates state of background menu music.
+        public void UpdateBGM(string menuoption)
+        {
+            if (menuoption == "Resume Game" && ((keyboardEntry == "Escape") || (keyboardEntry == "Enter")))
+            {
+                soundMenu2Instance.Stop(); // stop menu sound effect
+                keyboardEntry = ""; // default entry for other keyboard input
+            } else if (menuoption == "Exit")
+            {
+                if (soundMenu1Instance.State == SoundState.Stopped)
+                {
+                    soundMenu2Instance.Play(); // play menu sound effect
+                    keyboardEntry = ""; // default entry for other keyboard input
+                }
+                else if (soundMenu1Instance.State == SoundState.Paused)
+                {
+                    soundMenu2Instance.Resume(); // resume menu sound effect
+                    keyboardEntry = ""; // default entry for other keyboard input
+                }
+ 
+            } else if (menuoption == "Options")
+            {
+                if (keyboardEntry == "Escape")
+                {
+                    if (soundMenu1Instance.State == SoundState.Stopped)
+                    {
+                        soundMenu2Instance.Play(); // play menu sound effect
+                        keyboardEntry = ""; // default entry for other keyboard input
+                    }
+                    else if (soundMenu1Instance.State == SoundState.Paused)
+                    {
+                        soundMenu2Instance.Resume(); // resume menu sound effect
+                        keyboardEntry = ""; // default entry for other keyboard input
+                    }
+                } else 
+                {
+                    if (soundMenu2Instance.State == SoundState.Stopped)
+                    {
+                        soundMenu2Instance.Play(); // play menu sound effect
+                        keyboardEntry = ""; // default entry for other keyboard input
+                    }
+                    else if (soundMenu2Instance.State == SoundState.Paused)
+                    {
+                        soundMenu2Instance.Resume(); // resume menu sound effect
+                        keyboardEntry = ""; // default entry for other keyboard input
+                    }
+                }
+            } else if (menuoption == "Play Game")
+            {
+                if (keyboardEntry == "Escape")
+                {
+                    if (soundMenu2Instance.State == SoundState.Stopped)
+                    {
+                        soundMenu2Instance.Play(); // play menu sound effect
+                        keyboardEntry = ""; // default entry for other keyboard input
+                    }
+                    else if (soundMenu2Instance.State == SoundState.Paused)
+                    {
+                        soundMenu2Instance.Resume(); // resume menu sound effect
+                        keyboardEntry = ""; // default entry for other keyboard input
+                    }
+                }
+                else if (keyboardEntry == "Enter")
+                {
+                    soundMenu2Instance.Stop(); // stop menu sound effect
+                }
+            }
+            keyboardEntry = ""; // default entry for other keyboard input
+        }
 
         /// <summary>
         /// Draws the menu.
