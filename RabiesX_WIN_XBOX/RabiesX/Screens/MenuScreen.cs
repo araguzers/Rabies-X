@@ -39,7 +39,10 @@ namespace RabiesX
         public static SoundEffect soundMenu2;
         public static SoundEffectInstance soundMenu1Instance;
         public static SoundEffectInstance soundMenu2Instance;
-        string keyboardEntry; 
+        string keyboardEntry;
+
+        // Check if user input is idle.
+        int inputCheck = 0;
 
         #endregion
 
@@ -166,6 +169,7 @@ namespace RabiesX
             {
                 keyboardEntry = ""; // default entry for other keyboard input
             }
+            inputCheck = 1; // new user input found
         }
 
 
@@ -174,10 +178,6 @@ namespace RabiesX
         /// </summary>
         protected virtual void OnSelectEntry(int entryIndex, PlayerIndex playerIndex)
         {
-            if (menuEntries[entryIndex].Text == "Play Game")
-            {
-                keyboardEntry = ""; // default entry for other keyboard input
-            }
             menuEntries[entryIndex].OnSelectEntry(playerIndex);
         }
 
@@ -315,12 +315,10 @@ namespace RabiesX
                     if (soundMenu2Instance.State == SoundState.Stopped)
                     {
                         soundMenu2Instance.Play(); // play menu sound effect
-                        keyboardEntry = ""; // default entry for other keyboard input
                     }
                     else if (soundMenu2Instance.State == SoundState.Paused)
                     {
                         soundMenu2Instance.Resume(); // resume menu sound effect
-                        keyboardEntry = ""; // default entry for other keyboard input
                     }
                 }
                 else if (keyboardEntry == "Enter")
@@ -328,7 +326,6 @@ namespace RabiesX
                     soundMenu2Instance.Stop(); // stop menu sound effect
                 }
             }
-            keyboardEntry = ""; // default entry for other keyboard input
         }
 
         /// <summary>
@@ -338,6 +335,31 @@ namespace RabiesX
         {
             // make sure our entries are in the right place before we draw them
             UpdateMenuEntryLocations();
+
+            // Check if input is idle.
+            if (inputCheck == 1)
+            {
+                inputCheck = 0; // reset input check to default value
+            }
+
+            // If input idle, continue to play menu background effects while on "play game" menu item.
+            if (menuEntries[selectedEntry].Text == "Play Game")
+            {
+                if ((keyboardEntry != "Enter") && (inputCheck == 0))
+                {
+                    if (soundMenu2Instance.State == SoundState.Stopped)
+                    {
+                        soundMenu2Instance.Play(); // play menu sound effect
+                        keyboardEntry = ""; // default entry for other keyboard input
+                    }
+                    else if (soundMenu2Instance.State == SoundState.Paused)
+                    {
+                        soundMenu2Instance.Resume(); // resume menu sound effect
+                        keyboardEntry = ""; // default entry for other keyboard input
+                    }
+                    keyboardEntry = ""; // default entry for other keyboard input
+                }
+            }
 
             GraphicsDevice graphics = ScreenManager.GraphicsDevice;
             SpriteBatch spriteBatch = ScreenManager.SpriteBatch;
