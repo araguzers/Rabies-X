@@ -22,7 +22,7 @@ namespace RabiesXPipeline
     /// the SkyProcessor, then written out to a compiled XNB file.
     /// At runtime, the data is loaded into the runtime Sky class.
     /// </summary>
-    [ContentSerializerRuntimeType("RabiesX.MapManager.Sky, Rabies-X")]
+    [ContentSerializerRuntimeType("RabiesX.Sky, Rabies-X")]
     public class SkyContent
     {
         public ModelContent Model;

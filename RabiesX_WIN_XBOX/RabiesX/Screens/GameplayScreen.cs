@@ -9,6 +9,7 @@
 
 #region Using Statements
 using System;
+using System.Text;
 using System.Threading;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
@@ -28,9 +29,25 @@ namespace RabiesX
     class GameplayScreen : GameScreen
     {
         #region Fields
-        
+
+        private const float PLAYER_FORWARD_SPEED = 120.0f;
+        private const float PLAYER_HEADING_SPEED = 120.0f;
+        private const float PLAYER_ROLLING_SPEED = 280.0f;
+
+        private const float TERRAIN_WIDTH = 1258.0f;
+        private const float TERRAIN_HEIGHT = 1258.0f;
+
+        private const float CAMERA_FOVX = 80.0f;
+        private const float CAMERA_ZFAR = TERRAIN_WIDTH * 2.0f;
+        private const float CAMERA_ZNEAR = 1.0f;
+        private const float CAMERA_MAX_SPRING_CONSTANT = 100.0f;
+        private const float CAMERA_MIN_SPRING_CONSTANT = 1.0f;
+
         ContentManager content;
         SpriteFont gameFont;
+
+        private SpriteBatch spriteBatch;
+        private SpriteFont spriteFont;
 
         Vector2 playerPosition = new Vector2(100, 100);
         Vector2 enemyPosition = new Vector2(100, 100);
@@ -44,17 +61,11 @@ namespace RabiesX
         
         // Set sky and terrain for level.
         Model terrain;
-        RabiesX.MapManager.Sky sky;
-
-        // Set background for level.
-        //Texture2D stars;
+        Sky sky;
 
         // Set the 3D model to draw.
-        RabiesX.ModelManager.MyModel shipModel;
-             
-        // Set the position of the camera in world space, for our view matrix.
-        //static Vector3 cameraPosition = new Vector3(0.0f, 50.0f, 5000.0f);
- 
+        private MyModel playerModel;
+              
         // Aspect ratio determines how to scale 3d to 2d projection.
         float aspectRatio;
 
@@ -64,30 +75,20 @@ namespace RabiesX
 
         int screenWidth;
         int screenHeight;
+        
+        private Vector2 fontPos;
+        private int frames;
+        private int framesPerSecond;
+        private Entity playerEntity;
+        private float playerRadius;
+        private Matrix[] modelTransforms;
+        private TimeSpan elapsedTime = TimeSpan.Zero;
+        private bool displayHelp;
 
-        // Set camera and projection views.
-        Matrix view;
-        Matrix proj;
+        private ThirdPersonCamera camera;
 
-        // Set the avatar position and rotation variables.
-        static Vector3 avatarPosition = new Vector3(0, 0, -50);
-        static Vector3 cameraPosition = avatarPosition;
-
-        float avatarYaw;
-
-        // Set the direction the camera points without rotation.
-        Vector3 cameraReference = new Vector3(0, 0, 1);
-
-        // Set rates in world units per 1/60th second (the default fixed-step interval).
-        float rotationSpeed = 1f / 60f;
-        float forwardSpeed = 50f / 60f;
-
-        // Set field of view of the camera in radians (pi/4 is 45 degrees).
-        static float viewAngle = MathHelper.PiOver4;
-
-        // Set distance from the camera of the near and far clipping planes.
-        static float nearClip = 1.0f;
-        static float farClip = 2000.0f;
+        private KeyboardState curKeyboardState;
+        private KeyboardState prevKeyboardState;
 
         #endregion
 
@@ -117,31 +118,6 @@ namespace RabiesX
         {
             if (content == null)
                 content = new ContentManager(ScreenManager.Game.Services, "Content");
-
-            gameFont = content.Load<SpriteFont>("gamefont");
-
-            // Initialize the sprite batch for the health bar.
-            mBatch = new SpriteBatch(ScreenManager.GraphicsDevice);
-
-            // Load the health bar image.
-            mHealthBar = content.Load<Texture2D>("healthbar");
-
-            // A real game would probably have more content than this sample, so
-            // it would take longer to load. We simulate that by delaying for a
-            // while, giving you a chance to admire the beautiful loading screen.
-            Thread.Sleep(1000);
-
-            // Once the load has finished, we use ResetElapsedTime to tell the game's
-            // timing mechanism that we have just finished a very long frame, and that
-            // it should not try to catch up.
-            ScreenManager.Game.ResetElapsedTime();
-            
-            // Load models and set aspect ratio.
-            shipModel = new ModelManager.MyModel("Models\\p1_wedge", content);
-
-            shipModel.Texture("Textures\\wedge_p1_diff_v1", content); 
-
-            //aspectRatio = ScreenManager.Game.GraphicsDevice.Viewport.AspectRatio;
             
             aspectRatio = (float)ScreenManager.Game.GraphicsDevice.Viewport.Width / (float)ScreenManager.Game.GraphicsDevice.Viewport.Height;
 
@@ -149,12 +125,74 @@ namespace RabiesX
             screenWidth = ScreenManager.Game.GraphicsDevice.Viewport.Width;
             screenHeight = ScreenManager.Game.GraphicsDevice.Viewport.Height;
 
-            // Load background texture.
-            //stars = content.Load<Texture2D>("Textures/B1_stars");
+            // Setup frame buffer.
+            GameStateManagementGame.graphics.SynchronizeWithVerticalRetrace = false;
+            GameStateManagementGame.graphics.PreferredBackBufferWidth = screenWidth;
+            GameStateManagementGame.graphics.PreferredBackBufferHeight = screenHeight;
+            GameStateManagementGame.graphics.PreferMultiSampling = true;
+            GameStateManagementGame.graphics.ApplyChanges();
 
+            // Position the in-game text.
+            fontPos = new Vector2(1.0f, 1.0f);
+
+            // Setup the initial input states.
+            curKeyboardState = Keyboard.GetState();
+
+            gameFont = content.Load<SpriteFont>("Fonts\\gamefont");
+
+            // Initialize the sprite batch for the in-game font.
+            spriteBatch = new SpriteBatch(ScreenManager.GraphicsDevice);
+
+            // Load the in-game font.
+            spriteFont = content.Load<SpriteFont>("Fonts\\ingamefont");
+
+            // Initialize the sprite batch for the health bar.
+            mBatch = new SpriteBatch(ScreenManager.GraphicsDevice);
+
+            // Load the health bar image.
+            mHealthBar = content.Load<Texture2D>("healthbar");
+
+            // Load models and set aspect ratio.
+            playerModel = new MyModel("Models\\ball", content);
+            playerModel.Texture("Textures\\wedge_p1_diff_v1", content);
+                        
             // Load terrain and sky.
             terrain = content.Load<Model>("terrain");
-            sky = content.Load<RabiesX.MapManager.Sky>("sky");
+            sky = content.Load<Sky>("sky");
+
+            // Determine the radius of the player model.           
+            BoundingSphere bounds = new BoundingSphere();
+            foreach (ModelMesh mesh in playerModel.ModelHeld.Meshes)
+                bounds = BoundingSphere.CreateMerged(bounds, mesh.BoundingSphere);
+            playerRadius = bounds.Radius;
+            
+            // Determine the radius of the height map.           
+            BoundingSphere tbounds = new BoundingSphere();
+            foreach (ModelMesh mesh in terrain.Meshes)
+                tbounds = BoundingSphere.CreateMerged(tbounds, mesh.BoundingSphere);
+            float terrainRadius = tbounds.Radius;
+
+            // Setup the camera.
+            camera = new ThirdPersonCamera();
+            camera.Perspective(CAMERA_FOVX, (float)screenWidth / (float)screenHeight,
+                CAMERA_ZNEAR, CAMERA_ZFAR);
+            camera.LookAt(new Vector3(0.0f, playerRadius * 3.0f, playerRadius * 7.0f),
+                Vector3.Zero, Vector3.Up);
+
+            // Setup the player entity.
+            playerEntity = new Entity();
+            playerEntity.ConstrainToWorldYAxis = true;
+            playerEntity.Position = new Vector3(0.0f, 1.0f + playerRadius, 0.0f);
+            
+            // A real game would probably have more content than this sample, so
+            // it would take longer to load. We simulate that by delaying for a
+            // while, giving you a chance to admire the beautiful loading screen.
+            Thread.Sleep(3000);
+
+            // Once the load has finished, we use ResetElapsedTime to tell the game's
+            // timing mechanism that we have just finished a very long frame, and that
+            // it should not try to catch up.
+            ScreenManager.Game.ResetElapsedTime();
         }
 
 
@@ -165,7 +203,6 @@ namespace RabiesX
         {
             content.Unload();
         }
-
 
         #endregion
 
@@ -190,12 +227,9 @@ namespace RabiesX
 
             if (IsActive)
             {
-                // Get some input.
-                UpdateInput();
-
-                // Update camera and avatar position.
-                UpdateAvatarPosition();
-                UpdateCamera();
+                ProcessKeyboard();
+                UpdatePlayer(gameTime);
+                UpdateFrameRate(gameTime);
 
                 // Apply some random jitter to make the enemy move around.
                 const float randomization = 10;
@@ -209,178 +243,154 @@ namespace RabiesX
                     200);
 
                 enemyPosition = Vector2.Lerp(enemyPosition, targetPosition, 0.05f);
-
-                // Apply a stabilizing force to stop the test model moving off the screen.
-                //Vector3 modeltargetPosition = new Vector3(
-                //    (ScreenManager.GraphicsDevice.Viewport.Width / 2 - shipModel.getTexture.Width / 2));
-                //Vector3 modeltargetPosition = new Vector3(
-                //    (ScreenManager.GraphicsDevice.Viewport.Width / 2 + ScreenManager.GraphicsDevice.Viewport.Height / 2 + ScreenManager.GraphicsDevice.Viewport.MaxDepth / 2) / 3);
-
-                //shipModel.Position = Vector3.Lerp(shipModel.Position, modeltargetPosition, 0.05f);
-
-                //modelRotation += (float)gameTime.ElapsedGameTime.TotalMilliseconds * MathHelper.ToRadians(0.1f);
-
-                // Add velocity to the current position.
-                shipModel.Position += shipModel.Velocity;
-
-                //shipModel.Position = cameraPosition;
-
-                // Bleed off velocity over time.
-                shipModel.Velocity *= 0.95f;
-
+                
                 base.Update(gameTime, otherScreenHasFocus, false);
 
                 // TODO: this game isn't very fun! You could probably improve
                 // it by inserting something more interesting in this space :-)
             }
         }
-
-        /// <summary>
-        /// Updates the position and direction of the avatar.
-        /// </summary>
-        void UpdateAvatarPosition()
+        
+        private bool KeyJustPressed(Keys key)
         {
-            KeyboardState keyboardState = Keyboard.GetState();
-            GamePadState currentState = GamePad.GetState(PlayerIndex.One);
-
-            if (keyboardState.IsKeyDown(Keys.A) || (currentState.DPad.Left == ButtonState.Pressed))
-            {
-                // Rotate left.
-                avatarYaw += rotationSpeed;
-            }
-            if (keyboardState.IsKeyDown(Keys.D) || (currentState.DPad.Right == ButtonState.Pressed))
-            {
-                // Rotate right.
-                avatarYaw -= rotationSpeed;
-            }
-            if (keyboardState.IsKeyDown(Keys.W) || (currentState.DPad.Up == ButtonState.Pressed))
-            {
-                Matrix forwardMovement = Matrix.CreateRotationY(avatarYaw);
-                Vector3 v = new Vector3(0, 0, forwardSpeed);
-                v = Vector3.Transform(v, forwardMovement);
-                avatarPosition.Z += v.Z;
-                avatarPosition.X += v.X;
-            }
-            if (keyboardState.IsKeyDown(Keys.S) || (currentState.DPad.Down == ButtonState.Pressed))
-            {
-                Matrix forwardMovement = Matrix.CreateRotationY(avatarYaw);
-                Vector3 v = new Vector3(0, 0, -forwardSpeed);
-                v = Vector3.Transform(v, forwardMovement);
-                avatarPosition.Z += v.Z;
-                avatarPosition.X += v.X;
-            }
-
-            // Fix camera up and down zoom with avatar;
-            cameraPosition = avatarPosition; 
+            return curKeyboardState.IsKeyDown(key) && prevKeyboardState.IsKeyUp(key);
         }
 
-        /// <summary>
-        /// Updates the position and direction of the camera relative to the avatar.
-        /// </summary>
-        void UpdateCamera()
+        private void ProcessKeyboard()
         {
-            // Calculate the camera's current position.
-
-            Matrix rotationMatrix = Matrix.CreateRotationY(avatarYaw);
-
-            // Create a vector pointing the direction the camera is facing.
-            Vector3 transformedReference = Vector3.Transform(cameraReference, rotationMatrix);
-
-            // Calculate the position the camera is looking at.
-            Vector3 cameraLookat = cameraPosition + transformedReference;
-
-            // Set up the view matrix and projection matrix.
-            view = Matrix.CreateLookAt(cameraPosition, cameraLookat, new Vector3(0.0f, 1.0f, 0.0f));
-
-            //proj = Matrix.CreatePerspectiveFieldOfView(viewAngle, ScreenManager.Game.GraphicsDevice.Viewport.AspectRatio,
-            //                                              nearClip, farClip);
-
-            proj = Matrix.CreatePerspectiveFieldOfView(viewAngle, aspectRatio, nearClip, farClip);
-        }
-
-        protected void UpdateInput()
-        {
-            // Get the keyboard state.
-            KeyboardState currentState = Keyboard.GetState(PlayerIndex.One);
-            if (currentState.IsKeyDown(Keys.Space) || currentState.IsKeyDown(Keys.Up) || currentState.IsKeyDown(Keys.Down) ||
-                currentState.IsKeyDown(Keys.Left) || currentState.IsKeyDown(Keys.Right))
-            {
-                Vector2 movement = Vector2.Zero;
-
-                if (currentState.IsKeyDown(Keys.Left))
-                    movement.X--;
-
-                if (currentState.IsKeyDown(Keys.Right))
-                    movement.X++;
-
-                if (currentState.IsKeyDown(Keys.Up))
-                    movement.Y--;
-
-                if (currentState.IsKeyDown(Keys.Down))
-                    movement.Y++;
-
-                float thrusters = 0.0f;
-
-                if (currentState.IsKeyDown(Keys.Space))
-                    thrusters += 1.1f;
-
-                // Rotate the model using the left thumbstick, and scale it down.
-                shipModel.rX -= movement.X * 0.10f;
-
-                // Create some velocity if the right trigger is down.
-                Vector3 modelVelocityAdd = Vector3.Zero;
-
-                // Find out what direction we should be thrusting, using rotation.
-                modelVelocityAdd.X = -(float)Math.Sin(shipModel.rX);
-                modelVelocityAdd.Z = -(float)Math.Cos(shipModel.rX);
-
-                // Now scale our direction by when the SpaceBar is down.
-                modelVelocityAdd *= thrusters;
-
-                // Finally, add this vector to our velocity.
-                shipModel.Velocity += modelVelocityAdd;
-                
-                // In case you get lost, press LeftShift to warp back to the center.
-                if (currentState.IsKeyDown(Keys.LeftShift) == true)
-                {
-                    shipModel.Position = Vector3.Zero;
-                    shipModel.Velocity = Vector3.Zero;
-                    shipModel.Rotation = Vector3.Zero;
-                }
-            }
-
-            //// Get current screen width and height.
-            //int screenWidth = ScreenManager.Game.GraphicsDevice.Viewport.Width;
-            //int screenHeight = ScreenManager.Game.GraphicsDevice.Viewport.Height;
-
-            // Prevent model from moving off the left edge of the screen.
-            if (shipModel.Position.X < screenHeight * -5)
-                shipModel.Position = new Vector3(screenHeight * -5, shipModel.Position.Y, shipModel.Position.Z);
-
-            // Prevent model from moving off the right edge of the screen.
-            if (shipModel.Position.X > screenHeight * 5)
-                shipModel.Position = new Vector3(screenHeight * 5, shipModel.Position.Y, shipModel.Position.Z);
-
-            //Console.WriteLine("ship position = {0}", shipModel.pX);
-            //Console.WriteLine("screen position = {0}", ScreenManager.Game.GraphicsDevice.Viewport.Width);
-            //Console.WriteLine("screen position = {0}", ScreenManager.Game.GraphicsDevice.Viewport.Height);
-
-            // Prevent model from moving off the right edge of the screen.
-            //int rightEdge = screenWidth - shipModel.getTexture.Width;
-            //if (shipModel.Position.X > rightEdge)
-            //    shipModel.Position = new Vector3(rightEdge, shipModel.Position.Y, shipModel.Position.Z);
-
-            // Test current health bar.
+            prevKeyboardState = curKeyboardState;
+            curKeyboardState = Keyboard.GetState();
             
+            if (KeyJustPressed(Keys.H))
+                displayHelp = !displayHelp;
+
+            if (KeyJustPressed(Keys.Space))
+                camera.EnableSpringSystem = !camera.EnableSpringSystem;
+
+            if (curKeyboardState.IsKeyDown(Keys.LeftAlt) ||
+                curKeyboardState.IsKeyDown(Keys.RightAlt))
+            {
+                if (KeyJustPressed(Keys.Enter))
+                    ToggleFullScreen();
+            }
+
+            if (KeyJustPressed(Keys.Add))
+            {
+                float springConstant = camera.SpringConstant + 0.1f;
+
+                springConstant = Math.Min(CAMERA_MAX_SPRING_CONSTANT, springConstant);
+                camera.SpringConstant = springConstant;
+            }
+
+            if (KeyJustPressed(Keys.Subtract))
+            {
+                float springConstant = camera.SpringConstant - 0.1f;
+
+                springConstant = Math.Max(CAMERA_MIN_SPRING_CONSTANT, springConstant);
+                camera.SpringConstant = springConstant;
+            }
+        }
+
+        private void ToggleFullScreen()
+        {
+            int newWidth = 0;
+            int newHeight = 0;
+
+            GameStateManagementGame.graphics.IsFullScreen = !GameStateManagementGame.graphics.IsFullScreen;
+
+            if (GameStateManagementGame.graphics.IsFullScreen)
+            {
+                newWidth = ScreenManager.GraphicsDevice.DisplayMode.Width;
+                newHeight = ScreenManager.GraphicsDevice.DisplayMode.Height;
+            }
+            else
+            {
+                newWidth = screenWidth;
+                newHeight = screenHeight;
+            }
+
+            GameStateManagementGame.graphics.PreferredBackBufferWidth = newWidth;
+            GameStateManagementGame.graphics.PreferredBackBufferHeight = newHeight;
+            GameStateManagementGame.graphics.ApplyChanges();
+
+            camera.Perspective(CAMERA_FOVX, (float)newWidth / (float)newHeight,
+                CAMERA_ZNEAR, CAMERA_ZFAR);
+        }
+
+        private void UpdatePlayer(GameTime gameTime)
+        {
+            float pitch = 0.0f;
+            float heading = 0.0f;
+            float forwardSpeed = 0.0f;
+
+            if (curKeyboardState.IsKeyDown(Keys.W) ||
+                curKeyboardState.IsKeyDown(Keys.Up))
+            {
+                forwardSpeed = PLAYER_FORWARD_SPEED;
+                pitch = -PLAYER_ROLLING_SPEED;
+            }
+
+            if (curKeyboardState.IsKeyDown(Keys.S) ||
+                curKeyboardState.IsKeyDown(Keys.Down))
+            {
+                forwardSpeed = -PLAYER_FORWARD_SPEED;
+                pitch = PLAYER_ROLLING_SPEED;
+            }
+
+            if (curKeyboardState.IsKeyDown(Keys.D) ||
+                curKeyboardState.IsKeyDown(Keys.Right))
+            {
+                heading = -PLAYER_HEADING_SPEED;
+            }
+
+            if (curKeyboardState.IsKeyDown(Keys.A) ||
+                curKeyboardState.IsKeyDown(Keys.Left))
+            {
+                heading = PLAYER_HEADING_SPEED;
+            }
+
+            // Prevent the player from moving off the edge of the floor.
+            float floorBoundaryZ = TERRAIN_HEIGHT * 0.5f - playerRadius;
+            float floorBoundaryX = TERRAIN_WIDTH * 0.5f - playerRadius;
+            float elapsedTimeSec = (float)gameTime.ElapsedGameTime.TotalSeconds;
+            float velocity = forwardSpeed * elapsedTimeSec;
+            Vector3 newPlayerPos = playerEntity.Position + playerEntity.Forward * velocity;
+
+            if (newPlayerPos.Z > floorBoundaryZ)
+                forwardSpeed = 0.0f;
+            else if (newPlayerPos.Z < -floorBoundaryZ)
+                forwardSpeed = 0.0f;
+            else if (newPlayerPos.X > floorBoundaryX)
+                forwardSpeed = 0.0f;
+            else if (newPlayerPos.X < -floorBoundaryX)
+                forwardSpeed = 0.0f;
+
+            // Update the player's state.
+            playerEntity.Velocity = new Vector3(0.0f, 0.0f, forwardSpeed);
+            playerEntity.Orient(heading, 0.0f, 0.0f);
+            playerEntity.Rotate(0.0f, pitch, 0.0f);
+            playerEntity.Update(gameTime);
+
+            // Then move the camera based on where the player has moved to.
+            // When the player is moving backwards rotations are inverted to
+            // match the direction of travel. Consequently the camera's
+            // rotation needs to be inverted as well.
+
+            camera.Rotate((forwardSpeed >= 0.0f) ? heading : -heading, 0.0f);
+            camera.LookAt(playerEntity.Position);
+            camera.Update(gameTime);
+            
+            // Test current health bar.
+
             // If Page Up is pressed, increase the health bar.
-            if (currentState.IsKeyDown(Keys.PageUp) == true)
-            {                
+            if (curKeyboardState.IsKeyDown(Keys.PageUp) == true)
+            {
                 mCurrentHealth += 1;
-            }             
+            }
             // If Page Down is pressed, decrease the health bar.
-            if (currentState.IsKeyDown(Keys.PageDown) == true)
-            {                
-                mCurrentHealth -= 1;            
+            if (curKeyboardState.IsKeyDown(Keys.PageDown) == true)
+            {
+                mCurrentHealth -= 1;
             }
             //Force the health to remain between 0 and 100.           
             mCurrentHealth = (int)MathHelper.Clamp(mCurrentHealth, 0, 100);
@@ -390,6 +400,87 @@ namespace RabiesX
                 // Game is over, so go to continue or quit screen.
                 ScreenManager.AddScreen(new GameOverScreen(), ControllingPlayer);
             }
+        }
+
+        private void UpdateFrameRate(GameTime gameTime)
+        {
+            elapsedTime += gameTime.ElapsedGameTime;
+
+            if (elapsedTime > TimeSpan.FromSeconds(1))
+            {
+                elapsedTime -= TimeSpan.FromSeconds(1);
+                framesPerSecond = frames;
+                frames = 0;
+            }
+        }
+
+        private void IncrementFrameCounter()
+        {
+            ++frames;
+        }
+
+        private void DrawPlayer()
+        {
+            if (modelTransforms == null)
+                modelTransforms = new Matrix[playerModel.ModelHeld.Bones.Count];
+
+            playerModel.ModelHeld.CopyAbsoluteBoneTransformsTo(modelTransforms);
+
+            foreach (ModelMesh m in playerModel.ModelHeld.Meshes)
+            {
+                foreach (BasicEffect e in m.Effects)
+                {
+                    e.PreferPerPixelLighting = true;
+                    e.TextureEnabled = true;
+                    e.EnableDefaultLighting();
+                    e.World = modelTransforms[m.ParentBone.Index] * playerEntity.WorldMatrix;
+                    e.View = camera.ViewMatrix;
+                    e.Projection = camera.ProjectionMatrix;
+                }
+
+                m.Draw();
+            }
+        }
+
+        private void DrawText()
+        {
+            StringBuilder buffer = new StringBuilder();
+
+            if (displayHelp)
+            {
+                buffer.AppendLine("Press W or UP to move the player forwards");
+                buffer.AppendLine("Press S or DOWN to roll the player backwards");
+                buffer.AppendLine("Press D or RIGHT to turn the player to the right");
+                buffer.AppendLine("Press A or LEFT to turn the player to the left");
+                buffer.AppendLine();
+                buffer.AppendLine("Press PAGEUP and PAGEDOWN to change the player's health bar.");
+                buffer.AppendLine("Press SPACE to enable and disable the camera's spring system");
+                buffer.AppendLine("Press + and - to change the camera's spring constant");
+                buffer.AppendLine("Press ALT and ENTER to toggle full screen");
+                buffer.AppendLine("Press ESCAPE to exit");
+                buffer.AppendLine();
+                buffer.AppendLine("Press H to hide help");
+            }
+            else
+            {
+                buffer.AppendFormat("FPS: {0}\n", framesPerSecond);
+
+                bool springOn = camera.EnableSpringSystem;
+                float springConstant = camera.SpringConstant;
+                float dampingConstant = camera.DampingConstant;
+
+                buffer.AppendLine();
+                buffer.AppendLine("Camera");
+                buffer.AppendFormat("  Spring {0}\n", (springOn ? "enabled" : "disabled"));
+                buffer.AppendFormat("  Spring constant: {0}\n", springConstant.ToString("f2"));
+                buffer.AppendFormat("  Damping constant: {0}\n", dampingConstant.ToString("f2"));
+                buffer.AppendLine();
+                buffer.AppendLine("Press H to display help");
+            }
+
+            spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.AlphaBlend);
+            spriteBatch.DrawString(spriteFont, buffer.ToString(), fontPos, Color.Yellow);
+            spriteBatch.End();
         }
 
         /// <summary>
@@ -453,53 +544,26 @@ namespace RabiesX
         /// </summary>
         public override void Draw(GameTime gameTime)
         {
-            // This game has a blue background. Why? Because!
-            //ScreenManager.GraphicsDevice.Clear(ClearOptions.Target,
-            //                                   Color.CornflowerBlue, 0, 0);
-           
             ScreenManager.GraphicsDevice.Clear(Color.Black);
 
-            //// Calculate the projection matrix.
-            //Matrix projection = Matrix.CreatePerspectiveFieldOfView(MathHelper.PiOver4,
-            //                                                        ScreenManager.GraphicsDevice.Viewport.AspectRatio,
-            //                                                        1, 10000);
-
-            //proj = Matrix.CreatePerspectiveFieldOfView(MathHelper.PiOver4,
-            //                                            ScreenManager.GraphicsDevice.Viewport.AspectRatio,
-            //                                            1, 10000);
-
-            // Calculate a view matrix, moving the camera around a circle.
-            //float time = (float)gameTime.TotalGameTime.TotalSeconds * 0.333f;
-
-            //float cameraX = (float)Math.Cos(time) - shipModel.Position.X;
-            //float cameraY = (float)Math.Sin(time) - shipModel.Position.Y;
-
-            //float cameraX = shipModel.Position.X;
-            //float cameraY = shipModel.Position.Y;
-     
-            //Vector3 cameraPosition = new Vector3(cameraX, 0, cameraY) * 64;
-            //Vector3 cameraFront = new Vector3(-cameraY, 0, cameraX);
-
-            //Matrix view = Matrix.CreateLookAt(cameraPosition,
-            //                                  cameraPosition + cameraFront,
-            //                                  Vector3.Up);
-            
+            ScreenManager.GraphicsDevice.BlendState = BlendState.Opaque;
+            ScreenManager.GraphicsDevice.DepthStencilState = DepthStencilState.Default;
+            ScreenManager.GraphicsDevice.SamplerStates[0] = SamplerState.LinearWrap;
+                        
             // Draw the terrain first, then the sky. This is faster than
             // drawing the sky first, because the depth buffer can skip
             // bothering to draw sky pixels that are covered up by the
             // terrain. This trick works because the code used to draw
             // the sky forces all the sky vertices to be as far away as
             // possible, and turns depth testing on but depth writes off.
-
             
-            sky.Draw(view, proj);
+            DrawPlayer();
 
-            DrawTerrain(view, proj);
+            sky.Draw(camera.ViewMatrix, camera.ProjectionMatrix);
 
-
-            //DrawTerrain(view, projection);
-
-            //sky.Draw(view, projection);
+            DrawTerrain(camera.ViewMatrix, camera.ProjectionMatrix);
+            
+            DrawText();
 
             // If there was any alpha blended translucent geometry in
             // the scene, that would be drawn here, after the sky.
@@ -508,7 +572,7 @@ namespace RabiesX
 
             //Draw the negative space for the health bar.
             mBatch.Draw(mHealthBar, new Rectangle(ScreenManager.Game.GraphicsDevice.Viewport.Width - mHealthBar.Width - 30, 30, mHealthBar.Width, 25), new Rectangle(0, 45, mHealthBar.Width, 25), Color.Gray);
-            
+
             // Draw the current health for the health bar.
             mBatch.Draw(mHealthBar, new Rectangle(ScreenManager.Game.GraphicsDevice.Viewport.Width - mHealthBar.Width - 30, 30, (int)(mHealthBar.Width * ((double)mCurrentHealth / 100)), 25), new Rectangle(0, 45, mHealthBar.Width, 25), Color.DarkRed);
 
@@ -517,40 +581,20 @@ namespace RabiesX
 
             mBatch.End();
 
-            //// Our player and enemy are both actually just text strings.
-            SpriteBatch spriteBatch = ScreenManager.SpriteBatch;
+            // Our player and enemy are both actually just text strings.
+            SpriteBatch spriteBatchAlpha = ScreenManager.SpriteBatch;
 
-            spriteBatch.Begin(0, BlendState.AlphaBlend);
-
-            // Background is set before other objects to be in back.
-            //spriteBatch.Draw(stars, new Rectangle(0, 0, screenWidth, screenHeight), Color.White);
-
-            spriteBatch.DrawString(gameFont, "// TODO", playerPosition, Color.Green);
-
-            spriteBatch.DrawString(gameFont, "Insert Gameplay Here",
-                                   enemyPosition, Color.DarkRed);
+            spriteBatchAlpha.Begin(0, BlendState.AlphaBlend);
             
-            spriteBatch.End();
+            spriteBatchAlpha.DrawString(gameFont, "// TODO", playerPosition, Color.Green);
 
-            // Copy any parent transforms.
-            Matrix[] transforms = new Matrix[shipModel.ModelHeld.Bones.Count];
-            shipModel.ModelHeld.CopyAbsoluteBoneTransformsTo(transforms);
+            spriteBatchAlpha.DrawString(gameFont, "Insert Gameplay Here",
+                                   enemyPosition, Color.DarkRed);
 
-            // Draw the model. A model can have multiple meshes, so loop.
-            foreach (ModelMesh mesh in shipModel.ModelHeld.Meshes)
-            {
-                // This is where the mesh orientation is set, as well as our camera and projection.
-                foreach (BasicEffect effect in mesh.Effects)
-                {
-                    effect.EnableDefaultLighting();
-                    effect.World = transforms[mesh.ParentBone.Index] * Matrix.CreateRotationY(shipModel.rX) * Matrix.CreateTranslation(shipModel.Position);
-                    effect.View = Matrix.CreateLookAt(cameraPosition, Vector3.Zero, Vector3.Up);
-                    effect.Projection = Matrix.CreatePerspectiveFieldOfView(MathHelper.ToRadians(45.0f), aspectRatio, 1.0f, 10000.0f);
-                }
-                // Draw the mesh using the effects set above.
-                mesh.Draw();
-            }
+            spriteBatchAlpha.End();
             base.Draw(gameTime);
+            
+            IncrementFrameCounter(); // Increment counter for frames per second.
 
             // If the game is transitioning on or off, fade it out to black.
             if (TransitionPosition > 0 || pauseAlpha > 0)

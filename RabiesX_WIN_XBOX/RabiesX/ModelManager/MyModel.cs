@@ -20,7 +20,7 @@ using System.Linq;
 using System.Text;
 #endregion
 
-namespace RabiesX.ModelManager
+namespace RabiesX
 {
     public class MyModel
     {

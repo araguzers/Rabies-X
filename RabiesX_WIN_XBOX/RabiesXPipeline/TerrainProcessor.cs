@@ -25,7 +25,7 @@ namespace RabiesXPipeline
     [ContentProcessor]
     public class TerrainProcessor : ContentProcessor<Texture2DContent, ModelContent>
     {
-        const float terrainScale = 4;
+        const float terrainScale = 8;
         const float terrainBumpiness = 64;
         const float texCoordScale = 0.1f;
         const string terrainTexture = "rocks.bmp";

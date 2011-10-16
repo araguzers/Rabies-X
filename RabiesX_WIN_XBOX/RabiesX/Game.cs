@@ -31,7 +31,7 @@ namespace RabiesX
     {
         #region Fields
 
-        GraphicsDeviceManager graphics;
+        public static GraphicsDeviceManager graphics; // if static, only 1 game in 1 window
         ScreenManager screenManager;
 
         // By preloading any assets used by UI rendering, we avoid framerate glitches

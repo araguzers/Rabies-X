@@ -30,20 +30,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="menufont.spritefont">
-      <Name>menufont</Name>
-      <Importer>FontDescriptionImporter</Importer>
-      <Processor>FontDescriptionProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="gamefont.spritefont">
-      <Name>gamefont</Name>
-      <Importer>FontDescriptionImporter</Importer>
-      <Processor>FontDescriptionProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
     <Compile Include="gradient.png">
       <Name>gradient</Name>
       <Importer>TextureImporter</Importer>
@@ -117,6 +103,42 @@
       <Name>menu_2</Name>
       <Importer>WavImporter</Importer>
       <Processor>SoundEffectProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Fonts\gamefont.spritefont">
+      <Name>gamefont</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
+    </Compile>
+    <Compile Include="Fonts\menufont.spritefont">
+      <Name>menufont</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Effects\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Fonts\ingamefont.spritefont">
+      <Name>ingamefont</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Models\ball.x">
+      <Name>ball</Name>
+      <Importer>XImporter</Importer>
+      <Processor>ModelProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Models\squirrel.fbx">
+      <Name>squirrel</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>ModelProcessor</Processor>
     </Compile>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\XNA Game Studio\$(XnaFrameworkVersion)\Microsoft.Xna.GameStudio.ContentPipeline.targets" />
