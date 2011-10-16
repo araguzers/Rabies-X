@@ -80,15 +80,23 @@ namespace RabiesX
         private int frames;
         private int framesPerSecond;
         private Entity playerEntity;
+        private Entity terrainEntity;
         private float playerRadius;
+        private float terrainRadius;
         private Matrix[] modelTransforms;
         private TimeSpan elapsedTime = TimeSpan.Zero;
+        private TimeSpan prevElapsedTime = TimeSpan.Zero;
         private bool displayHelp;
 
         private ThirdPersonCamera camera;
 
         private KeyboardState curKeyboardState;
         private KeyboardState prevKeyboardState;
+
+        BoundingSphere playerBounds;
+        BoundingSphere terrainBounds;
+
+        private bool flicker;
 
         #endregion
 
@@ -118,8 +126,11 @@ namespace RabiesX
         {
             if (content == null)
                 content = new ContentManager(ScreenManager.Game.Services, "Content");
-            
+
             aspectRatio = (float)ScreenManager.Game.GraphicsDevice.Viewport.Width / (float)ScreenManager.Game.GraphicsDevice.Viewport.Height;
+
+            // Initialize flicker for when health bar on danger.
+            flicker = true;
 
             // Get current screen width and height.
             screenWidth = ScreenManager.Game.GraphicsDevice.Viewport.Width;
@@ -138,6 +149,7 @@ namespace RabiesX
             // Setup the initial input states.
             curKeyboardState = Keyboard.GetState();
 
+            // Load the game font.
             gameFont = content.Load<SpriteFont>("Fonts\\gamefont");
 
             // Initialize the sprite batch for the in-game font.
@@ -165,12 +177,16 @@ namespace RabiesX
             foreach (ModelMesh mesh in playerModel.ModelHeld.Meshes)
                 bounds = BoundingSphere.CreateMerged(bounds, mesh.BoundingSphere);
             playerRadius = bounds.Radius;
-            
+
+            playerBounds = bounds;
+
             // Determine the radius of the height map.           
             BoundingSphere tbounds = new BoundingSphere();
             foreach (ModelMesh mesh in terrain.Meshes)
                 tbounds = BoundingSphere.CreateMerged(tbounds, mesh.BoundingSphere);
-            float terrainRadius = tbounds.Radius;
+            terrainRadius = tbounds.Radius;
+
+            terrainBounds = tbounds;
 
             // Setup the camera.
             camera = new ThirdPersonCamera();
@@ -183,7 +199,12 @@ namespace RabiesX
             playerEntity = new Entity();
             playerEntity.ConstrainToWorldYAxis = true;
             playerEntity.Position = new Vector3(0.0f, 1.0f + playerRadius, 0.0f);
-            
+
+            // Setup the terrain entity.
+            terrainEntity = new Entity();
+            terrainEntity.ConstrainToWorldYAxis = true;
+            terrainEntity.Position = new Vector3(0.0f, 1.0f + terrainRadius, 0.0f);
+
             // A real game would probably have more content than this sample, so
             // it would take longer to load. We simulate that by delaying for a
             // while, giving you a chance to admire the beautiful loading screen.
@@ -574,7 +595,28 @@ namespace RabiesX
             mBatch.Draw(mHealthBar, new Rectangle(ScreenManager.Game.GraphicsDevice.Viewport.Width - mHealthBar.Width - 30, 30, mHealthBar.Width, 25), new Rectangle(0, 45, mHealthBar.Width, 25), Color.Gray);
 
             // Draw the current health for the health bar.
-            mBatch.Draw(mHealthBar, new Rectangle(ScreenManager.Game.GraphicsDevice.Viewport.Width - mHealthBar.Width - 30, 30, (int)(mHealthBar.Width * ((double)mCurrentHealth / 100)), 25), new Rectangle(0, 45, mHealthBar.Width, 25), Color.DarkRed);
+            if (mCurrentHealth > 50)
+            {
+                mBatch.Draw(mHealthBar, new Rectangle(ScreenManager.Game.GraphicsDevice.Viewport.Width - mHealthBar.Width - 30, 30, (int)(mHealthBar.Width * ((double)mCurrentHealth / 100)), 25), new Rectangle(0, 45, mHealthBar.Width, 25), Color.DarkRed);
+            }
+            else if ((mCurrentHealth <= 50) && (mCurrentHealth > 25))
+            {
+                mBatch.Draw(mHealthBar, new Rectangle(ScreenManager.Game.GraphicsDevice.Viewport.Width - mHealthBar.Width - 30, 30, (int)(mHealthBar.Width * ((double)mCurrentHealth / 100)), 25), new Rectangle(0, 45, mHealthBar.Width, 25), Color.Red);
+            }
+            else
+            {
+                if (flicker == true)
+                {
+                    mBatch.Draw(mHealthBar, new Rectangle(ScreenManager.Game.GraphicsDevice.Viewport.Width - mHealthBar.Width - 30, 30, (int)(mHealthBar.Width * ((double)mCurrentHealth / 100)), 25), new Rectangle(0, 45, mHealthBar.Width, 25), Color.Red);
+                    prevElapsedTime = elapsedTime;
+                    flicker = false;
+                }
+                else if ((flicker == false) && (elapsedTime != prevElapsedTime))
+                {
+                    mBatch.Draw(mHealthBar, new Rectangle(ScreenManager.Game.GraphicsDevice.Viewport.Width - mHealthBar.Width - 30, 30, (int)(mHealthBar.Width * ((double)mCurrentHealth / 100)), 25), new Rectangle(0, 45, mHealthBar.Width, 25), Color.Transparent);
+                    flicker = true;
+                }
+            }
 
             // Draw the box around the health bar.
             mBatch.Draw(mHealthBar, new Rectangle(ScreenManager.Game.GraphicsDevice.Viewport.Width - mHealthBar.Width - 30, 30, mHealthBar.Width, 25), new Rectangle(0, 0, mHealthBar.Width, 25), Color.White);
