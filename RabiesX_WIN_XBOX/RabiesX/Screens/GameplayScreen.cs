@@ -326,9 +326,9 @@ namespace RabiesX
             if (metJackson)
             {
                 writer.WriteLine(jackson.Health);
-                writer.WriteLine(araguz.Defense);
-                writer.WriteLine(araguz.Attack);
-                writer.WriteLine(araguz.HitsToWound);
+                writer.WriteLine(jackson.Defense);
+                writer.WriteLine(jackson.Attack);
+                writer.WriteLine(jackson.HitsToWound);
             }
 
             writer.Close();
