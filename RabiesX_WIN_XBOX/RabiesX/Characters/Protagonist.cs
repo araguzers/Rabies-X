@@ -7,8 +7,10 @@ namespace RabiesX
 {
     public class Protagonist : Character
     {
-        public PlasmaGun plasmaGun {get; set;}
+        public PlasmaGun plasmaGun { get; set; }
         public bool CanFire { get; set; }
+
+        public Protagonist() : base() { }
 
         public Protagonist(int startHealth, int startDefense, int startHitsToWound, int startStrength, int maxAmmo)
             : base(startHealth, startDefense, startHitsToWound, startStrength)

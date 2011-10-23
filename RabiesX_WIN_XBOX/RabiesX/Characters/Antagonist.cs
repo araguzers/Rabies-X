@@ -10,6 +10,8 @@ namespace RabiesX
         public Sword sword { get; set; }
         public bool CanSlash { get; set; }
 
+        public Antagonist() : base() { }
+
         public Antagonist(int startHealth, int startDefense, int startHitsToWound, int startStrength, int maxDurability)
             : base(startHealth, startDefense, startHitsToWound, startStrength)
         {
