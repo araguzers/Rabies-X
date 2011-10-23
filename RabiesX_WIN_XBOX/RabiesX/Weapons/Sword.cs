@@ -11,6 +11,8 @@ namespace RabiesX
         public int Durability { get; set; }
         public bool Broken { get; set; }
 
+        public Sword() { }
+
         public Sword(int maximum)
         {
             MaximumDurability = maximum;

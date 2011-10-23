@@ -11,6 +11,8 @@ namespace RabiesX
         public int Plasma { get; set; }
         public bool Empty { get; set; }
 
+        public PlasmaGun() { }
+
         public PlasmaGun(int maximum)
         {
             MaximumPlasma = maximum;
