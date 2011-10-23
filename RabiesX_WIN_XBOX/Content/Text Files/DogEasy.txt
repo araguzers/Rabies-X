@@ -1,4 +1,3 @@
-Dog
 Health 5
 Defense 6
 Attack 4

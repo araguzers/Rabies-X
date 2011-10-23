@@ -1,4 +1,3 @@
-Human
 Health 6
 Defense 10
 Attack 6

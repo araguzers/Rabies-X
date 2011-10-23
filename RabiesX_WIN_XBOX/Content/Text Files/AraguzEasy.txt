@@ -1,4 +1,3 @@
-Araguz
 Health 100
 Defense 100
 Attack 10

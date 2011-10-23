@@ -1,4 +1,3 @@
-Jackson
 Met no
 Health 100
 Defense 100
