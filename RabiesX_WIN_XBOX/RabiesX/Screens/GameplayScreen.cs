@@ -102,6 +102,11 @@ namespace RabiesX
         BoundingSphere playerBounds;
         BoundingSphere terrainBounds;
 
+        private FileStream readStream;
+        private FileStream writeStream;
+        private StreamReader reader;
+        private StreamWriter writer;
+
         private bool flicker;
 
         #endregion
@@ -211,22 +216,123 @@ namespace RabiesX
             terrainEntity.ConstrainToWorldYAxis = true;
             terrainEntity.Position = new Vector3(0.0f, 1.0f + terrainRadius, 0.0f);
 
-            //creates the initial characters.
-            araguz = new Protagonist();
-            ((Protagonist)araguz).plasmaGun = new PlasmaGun(0);
+            //creates the strings to be used in file reading.
+            string line;
+            string[] words;
 
-            FileStream readStream = new FileStream("Text Files\\AraguzEasy", FileMode.Open, FileAccess.Read);
-            StreamReader reader = new StreamReader(readStream);
-            string answer = reader.ReadLine();
-            if (answer == "no")
-                metJackson = false;
-            else
-                metJackson = true;
+            //creates the file writer. the text file "Output" is temporary, to test for errors.
+            writeStream = new FileStream("Text Files\\Output.txt", FileMode.Open, FileAccess.Write);
+            writer = new StreamWriter(writeStream);
+
+            //creates Geraldo Araguz.
+            araguz = new Protagonist();
+            ((Protagonist)araguz).plasmaGun = new PlasmaGun();
+
+            //reads from the statistics file for Araguz.
+            readStream = new FileStream("Text Files\\AraguzEasy.txt", FileMode.Open, FileAccess.Read);
+            reader = new StreamReader(readStream);
+            
+            while (!reader.EndOfStream)
+            {
+                line = reader.ReadLine();
+                words = line.Split(' ');
+                if (words[0] == "Health")
+                    araguz.Health = Convert.ToInt16(words[1]);
+                else if (words[0] == "Defense")
+                    araguz.Defense = Convert.ToInt16(words[1]);
+                else if (words[0] == "Attack")
+                    araguz.Attack = Convert.ToInt16(words[1]);
+                else if (words[0] == "HitsToWound")
+                    araguz.HitsToWound = Convert.ToInt16(words[1]);
+                else if (words[0] == "Alive")
+                {
+                    if (words[1] == "yes")
+                        araguz.Alive = true;
+                    else
+                        araguz.Alive = false;
+                }
+                else if (words[0] == "MaximumPlasma")
+                    ((Protagonist)araguz).plasmaGun.MaximumPlasma = Convert.ToInt16(words[1]);
+                else if (words[0] == "Plasma")
+                    ((Protagonist)araguz).plasmaGun.Plasma = Convert.ToInt16(words[1]);
+                else if (words[0] == "Empty")
+                {
+                    if (words[1] == "no")
+                        ((Protagonist)araguz).plasmaGun.Empty = false;
+                    else
+                        ((Protagonist)araguz).plasmaGun.Empty = true;
+                }
+            }
+            reader.Close();
+            readStream.Close();
+
+            writer.WriteLine(araguz.Health);
+            writer.WriteLine(araguz.Defense);
+            writer.WriteLine(araguz.Attack);
+            writer.WriteLine(araguz.HitsToWound);
+
+            /*creates Russell Jackson aka Sadulgo Randol. His type will be antagonist even if he
+            initially takes cover as Araguz's "ally" */
+            jackson = new Antagonist();
+            ((Antagonist)jackson).sword = new Sword();
+
+            //reads from the statistics file for Jackson, first determining if Araguz met him yet.
+            readStream = new FileStream("Text Files\\JacksonEasy.txt", FileMode.Open, FileAccess.Read);
+            reader = new StreamReader(readStream);
+
+            while (!reader.EndOfStream)
+            {
+                line = reader.ReadLine();
+                words = line.Split(' ');
+                if (words[0] == "Met")
+                {
+                    if (words[1] == "no")
+                    {
+                        metJackson = false;
+                        break;
+                    }
+                    metJackson = true;
+                }
+                else if (words[0] == "Health")
+                    jackson.Health = Convert.ToInt16(words[1]);
+                else if (words[0] == "Defense")
+                    jackson.Defense = Convert.ToInt16(words[1]);
+                else if (words[0] == "Attack")
+                    jackson.Attack = Convert.ToInt16(words[1]);
+                else if (words[0] == "HitsToWound")
+                    jackson.HitsToWound = Convert.ToInt16(words[1]);
+                else if (words[0] == "Alive")
+                {
+                    if (words[1] == "yes")
+                        jackson.Alive = true;
+                    else
+                        jackson.Alive = false;
+                }
+                else if (words[0] == "MaximumDurability")
+                    ((Antagonist)jackson).sword.MaximumDurability = Convert.ToInt16(words[1]);
+                else if (words[0] == "Durability")
+                    ((Antagonist)jackson).sword.Durability = Convert.ToInt16(words[1]);
+                else if (words[0] == "Broken")
+                {
+                    if (words[1] == "no")
+                        ((Antagonist)jackson).sword.Broken = false;
+                    else
+                        ((Antagonist)jackson).sword.Broken = true;
+                }
+            }
+            reader.Close();
+            readStream.Close();
+
             if (metJackson)
             {
-                jackson = new Antagonist();
-                ((Antagonist)jackson).sword = new Sword(0);
+                writer.WriteLine(jackson.Health);
+                writer.WriteLine(araguz.Defense);
+                writer.WriteLine(araguz.Attack);
+                writer.WriteLine(araguz.HitsToWound);
             }
+
+            writer.Close();
+            writeStream.Close();
             // A real game would probably have more content than this sample, so
             // it would take longer to load. We simulate that by delaying for a
             // while, giving you a chance to admire the beautiful loading screen.
