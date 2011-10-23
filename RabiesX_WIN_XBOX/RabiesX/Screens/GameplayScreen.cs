@@ -11,6 +11,7 @@
 using System;
 using System.Text;
 using System.Threading;
+using System.IO;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Content;
@@ -81,17 +82,22 @@ namespace RabiesX
         private int framesPerSecond;
         private Entity playerEntity;
         private Entity terrainEntity;
+        //private Entity collectibleEntity;
         private float playerRadius;
         private float terrainRadius;
         private Matrix[] modelTransforms;
         private TimeSpan elapsedTime = TimeSpan.Zero;
         private TimeSpan prevElapsedTime = TimeSpan.Zero;
         private bool displayHelp;
+        private bool metJackson;
 
         private ThirdPersonCamera camera;
 
         private KeyboardState curKeyboardState;
         private KeyboardState prevKeyboardState;
+
+        private Character araguz;
+        private Character jackson;
 
         BoundingSphere playerBounds;
         BoundingSphere terrainBounds;
@@ -205,6 +211,22 @@ namespace RabiesX
             terrainEntity.ConstrainToWorldYAxis = true;
             terrainEntity.Position = new Vector3(0.0f, 1.0f + terrainRadius, 0.0f);
 
+            //creates the initial characters.
+            araguz = new Protagonist();
+            ((Protagonist)araguz).plasmaGun = new PlasmaGun(0);
+
+            FileStream readStream = new FileStream("Text Files\\AraguzEasy", FileMode.Open, FileAccess.Read);
+            StreamReader reader = new StreamReader(readStream);
+            string answer = reader.ReadLine();
+            if (answer == "no")
+                metJackson = false;
+            else
+                metJackson = true;
+            if (metJackson)
+            {
+                jackson = new Antagonist();
+                ((Antagonist)jackson).sword = new Sword(0);
+            }
             // A real game would probably have more content than this sample, so
             // it would take longer to load. We simulate that by delaying for a
             // while, giving you a chance to admire the beautiful loading screen.
@@ -406,19 +428,25 @@ namespace RabiesX
             // If Page Up is pressed, increase the health bar.
             if (curKeyboardState.IsKeyDown(Keys.PageUp) == true)
             {
-                mCurrentHealth += 1;
+                //mCurrentHealth += 1;
+                araguz.Heal(1);
             }
             // If Page Down is pressed, decrease the health bar.
             if (curKeyboardState.IsKeyDown(Keys.PageDown) == true)
             {
-                mCurrentHealth -= 1;
+                //mCurrentHealth -= 1;
+                araguz.Wound(1);
             }
             //Force the health to remain between 0 and 100.           
-            mCurrentHealth = (int)MathHelper.Clamp(mCurrentHealth, 0, 100);
+            //mCurrentHealth = (int)MathHelper.Clamp(mCurrentHealth, 0, 100);
+            araguz.Health = (int)MathHelper.Clamp(mCurrentHealth, 0, 100);
 
-            if (mCurrentHealth == 0)
+            //if (mCurrentHealth == 0)
+            if(araguz.Health == 0)
             {
                 // Game is over, so go to continue or quit screen.
+                if (metJackson)
+                    jackson.Health = 0;
                 ScreenManager.AddScreen(new GameOverScreen(), ControllingPlayer);
             }
         }
@@ -593,13 +621,14 @@ namespace RabiesX
 
             //Draw the negative space for the health bar.
             mBatch.Draw(mHealthBar, new Rectangle(ScreenManager.Game.GraphicsDevice.Viewport.Width - mHealthBar.Width - 30, 30, mHealthBar.Width, 25), new Rectangle(0, 45, mHealthBar.Width, 25), Color.Gray);
-
             // Draw the current health for the health bar.
-            if (mCurrentHealth > 50)
+            //if (mCurrentHealth > 50)
+            if (araguz.Health > 50)
             {
                 mBatch.Draw(mHealthBar, new Rectangle(ScreenManager.Game.GraphicsDevice.Viewport.Width - mHealthBar.Width - 30, 30, (int)(mHealthBar.Width * ((double)mCurrentHealth / 100)), 25), new Rectangle(0, 45, mHealthBar.Width, 25), Color.DarkRed);
             }
-            else if ((mCurrentHealth <= 50) && (mCurrentHealth > 25))
+            //else if ((mCurrentHealth <= 50) && (mCurrentHealth > 25))
+            else if((araguz.Health <= 50) && (araguz.Health > 25))
             {
                 mBatch.Draw(mHealthBar, new Rectangle(ScreenManager.Game.GraphicsDevice.Viewport.Width - mHealthBar.Width - 30, 30, (int)(mHealthBar.Width * ((double)mCurrentHealth / 100)), 25), new Rectangle(0, 45, mHealthBar.Width, 25), Color.Red);
             }
@@ -678,5 +707,12 @@ namespace RabiesX
         }
 
         #endregion
+
+        private bool Collision(Vector2 position1, Vector2 position2)
+        {
+            if (position1 == position2)
+                return true;
+            return false;
+        }
     }
 }
