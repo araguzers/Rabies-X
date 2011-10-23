@@ -1,0 +1,11 @@
+Araguz
+Health 100
+Defense 100
+Attack 10
+HitsToWound 5
+Alive yes
+Gun
+MaximumPlasma 100
+Plasma 100
+Empty no
+
