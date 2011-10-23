@@ -1,0 +1,4 @@
+Health 5
+Defense 6
+Attack 4
+HitsToWound 1
