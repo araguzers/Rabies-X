@@ -83,6 +83,7 @@ namespace RabiesX
         private Entity playerEntity;
         private Entity terrainEntity;
         //private Entity collectibleEntity;
+        private string difficultyLevel;
         private float playerRadius;
         private float terrainRadius;
         private Matrix[] modelTransforms;
@@ -198,6 +199,16 @@ namespace RabiesX
             terrainRadius = tbounds.Radius;
 
             terrainBounds = tbounds;
+
+            //reads the difficulty level from a text file.
+
+            readStream = new FileStream("Text Files\\DifficultyLevel.txt", FileMode.Open, FileAccess.Read);
+            reader = new StreamReader(readStream);
+
+            difficultyLevel = reader.ReadLine();
+
+            reader.Close();
+            readStream.Close();
 
             // Setup the camera.
             camera = new ThirdPersonCamera();
@@ -731,24 +742,24 @@ namespace RabiesX
             //if (mCurrentHealth > 50)
             if (araguz.Health > 50)
             {
-                mBatch.Draw(mHealthBar, new Rectangle(ScreenManager.Game.GraphicsDevice.Viewport.Width - mHealthBar.Width - 30, 30, (int)(mHealthBar.Width * ((double)mCurrentHealth / 100)), 25), new Rectangle(0, 45, mHealthBar.Width, 25), Color.DarkRed);
+                mBatch.Draw(mHealthBar, new Rectangle(ScreenManager.Game.GraphicsDevice.Viewport.Width - mHealthBar.Width - 30, 30, (int)(mHealthBar.Width * ((double)araguz.Health / 100)), 25), new Rectangle(0, 45, mHealthBar.Width, 25), Color.DarkRed);
             }
             //else if ((mCurrentHealth <= 50) && (mCurrentHealth > 25))
             else if((araguz.Health <= 50) && (araguz.Health > 25))
             {
-                mBatch.Draw(mHealthBar, new Rectangle(ScreenManager.Game.GraphicsDevice.Viewport.Width - mHealthBar.Width - 30, 30, (int)(mHealthBar.Width * ((double)mCurrentHealth / 100)), 25), new Rectangle(0, 45, mHealthBar.Width, 25), Color.Red);
+                mBatch.Draw(mHealthBar, new Rectangle(ScreenManager.Game.GraphicsDevice.Viewport.Width - mHealthBar.Width - 30, 30, (int)(mHealthBar.Width * ((double)araguz.Health / 100)), 25), new Rectangle(0, 45, mHealthBar.Width, 25), Color.Red);
             }
             else
             {
                 if (flicker == true)
                 {
-                    mBatch.Draw(mHealthBar, new Rectangle(ScreenManager.Game.GraphicsDevice.Viewport.Width - mHealthBar.Width - 30, 30, (int)(mHealthBar.Width * ((double)mCurrentHealth / 100)), 25), new Rectangle(0, 45, mHealthBar.Width, 25), Color.Red);
+                    mBatch.Draw(mHealthBar, new Rectangle(ScreenManager.Game.GraphicsDevice.Viewport.Width - mHealthBar.Width - 30, 30, (int)(mHealthBar.Width * ((double)araguz.Health / 100)), 25), new Rectangle(0, 45, mHealthBar.Width, 25), Color.Red);
                     prevElapsedTime = elapsedTime;
                     flicker = false;
                 }
                 else if ((flicker == false) && (elapsedTime != prevElapsedTime))
                 {
-                    mBatch.Draw(mHealthBar, new Rectangle(ScreenManager.Game.GraphicsDevice.Viewport.Width - mHealthBar.Width - 30, 30, (int)(mHealthBar.Width * ((double)mCurrentHealth / 100)), 25), new Rectangle(0, 45, mHealthBar.Width, 25), Color.Transparent);
+                    mBatch.Draw(mHealthBar, new Rectangle(ScreenManager.Game.GraphicsDevice.Viewport.Width - mHealthBar.Width - 30, 30, (int)(mHealthBar.Width * ((double)araguz.Health / 100)), 25), new Rectangle(0, 45, mHealthBar.Width, 25), Color.Transparent);
                     flicker = true;
                 }
             }

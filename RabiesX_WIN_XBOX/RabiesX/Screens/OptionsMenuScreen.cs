@@ -9,6 +9,8 @@
 
 #region Using Statements
 using Microsoft.Xna.Framework;
+using System;
+using System.IO;
 #endregion
 
 namespace RabiesX
@@ -37,6 +39,11 @@ namespace RabiesX
         //}
 
         //static Ungulate currentUngulate = Ungulate.Dromedary;
+
+        //private FileStream readStream;
+        private FileStream writeStream;
+        //private StreamReader reader;
+        private StreamWriter writer;
 
         static string[] languages = { "English", "Spanish", "French", "Russian" };
         static int currentLanguage = 0;
@@ -140,6 +147,19 @@ namespace RabiesX
         void DifficultyMenuEntrySelected(object sender, PlayerIndexEventArgs e)
         {
             currentDifficulty = (currentDifficulty + 1) % difficulties.Length;
+
+            writeStream = new FileStream("Text Files\\DifficultyLevel.txt", FileMode.Open, FileAccess.Write);
+            writer = new StreamWriter(writeStream);
+
+            if (currentDifficulty == 1)
+                writer.WriteLine("Easy");
+            else if (currentDifficulty == 2)
+                writer.WriteLine("Normal");
+            else if (currentDifficulty == 3)
+                writer.WriteLine("Hard");
+
+            writer.Close();
+            writeStream.Close();
 
             SetMenuEntryText();
         }
