@@ -1,6 +1,0 @@
-Health 4
-Defense 5
-Attack 6
-HitsToWound 1
-Type bird
-Speed 18
