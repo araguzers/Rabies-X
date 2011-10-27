@@ -17,6 +17,7 @@ using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using Microsoft.Xna.Framework.Storage;
 #endregion
 
 namespace RabiesX
@@ -31,7 +32,7 @@ namespace RabiesX
     {
         #region Fields
 
-        private const float PLAYER_FORWARD_SPEED = 120.0f;
+        private const float PLAYER_FORWARD_SPEED = 150.0f;
         private const float PLAYER_HEADING_SPEED = 120.0f;
         private const float PLAYER_ROLLING_SPEED = 280.0f;
 
@@ -66,6 +67,11 @@ namespace RabiesX
 
         // Set the 3D model to draw.
         private MyModel playerModel;
+
+        //Sets the sounds.
+        //SoundEffect sound;
+        //SoundEffectInstance soundInstance;
+
               
         // Aspect ratio determines how to scale 3d to 2d projection.
         float aspectRatio;
@@ -91,6 +97,8 @@ namespace RabiesX
         private TimeSpan prevElapsedTime = TimeSpan.Zero;
         private bool displayHelp;
         private bool metJackson;
+
+        //private Random rand;
 
         private ThirdPersonCamera camera;
 
@@ -177,8 +185,13 @@ namespace RabiesX
             mHealthBar = content.Load<Texture2D>("healthbar");
 
             // Load models and set aspect ratio.
-            playerModel = new MyModel("Models\\ball", content);
-            playerModel.Texture("Textures\\wedge_p1_diff_v1", content);
+            playerModel = new MyModel("Models\\isabella", content);
+            //playerModel.Texture("Textures\\wedge_p1_diff_v1", content);
+            playerModel.Texture("Textures\\guzcruiseroofmiddle", content);
+            playerModel.Texture("Textures\\guzcruiseroof1", content);
+            playerModel.Texture("Textures\\cushions", content);
+            playerModel.Texture("Textures\\dooropen", content);
+            playerModel.Texture("Textures\\water", content);
                         
             // Load terrain and sky.
             terrain = content.Load<Model>("terrain");
@@ -528,7 +541,7 @@ namespace RabiesX
             // Update the player's state.
             playerEntity.Velocity = new Vector3(0.0f, 0.0f, forwardSpeed);
             playerEntity.Orient(heading, 0.0f, 0.0f);
-            playerEntity.Rotate(0.0f, pitch, 0.0f);
+            //playerEntity.Rotate(0.0f, pitch, 0.0f);
             playerEntity.Update(gameTime);
 
             // Then move the camera based on where the player has moved to.
@@ -825,7 +838,34 @@ namespace RabiesX
 
         #endregion
 
-        private bool Collision(Vector2 position1, Vector2 position2)
+        private void CreateStorage(StorageDevice device, string storagename, string savename)
+        {
+            IAsyncResult result = device.BeginOpenContainer(storagename, null, null);
+            result.AsyncWaitHandle.WaitOne();
+            StorageContainer container = device.EndOpenContainer(result);
+            result.AsyncWaitHandle.Close();
+            if (!container.FileExists(savename))
+            {
+                Stream file = container.CreateFile(savename);
+                file.Close();
+            }
+            container.Dispose();
+        }
+
+        //private static void OpenStorage(StorageDevice device, string storagename, string savename)
+        //{
+        //    IAsyncResult result = device.BeginOpenContainer(storagename, null, null);
+        //    result.AsyncWaitHandle.WaitOne();
+        //    StorageContainer container = device.EndOpenContainer(result);
+        //    result.AsyncWaitHandle.Close();
+        //    Stream stream = container.OpenFile(savename, FileMode.Open);
+        //    stream.Close();
+        //    container.Dispose();
+        //}
+
+
+
+        private bool Collision(Vector3 position1, Vector3 position2)
         {
             if (position1 == position2)
                 return true;
