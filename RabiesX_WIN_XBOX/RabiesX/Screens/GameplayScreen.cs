@@ -67,6 +67,7 @@ namespace RabiesX
 
         // Set the 3D model to draw.
         private MyModel playerModel;
+        private MyModel model2;
 
         //Sets the sounds.
         //SoundEffect sound;
@@ -192,10 +193,52 @@ namespace RabiesX
             playerModel.Texture("Textures\\cushions", content);
             playerModel.Texture("Textures\\dooropen", content);
             playerModel.Texture("Textures\\water", content);
-                        
+
+
+            model2 = new MyModel("Models\\isabella", content);
+            //playerModel.Texture("Textures\\wedge_p1_diff_v1", content);
+            model2.Texture("Textures\\guzcruiseroofmiddle", content);
+            model2.Texture("Textures\\guzcruiseroof1", content);
+            model2.Texture("Textures\\cushions", content);
+            model2.Texture("Textures\\dooropen", content);
+            model2.Texture("Textures\\water", content);
+
+            int X, Y, Z;
+            //Vector3[] humanPositions = new Vector3[20];
+            //for (int i = 0; i < 200; i++)
+            //{
+            //    X = random.Next(-10000, 10000);
+            //    Y = 0;
+            //    Z = random.Next(-10000, 10000);
+            //    humanPositions[i].X = X;
+            //    humanPositions[i].Y = Y;
+            //    humanPositions[i].Z = Z;
+            //}
+            //Vector3[] dogPositions = new Vector3[20];
+            //for (int i = 0; i < 200; i++)
+            //{
+            //    X = random.Next(-10000, 10000);
+            //    Y = 0;
+            //    Z = random.Next(-10000, 10000);
+            //    dogPositions[i].X = X;
+            //    dogPositions[i].Y = Y;
+            //    dogPositions[i].Z = Z;
+            //}
+            //Vector3[] birdPositions = new Vector3[20];
+            //for (int i = 0; i < 200; i++)
+            //{
+            //    X = random.Next(-10000, 10000);
+            //    Y = 0;
+            //    Z = random.Next(-10000, 10000);
+            //    birdPositions[i].X = X;
+            //    birdPositions[i].Y = Y;
+            //    birdPositions[i].Z = Z;
+            //}
+
             // Load terrain and sky.
             terrain = content.Load<Model>("terrain");
             sky = content.Load<Sky>("sky");
+            //sky = content.Load<Sky>("GraySky");
 
             // Determine the radius of the player model.           
             BoundingSphere bounds = new BoundingSphere();
