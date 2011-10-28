@@ -44,6 +44,7 @@ namespace RabiesXPipeline
                                            ContentProcessorContext context)
         {
             MeshBuilder builder = MeshBuilder.StartMesh("sky");
+            //MeshBuilder builder = MeshBuilder.StartMesh("GraySky");
 
             // Create two rings of vertices around the top and bottom of the cylinder.
             List<int> topVertices = new List<int>();
