@@ -141,6 +141,126 @@
       <Processor>ModelProcessor</Processor>
     </Compile>
   </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Models\isabella.fbx">
+      <Name>isabella</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>ModelProcessor</Processor>
+    </Compile>
+    <None Include="Text Files\AraguzEasy.txt">
+      <Name>AraguzEasy</Name>
+    </None>
+    <None Include="Text Files\BirdEasy.txt">
+      <Name>BirdEasy</Name>
+    </None>
+    <None Include="Text Files\DogEasy.txt">
+      <Name>DogEasy</Name>
+    </None>
+    <None Include="Text Files\HumanEasy.txt">
+      <Name>HumanEasy</Name>
+    </None>
+    <None Include="Text Files\JacksonEasy.txt">
+      <Name>JacksonEasy</Name>
+    </None>
+    <None Include="Text Files\Output.txt">
+      <Name>Output</Name>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Text Files\DifficultyLevel.txt">
+      <Name>DifficultyLevel</Name>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Text Files\DifficultyIndex.txt">
+      <Name>DifficultyIndex</Name>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Models\guzcruiseroof1.jpg">
+      <Name>guzcruiseroof1</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Textures\guzcruiseroof1.jpg">
+      <Name>guzcruiseroof1</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Textures\cushions.jpg">
+      <Name>cushions</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Textures\dooropen.jpg">
+      <Name>dooropen</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Textures\guzcruiseroofmiddle.jpg">
+      <Name>guzcruiseroofmiddle</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Textures\water.jpg">
+      <Name>water</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Models\cushions.jpg">
+      <Name>cushions</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Models\dooropen.jpg">
+      <Name>dooropen</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Models\guzcruiseroofmiddle.jpg">
+      <Name>guzcruiseroofmiddle</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Models\water.jpg">
+      <Name>water</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="cushions.jpg">
+      <Name>cushions</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="dooropen.jpg">
+      <Name>dooropen</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="guzcruiseroof1.jpg">
+      <Name>guzcruiseroof1</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="guzcruiseroofmiddle.jpg">
+      <Name>guzcruiseroofmiddle</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="water.jpg">
+      <Name>water</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\XNA Game Studio\$(XnaFrameworkVersion)\Microsoft.Xna.GameStudio.ContentPipeline.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
