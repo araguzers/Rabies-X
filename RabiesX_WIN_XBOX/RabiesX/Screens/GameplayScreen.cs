@@ -70,8 +70,8 @@ namespace RabiesX
         private MyModel model2;
 
         //Sets the sounds.
-        //SoundEffect sound;
-        //SoundEffectInstance soundInstance;
+        private SoundEffect sound;
+        private SoundEffectInstance soundInstance;
 
               
         // Aspect ratio determines how to scale 3d to 2d projection.
@@ -184,7 +184,7 @@ namespace RabiesX
 
             // Load the health bar image.
             mHealthBar = content.Load<Texture2D>("healthbar");
-
+           
             // Load models and set aspect ratio.
             playerModel = new MyModel("Models\\isabella", content);
             //playerModel.Texture("Textures\\wedge_p1_diff_v1", content);
@@ -194,6 +194,9 @@ namespace RabiesX
             playerModel.Texture("Textures\\dooropen", content);
             playerModel.Texture("Textures\\water", content);
 
+            sound = content.Load<SoundEffect>("Audio\\Waves\\carengine");
+            soundInstance = sound.CreateInstance();
+            soundInstance.IsLooped.Equals(true);
 
             model2 = new MyModel("Models\\isabella", content);
             //playerModel.Texture("Textures\\wedge_p1_diff_v1", content);
@@ -743,8 +746,12 @@ namespace RabiesX
                     movement.X++;
 
                 if (keyboardState.IsKeyDown(Keys.W))
+                {
+                    soundInstance.Play();
                     movement.Y--;
-
+                }
+                if (keyboardState.IsKeyUp(Keys.W))
+                    soundInstance.Stop();
                 if (keyboardState.IsKeyDown(Keys.S))
                     movement.Y++;
                 
