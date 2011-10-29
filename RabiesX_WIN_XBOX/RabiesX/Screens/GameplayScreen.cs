@@ -936,31 +936,6 @@ namespace RabiesX
 
         #endregion
 
-        private void CreateStorage(StorageDevice device, string storagename, string savename)
-        {
-            IAsyncResult result = device.BeginOpenContainer(storagename, null, null);
-            result.AsyncWaitHandle.WaitOne();
-            StorageContainer container = device.EndOpenContainer(result);
-            result.AsyncWaitHandle.Close();
-            if (!container.FileExists(savename))
-            {
-                Stream file = container.CreateFile(savename);
-                file.Close();
-            }
-            container.Dispose();
-        }
-
-        //private static void OpenStorage(StorageDevice device, string storagename, string savename)
-        //{
-        //    IAsyncResult result = device.BeginOpenContainer(storagename, null, null);
-        //    result.AsyncWaitHandle.WaitOne();
-        //    StorageContainer container = device.EndOpenContainer(result);
-        //    result.AsyncWaitHandle.Close();
-        //    Stream stream = container.OpenFile(savename, FileMode.Open);
-        //    stream.Close();
-        //    container.Dispose();
-        //}
-
         private bool OtherKeysUp(KeyboardState state, Keys theKey)
         {
             Keys[] gameKeys = {Keys.H, Keys.Space, Keys.LeftAlt, Keys.RightAlt, Keys.Enter, Keys.Add,
