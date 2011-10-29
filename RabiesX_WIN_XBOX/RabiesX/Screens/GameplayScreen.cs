@@ -745,13 +745,20 @@ namespace RabiesX
                 if (keyboardState.IsKeyDown(Keys.D))
                     movement.X++;
 
-                if (keyboardState.IsKeyDown(Keys.W))
+                if (keyboardState.IsKeyDown(Keys.W) && keyboardState.IsKeyUp(Keys.Up))
                 {
                     soundInstance.Play();
                     movement.Y--;
                 }
-                if (keyboardState.IsKeyUp(Keys.W))
+                if (keyboardState.IsKeyDown(Keys.Up) && keyboardState.IsKeyUp(Keys.W))
+                {
+                    soundInstance.Play();
+                    movement.Y--;
+                }
+                if (keyboardState.IsKeyUp(Keys.W) && keyboardState.IsKeyUp(Keys.Up))
                     soundInstance.Stop();
+                //if (keyboardState.IsKeyUp(Keys.Up))
+                //    soundInstance.Stop();
                 if (keyboardState.IsKeyDown(Keys.S))
                     movement.Y++;
                 
