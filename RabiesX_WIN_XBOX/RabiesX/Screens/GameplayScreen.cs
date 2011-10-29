@@ -738,30 +738,71 @@ namespace RabiesX
             {
                 // Otherwise move the player position.
                 Vector2 movement = Vector2.Zero;
-                
-                if (keyboardState.IsKeyDown(Keys.A))
-                    movement.X--;
 
-                if (keyboardState.IsKeyDown(Keys.D))
-                    movement.X++;
-
-                if (keyboardState.IsKeyDown(Keys.W) && keyboardState.IsKeyUp(Keys.Up))
+                if (keyboardState.IsKeyDown(Keys.W))
                 {
-                    soundInstance.Play();
+                    if(OtherKeysUp(keyboardState, Keys.W))
+                        soundInstance.Play();
                     movement.Y--;
                 }
-                if (keyboardState.IsKeyDown(Keys.Up) && keyboardState.IsKeyUp(Keys.W))
-                {
-                    soundInstance.Play();
-                    movement.Y--;
-                }
-                if (keyboardState.IsKeyUp(Keys.W) && keyboardState.IsKeyUp(Keys.Up))
-                    soundInstance.Stop();
-                //if (keyboardState.IsKeyUp(Keys.Up))
-                //    soundInstance.Stop();
                 if (keyboardState.IsKeyDown(Keys.S))
+                {
+                    if(OtherKeysUp(keyboardState, Keys.S))
+                        soundInstance.Play();
                     movement.Y++;
-                
+                }
+                if (keyboardState.IsKeyDown(Keys.A))
+                {
+                    if(OtherKeysUp(keyboardState, Keys.A))
+                        soundInstance.Play();
+                    movement.X--;
+                }
+                if (keyboardState.IsKeyDown(Keys.D))
+                {
+                    if(OtherKeysUp(keyboardState, Keys.D))
+                        soundInstance.Play();
+                    movement.X++;
+                }              
+                if (keyboardState.IsKeyDown(Keys.Up))
+                {
+                    if(OtherKeysUp(keyboardState, Keys.Up))
+                        soundInstance.Play();
+                    movement.Y--;
+                }
+                if (keyboardState.IsKeyDown(Keys.Down))
+                {
+                    if(OtherKeysUp(keyboardState, Keys.Down))
+                        soundInstance.Play();
+                    movement.Y++;
+                }
+                if (keyboardState.IsKeyDown(Keys.Left))
+                {
+                    if(OtherKeysUp(keyboardState, Keys.Left))
+                        soundInstance.Play();
+                    movement.X--;
+                }
+                if (keyboardState.IsKeyDown(Keys.Right))
+                {
+                    if(OtherKeysUp(keyboardState, Keys.Right))
+                        soundInstance.Play();
+                    movement.X++;
+                }
+                if (keyboardState.IsKeyUp(Keys.W) && OtherKeysUp(keyboardState, Keys.W))
+                    soundInstance.Stop();
+                if (keyboardState.IsKeyUp(Keys.Up) && OtherKeysUp(keyboardState, Keys.Up))
+                    soundInstance.Stop();              
+                if (keyboardState.IsKeyUp(Keys.S) && OtherKeysUp(keyboardState, Keys.S))
+                    soundInstance.Stop();
+                if (keyboardState.IsKeyUp(Keys.Down) && OtherKeysUp(keyboardState, Keys.Down))
+                    soundInstance.Stop();
+                if (keyboardState.IsKeyUp(Keys.A) && OtherKeysUp(keyboardState, Keys.A))
+                    soundInstance.Stop();
+                if (keyboardState.IsKeyUp(Keys.Left) && OtherKeysUp(keyboardState, Keys.Left))
+                    soundInstance.Stop();
+                if (keyboardState.IsKeyUp(Keys.D) && OtherKeysUp(keyboardState, Keys.D))
+                    soundInstance.Stop();
+                if (keyboardState.IsKeyUp(Keys.Right) && OtherKeysUp(keyboardState, Keys.Right))
+                    soundInstance.Stop();
                 Vector2 thumbstick = gamePadState.ThumbSticks.Left;
 
                 movement.X += thumbstick.X;
@@ -920,7 +961,19 @@ namespace RabiesX
         //    container.Dispose();
         //}
 
-
+        private bool OtherKeysUp(KeyboardState state, Keys theKey)
+        {
+            Keys[] gameKeys = {Keys.H, Keys.Space, Keys.LeftAlt, Keys.RightAlt, Keys.Enter, Keys.Add,
+                                  Keys.Subtract, Keys.A, Keys.W, Keys.S, Keys.D, Keys.Up, Keys.Left,
+                                  Keys.Right, Keys.Down, Keys.E, Keys.R};
+            bool keysAreUp = true;
+            foreach (Keys key in gameKeys)
+            {
+                if (key != theKey)
+                    keysAreUp = keysAreUp && state.IsKeyUp(key);
+            }
+            return keysAreUp;
+        }
 
         private bool Collision(Vector3 position1, Vector3 position2)
         {
