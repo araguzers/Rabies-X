@@ -73,7 +73,8 @@ namespace RabiesX
         private SoundEffect sound;
         private SoundEffectInstance soundInstance;
 
-              
+        private Storage storage;
+
         // Aspect ratio determines how to scale 3d to 2d projection.
         float aspectRatio;
 
@@ -90,7 +91,7 @@ namespace RabiesX
         private Entity playerEntity;
         private Entity terrainEntity;
         //private Entity collectibleEntity;
-        private string difficultyLevel;
+        //private string difficultyLevel;
         private float playerRadius;
         private float terrainRadius;
         private Matrix[] modelTransforms;
@@ -112,10 +113,10 @@ namespace RabiesX
         BoundingSphere playerBounds;
         BoundingSphere terrainBounds;
 
-        private FileStream readStream;
-        private FileStream writeStream;
-        private StreamReader reader;
-        private StreamWriter writer;
+        //private FileStream readStream;
+        //private FileStream writeStream;
+        //private StreamReader reader;
+        //private StreamWriter writer;
 
         private bool flicker;
 
@@ -206,7 +207,7 @@ namespace RabiesX
             model2.Texture("Textures\\dooropen", content);
             model2.Texture("Textures\\water", content);
 
-            int X, Y, Z;
+            //int X, Y, Z;
             //Vector3[] humanPositions = new Vector3[20];
             //for (int i = 0; i < 200; i++)
             //{
@@ -259,16 +260,6 @@ namespace RabiesX
 
             terrainBounds = tbounds;
 
-            //reads the difficulty level from a text file.
-
-            readStream = new FileStream("Text Files\\DifficultyLevel.txt", FileMode.Open, FileAccess.Read);
-            reader = new StreamReader(readStream);
-
-            difficultyLevel = reader.ReadLine();
-
-            reader.Close();
-            readStream.Close();
-
             // Setup the camera.
             camera = new ThirdPersonCamera();
             camera.Perspective(CAMERA_FOVX, (float)screenWidth / (float)screenHeight,
@@ -286,123 +277,17 @@ namespace RabiesX
             terrainEntity.ConstrainToWorldYAxis = true;
             terrainEntity.Position = new Vector3(0.0f, 1.0f + terrainRadius, 0.0f);
 
-            //creates the strings to be used in file reading.
-            string line;
-            string[] words;
-
-            //creates the file writer. the text file "Output" is temporary, to test for errors.
-            writeStream = new FileStream("Text Files\\Output.txt", FileMode.Open, FileAccess.Write);
-            writer = new StreamWriter(writeStream);
-
             //creates Geraldo Araguz.
             araguz = new Protagonist();
-            ((Protagonist)araguz).plasmaGun = new PlasmaGun();
-
-            //reads from the statistics file for Araguz.
-            readStream = new FileStream("Text Files\\AraguzEasy.txt", FileMode.Open, FileAccess.Read);
-            reader = new StreamReader(readStream);
-            
-            while (!reader.EndOfStream)
-            {
-                line = reader.ReadLine();
-                words = line.Split(' ');
-                if (words[0] == "Health")
-                    araguz.Health = Convert.ToInt16(words[1]);
-                else if (words[0] == "Defense")
-                    araguz.Defense = Convert.ToInt16(words[1]);
-                else if (words[0] == "Attack")
-                    araguz.Attack = Convert.ToInt16(words[1]);
-                else if (words[0] == "HitsToWound")
-                    araguz.HitsToWound = Convert.ToInt16(words[1]);
-                else if (words[0] == "Alive")
-                {
-                    if (words[1] == "yes")
-                        araguz.Alive = true;
-                    else
-                        araguz.Alive = false;
-                }
-                else if (words[0] == "MaximumPlasma")
-                    ((Protagonist)araguz).plasmaGun.MaximumPlasma = Convert.ToInt16(words[1]);
-                else if (words[0] == "Plasma")
-                    ((Protagonist)araguz).plasmaGun.Plasma = Convert.ToInt16(words[1]);
-                else if (words[0] == "Empty")
-                {
-                    if (words[1] == "no")
-                        ((Protagonist)araguz).plasmaGun.Empty = false;
-                    else
-                        ((Protagonist)araguz).plasmaGun.Empty = true;
-                }
-            }
-            reader.Close();
-            readStream.Close();
-
-            writer.WriteLine(araguz.Health);
-            writer.WriteLine(araguz.Defense);
-            writer.WriteLine(araguz.Attack);
-            writer.WriteLine(araguz.HitsToWound);
-
+            ((Protagonist)araguz).plasmaGun = new PlasmaGun();            
+                  
             /*creates Russell Jackson aka Sadulgo Randol. His type will be antagonist even if he
             initially takes cover as Araguz's "ally" */
             jackson = new Antagonist();
             ((Antagonist)jackson).sword = new Sword();
 
-            //reads from the statistics file for Jackson, first determining if Araguz met him yet.
-            readStream = new FileStream("Text Files\\JacksonEasy.txt", FileMode.Open, FileAccess.Read);
-            reader = new StreamReader(readStream);
-
-            while (!reader.EndOfStream)
-            {
-                line = reader.ReadLine();
-                words = line.Split(' ');
-                if (words[0] == "Met")
-                {
-                    if (words[1] == "no")
-                    {
-                        metJackson = false;
-                        break;
-                    }
-                    metJackson = true;
-                }
-                else if (words[0] == "Health")
-                    jackson.Health = Convert.ToInt16(words[1]);
-                else if (words[0] == "Defense")
-                    jackson.Defense = Convert.ToInt16(words[1]);
-                else if (words[0] == "Attack")
-                    jackson.Attack = Convert.ToInt16(words[1]);
-                else if (words[0] == "HitsToWound")
-                    jackson.HitsToWound = Convert.ToInt16(words[1]);
-                else if (words[0] == "Alive")
-                {
-                    if (words[1] == "yes")
-                        jackson.Alive = true;
-                    else
-                        jackson.Alive = false;
-                }
-                else if (words[0] == "MaximumDurability")
-                    ((Antagonist)jackson).sword.MaximumDurability = Convert.ToInt16(words[1]);
-                else if (words[0] == "Durability")
-                    ((Antagonist)jackson).sword.Durability = Convert.ToInt16(words[1]);
-                else if (words[0] == "Broken")
-                {
-                    if (words[1] == "no")
-                        ((Antagonist)jackson).sword.Broken = false;
-                    else
-                        ((Antagonist)jackson).sword.Broken = true;
-                }
-            }
-            reader.Close();
-            readStream.Close();
-
-            if (metJackson)
-            {
-                writer.WriteLine(jackson.Health);
-                writer.WriteLine(jackson.Defense);
-                writer.WriteLine(jackson.Attack);
-                writer.WriteLine(jackson.HitsToWound);
-            }
-
-            writer.Close();
-            writeStream.Close();
+            storage = new Storage();
+            metJackson = storage.MetJackson;
             // A real game would probably have more content than this sample, so
             // it would take longer to load. We simulate that by delaying for a
             // while, giving you a chance to admire the beautiful loading screen.
@@ -602,17 +487,17 @@ namespace RabiesX
             // Test current health bar.
 
             // If Page Up is pressed, increase the health bar.
-            if (curKeyboardState.IsKeyDown(Keys.PageUp) == true)
-            {
+            //if (curKeyboardState.IsKeyDown(Keys.PageUp) == true)
+            //{
                 //mCurrentHealth += 1;
-                araguz.Heal(1);
-            }
+                //araguz.Heal(1);
+            //}
             // If Page Down is pressed, decrease the health bar.
-            if (curKeyboardState.IsKeyDown(Keys.PageDown) == true)
-            {
+            //if (curKeyboardState.IsKeyDown(Keys.PageDown) == true)
+            //{
                 //mCurrentHealth -= 1;
-                araguz.Wound(1);
-            }
+                //araguz.Wound(1);
+            //}
             //Force the health to remain between 0 and 100.           
             //mCurrentHealth = (int)MathHelper.Clamp(mCurrentHealth, 0, 100);
             araguz.Health = (int)MathHelper.Clamp(mCurrentHealth, 0, 100);
