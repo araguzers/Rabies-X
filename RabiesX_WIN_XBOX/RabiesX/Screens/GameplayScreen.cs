@@ -9,6 +9,8 @@
 
 #region Using Statements
 using System;
+using System.Collections;
+using System.Collections.Generic;
 using System.Text;
 using System.Threading;
 using System.IO;
@@ -44,6 +46,8 @@ namespace RabiesX
         private const float CAMERA_ZNEAR = 1.0f;
         private const float CAMERA_MAX_SPRING_CONSTANT = 100.0f;
         private const float CAMERA_MIN_SPRING_CONSTANT = 1.0f;
+
+        private const int NUMBER_OF_COLLECTIBLES_ON_THE_MAP = 120;
 
         ContentManager content;
         SpriteFont gameFont;
@@ -90,7 +94,8 @@ namespace RabiesX
         private int framesPerSecond;
         private Entity playerEntity;
         private Entity terrainEntity;
-        //private Entity collectibleEntity;
+        private List<Entity> araguzCollectibleEntities;
+        private List<Entity> jacksonCollectibleEntities;
         //private string difficultyLevel;
         private float playerRadius;
         private float terrainRadius;
@@ -199,13 +204,10 @@ namespace RabiesX
             soundInstance = sound.CreateInstance();
             soundInstance.IsLooped.Equals(true);
 
-            model2 = new MyModel("Models\\isabella", content);
+            model2 = new MyModel("Models\\plasma_container", content);
             //playerModel.Texture("Textures\\wedge_p1_diff_v1", content);
-            model2.Texture("Textures\\guzcruiseroofmiddle", content);
-            model2.Texture("Textures\\guzcruiseroof1", content);
-            model2.Texture("Textures\\cushions", content);
-            model2.Texture("Textures\\dooropen", content);
-            model2.Texture("Textures\\water", content);
+            model2.Texture("Textures\\Bucket", content);
+            model2.Texture("Textures\\White", content);
 
             //int X, Y, Z;
             //Vector3[] humanPositions = new Vector3[20];
@@ -276,6 +278,25 @@ namespace RabiesX
             terrainEntity = new Entity();
             terrainEntity.ConstrainToWorldYAxis = true;
             terrainEntity.Position = new Vector3(0.0f, 1.0f + terrainRadius, 0.0f);
+
+
+            //creates random collectible entities to help Araguz.
+            //int index;
+            //for (index = 0; index < 60; index++)
+            //{
+                //araguzCollectibleEntities.Add(new Entity());
+                //araguzCollectibleEntities[index].ConstrainToWorldYAxis = true;
+                //Vector3[] humanPositions = new Vector3[20];
+                //for (int i = 0; i < 200; i++)
+                //{
+                //    X = random.Next(-10000, 10000);
+                //    Y = 0;
+                //    Z = random.Next(-10000, 10000);
+                //    humanPositions[i].X = X;
+                //    humanPositions[i].Y = Y;
+                //    humanPositions[i].Z = Z;
+                //}
+            //}
 
             //creates Geraldo Araguz.
             araguz = new Protagonist();
