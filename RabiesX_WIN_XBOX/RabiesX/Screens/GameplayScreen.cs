@@ -93,12 +93,18 @@ namespace RabiesX
         private int framesPerSecond;
         private Entity playerEntity;
         private Entity terrainEntity;
+
         private List<Entity> araguzCollectibleEntities;
         private List<MyModel> araguzCollectibleModels;
-        //private List<Entity> jacksonCollectibleEntities;
         private List<Collectible> araguzCollectibles;
         private List<BoundingSphere> araguzCollectibleBounds;
         private List<float> araguzRadii;
+        private List<Entity> jacksonCollectibleEntities;
+        private List<MyModel> jacksonCollectibleModels;
+        private List<Collectible> jacksonCollectibles;
+        private List<BoundingSphere> jacksonCollectibleBounds;
+        private List<float> jacksonRadii;
+
         //private string difficultyLevel;
         private float playerRadius;
         private float terrainRadius;
@@ -895,6 +901,54 @@ namespace RabiesX
                     sphere = BoundingSphere.CreateMerged(sphere, mesh.BoundingSphere);
                 araguzRadii.Add(sphere.Radius);
                 araguzCollectibleBounds.Add(sphere);
+            }
+        }
+
+        private void GenerateJacksonCollectibles()
+        {
+            int X, Y, Z;
+            Vector3[] jacksonPositions = new Vector3[NUMBER_OF_COLLECTIBLES_ON_THE_MAP / 2];
+            jacksonCollectibleEntities = new List<Entity>();
+            jacksonCollectibleModels = new List<MyModel>();
+            jacksonCollectibles = new List<Collectible>();
+            jacksonCollectibleBounds = new List<BoundingSphere>();
+            jacksonRadii = new List<float>();
+            Random collectibleRandom;
+            int index;
+            int collectibleIndex;
+            for (index = 0; index < NUMBER_OF_COLLECTIBLES_ON_THE_MAP / 2; index++)
+            {
+                collectibleRandom = new Random();
+                X = random.Next(-100, 100);
+                Y = 0;
+                Z = random.Next(-100, 100);
+                jacksonCollectibleEntities.Add(new Entity());
+                jacksonCollectibleEntities[index].ConstrainToWorldYAxis = true;
+                jacksonCollectibleEntities[index].Position = new Vector3(X, Y, Z);
+                collectibleIndex = collectibleRandom.Next() % 2;
+                if (collectibleIndex == 0)
+                {
+                    jacksonCollectibles.Add(new Collectible("araguz", "plasma container", 2));
+                    jacksonCollectibleModels.Add(new MyModel("Models\\plasma_container", content));
+                    jacksonCollectibleModels[index].Texture("Textures\\Bucket", content);
+                    jacksonCollectibleModels[index].Texture("Textures\\White", content);
+                    jacksonCollectibleModels[index].Position = new Vector3(X, Y, Z);
+                }
+                else
+                {
+                    jacksonCollectibles.Add(new Collectible("araguz", "chemicals", 2));
+                    jacksonCollectibleModels.Add(new MyModel("Models\\chemicals", content));
+                    jacksonCollectibleModels[index].Texture("Textures\\Chemical1", content);
+                    jacksonCollectibleModels[index].Texture("Textures\\Chemical2", content);
+                    jacksonCollectibleModels[index].Texture("Textures\\RedLiquid", content);
+                    jacksonCollectibleModels[index].Texture("Textures\\TopOfFlask", content);
+                    jacksonCollectibleEntities[index].Position = new Vector3(X, Y, Z);
+                }
+                BoundingSphere sphere = new BoundingSphere();
+                foreach (ModelMesh mesh in jacksonCollectibleModels[index].ModelHeld.Meshes)
+                    sphere = BoundingSphere.CreateMerged(sphere, mesh.BoundingSphere);
+                jacksonRadii.Add(sphere.Radius);
+                jacksonCollectibleBounds.Add(sphere);
             }
         }
 
