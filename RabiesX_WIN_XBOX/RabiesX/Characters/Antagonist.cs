@@ -8,7 +8,7 @@ namespace RabiesX
     public class Antagonist : Character
     {
         public Sword sword { get; set; }
-        public bool CanSlash { get; set; }
+        //public bool CanSlash { get; set; }
 
         public Antagonist() : base() { }
 
@@ -33,6 +33,20 @@ namespace RabiesX
         {
             if (!sword.Broken)
                sword.WearOut(1);
+        }
+
+        public void Collect(Collectible collectible)
+        {
+            if (collectible.TargetCharacter == false)
+            {
+                if (collectible.Type == "hammer")
+                    RepairSword();
+                else if (collectible.Type == "sword sharpener")
+                    Attack += collectible.Effect;
+                else if (collectible.Type == "mini anvil")
+                    BoostSword(collectible.Effect);
+            }
+            collectible.GetCollected();
         }
     }
 }

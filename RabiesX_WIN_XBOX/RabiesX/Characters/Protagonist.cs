@@ -8,7 +8,7 @@ namespace RabiesX
     public class Protagonist : Character
     {
         public PlasmaGun plasmaGun { get; set; }
-        public bool CanFire { get; set; }
+        //public bool CanFire { get; set; }
 
         public Protagonist() : base() { }
 
@@ -33,6 +33,20 @@ namespace RabiesX
         {
             if(!plasmaGun.Empty)
                 plasmaGun.Waste(1);
+        }
+
+        public void Collect(Collectible collectible)
+        {
+            if (collectible.TargetCharacter == false)
+            {
+                if (collectible.Type == "plasma container")
+                    RechargeGun();
+                else if (collectible.Type == "chemicals")
+                    Attack += collectible.Effect;
+                else if (collectible.Type == "barrel widener")
+                    BoostGun(collectible.Effect);
+            }
+            collectible.GetCollected();
         }
     }
 }
