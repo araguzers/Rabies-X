@@ -285,6 +285,7 @@ namespace RabiesX
 
             //creates random collectible entities to help Araguz.
             GenerateAraguzCollectibles();
+            GenerateJacksonCollectibles();
             
             //creates Geraldo Araguz.
             araguz = new Protagonist();
@@ -753,8 +754,12 @@ namespace RabiesX
             
             DrawPlayer();
 
-            for (int index = 0; index < NUMBER_OF_COLLECTIBLES_ON_THE_MAP / 2; index++)
+            int index;
+            for (index = 0; index < NUMBER_OF_COLLECTIBLES_ON_THE_MAP / 2; index++)
                 DrawCollectible(araguzCollectibleModels[index], araguzCollectibleEntities[index]);
+
+            for (index = 0; index < NUMBER_OF_COLLECTIBLES_ON_THE_MAP / 2; index++)
+                DrawCollectible(jacksonCollectibleModels[index], jacksonCollectibleEntities[index]);
 
             sky.Draw(camera.ViewMatrix, camera.ProjectionMatrix);
 
@@ -872,8 +877,8 @@ namespace RabiesX
             {
                 collectibleRandom = new Random();
                 X = random.Next(-100, 100);
-                Y = 0;
-                Z = random.Next(-100, 100);
+                Y = random.Next(-100, 100);
+                Z = 0;
                 araguzCollectibleEntities.Add(new Entity());
                 araguzCollectibleEntities[index].ConstrainToWorldYAxis = true;
                 araguzCollectibleEntities[index].Position = new Vector3(X, Y, Z);
@@ -894,7 +899,7 @@ namespace RabiesX
                     araguzCollectibleModels[index].Texture("Textures\\Chemical2", content);
                     araguzCollectibleModels[index].Texture("Textures\\RedLiquid", content);
                     araguzCollectibleModels[index].Texture("Textures\\TopOfFlask", content);
-                    araguzCollectibleEntities[index].Position = new Vector3(X, Y, Z);
+                    araguzCollectibleModels[index].Position = new Vector3(X, Y, Z);
                 }
                 BoundingSphere sphere = new BoundingSphere();
                 foreach (ModelMesh mesh in araguzCollectibleModels[index].ModelHeld.Meshes)
@@ -913,22 +918,22 @@ namespace RabiesX
             jacksonCollectibles = new List<Collectible>();
             jacksonCollectibleBounds = new List<BoundingSphere>();
             jacksonRadii = new List<float>();
-            Random collectibleRandom;
+            Random collectibleRandom = new Random();
             int index;
             int collectibleIndex;
             for (index = 0; index < NUMBER_OF_COLLECTIBLES_ON_THE_MAP / 2; index++)
             {
-                collectibleRandom = new Random();
+                //collectibleRandom = new Random();
                 X = random.Next(-100, 100);
-                Y = 0;
-                Z = random.Next(-100, 100);
+                Y = random.Next(-100, 100);
+                Z = 0;
                 jacksonCollectibleEntities.Add(new Entity());
                 jacksonCollectibleEntities[index].ConstrainToWorldYAxis = true;
                 jacksonCollectibleEntities[index].Position = new Vector3(X, Y, Z);
                 collectibleIndex = collectibleRandom.Next() % 2;
                 if (collectibleIndex == 0)
                 {
-                    jacksonCollectibles.Add(new Collectible("araguz", "plasma container", 2));
+                    jacksonCollectibles.Add(new Collectible("jackson", "plasma container", 2));
                     jacksonCollectibleModels.Add(new MyModel("Models\\plasma_container", content));
                     jacksonCollectibleModels[index].Texture("Textures\\Bucket", content);
                     jacksonCollectibleModels[index].Texture("Textures\\White", content);
@@ -936,13 +941,10 @@ namespace RabiesX
                 }
                 else
                 {
-                    jacksonCollectibles.Add(new Collectible("araguz", "chemicals", 2));
-                    jacksonCollectibleModels.Add(new MyModel("Models\\chemicals", content));
-                    jacksonCollectibleModels[index].Texture("Textures\\Chemical1", content);
-                    jacksonCollectibleModels[index].Texture("Textures\\Chemical2", content);
-                    jacksonCollectibleModels[index].Texture("Textures\\RedLiquid", content);
-                    jacksonCollectibleModels[index].Texture("Textures\\TopOfFlask", content);
-                    jacksonCollectibleEntities[index].Position = new Vector3(X, Y, Z);
+                    jacksonCollectibles.Add(new Collectible("jackson", "repair hammer", 2));
+                    jacksonCollectibleModels.Add(new MyModel("Models\\repair_hammer", content));
+                    jacksonCollectibleModels[index].Texture("Textures\\Hammer", content);
+                    jacksonCollectibleModels[index].Position = new Vector3(X, Y, Z);
                 }
                 BoundingSphere sphere = new BoundingSphere();
                 foreach (ModelMesh mesh in jacksonCollectibleModels[index].ModelHeld.Meshes)
