@@ -71,7 +71,6 @@ namespace RabiesX
 
         // Set the 3D model to draw.
         private MyModel playerModel;
-        private MyModel model2;
 
         //Sets the sounds.
         private SoundEffect sound;
@@ -95,7 +94,11 @@ namespace RabiesX
         private Entity playerEntity;
         private Entity terrainEntity;
         private List<Entity> araguzCollectibleEntities;
-        private List<Entity> jacksonCollectibleEntities;
+        private List<MyModel> araguzCollectibleModels;
+        //private List<Entity> jacksonCollectibleEntities;
+        private List<Collectible> araguzCollectibles;
+        private List<BoundingSphere> araguzCollectibleBounds;
+        private List<float> araguzRadii;
         //private string difficultyLevel;
         private float playerRadius;
         private float terrainRadius;
@@ -204,12 +207,6 @@ namespace RabiesX
             soundInstance = sound.CreateInstance();
             soundInstance.IsLooped.Equals(true);
 
-            model2 = new MyModel("Models\\plasma_container", content);
-            //playerModel.Texture("Textures\\wedge_p1_diff_v1", content);
-            model2.Texture("Textures\\Bucket", content);
-            model2.Texture("Textures\\White", content);
-
-            //int X, Y, Z;
             //Vector3[] humanPositions = new Vector3[20];
             //for (int i = 0; i < 200; i++)
             //{
@@ -281,23 +278,8 @@ namespace RabiesX
 
 
             //creates random collectible entities to help Araguz.
-            //int index;
-            //for (index = 0; index < 60; index++)
-            //{
-                //araguzCollectibleEntities.Add(new Entity());
-                //araguzCollectibleEntities[index].ConstrainToWorldYAxis = true;
-                //Vector3[] humanPositions = new Vector3[20];
-                //for (int i = 0; i < 200; i++)
-                //{
-                //    X = random.Next(-10000, 10000);
-                //    Y = 0;
-                //    Z = random.Next(-10000, 10000);
-                //    humanPositions[i].X = X;
-                //    humanPositions[i].Y = Y;
-                //    humanPositions[i].Z = Z;
-                //}
-            //}
-
+            GenerateAraguzCollectibles();
+            
             //creates Geraldo Araguz.
             araguz = new Protagonist();
             ((Protagonist)araguz).plasmaGun = new PlasmaGun();            
@@ -573,6 +555,29 @@ namespace RabiesX
             }
         }
 
+        private void DrawCollectible(MyModel model, Entity entity)
+        {
+            if (modelTransforms == null)
+                modelTransforms = new Matrix[model.ModelHeld.Bones.Count];
+
+            model.ModelHeld.CopyAbsoluteBoneTransformsTo(modelTransforms);
+
+            foreach (ModelMesh m in model.ModelHeld.Meshes)
+            {
+                foreach (BasicEffect e in m.Effects)
+                {
+                    e.PreferPerPixelLighting = true;
+                    e.TextureEnabled = true;
+                    e.EnableDefaultLighting();
+                    e.World = modelTransforms[m.ParentBone.Index] * entity.WorldMatrix;
+                    e.View = camera.ViewMatrix;
+                    e.Projection = camera.ProjectionMatrix;
+                }
+
+                m.Draw();
+            }
+        }
+
         private void DrawText()
         {
             StringBuilder buffer = new StringBuilder();
@@ -742,6 +747,9 @@ namespace RabiesX
             
             DrawPlayer();
 
+            for (int index = 0; index < NUMBER_OF_COLLECTIBLES_ON_THE_MAP / 2; index++)
+                DrawCollectible(araguzCollectibleModels[index], araguzCollectibleEntities[index]);
+
             sky.Draw(camera.ViewMatrix, camera.ProjectionMatrix);
 
             DrawTerrain(camera.ViewMatrix, camera.ProjectionMatrix);
@@ -841,6 +849,54 @@ namespace RabiesX
         }
 
         #endregion
+
+        private void GenerateAraguzCollectibles()
+        {
+            int X, Y, Z;
+            Vector3[] araguzPositions = new Vector3[NUMBER_OF_COLLECTIBLES_ON_THE_MAP / 2];
+            araguzCollectibleEntities = new List<Entity>();
+            araguzCollectibleModels = new List<MyModel>();
+            araguzCollectibles = new List<Collectible>();
+            araguzCollectibleBounds = new List<BoundingSphere>();
+            araguzRadii = new List<float>();
+            Random collectibleRandom;
+            int index;
+            int collectibleIndex;
+            for (index = 0; index < NUMBER_OF_COLLECTIBLES_ON_THE_MAP / 2; index++)
+            {
+                collectibleRandom = new Random();
+                X = random.Next(-100, 100);
+                Y = 0;
+                Z = random.Next(-100, 100);
+                araguzCollectibleEntities.Add(new Entity());
+                araguzCollectibleEntities[index].ConstrainToWorldYAxis = true;
+                araguzCollectibleEntities[index].Position = new Vector3(X, Y, Z);
+                collectibleIndex = collectibleRandom.Next() % 2;
+                if (collectibleIndex == 0)
+                {
+                    araguzCollectibles.Add(new Collectible("araguz", "plasma container", 2));
+                    araguzCollectibleModels.Add(new MyModel("Models\\plasma_container", content));
+                    araguzCollectibleModels[index].Texture("Textures\\Bucket", content);
+                    araguzCollectibleModels[index].Texture("Textures\\White", content);
+                    araguzCollectibleModels[index].Position = new Vector3(X, Y, Z);
+                }
+                else
+                {
+                    araguzCollectibles.Add(new Collectible("araguz", "chemicals", 2));
+                    araguzCollectibleModels.Add(new MyModel("Models\\chemicals", content));
+                    araguzCollectibleModels[index].Texture("Textures\\Chemical1", content);
+                    araguzCollectibleModels[index].Texture("Textures\\Chemical2", content);
+                    araguzCollectibleModels[index].Texture("Textures\\RedLiquid", content);
+                    araguzCollectibleModels[index].Texture("Textures\\TopOfFlask", content);
+                    araguzCollectibleEntities[index].Position = new Vector3(X, Y, Z);
+                }
+                BoundingSphere sphere = new BoundingSphere();
+                foreach (ModelMesh mesh in araguzCollectibleModels[index].ModelHeld.Meshes)
+                    sphere = BoundingSphere.CreateMerged(sphere, mesh.BoundingSphere);
+                araguzRadii.Add(sphere.Radius);
+                araguzCollectibleBounds.Add(sphere);
+            }
+        }
 
         private bool OtherKeysUp(KeyboardState state, Keys theKey)
         {
