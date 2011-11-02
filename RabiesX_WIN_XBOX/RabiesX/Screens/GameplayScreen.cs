@@ -289,8 +289,9 @@ namespace RabiesX
             
             //creates Geraldo Araguz.
             araguz = new Protagonist();
-            ((Protagonist)araguz).plasmaGun = new PlasmaGun();            
-                  
+            ((Protagonist)araguz).plasmaGun = new PlasmaGun();
+            
+            //StorageDevice device
             /*creates Russell Jackson aka Sadulgo Randol. His type will be antagonist even if he
             initially takes cover as Araguz's "ally" */
             jackson = new Antagonist();
@@ -298,6 +299,10 @@ namespace RabiesX
 
             storage = new Storage();
             metJackson = storage.MetJackson;
+
+            //AsyncCallback callback = new AsyncCallback(storage.CreateStorage); //receives a parameter of type result
+            //IAsyncResult result = StorageDevice.BeginShowSelector(callback, null);
+            //storage.CreateStorage(result);
             // A real game would probably have more content than this sample, so
             // it would take longer to load. We simulate that by delaying for a
             // while, giving you a chance to admire the beautiful loading screen.
@@ -308,6 +313,11 @@ namespace RabiesX
             // it should not try to catch up.
             ScreenManager.Game.ResetElapsedTime();
         }
+
+        //public void myCallback(IAsyncResult result)
+        //{
+            
+        //}
 
 
         /// <summary>
