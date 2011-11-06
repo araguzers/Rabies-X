@@ -71,6 +71,7 @@ namespace RabiesX
 
         // Set the 3D model to draw.
         private MyModel playerModel;
+        //private MyModel itemModel;
 
         //Sets the sounds.
         private SoundEffect sound;
@@ -93,6 +94,7 @@ namespace RabiesX
         private int framesPerSecond;
         private Entity playerEntity;
         private Entity terrainEntity;
+        //private Entity itemEntity;
 
         private List<Entity> araguzCollectibleEntities;
         private List<MyModel> araguzCollectibleModels;
@@ -108,6 +110,7 @@ namespace RabiesX
         //private string difficultyLevel;
         private float playerRadius;
         private float terrainRadius;
+        //private float itemRadius;
         private Matrix[] modelTransforms;
         private TimeSpan elapsedTime = TimeSpan.Zero;
         private TimeSpan prevElapsedTime = TimeSpan.Zero;
@@ -126,6 +129,8 @@ namespace RabiesX
 
         BoundingSphere playerBounds;
         BoundingSphere terrainBounds;
+
+        List<BoundingSphere> araguzBounds;
 
         //private FileStream readStream;
         //private FileStream writeStream;
@@ -212,38 +217,7 @@ namespace RabiesX
             sound = content.Load<SoundEffect>("Audio\\Waves\\carengine");
             soundInstance = sound.CreateInstance();
             soundInstance.IsLooped.Equals(true);
-
-            //Vector3[] humanPositions = new Vector3[20];
-            //for (int i = 0; i < 200; i++)
-            //{
-            //    X = random.Next(-10000, 10000);
-            //    Y = 0;
-            //    Z = random.Next(-10000, 10000);
-            //    humanPositions[i].X = X;
-            //    humanPositions[i].Y = Y;
-            //    humanPositions[i].Z = Z;
-            //}
-            //Vector3[] dogPositions = new Vector3[20];
-            //for (int i = 0; i < 200; i++)
-            //{
-            //    X = random.Next(-10000, 10000);
-            //    Y = 0;
-            //    Z = random.Next(-10000, 10000);
-            //    dogPositions[i].X = X;
-            //    dogPositions[i].Y = Y;
-            //    dogPositions[i].Z = Z;
-            //}
-            //Vector3[] birdPositions = new Vector3[20];
-            //for (int i = 0; i < 200; i++)
-            //{
-            //    X = random.Next(-10000, 10000);
-            //    Y = 0;
-            //    Z = random.Next(-10000, 10000);
-            //    birdPositions[i].X = X;
-            //    birdPositions[i].Y = Y;
-            //    birdPositions[i].Z = Z;
-            //}
-
+           
             // Load terrain and sky.
             terrain = content.Load<Model>("terrain");
             sky = content.Load<Sky>("sky");
@@ -282,11 +256,44 @@ namespace RabiesX
             terrainEntity.ConstrainToWorldYAxis = true;
             terrainEntity.Position = new Vector3(0.0f, 1.0f + terrainRadius, 0.0f);
 
+            //araguzCollectibleModels = new List<MyModel>();
+            //araguzCollectibleEntities = new List<Entity>();
+            //araguzCollectibleBounds = new List<BoundingSphere>();
+            //araguzBounds = new List<BoundingSphere>();
+            //araguzRadii = new List<float>();
 
+            //araguzCollectibleModels.Add(new MyModel("Models\\chemicals", content));
+            //araguzCollectibleModels[0].Texture("Textures\\Chemical1", content);
+            //araguzCollectibleModels[0].Texture("Textures\\Chemical2", content);
+            //araguzCollectibleModels[0].Texture("Textures\\RedLiquid", content);
+            //araguzCollectibleModels[0].Texture("Textures\\TopOfFlask", content);
+            //araguzCollectibleModels.Add(new MyModel("Models\\plasma_container", content));
+            //araguzCollectibleModels[1].Texture("Textures\\Bucket", content);
+            //araguzCollectibleModels[1].Texture("Textures\\White", content);
+            //itemModel.Position = new Vector3(0.0f, 1.0f + playerRadius, 0.0f);
+
+            //araguzCollectibleBounds.Add(new BoundingSphere());
+            //araguzCollectibleBounds.Add(new BoundingSphere());
+            //foreach (ModelMesh mesh in araguzCollectibleModels[0].ModelHeld.Meshes)
+            //    araguzCollectibleBounds[0] = BoundingSphere.CreateMerged(araguzCollectibleBounds[0], mesh.BoundingSphere);
+            //foreach (ModelMesh mesh in araguzCollectibleModels[1].ModelHeld.Meshes)
+            //    araguzCollectibleBounds[1] = BoundingSphere.CreateMerged(araguzCollectibleBounds[1], mesh.BoundingSphere);
+            //araguzRadii.Add(araguzCollectibleBounds[0].Radius);
+            //araguzRadii.Add(araguzCollectibleBounds[1].Radius);
+            //araguzBounds.Add(araguzCollectibleBounds[0]);
+            //araguzBounds.Add(araguzCollectibleBounds[1]);
+
+            //araguzCollectibleEntities.Add(new Entity());
+            //araguzCollectibleEntities.Add(new Entity());
+            //araguzCollectibleEntities[0].ConstrainToWorldYAxis = true;
+            //araguzCollectibleEntities[1].ConstrainToWorldYAxis = true;
+            ////itemEntity.Position = new Vector3(0.0f, 1.0f + playerRadius, 0.0f);
+            //araguzCollectibleEntities[0].Position = new Vector3(-1000, 1000, 0);
+            //araguzCollectibleEntities[1].Position = new Vector3(-600, 700, 0);
             //creates random collectible entities to help Araguz.
             GenerateAraguzCollectibles();
             GenerateJacksonCollectibles();
-            
+           
             //creates Geraldo Araguz.
             araguz = new Protagonist();
             ((Protagonist)araguz).plasmaGun = new PlasmaGun();
@@ -306,7 +313,7 @@ namespace RabiesX
             // A real game would probably have more content than this sample, so
             // it would take longer to load. We simulate that by delaying for a
             // while, giving you a chance to admire the beautiful loading screen.
-            Thread.Sleep(3000);
+            Thread.Sleep(500);
 
             // Once the load has finished, we use ResetElapsedTime to tell the game's
             // timing mechanism that we have just finished a very long frame, and that
@@ -572,7 +579,7 @@ namespace RabiesX
             }
         }
 
-        private void DrawCollectible(MyModel model, Entity entity)
+        private void DrawCollectible(Entity entity, MyModel model)
         {
             if (modelTransforms == null)
                 modelTransforms = new Matrix[model.ModelHeld.Bones.Count];
@@ -764,12 +771,11 @@ namespace RabiesX
             
             DrawPlayer();
 
-            int index;
+            int index;          
             for (index = 0; index < NUMBER_OF_COLLECTIBLES_ON_THE_MAP / 2; index++)
-                DrawCollectible(araguzCollectibleModels[index], araguzCollectibleEntities[index]);
-
+                DrawCollectible(araguzCollectibleEntities[index], araguzCollectibleModels[index]);
             for (index = 0; index < NUMBER_OF_COLLECTIBLES_ON_THE_MAP / 2; index++)
-                DrawCollectible(jacksonCollectibleModels[index], jacksonCollectibleEntities[index]);
+                DrawCollectible(jacksonCollectibleEntities[index], jacksonCollectibleModels[index]);
 
             sky.Draw(camera.ViewMatrix, camera.ProjectionMatrix);
 
@@ -822,8 +828,8 @@ namespace RabiesX
             
             spriteBatchAlpha.DrawString(gameFont, "// TODO", playerPosition, Color.Green);
 
-            spriteBatchAlpha.DrawString(gameFont, "Insert Gameplay Here",
-                                   enemyPosition, Color.DarkRed);
+            //spriteBatchAlpha.DrawString(gameFont, "Insert Gameplay Here",
+            //                       enemyPosition, Color.DarkRed);
 
             spriteBatchAlpha.End();
             base.Draw(gameTime);
@@ -874,7 +880,7 @@ namespace RabiesX
         private void GenerateAraguzCollectibles()
         {
             int X, Y, Z;
-            Vector3[] araguzPositions = new Vector3[NUMBER_OF_COLLECTIBLES_ON_THE_MAP / 2];
+            Vector3[] araguzPositions = new Vector3[NUMBER_OF_COLLECTIBLES_ON_THE_MAP / 2]; //60
             araguzCollectibleEntities = new List<Entity>();
             araguzCollectibleModels = new List<MyModel>();
             araguzCollectibles = new List<Collectible>();
@@ -883,11 +889,11 @@ namespace RabiesX
             Random collectibleRandom;
             int index;
             int collectibleIndex;
+            collectibleRandom = new Random();
             for (index = 0; index < NUMBER_OF_COLLECTIBLES_ON_THE_MAP / 2; index++)
             {
-                collectibleRandom = new Random();
-                X = random.Next(-100, 100);
-                Y = random.Next(-100, 100);
+                X = collectibleRandom.Next(-1000, 1000);
+                Y = collectibleRandom.Next(-1000, 1000);
                 Z = 0;
                 araguzCollectibleEntities.Add(new Entity());
                 araguzCollectibleEntities[index].ConstrainToWorldYAxis = true;
@@ -913,9 +919,12 @@ namespace RabiesX
                 }
                 BoundingSphere sphere = new BoundingSphere();
                 foreach (ModelMesh mesh in araguzCollectibleModels[index].ModelHeld.Meshes)
+                {
                     sphere = BoundingSphere.CreateMerged(sphere, mesh.BoundingSphere);
-                araguzRadii.Add(sphere.Radius);
-                araguzCollectibleBounds.Add(sphere);
+                    araguzRadii.Add(sphere.Radius);
+                    sphere.Center = new Vector3(X, Y, Z);
+                    araguzCollectibleBounds.Add(sphere);
+                }
             }
         }
 
@@ -934,8 +943,8 @@ namespace RabiesX
             for (index = 0; index < NUMBER_OF_COLLECTIBLES_ON_THE_MAP / 2; index++)
             {
                 //collectibleRandom = new Random();
-                X = random.Next(-100, 100);
-                Y = random.Next(-100, 100);
+                X = collectibleRandom.Next(-1000, 1000);
+                Y = collectibleRandom.Next(-1000, 1000);
                 Z = 0;
                 jacksonCollectibleEntities.Add(new Entity());
                 jacksonCollectibleEntities[index].ConstrainToWorldYAxis = true;
@@ -958,9 +967,12 @@ namespace RabiesX
                 }
                 BoundingSphere sphere = new BoundingSphere();
                 foreach (ModelMesh mesh in jacksonCollectibleModels[index].ModelHeld.Meshes)
+                {
                     sphere = BoundingSphere.CreateMerged(sphere, mesh.BoundingSphere);
-                jacksonRadii.Add(sphere.Radius);
-                jacksonCollectibleBounds.Add(sphere);
+                    jacksonRadii.Add(sphere.Radius);
+                    sphere.Center = new Vector3(X, Y, Z);
+                    jacksonCollectibleBounds.Add(sphere);
+                }
             }
         }
 
