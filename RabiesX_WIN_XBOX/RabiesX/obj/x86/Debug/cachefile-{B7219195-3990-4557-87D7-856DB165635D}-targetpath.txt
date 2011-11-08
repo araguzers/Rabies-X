@@ -107,6 +107,11 @@ Content\Models\dark-metal-texture_0.xnb
 Content\Models\barrel_widener.xnb
 Content\Models\steel-mesh_0.xnb
 Content\Models\Metal1_0.xnb
+Content\Models\sword_sharpener.xnb
+Content\Models\Wood_texture_0.xnb
+Content\Models\White_Stone_0.xnb
+Content\Models\WoodTexture14_0.xnb
+Content\Models\close-up-of-wood-texture_0.xnb
 Content\Textures\guzcruiseroof1.jpg
 Content\Textures\cushions.jpg
 Content\Textures\dooropen.jpg

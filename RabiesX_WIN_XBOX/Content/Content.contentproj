@@ -172,6 +172,11 @@
       <Importer>FbxImporter</Importer>
       <Processor>ModelProcessor</Processor>
     </Compile>
+    <Compile Include="Models\sword_sharpener.fbx">
+      <Name>sword_sharpener</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>ModelProcessor</Processor>
+    </Compile>
     <None Include="Text Files\AraguzEasy.txt">
       <Name>AraguzEasy</Name>
     </None>

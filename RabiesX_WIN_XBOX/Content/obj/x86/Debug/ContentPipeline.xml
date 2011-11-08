@@ -941,7 +941,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Models\White_Stone.xnb</Output>
-      <Time>2011-11-08T12:47:48-06:00</Time>
+      <Time>2011-11-08T16:31:13.6081507-06:00</Time>
     </Item>
     <Item>
       <Source>Models\WoodTexture14.jpg</Source>
@@ -950,7 +950,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Models\WoodTexture14.xnb</Output>
-      <Time>2011-11-08T12:47:50-06:00</Time>
+      <Time>2011-11-08T15:45:33.615432-06:00</Time>
     </Item>
     <Item>
       <Source>Models\Wood_texture.jpg</Source>
@@ -977,7 +977,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Textures\close-up-of-wood-texture.xnb</Output>
-      <Time>2011-11-08T13:22:14.1505708-06:00</Time>
+      <Time>2011-11-08T15:46:24.8013597-06:00</Time>
     </Item>
     <Item>
       <Source>Textures\dark-metal-texture.jpg</Source>
@@ -1031,7 +1031,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Textures\White_Stone.xnb</Output>
-      <Time>2011-11-08T12:47:48-06:00</Time>
+      <Time>2011-11-08T16:31:13.6081507-06:00</Time>
     </Item>
     <Item>
       <Source>Textures\WoodTexture14.jpg</Source>
@@ -1040,7 +1040,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Textures\WoodTexture14.xnb</Output>
-      <Time>2011-11-08T12:47:50-06:00</Time>
+      <Time>2011-11-08T16:08:26.9649831-06:00</Time>
     </Item>
     <Item>
       <Source>Textures\Wood_texture.jpg</Source>
@@ -1121,7 +1121,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\White_Stone.xnb</Output>
-      <Time>2011-11-08T12:47:48-06:00</Time>
+      <Time>2011-11-08T16:32:26.7253327-06:00</Time>
     </Item>
     <Item>
       <Source>WoodTexture14.jpg</Source>
@@ -1130,7 +1130,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\WoodTexture14.xnb</Output>
-      <Time>2011-11-08T12:47:50-06:00</Time>
+      <Time>2011-11-08T16:07:30.6907644-06:00</Time>
     </Item>
     <Item>
       <Source>Wood_texture.jpg</Source>
@@ -1241,6 +1241,94 @@
       <Options>None</Options>
       <Output>C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Models\Metal1_0.xnb</Output>
       <Time>2011-11-08T14:14:04.6734825-06:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\sword_sharpener.fbx</Source>
+      <Name>Models\sword_sharpener</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>ModelProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Models\sword_sharpener.xnb</Output>
+      <Time>2011-11-08T16:23:08.1703852-06:00</Time>
+      <Dependency>
+        <Key>obj\x86\Debug\Models\sword_sharpener_0.xml</Key>
+        <Value>2011-11-08T16:23:09.4674594-06:00</Value>
+      </Dependency>
+      <Request>C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Models\Wood_texture_0.xnb</Request>
+      <Request>C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Models\White_Stone_0.xnb</Request>
+      <Request>C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Models\WoodTexture14_0.xnb</Request>
+      <Request>C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Models\close-up-of-wood-texture_0.xnb</Request>
+    </Item>
+    <Item>
+      <Source>Models\sword_sharpener.fbx</Source>
+      <Importer>FbxImporter</Importer>
+      <Options>IntermediateFile, DontCacheImportedData</Options>
+      <Output>obj\x86\Debug\Models\sword_sharpener_0.xml</Output>
+      <Time>2011-11-08T16:23:08.1703852-06:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\Wood_texture.jpg</Source>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Parameters>
+        <Data Key="ColorKeyColor" Type="Framework:Color">FFFF00FF</Data>
+        <Data Key="ColorKeyEnabled" Type="bool">true</Data>
+        <Data Key="TextureFormat" Type="Processors:TextureProcessorOutputFormat">DxtCompressed</Data>
+        <Data Key="GenerateMipmaps" Type="bool">true</Data>
+        <Data Key="ResizeToPowerOfTwo" Type="bool">false</Data>
+        <Data Key="PremultiplyAlpha" Type="bool">true</Data>
+      </Parameters>
+      <Options>None</Options>
+      <Output>C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Models\Wood_texture_0.xnb</Output>
+      <Time>2011-11-08T12:47:48-06:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\White_Stone.jpg</Source>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Parameters>
+        <Data Key="ColorKeyColor" Type="Framework:Color">FFFF00FF</Data>
+        <Data Key="ColorKeyEnabled" Type="bool">true</Data>
+        <Data Key="TextureFormat" Type="Processors:TextureProcessorOutputFormat">DxtCompressed</Data>
+        <Data Key="GenerateMipmaps" Type="bool">true</Data>
+        <Data Key="ResizeToPowerOfTwo" Type="bool">false</Data>
+        <Data Key="PremultiplyAlpha" Type="bool">true</Data>
+      </Parameters>
+      <Options>None</Options>
+      <Output>C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Models\White_Stone_0.xnb</Output>
+      <Time>2011-11-08T16:31:13.6081507-06:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\WoodTexture14.jpg</Source>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Parameters>
+        <Data Key="ColorKeyColor" Type="Framework:Color">FFFF00FF</Data>
+        <Data Key="ColorKeyEnabled" Type="bool">true</Data>
+        <Data Key="TextureFormat" Type="Processors:TextureProcessorOutputFormat">DxtCompressed</Data>
+        <Data Key="GenerateMipmaps" Type="bool">true</Data>
+        <Data Key="ResizeToPowerOfTwo" Type="bool">false</Data>
+        <Data Key="PremultiplyAlpha" Type="bool">true</Data>
+      </Parameters>
+      <Options>None</Options>
+      <Output>C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Models\WoodTexture14_0.xnb</Output>
+      <Time>2011-11-08T15:45:33.615432-06:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\close-up-of-wood-texture.jpg</Source>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Parameters>
+        <Data Key="ColorKeyColor" Type="Framework:Color">FFFF00FF</Data>
+        <Data Key="ColorKeyEnabled" Type="bool">true</Data>
+        <Data Key="TextureFormat" Type="Processors:TextureProcessorOutputFormat">DxtCompressed</Data>
+        <Data Key="GenerateMipmaps" Type="bool">true</Data>
+        <Data Key="ResizeToPowerOfTwo" Type="bool">false</Data>
+        <Data Key="PremultiplyAlpha" Type="bool">true</Data>
+      </Parameters>
+      <Options>None</Options>
+      <Output>C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Models\close-up-of-wood-texture_0.xnb</Output>
+      <Time>2011-11-08T13:22:14.1505708-06:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>

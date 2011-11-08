@@ -47,7 +47,7 @@ namespace RabiesX
         private const float CAMERA_MAX_SPRING_CONSTANT = 100.0f;
         private const float CAMERA_MIN_SPRING_CONSTANT = 1.0f;
 
-        private const int NUMBER_OF_COLLECTIBLES_ON_THE_MAP = 120;
+        private const int NUMBER_OF_COLLECTIBLES_ON_THE_MAP = 200;
 
         ContentManager content;
         SpriteFont gameFont;
@@ -958,7 +958,7 @@ namespace RabiesX
                 jacksonCollectibleEntities.Add(new Entity());
                 jacksonCollectibleEntities[index].ConstrainToWorldYAxis = true;
                 jacksonCollectibleEntities[index].Position = new Vector3(X, Y, Z);
-                collectibleIndex = collectibleRandom.Next() % 2;
+                collectibleIndex = collectibleRandom.Next() % 3;
                 if (collectibleIndex == 0)
                 {
                     jacksonCollectibles.Add(new Collectible("jackson", "mini anvil", 2));
@@ -966,11 +966,21 @@ namespace RabiesX
                     jacksonCollectibleModels[index].Texture("Textures\\dark-metal-texture", content);
                     //jacksonCollectibleModels[index].Position = new Vector3(X, Y, Z);
                 }
-                else
+                else if (collectibleIndex == 1)
                 {
                     jacksonCollectibles.Add(new Collectible("jackson", "repair hammer", 2));
                     jacksonCollectibleModels.Add(new MyModel("Models\\repair_hammer", content));
                     jacksonCollectibleModels[index].Texture("Textures\\Hammer", content);
+                    //jacksonCollectibleModels[index].Position = new Vector3(X, Y, Z);
+                }
+                else
+                {
+                    jacksonCollectibles.Add(new Collectible("jackson", "sword sharpener", 2));
+                    jacksonCollectibleModels.Add(new MyModel("Models\\sword_sharpener", content));
+                    jacksonCollectibleModels[index].Texture("Textures\\close-up-of-wood-texture", content);
+                    jacksonCollectibleModels[index].Texture("Textures\\Wood_texture", content);
+                    jacksonCollectibleModels[index].Texture("Textures\\Wood_texture_2", content);
+                    jacksonCollectibleModels[index].Texture("Textures\\WoodTexture14", content);
                     //jacksonCollectibleModels[index].Position = new Vector3(X, Y, Z);
                 }
                 BoundingSphere sphere = new BoundingSphere();
