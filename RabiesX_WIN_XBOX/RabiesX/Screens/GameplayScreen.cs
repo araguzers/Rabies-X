@@ -952,10 +952,9 @@ namespace RabiesX
                 collectibleIndex = collectibleRandom.Next() % 2;
                 if (collectibleIndex == 0)
                 {
-                    jacksonCollectibles.Add(new Collectible("jackson", "plasma container", 2));
-                    jacksonCollectibleModels.Add(new MyModel("Models\\plasma_container", content));
-                    jacksonCollectibleModels[index].Texture("Textures\\Bucket", content);
-                    jacksonCollectibleModels[index].Texture("Textures\\White", content);
+                    jacksonCollectibles.Add(new Collectible("jackson", "mini anvil", 2));
+                    jacksonCollectibleModels.Add(new MyModel("Models\\mini_anvil", content));
+                    jacksonCollectibleModels[index].Texture("Textures\\dark-metal-texture", content);
                     jacksonCollectibleModels[index].Position = new Vector3(X, Y, Z);
                 }
                 else
