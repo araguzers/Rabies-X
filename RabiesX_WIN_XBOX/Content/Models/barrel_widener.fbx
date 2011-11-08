@@ -11,10 +11,10 @@ FBXHeaderExtension:  {
 		Year: 2011
 		Month: 11
 		Day: 8
-		Hour: 12
-		Minute: 44
-		Second: 20
-		Millisecond: 565
+		Hour: 14
+		Minute: 15
+		Second: 34
+		Millisecond: 365
 	}
 	Creator: "FBX SDK/FBX Plugins version 2012.2"
 	SceneInfo: "SceneInfo::GlobalInfo", "UserData" {
@@ -36,13 +36,13 @@ FBXHeaderExtension:  {
 			P: "Original|ApplicationVendor", "KString", "", "", "Autodesk"
 			P: "Original|ApplicationName", "KString", "", "", "Maya"
 			P: "Original|ApplicationVersion", "KString", "", "", "2012"
-			P: "Original|DateTime_GMT", "DateTime", "", "", "08/11/2011 18:44:20.560"
+			P: "Original|DateTime_GMT", "DateTime", "", "", "08/11/2011 20:15:34.361"
 			P: "Original|FileName", "KString", "", "", "C:/UH/Gerry Araguz/Rabies-X/RabiesX_WIN_XBOX/Content/Models/barrel_widener.fbx"
 			P: "LastSaved", "Compound", "", ""
 			P: "LastSaved|ApplicationVendor", "KString", "", "", "Autodesk"
 			P: "LastSaved|ApplicationName", "KString", "", "", "Maya"
 			P: "LastSaved|ApplicationVersion", "KString", "", "", "2012"
-			P: "LastSaved|DateTime_GMT", "DateTime", "", "", "08/11/2011 18:44:20.560"
+			P: "LastSaved|DateTime_GMT", "DateTime", "", "", "08/11/2011 20:15:34.361"
 		}
 	}
 }
@@ -73,7 +73,7 @@ GlobalSettings:  {
 
 Documents:  {
 	Count: 1
-	Document: 1252145488, "", "Scene" {
+	Document: 347066224, "", "Scene" {
 		Properties70:  {
 			P: "SourceObject", "object", "", ""
 			P: "ActiveAnimStackName", "KString", "", "", "Take 001"
@@ -225,9 +225,9 @@ Definitions:  {
 	}
 	ObjectType: "Material" {
 		Count: 6
-		PropertyTemplate: "KFbxSurfaceLambert" {
+		PropertyTemplate: "KFbxSurfacePhong" {
 			Properties70:  {
-				P: "ShadingModel", "KString", "", "", "Lambert"
+				P: "ShadingModel", "KString", "", "", "Phong"
 				P: "MultiLayer", "bool", "", "",0
 				P: "EmissiveColor", "ColorRGB", "Color", "",0,0,0
 				P: "EmissiveFactor", "double", "Number", "",1
@@ -244,6 +244,11 @@ Definitions:  {
 				P: "DisplacementFactor", "double", "Number", "",1
 				P: "VectorDisplacementColor", "ColorRGB", "Color", "",0,0,0
 				P: "VectorDisplacementFactor", "double", "Number", "",1
+				P: "SpecularColor", "ColorRGB", "Color", "",0.2,0.2,0.2
+				P: "SpecularFactor", "double", "Number", "",1
+				P: "ShininessExponent", "double", "Number", "",20
+				P: "ReflectionColor", "ColorRGB", "Color", "",0,0,0
+				P: "ReflectionFactor", "double", "Number", "",1
 			}
 		}
 	}
@@ -298,187 +303,187 @@ Definitions:  {
 ;------------------------------------------------------------------
 
 Objects:  {
-	NodeAttribute: 1254112400, "NodeAttribute::", "Null" {
+	NodeAttribute: 350066992, "NodeAttribute::", "Null" {
 		Properties70:  {
 			P: "Look", "enum", "", "",0
 		}
 		TypeFlags: "Null"
 	}
-	NodeAttribute: 1254112592, "NodeAttribute::", "Null" {
+	NodeAttribute: 350069008, "NodeAttribute::", "Null" {
 		Properties70:  {
 			P: "Look", "enum", "", "",0
 		}
 		TypeFlags: "Null"
 	}
-	NodeAttribute: 1254056336, "NodeAttribute::", "Null" {
+	NodeAttribute: 349973776, "NodeAttribute::", "Null" {
 		Properties70:  {
 			P: "Look", "enum", "", "",0
 		}
 		TypeFlags: "Null"
 	}
-	NodeAttribute: 1254037424, "NodeAttribute::", "Null" {
+	NodeAttribute: 350057200, "NodeAttribute::", "Null" {
 		Properties70:  {
 			P: "Look", "enum", "", "",0
 		}
 		TypeFlags: "Null"
 	}
-	NodeAttribute: 1254112112, "NodeAttribute::", "Null" {
+	NodeAttribute: 349987792, "NodeAttribute::", "Null" {
 		Properties70:  {
 			P: "Look", "enum", "", "",0
 		}
 		TypeFlags: "Null"
 	}
-	NodeAttribute: 1254042320, "NodeAttribute::", "Null" {
+	NodeAttribute: 350009488, "NodeAttribute::", "Null" {
 		Properties70:  {
 			P: "Look", "enum", "", "",0
 		}
 		TypeFlags: "Null"
 	}
-	NodeAttribute: 1254111920, "NodeAttribute::", "Null" {
+	NodeAttribute: 349997680, "NodeAttribute::", "Null" {
 		Properties70:  {
 			P: "Look", "enum", "", "",0
 		}
 		TypeFlags: "Null"
 	}
-	NodeAttribute: 1254114320, "NodeAttribute::", "Null" {
+	NodeAttribute: 349973872, "NodeAttribute::", "Null" {
 		Properties70:  {
 			P: "Look", "enum", "", "",0
 		}
 		TypeFlags: "Null"
 	}
-	NodeAttribute: 1254112304, "NodeAttribute::", "Null" {
+	NodeAttribute: 350050768, "NodeAttribute::", "Null" {
 		Properties70:  {
 			P: "Look", "enum", "", "",0
 		}
 		TypeFlags: "Null"
 	}
-	NodeAttribute: 1254114800, "NodeAttribute::", "Null" {
+	NodeAttribute: 350057488, "NodeAttribute::", "Null" {
 		Properties70:  {
 			P: "Look", "enum", "", "",0
 		}
 		TypeFlags: "Null"
 	}
-	NodeAttribute: 1254056624, "NodeAttribute::", "Null" {
+	NodeAttribute: 349974064, "NodeAttribute::", "Null" {
 		Properties70:  {
 			P: "Look", "enum", "", "",0
 		}
 		TypeFlags: "Null"
 	}
-	NodeAttribute: 1254114608, "NodeAttribute::", "Null" {
+	NodeAttribute: 350005072, "NodeAttribute::", "Null" {
 		Properties70:  {
 			P: "Look", "enum", "", "",0
 		}
 		TypeFlags: "Null"
 	}
-	NodeAttribute: 1254115184, "NodeAttribute::", "Null" {
+	NodeAttribute: 349997296, "NodeAttribute::", "Null" {
 		Properties70:  {
 			P: "Look", "enum", "", "",0
 		}
 		TypeFlags: "Null"
 	}
-	NodeAttribute: 1254131888, "NodeAttribute::", "Null" {
+	NodeAttribute: 349997776, "NodeAttribute::", "Null" {
 		Properties70:  {
 			P: "Look", "enum", "", "",0
 		}
 		TypeFlags: "Null"
 	}
-	NodeAttribute: 1254142640, "NodeAttribute::", "Null" {
+	NodeAttribute: 349996912, "NodeAttribute::", "Null" {
 		Properties70:  {
 			P: "Look", "enum", "", "",0
 		}
 		TypeFlags: "Null"
 	}
-	NodeAttribute: 1254146192, "NodeAttribute::", "Null" {
+	NodeAttribute: 349978480, "NodeAttribute::", "Null" {
 		Properties70:  {
 			P: "Look", "enum", "", "",0
 		}
 		TypeFlags: "Null"
 	}
-	NodeAttribute: 1254154736, "NodeAttribute::", "Null" {
+	NodeAttribute: 350056624, "NodeAttribute::", "Null" {
 		Properties70:  {
 			P: "Look", "enum", "", "",0
 		}
 		TypeFlags: "Null"
 	}
-	NodeAttribute: 1254153008, "NodeAttribute::", "Null" {
+	NodeAttribute: 349978192, "NodeAttribute::", "Null" {
 		Properties70:  {
 			P: "Look", "enum", "", "",0
 		}
 		TypeFlags: "Null"
 	}
-	NodeAttribute: 1254153776, "NodeAttribute::", "Null" {
+	NodeAttribute: 349975696, "NodeAttribute::", "Null" {
 		Properties70:  {
 			P: "Look", "enum", "", "",0
 		}
 		TypeFlags: "Null"
 	}
-	NodeAttribute: 1254153680, "NodeAttribute::", "Null" {
+	NodeAttribute: 349974832, "NodeAttribute::", "Null" {
 		Properties70:  {
 			P: "Look", "enum", "", "",0
 		}
 		TypeFlags: "Null"
 	}
-	NodeAttribute: 1254152432, "NodeAttribute::", "Null" {
+	NodeAttribute: 349997584, "NodeAttribute::", "Null" {
 		Properties70:  {
 			P: "Look", "enum", "", "",0
 		}
 		TypeFlags: "Null"
 	}
-	NodeAttribute: 1254153488, "NodeAttribute::", "Null" {
+	NodeAttribute: 349976656, "NodeAttribute::", "Null" {
 		Properties70:  {
 			P: "Look", "enum", "", "",0
 		}
 		TypeFlags: "Null"
 	}
-	NodeAttribute: 1254154448, "NodeAttribute::", "Null" {
+	NodeAttribute: 350056144, "NodeAttribute::", "Null" {
 		Properties70:  {
 			P: "Look", "enum", "", "",0
 		}
 		TypeFlags: "Null"
 	}
-	NodeAttribute: 1254114704, "NodeAttribute::", "Null" {
+	NodeAttribute: 350057008, "NodeAttribute::", "Null" {
 		Properties70:  {
 			P: "Look", "enum", "", "",0
 		}
 		TypeFlags: "Null"
 	}
-	NodeAttribute: 1254114128, "NodeAttribute::", "Null" {
+	NodeAttribute: 349975600, "NodeAttribute::", "Null" {
 		Properties70:  {
 			P: "Look", "enum", "", "",0
 		}
 		TypeFlags: "Null"
 	}
-	NodeAttribute: 1254114512, "NodeAttribute::", "Null" {
+	NodeAttribute: 349996816, "NodeAttribute::", "Null" {
 		Properties70:  {
 			P: "Look", "enum", "", "",0
 		}
 		TypeFlags: "Null"
 	}
-	NodeAttribute: 1254154352, "NodeAttribute::", "Null" {
+	NodeAttribute: 350056240, "NodeAttribute::", "Null" {
 		Properties70:  {
 			P: "Look", "enum", "", "",0
 		}
 		TypeFlags: "Null"
 	}
-	NodeAttribute: 1254153872, "NodeAttribute::", "Null" {
+	NodeAttribute: 350055952, "NodeAttribute::", "Null" {
 		Properties70:  {
 			P: "Look", "enum", "", "",0
 		}
 		TypeFlags: "Null"
 	}
-	NodeAttribute: 1254154640, "NodeAttribute::", "Null" {
+	NodeAttribute: 350055664, "NodeAttribute::", "Null" {
 		Properties70:  {
 			P: "Look", "enum", "", "",0
 		}
 		TypeFlags: "Null"
 	}
-	NodeAttribute: 1254154544, "NodeAttribute::", "Null" {
+	NodeAttribute: 350056816, "NodeAttribute::", "Null" {
 		Properties70:  {
 			P: "Look", "enum", "", "",0
 		}
 		TypeFlags: "Null"
 	}
-	Geometry: 1249070016, "Geometry::", "Mesh" {
+	Geometry: 352303120, "Geometry::", "Mesh" {
 		Vertices: *1701 {
 			a: -1.22905325889587,3.97619462013245,-2.78754806518555,-1.22523438930511,4.76349496841431,-2.60345196723938,-1.22213017940521,5.45535850524902,-2.18527364730835,-1.22004747390747,5.98406028747559,-1.57394862174988,-1.21918892860413,6.29784774780273,-0.829316854476929,-3.95898818969727,4.04345464706421,-0.199510619044304,-1.22134685516357,6.18218898773193,0.757871210575104,-1.2241575717926,5.76376724243164,1.44914174079895,-1.22778952121735,5.15202713012695,1.97735500335693,-1.23188841342926,4.40684938430786,2.29080605506897,-1.23605012893677,3.60117769241333,2.358811378479,-1.23986995220184,2.81387686729431,2.1747145652771,-1.24297320842743,2.12201309204102,1.75653624534607,-1.24505603313446,1.59331130981445,1.14521145820618,-1.24591445922852,1.27952408790588,0.400579512119293,-3.99991607666016,3.80150818824768,-0.21719665825367,-1.24375653266907,1.39518308639526,-1.1866090297699,-1.24094593524933,1.81360471248627,-1.87787985801697,-1.2373138666153,2.42534518241882,-2.40609312057495,-1.2332159280777,3.17052268981934,-2.71954417228699,13.8789434432983,3.70608448982239,-0.282497227191925,13.6119976043701,4.73571109771729,-2.57243824005127,13.61510181427,5.427574634552,-2.15426087379456,13.6171846389771,5.95627689361572,-1.54293584823608,13.6180429458618,6.27006340026855,-0.798304080963135,13.6137638092041,6.27779340744019,-0.0128023475408554,13.6159200668335,6.15627002716064,0.763289630413055,13.6131086349487,5.73784875869751,1.4545601606369,13.6094770431519,5.12610816955566,1.98277354240417,13.6053791046143,4.38093090057373,2.29622364044189,13.8787202835083,3.6941020488739,-0.118061199784279,13.5973968505859,2.7879581451416,2.18013286590576,13.594292640686,2.09609484672546,1.76195478439331,13.592209815979,1.56739258766174,1.15062975883484,13.5913524627686,1.25360512733459,0.405997931957245,13.5879316329956,1.12282657623291,-0.388481259346008,13.5934753417969,1.36739897727966,-1.15559637546539,13.5962858200073,1.78582084178925,-1.84686720371246,13.5999174118042,2.39756155014038,-2.37508034706116,13.6040153503418,3.14273905754089,-2.68853139877319,
 13.6087636947632,3.97974228858948,-3.18649792671204,13.6132211685181,4.89848041534424,-2.97166705131531,13.6168432235718,5.70584869384766,-2.48367524147034,13.61927318573,6.32281589508057,-1.77029120922089,13.6202754974365,6.68898916244507,-0.901344954967499,13.6197700500488,6.76962184906006,0.0230457633733749,13.617790222168,6.55583190917969,0.925979673862457,13.6145105361938,6.06755542755127,1.73265588283539,13.6102724075317,5.35368680953979,2.3490526676178,13.6054906845093,4.48410367965698,2.71483302116394,13.6006326675415,3.54392743110657,2.79419207572937,13.5961751937866,2.62518906593323,2.57936072349548,13.5925531387329,1.81782066822052,2.09136915206909,13.5901231765747,1.20085310935974,1.37798476219177,13.5891208648682,0.834680080413818,0.509038686752319,13.5896263122559,0.754047155380249,-0.415352195501328,13.5916061401367,0.967837810516357,-1.31828641891479,13.5948858261108,1.45611381530762,-2.12496304512024,13.5991239547729,2.16998291015625,-2.74136018753052,13.6039056777954,3.03956604003906,-3.10714054107666,-1.22846865653992,4.00752592086792,-3.21751093864441,-1.22401118278503,4.92626476287842,-3.00268030166626,-1.22038984298706,5.73363256454468,-2.51468825340271,-1.2179594039917,6.35059976577759,-1.80130410194397,-1.21695756912231,6.71677303314209,-0.932358086109161,-1.21747946739197,6.79647302627563,0.00483021140098572,-1.2194766998291,6.58175039291382,0.920561850070953,-1.2227566242218,6.09347438812256,1.72723793983459,-1.22699499130249,5.37960529327393,2.34363484382629,-1.23177719116211,4.51002264022827,2.70941543579102,-1.23663473129272,3.56984615325928,2.78877425193787,-1.2410923242569,2.65110754966736,2.57394289970398,-1.24471354484558,1.84373927116394,2.08595108985901,-1.24714398384094,1.22677206993103,1.37256681919098,-1.24814581871033,0.860599040985107,0.503620803356171,-1.24762392044067,0.780898571014404,-0.433567702770233,-1.24562668800354,0.995621919631958,-1.34929955005646,-1.24234676361084,1.48389792442322,-2.15597581863403,-1.23810839653015,2.19776678085327,-2.77237343788147,-1.23332631587982,3.0673496723175,-3.13815402984619,
@@ -587,7 +592,7 @@ Objects:  {
 			MappingInformationType: "ByPolygon"
 			ReferenceInformationType: "IndexToDirect"
 			Materials: *348 {
-				a: 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,2,2,1,1,1,1,1,1,1,1,2,2,1,1,1,1,3,4,4,4,4,4,4,4,4,4,3,4,4,4,4,4,4,4,4,4,4,4,4,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,4,3,3,4,4,4,4,4,3,4,4,3,3,3,3,3,3,3,3,3,4,4,4,4,4,4,4,4,4,3,4,3,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,3,4,4,4,3,4,4,4,4,4,4,4,4,4,4,4,4,4,3,3,4,4,4,4,4,4,4,4,1,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,1,1,1
+				a: 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,2,2,1,1,1,1,1,1,1,1,2,2,1,1,1,1,3,4,4,4,4,4,4,4,4,3,3,4,4,4,4,4,4,4,4,4,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,4,4,4,4,4,3,4,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,4,4,3,3,3,3,4,4,4,3,4,4,3,3,0,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,1,1,1
 			} 
 		}
 		Layer: 0 {
@@ -606,7 +611,7 @@ Objects:  {
 			}
 		}
 	}
-	Model: 1253112592, "Model::pPipe1", "Null" {
+	Model: 1373222384, "Model::pPipe1", "Null" {
 		Version: 232
 		Properties70:  {
 			P: "RotationActive", "bool", "", "",1
@@ -621,7 +626,7 @@ Objects:  {
 		Shading: Y
 		Culling: "CullingOff"
 	}
-	Model: 1253121904, "Model::transform15", "Null" {
+	Model: 1373231696, "Model::transform15", "Null" {
 		Version: 232
 		Properties70:  {
 			P: "RotationActive", "bool", "", "",1
@@ -635,7 +640,7 @@ Objects:  {
 		Shading: Y
 		Culling: "CullingOff"
 	}
-	Model: 1253126560, "Model::pPipe2", "Null" {
+	Model: 1373236352, "Model::pPipe2", "Null" {
 		Version: 232
 		Properties70:  {
 			P: "RotationActive", "bool", "", "",1
@@ -651,7 +656,7 @@ Objects:  {
 		Shading: Y
 		Culling: "CullingOff"
 	}
-	Model: 1256456608, "Model::transform14", "Null" {
+	Model: 1373241008, "Model::transform14", "Null" {
 		Version: 232
 		Properties70:  {
 			P: "RotationActive", "bool", "", "",1
@@ -665,7 +670,7 @@ Objects:  {
 		Shading: Y
 		Culling: "CullingOff"
 	}
-	Model: 1256461264, "Model::pPipe3", "Null" {
+	Model: 1373245664, "Model::pPipe3", "Null" {
 		Version: 232
 		Properties70:  {
 			P: "RotationActive", "bool", "", "",1
@@ -681,7 +686,7 @@ Objects:  {
 		Shading: Y
 		Culling: "CullingOff"
 	}
-	Model: 1256465920, "Model::transform13", "Null" {
+	Model: 1373250320, "Model::transform13", "Null" {
 		Version: 232
 		Properties70:  {
 			P: "RotationActive", "bool", "", "",1
@@ -695,7 +700,7 @@ Objects:  {
 		Shading: Y
 		Culling: "CullingOff"
 	}
-	Model: 1256470576, "Model::pPipe4", "Null" {
+	Model: 1373254976, "Model::pPipe4", "Null" {
 		Version: 232
 		Properties70:  {
 			P: "RotationActive", "bool", "", "",1
@@ -710,7 +715,7 @@ Objects:  {
 		Shading: Y
 		Culling: "CullingOff"
 	}
-	Model: 1256475232, "Model::transform12", "Null" {
+	Model: 1373259632, "Model::transform12", "Null" {
 		Version: 232
 		Properties70:  {
 			P: "RotationActive", "bool", "", "",1
@@ -724,7 +729,7 @@ Objects:  {
 		Shading: Y
 		Culling: "CullingOff"
 	}
-	Model: 1256479888, "Model::pCylinder1", "Null" {
+	Model: 1373264288, "Model::pCylinder1", "Null" {
 		Version: 232
 		Properties70:  {
 			P: "RotationActive", "bool", "", "",1
@@ -740,7 +745,7 @@ Objects:  {
 		Shading: Y
 		Culling: "CullingOff"
 	}
-	Model: 1256484544, "Model::transform5", "Null" {
+	Model: 1373268944, "Model::transform5", "Null" {
 		Version: 232
 		Properties70:  {
 			P: "RotationActive", "bool", "", "",1
@@ -754,7 +759,7 @@ Objects:  {
 		Shading: Y
 		Culling: "CullingOff"
 	}
-	Model: 352714000, "Model::pCylinder2", "Null" {
+	Model: 1373273600, "Model::pCylinder2", "Null" {
 		Version: 232
 		Properties70:  {
 			P: "RotationActive", "bool", "", "",1
@@ -770,7 +775,7 @@ Objects:  {
 		Shading: Y
 		Culling: "CullingOff"
 	}
-	Model: 352718656, "Model::transform1", "Null" {
+	Model: 1373278256, "Model::transform1", "Null" {
 		Version: 232
 		Properties70:  {
 			P: "RotationActive", "bool", "", "",1
@@ -784,7 +789,7 @@ Objects:  {
 		Shading: Y
 		Culling: "CullingOff"
 	}
-	Model: 352723312, "Model::pCylinder3", "Null" {
+	Model: 1373282912, "Model::pCylinder3", "Null" {
 		Version: 232
 		Properties70:  {
 			P: "RotationActive", "bool", "", "",1
@@ -798,7 +803,7 @@ Objects:  {
 		Shading: Y
 		Culling: "CullingOff"
 	}
-	Model: 352727968, "Model::transform2", "Null" {
+	Model: 1373287568, "Model::transform2", "Null" {
 		Version: 232
 		Properties70:  {
 			P: "RotationActive", "bool", "", "",1
@@ -812,7 +817,7 @@ Objects:  {
 		Shading: Y
 		Culling: "CullingOff"
 	}
-	Model: 352732624, "Model::pCylinder4", "Null" {
+	Model: 1373292224, "Model::pCylinder4", "Null" {
 		Version: 232
 		Properties70:  {
 			P: "RotationActive", "bool", "", "",1
@@ -827,7 +832,7 @@ Objects:  {
 		Shading: Y
 		Culling: "CullingOff"
 	}
-	Model: 352737280, "Model::transform4", "Null" {
+	Model: 1373296880, "Model::transform4", "Null" {
 		Version: 232
 		Properties70:  {
 			P: "RotationActive", "bool", "", "",1
@@ -841,7 +846,7 @@ Objects:  {
 		Shading: Y
 		Culling: "CullingOff"
 	}
-	Model: 352741936, "Model::pCylinder6", "Null" {
+	Model: 1262939616, "Model::pCylinder6", "Null" {
 		Version: 232
 		Properties70:  {
 			P: "RotationActive", "bool", "", "",1
@@ -857,7 +862,7 @@ Objects:  {
 		Shading: Y
 		Culling: "CullingOff"
 	}
-	Model: 352820960, "Model::transform9", "Null" {
+	Model: 1262944272, "Model::transform9", "Null" {
 		Version: 232
 		Properties70:  {
 			P: "RotationActive", "bool", "", "",1
@@ -871,7 +876,7 @@ Objects:  {
 		Shading: Y
 		Culling: "CullingOff"
 	}
-	Model: 352825616, "Model::pCylinder7", "Null" {
+	Model: 1262948928, "Model::pCylinder7", "Null" {
 		Version: 232
 		Properties70:  {
 			P: "RotationActive", "bool", "", "",1
@@ -886,7 +891,7 @@ Objects:  {
 		Shading: Y
 		Culling: "CullingOff"
 	}
-	Model: 352830272, "Model::transform3", "Null" {
+	Model: 1262953584, "Model::transform3", "Null" {
 		Version: 232
 		Properties70:  {
 			P: "RotationActive", "bool", "", "",1
@@ -900,7 +905,7 @@ Objects:  {
 		Shading: Y
 		Culling: "CullingOff"
 	}
-	Model: 352834928, "Model::polySurface1", "Null" {
+	Model: 1262958240, "Model::polySurface1", "Null" {
 		Version: 232
 		Properties70:  {
 			P: "RotationActive", "bool", "", "",1
@@ -913,34 +918,7 @@ Objects:  {
 		Shading: Y
 		Culling: "CullingOff"
 	}
-	Model: 352839584, "Model::transform6", "Null" {
-		Version: 232
-		Properties70:  {
-			P: "RotationActive", "bool", "", "",1
-			P: "InheritType", "enum", "", "",1
-			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
-			P: "DefaultAttributeIndex", "int", "Integer", "",0
-			P: "Visibility", "Visibility", "", "A",0
-		}
-		MultiLayer: 0
-		MultiTake: 1
-		Shading: Y
-		Culling: "CullingOff"
-	}
-	Model: 352844240, "Model::polySurface2", "Null" {
-		Version: 232
-		Properties70:  {
-			P: "RotationActive", "bool", "", "",1
-			P: "InheritType", "enum", "", "",1
-			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
-			P: "DefaultAttributeIndex", "int", "Integer", "",0
-		}
-		MultiLayer: 0
-		MultiTake: 1
-		Shading: Y
-		Culling: "CullingOff"
-	}
-	Model: 352848896, "Model::transform8", "Null" {
+	Model: 1262962896, "Model::transform6", "Null" {
 		Version: 232
 		Properties70:  {
 			P: "RotationActive", "bool", "", "",1
@@ -954,7 +932,34 @@ Objects:  {
 		Shading: Y
 		Culling: "CullingOff"
 	}
-	Model: 352853552, "Model::pCylinder8", "Null" {
+	Model: 1262967552, "Model::polySurface2", "Null" {
+		Version: 232
+		Properties70:  {
+			P: "RotationActive", "bool", "", "",1
+			P: "InheritType", "enum", "", "",1
+			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
+			P: "DefaultAttributeIndex", "int", "Integer", "",0
+		}
+		MultiLayer: 0
+		MultiTake: 1
+		Shading: Y
+		Culling: "CullingOff"
+	}
+	Model: 1262972208, "Model::transform8", "Null" {
+		Version: 232
+		Properties70:  {
+			P: "RotationActive", "bool", "", "",1
+			P: "InheritType", "enum", "", "",1
+			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
+			P: "DefaultAttributeIndex", "int", "Integer", "",0
+			P: "Visibility", "Visibility", "", "A",0
+		}
+		MultiLayer: 0
+		MultiTake: 1
+		Shading: Y
+		Culling: "CullingOff"
+	}
+	Model: 1262976864, "Model::pCylinder8", "Null" {
 		Version: 232
 		Properties70:  {
 			P: "RotationActive", "bool", "", "",1
@@ -970,7 +975,7 @@ Objects:  {
 		Shading: Y
 		Culling: "CullingOff"
 	}
-	Model: 352858208, "Model::transform7", "Null" {
+	Model: 1262981520, "Model::transform7", "Null" {
 		Version: 232
 		Properties70:  {
 			P: "RotationActive", "bool", "", "",1
@@ -984,7 +989,7 @@ Objects:  {
 		Shading: Y
 		Culling: "CullingOff"
 	}
-	Model: 352862864, "Model::polySurface3", "Null" {
+	Model: 1262986176, "Model::polySurface3", "Null" {
 		Version: 232
 		Properties70:  {
 			P: "RotationActive", "bool", "", "",1
@@ -997,34 +1002,7 @@ Objects:  {
 		Shading: Y
 		Culling: "CullingOff"
 	}
-	Model: 352867520, "Model::transform10", "Null" {
-		Version: 232
-		Properties70:  {
-			P: "RotationActive", "bool", "", "",1
-			P: "InheritType", "enum", "", "",1
-			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
-			P: "DefaultAttributeIndex", "int", "Integer", "",0
-			P: "Visibility", "Visibility", "", "A",0
-		}
-		MultiLayer: 0
-		MultiTake: 1
-		Shading: Y
-		Culling: "CullingOff"
-	}
-	Model: 352872176, "Model::polySurface4", "Null" {
-		Version: 232
-		Properties70:  {
-			P: "RotationActive", "bool", "", "",1
-			P: "InheritType", "enum", "", "",1
-			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
-			P: "DefaultAttributeIndex", "int", "Integer", "",0
-		}
-		MultiLayer: 0
-		MultiTake: 1
-		Shading: Y
-		Culling: "CullingOff"
-	}
-	Model: 352876832, "Model::transform11", "Null" {
+	Model: 1262990832, "Model::transform10", "Null" {
 		Version: 232
 		Properties70:  {
 			P: "RotationActive", "bool", "", "",1
@@ -1038,7 +1016,34 @@ Objects:  {
 		Shading: Y
 		Culling: "CullingOff"
 	}
-	Model: 352881488, "Model::polySurface5", "Mesh" {
+	Model: 1262995488, "Model::polySurface4", "Null" {
+		Version: 232
+		Properties70:  {
+			P: "RotationActive", "bool", "", "",1
+			P: "InheritType", "enum", "", "",1
+			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
+			P: "DefaultAttributeIndex", "int", "Integer", "",0
+		}
+		MultiLayer: 0
+		MultiTake: 1
+		Shading: Y
+		Culling: "CullingOff"
+	}
+	Model: 1263000144, "Model::transform11", "Null" {
+		Version: 232
+		Properties70:  {
+			P: "RotationActive", "bool", "", "",1
+			P: "InheritType", "enum", "", "",1
+			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
+			P: "DefaultAttributeIndex", "int", "Integer", "",0
+			P: "Visibility", "Visibility", "", "A",0
+		}
+		MultiLayer: 0
+		MultiTake: 1
+		Shading: Y
+		Culling: "CullingOff"
+	}
+	Model: 1263004800, "Model::polySurface5", "Mesh" {
 		Version: 232
 		Properties70:  {
 			P: "RotationActive", "bool", "", "",1
@@ -1051,22 +1056,27 @@ Objects:  {
 		Shading: T
 		Culling: "CullingOff"
 	}
-	Material: 649680112, "Material::lambert9", "" {
+	Material: 352301920, "Material::phong1", "" {
 		Version: 102
-		ShadingModel: "lambert"
+		ShadingModel: "phong"
 		MultiLayer: 0
 		Properties70:  {
 			P: "AmbientColor", "ColorRGB", "Color", "",0,0,0
 			P: "DiffuseColor", "ColorRGB", "Color", "",1,1,1
 			P: "DiffuseFactor", "double", "Number", "",0.800000011920929
 			P: "TransparencyFactor", "double", "Number", "",1
+			P: "SpecularColor", "ColorRGB", "Color", "",0.5,0.5,0.5
+			P: "ReflectionFactor", "double", "Number", "",0.5
 			P: "Emissive", "Vector3D", "Vector", "",0,0,0
 			P: "Ambient", "Vector3D", "Vector", "",0,0,0
 			P: "Diffuse", "Vector3D", "Vector", "",0.800000011920929,0.800000011920929,0.800000011920929
+			P: "Specular", "Vector3D", "Vector", "",0.5,0.5,0.5
+			P: "Shininess", "double", "Number", "",20
 			P: "Opacity", "double", "Number", "",1
+			P: "Reflectivity", "double", "Number", "",0
 		}
 	}
-	Material: 649674032, "Material::lambert10", "" {
+	Material: 1372111248, "Material::lambert10", "" {
 		Version: 102
 		ShadingModel: "lambert"
 		MultiLayer: 0
@@ -1081,7 +1091,7 @@ Objects:  {
 			P: "Opacity", "double", "Number", "",1
 		}
 	}
-	Material: 649674352, "Material::lambert6", "" {
+	Material: 1372110928, "Material::lambert6", "" {
 		Version: 102
 		ShadingModel: "lambert"
 		MultiLayer: 0
@@ -1096,7 +1106,27 @@ Objects:  {
 			P: "Opacity", "double", "Number", "",1
 		}
 	}
-	Material: 649674672, "Material::lambert8", "" {
+	Material: 352310320, "Material::phong3", "" {
+		Version: 102
+		ShadingModel: "phong"
+		MultiLayer: 0
+		Properties70:  {
+			P: "AmbientColor", "ColorRGB", "Color", "",0,0,0
+			P: "DiffuseColor", "ColorRGB", "Color", "",1,1,1
+			P: "DiffuseFactor", "double", "Number", "",0.800000011920929
+			P: "TransparencyFactor", "double", "Number", "",1
+			P: "SpecularColor", "ColorRGB", "Color", "",0.5,0.5,0.5
+			P: "ReflectionFactor", "double", "Number", "",0.5
+			P: "Emissive", "Vector3D", "Vector", "",0,0,0
+			P: "Ambient", "Vector3D", "Vector", "",0,0,0
+			P: "Diffuse", "Vector3D", "Vector", "",0.800000011920929,0.800000011920929,0.800000011920929
+			P: "Specular", "Vector3D", "Vector", "",0.5,0.5,0.5
+			P: "Shininess", "double", "Number", "",20
+			P: "Opacity", "double", "Number", "",1
+			P: "Reflectivity", "double", "Number", "",0
+		}
+	}
+	Material: 1372110288, "Material::lambert7", "" {
 		Version: 102
 		ShadingModel: "lambert"
 		MultiLayer: 0
@@ -1111,99 +1141,89 @@ Objects:  {
 			P: "Opacity", "double", "Number", "",1
 		}
 	}
-	Material: 649676912, "Material::lambert7", "" {
+	Material: 352300720, "Material::phong2", "" {
 		Version: 102
-		ShadingModel: "lambert"
+		ShadingModel: "phong"
 		MultiLayer: 0
 		Properties70:  {
 			P: "AmbientColor", "ColorRGB", "Color", "",0,0,0
 			P: "DiffuseColor", "ColorRGB", "Color", "",1,1,1
 			P: "DiffuseFactor", "double", "Number", "",0.800000011920929
 			P: "TransparencyFactor", "double", "Number", "",1
+			P: "SpecularColor", "ColorRGB", "Color", "",0.5,0.5,0.5
+			P: "ReflectionFactor", "double", "Number", "",0.5
 			P: "Emissive", "Vector3D", "Vector", "",0,0,0
 			P: "Ambient", "Vector3D", "Vector", "",0,0,0
 			P: "Diffuse", "Vector3D", "Vector", "",0.800000011920929,0.800000011920929,0.800000011920929
+			P: "Specular", "Vector3D", "Vector", "",0.5,0.5,0.5
+			P: "Shininess", "double", "Number", "",20
 			P: "Opacity", "double", "Number", "",1
+			P: "Reflectivity", "double", "Number", "",0
 		}
 	}
-	Material: 649674992, "Material::lambert4", "" {
-		Version: 102
-		ShadingModel: "lambert"
-		MultiLayer: 0
-		Properties70:  {
-			P: "AmbientColor", "ColorRGB", "Color", "",0,0,0
-			P: "DiffuseColor", "ColorRGB", "Color", "",1,1,1
-			P: "DiffuseFactor", "double", "Number", "",0.800000011920929
-			P: "TransparencyFactor", "double", "Number", "",1
-			P: "Emissive", "Vector3D", "Vector", "",0,0,0
-			P: "Ambient", "Vector3D", "Vector", "",0,0,0
-			P: "Diffuse", "Vector3D", "Vector", "",0.800000011920929,0.800000011920929,0.800000011920929
-			P: "Opacity", "double", "Number", "",1
-		}
-	}
-	Video: 1249069216, "Video::file7", "Clip" {
+	Video: 352309120, "Video::file8", "Clip" {
 		Type: "Clip"
 		Properties70:  {
-			P: "Path", "KString", "XRefUrl", "", "C:/Users/Me/Documents/maya/projects/Hoemwork//sourceimages/steel-mesh.jpg"
+			P: "Path", "KString", "XRefUrl", "", "C:/UH/Gerry Araguz/Rabies-X/RabiesX_WIN_XBOX/Content/Textures/steel-mesh.jpg"
 		}
 		UseMipMap: 0
-		Filename: "C:/Users/Me/Documents/maya/projects/Hoemwork//sourceimages/steel-mesh.jpg"
-		RelativeFilename: "..\..\..\..\..\..\Users\Me\Documents\maya\projects\Hoemwork\sourceimages\steel-mesh.jpg"
+		Filename: "C:/UH/Gerry Araguz/Rabies-X/RabiesX_WIN_XBOX/Content/Textures/steel-mesh.jpg"
+		RelativeFilename: "steel-mesh.jpg"
 	}
-	Video: 1249068816, "Video::file4", "Clip" {
+	Video: 352309520, "Video::file4", "Clip" {
 		Type: "Clip"
 		Properties70:  {
 			P: "Path", "KString", "XRefUrl", "", "C:/Users/Me/Documents/maya/projects/Hoemwork//sourceimages/dark-metal-texture.jpg"
 		}
 		UseMipMap: 0
 		Filename: "C:/Users/Me/Documents/maya/projects/Hoemwork//sourceimages/dark-metal-texture.jpg"
-		RelativeFilename: "..\..\..\..\..\..\Users\Me\Documents\maya\projects\Hoemwork\sourceimages\dark-metal-texture.jpg"
+		RelativeFilename: "dark-metal-texture.jpg"
 	}
-	Video: 1249068016, "Video::file6", "Clip" {
+	Video: 352312720, "Video::file10", "Clip" {
 		Type: "Clip"
 		Properties70:  {
-			P: "Path", "KString", "XRefUrl", "", "C:/Users/Me/Documents/maya/projects/Hoemwork//sourceimages/Metal1.jpg"
+			P: "Path", "KString", "XRefUrl", "", "C:/UH/Gerry Araguz/Rabies-X/RabiesX_WIN_XBOX/Content/dark-metal-texture.jpg"
 		}
 		UseMipMap: 0
-		Filename: "C:/Users/Me/Documents/maya/projects/Hoemwork//sourceimages/Metal1.jpg"
-		RelativeFilename: "..\..\..\..\..\..\Users\Me\Documents\maya\projects\Hoemwork\sourceimages\Metal1.jpg"
+		Filename: "C:/UH/Gerry Araguz/Rabies-X/RabiesX_WIN_XBOX/Content/dark-metal-texture.jpg"
+		RelativeFilename: "dark-metal-texture.jpg"
 	}
-	Video: 1249074816, "Video::file5", "Clip" {
+	Video: 352310720, "Video::file5", "Clip" {
 		Type: "Clip"
 		Properties70:  {
 			P: "Path", "KString", "XRefUrl", "", "C:/Users/Me/Documents/maya/projects/Hoemwork//sourceimages/dark-metal-texture.jpg"
 		}
 		UseMipMap: 0
 		Filename: "C:/Users/Me/Documents/maya/projects/Hoemwork//sourceimages/dark-metal-texture.jpg"
-		RelativeFilename: "..\..\..\..\..\..\Users\Me\Documents\maya\projects\Hoemwork\sourceimages\dark-metal-texture.jpg"
+		RelativeFilename: "dark-metal-texture.jpg"
 	}
-	Video: 1249075216, "Video::file3", "Clip" {
+	Video: 352312320, "Video::file9", "Clip" {
 		Type: "Clip"
 		Properties70:  {
-			P: "Path", "KString", "XRefUrl", "", "C:/Users/Me/Documents/maya/projects/Hoemwork//sourceimages/Metal1.jpg"
+			P: "Path", "KString", "XRefUrl", "", "C:/UH/Gerry Araguz/Rabies-X/RabiesX_WIN_XBOX/Content/Textures/Metal1.jpg"
 		}
 		UseMipMap: 0
-		Filename: "C:/Users/Me/Documents/maya/projects/Hoemwork//sourceimages/Metal1.jpg"
-		RelativeFilename: "..\..\..\..\..\..\Users\Me\Documents\maya\projects\Hoemwork\sourceimages\Metal1.jpg"
+		Filename: "C:/UH/Gerry Araguz/Rabies-X/RabiesX_WIN_XBOX/Content/Textures/Metal1.jpg"
+		RelativeFilename: "Metal1.jpg"
 	}
-	Texture: 576774736, "Texture::file7", "" {
+	Texture: 347691344, "Texture::file8", "" {
 		Type: "TextureVideoClip"
 		Version: 202
-		TextureName: "Texture::file7"
+		TextureName: "Texture::file8"
 		Properties70:  {
 			P: "CurrentTextureBlendMode", "enum", "", "",0
 			P: "UVSet", "KString", "", "", "map1"
 			P: "UseMaterial", "bool", "", "",1
 		}
-		Media: "Video::file7"
-		FileName: "C:/Users/Me/Documents/maya/projects/Hoemwork//sourceimages/steel-mesh.jpg"
-		RelativeFilename: "..\..\..\..\..\..\Users\Me\Documents\maya\projects\Hoemwork\sourceimages\steel-mesh.jpg"
+		Media: "Video::file8"
+		FileName: "C:/UH/Gerry Araguz/Rabies-X/RabiesX_WIN_XBOX/Content/Textures/steel-mesh.jpg"
+		RelativeFilename: "steel-mesh.jpg"
 		ModelUVTranslation: 0,0
 		ModelUVScaling: 1,1
 		Texture_Alpha_Source: "None"
 		Cropping: 0,0,0,0
 	}
-	Texture: 576775248, "Texture::file4", "" {
+	Texture: 347688784, "Texture::file4", "" {
 		Type: "TextureVideoClip"
 		Version: 202
 		TextureName: "Texture::file4"
@@ -1214,30 +1234,30 @@ Objects:  {
 		}
 		Media: "Video::file4"
 		FileName: "C:/Users/Me/Documents/maya/projects/Hoemwork//sourceimages/dark-metal-texture.jpg"
-		RelativeFilename: "..\..\..\..\..\..\Users\Me\Documents\maya\projects\Hoemwork\sourceimages\dark-metal-texture.jpg"
+		RelativeFilename: "dark-metal-texture.jpg"
 		ModelUVTranslation: 0,0
 		ModelUVScaling: 1,1
 		Texture_Alpha_Source: "None"
 		Cropping: 0,0,0,0
 	}
-	Texture: 476829360, "Texture::file6", "" {
+	Texture: 347689296, "Texture::file10", "" {
 		Type: "TextureVideoClip"
 		Version: 202
-		TextureName: "Texture::file6"
+		TextureName: "Texture::file10"
 		Properties70:  {
 			P: "CurrentTextureBlendMode", "enum", "", "",0
 			P: "UVSet", "KString", "", "", "map1"
 			P: "UseMaterial", "bool", "", "",1
 		}
-		Media: "Video::file6"
-		FileName: "C:/Users/Me/Documents/maya/projects/Hoemwork//sourceimages/Metal1.jpg"
-		RelativeFilename: "..\..\..\..\..\..\Users\Me\Documents\maya\projects\Hoemwork\sourceimages\Metal1.jpg"
+		Media: "Video::file10"
+		FileName: "C:/UH/Gerry Araguz/Rabies-X/RabiesX_WIN_XBOX/Content/dark-metal-texture.jpg"
+		RelativeFilename: "dark-metal-texture.jpg"
 		ModelUVTranslation: 0,0
 		ModelUVScaling: 1,1
 		Texture_Alpha_Source: "None"
 		Cropping: 0,0,0,0
 	}
-	Texture: 476828336, "Texture::file5", "" {
+	Texture: 347690832, "Texture::file5", "" {
 		Type: "TextureVideoClip"
 		Version: 202
 		TextureName: "Texture::file5"
@@ -1248,30 +1268,30 @@ Objects:  {
 		}
 		Media: "Video::file5"
 		FileName: "C:/Users/Me/Documents/maya/projects/Hoemwork//sourceimages/dark-metal-texture.jpg"
-		RelativeFilename: "..\..\..\..\..\..\Users\Me\Documents\maya\projects\Hoemwork\sourceimages\dark-metal-texture.jpg"
+		RelativeFilename: "dark-metal-texture.jpg"
 		ModelUVTranslation: 0,0
 		ModelUVScaling: 1,1
 		Texture_Alpha_Source: "None"
 		Cropping: 0,0,0,0
 	}
-	Texture: 1253755744, "Texture::file3", "" {
+	Texture: 347689808, "Texture::file9", "" {
 		Type: "TextureVideoClip"
 		Version: 202
-		TextureName: "Texture::file3"
+		TextureName: "Texture::file9"
 		Properties70:  {
 			P: "CurrentTextureBlendMode", "enum", "", "",0
 			P: "UVSet", "KString", "", "", "map1"
 			P: "UseMaterial", "bool", "", "",1
 		}
-		Media: "Video::file3"
-		FileName: "C:/Users/Me/Documents/maya/projects/Hoemwork//sourceimages/Metal1.jpg"
-		RelativeFilename: "..\..\..\..\..\..\Users\Me\Documents\maya\projects\Hoemwork\sourceimages\Metal1.jpg"
+		Media: "Video::file9"
+		FileName: "C:/UH/Gerry Araguz/Rabies-X/RabiesX_WIN_XBOX/Content/Textures/Metal1.jpg"
+		RelativeFilename: "Metal1.jpg"
 		ModelUVTranslation: 0,0
 		ModelUVScaling: 1,1
 		Texture_Alpha_Source: "None"
 		Cropping: 0,0,0,0
 	}
-	AnimationStack: 1254203136, "AnimStack::Take 001", "" {
+	AnimationStack: 348377664, "AnimStack::Take 001", "" {
 		Properties70:  {
 			P: "LocalStart", "KTime", "Time", "",1924423250
 			P: "LocalStop", "KTime", "Time", "",46186158000
@@ -1279,7 +1299,7 @@ Objects:  {
 			P: "ReferenceStop", "KTime", "Time", "",46186158000
 		}
 	}
-	AnimationLayer: 1247548464, "AnimLayer::BaseLayer", "" {
+	AnimationLayer: 1367802768, "AnimLayer::BaseLayer", "" {
 	}
 }
 
@@ -1289,241 +1309,241 @@ Objects:  {
 Connections:  {
 	
 	;Model::pPipe1, Model::RootNode
-	C: "OO",1253112592,0
+	C: "OO",1373222384,0
 	
 	;Model::pPipe2, Model::RootNode
-	C: "OO",1253126560,0
+	C: "OO",1373236352,0
 	
 	;Model::pPipe3, Model::RootNode
-	C: "OO",1256461264,0
+	C: "OO",1373245664,0
 	
 	;Model::pPipe4, Model::RootNode
-	C: "OO",1256470576,0
+	C: "OO",1373254976,0
 	
 	;Model::pCylinder1, Model::RootNode
-	C: "OO",1256479888,0
+	C: "OO",1373264288,0
 	
 	;Model::pCylinder2, Model::RootNode
-	C: "OO",352714000,0
+	C: "OO",1373273600,0
 	
 	;Model::pCylinder3, Model::RootNode
-	C: "OO",352723312,0
+	C: "OO",1373282912,0
 	
 	;Model::pCylinder4, Model::RootNode
-	C: "OO",352732624,0
+	C: "OO",1373292224,0
 	
 	;Model::pCylinder6, Model::RootNode
-	C: "OO",352741936,0
+	C: "OO",1262939616,0
 	
 	;Model::pCylinder7, Model::RootNode
-	C: "OO",352825616,0
+	C: "OO",1262948928,0
 	
 	;Model::polySurface1, Model::RootNode
-	C: "OO",352834928,0
+	C: "OO",1262958240,0
 	
 	;Model::polySurface2, Model::RootNode
-	C: "OO",352844240,0
+	C: "OO",1262967552,0
 	
 	;Model::pCylinder8, Model::RootNode
-	C: "OO",352853552,0
+	C: "OO",1262976864,0
 	
 	;Model::polySurface3, Model::RootNode
-	C: "OO",352862864,0
+	C: "OO",1262986176,0
 	
 	;Model::polySurface4, Model::RootNode
-	C: "OO",352872176,0
+	C: "OO",1262995488,0
 	
 	;Model::polySurface5, Model::RootNode
-	C: "OO",352881488,0
+	C: "OO",1263004800,0
 	
 	;AnimLayer::BaseLayer, AnimStack::Take 001
-	C: "OO",1247548464,1254203136
+	C: "OO",1367802768,348377664
 	
 	;NodeAttribute::, Model::pPipe1
-	C: "OO",1254112400,1253112592
+	C: "OO",350066992,1373222384
 	
 	;Model::transform15, Model::pPipe1
-	C: "OO",1253121904,1253112592
+	C: "OO",1373231696,1373222384
 	
 	;NodeAttribute::, Model::transform15
-	C: "OO",1254112592,1253121904
+	C: "OO",350069008,1373231696
 	
 	;NodeAttribute::, Model::pPipe2
-	C: "OO",1254056336,1253126560
+	C: "OO",349973776,1373236352
 	
 	;Model::transform14, Model::pPipe2
-	C: "OO",1256456608,1253126560
+	C: "OO",1373241008,1373236352
 	
 	;NodeAttribute::, Model::transform14
-	C: "OO",1254037424,1256456608
+	C: "OO",350057200,1373241008
 	
 	;NodeAttribute::, Model::pPipe3
-	C: "OO",1254112112,1256461264
+	C: "OO",349987792,1373245664
 	
 	;Model::transform13, Model::pPipe3
-	C: "OO",1256465920,1256461264
+	C: "OO",1373250320,1373245664
 	
 	;NodeAttribute::, Model::transform13
-	C: "OO",1254042320,1256465920
+	C: "OO",350009488,1373250320
 	
 	;NodeAttribute::, Model::pPipe4
-	C: "OO",1254111920,1256470576
+	C: "OO",349997680,1373254976
 	
 	;Model::transform12, Model::pPipe4
-	C: "OO",1256475232,1256470576
+	C: "OO",1373259632,1373254976
 	
 	;NodeAttribute::, Model::transform12
-	C: "OO",1254114320,1256475232
+	C: "OO",349973872,1373259632
 	
 	;NodeAttribute::, Model::pCylinder1
-	C: "OO",1254112304,1256479888
+	C: "OO",350050768,1373264288
 	
 	;Model::transform5, Model::pCylinder1
-	C: "OO",1256484544,1256479888
+	C: "OO",1373268944,1373264288
 	
 	;NodeAttribute::, Model::transform5
-	C: "OO",1254114800,1256484544
+	C: "OO",350057488,1373268944
 	
 	;NodeAttribute::, Model::pCylinder2
-	C: "OO",1254056624,352714000
+	C: "OO",349974064,1373273600
 	
 	;Model::transform1, Model::pCylinder2
-	C: "OO",352718656,352714000
+	C: "OO",1373278256,1373273600
 	
 	;NodeAttribute::, Model::transform1
-	C: "OO",1254114608,352718656
+	C: "OO",350005072,1373278256
 	
 	;NodeAttribute::, Model::pCylinder3
-	C: "OO",1254115184,352723312
+	C: "OO",349997296,1373282912
 	
 	;Model::transform2, Model::pCylinder3
-	C: "OO",352727968,352723312
+	C: "OO",1373287568,1373282912
 	
 	;NodeAttribute::, Model::transform2
-	C: "OO",1254131888,352727968
+	C: "OO",349997776,1373287568
 	
 	;NodeAttribute::, Model::pCylinder4
-	C: "OO",1254142640,352732624
+	C: "OO",349996912,1373292224
 	
 	;Model::transform4, Model::pCylinder4
-	C: "OO",352737280,352732624
+	C: "OO",1373296880,1373292224
 	
 	;NodeAttribute::, Model::transform4
-	C: "OO",1254146192,352737280
+	C: "OO",349978480,1373296880
 	
 	;NodeAttribute::, Model::pCylinder6
-	C: "OO",1254154736,352741936
+	C: "OO",350056624,1262939616
 	
 	;Model::transform9, Model::pCylinder6
-	C: "OO",352820960,352741936
+	C: "OO",1262944272,1262939616
 	
 	;NodeAttribute::, Model::transform9
-	C: "OO",1254153008,352820960
+	C: "OO",349978192,1262944272
 	
 	;NodeAttribute::, Model::pCylinder7
-	C: "OO",1254153776,352825616
+	C: "OO",349975696,1262948928
 	
 	;Model::transform3, Model::pCylinder7
-	C: "OO",352830272,352825616
+	C: "OO",1262953584,1262948928
 	
 	;NodeAttribute::, Model::transform3
-	C: "OO",1254153680,352830272
+	C: "OO",349974832,1262953584
 	
 	;NodeAttribute::, Model::polySurface1
-	C: "OO",1254152432,352834928
+	C: "OO",349997584,1262958240
 	
 	;Model::transform6, Model::polySurface1
-	C: "OO",352839584,352834928
+	C: "OO",1262962896,1262958240
 	
 	;NodeAttribute::, Model::transform6
-	C: "OO",1254153488,352839584
+	C: "OO",349976656,1262962896
 	
 	;NodeAttribute::, Model::polySurface2
-	C: "OO",1254154448,352844240
+	C: "OO",350056144,1262967552
 	
 	;Model::transform8, Model::polySurface2
-	C: "OO",352848896,352844240
+	C: "OO",1262972208,1262967552
 	
 	;NodeAttribute::, Model::transform8
-	C: "OO",1254114704,352848896
+	C: "OO",350057008,1262972208
 	
 	;NodeAttribute::, Model::pCylinder8
-	C: "OO",1254114128,352853552
+	C: "OO",349975600,1262976864
 	
 	;Model::transform7, Model::pCylinder8
-	C: "OO",352858208,352853552
+	C: "OO",1262981520,1262976864
 	
 	;NodeAttribute::, Model::transform7
-	C: "OO",1254114512,352858208
+	C: "OO",349996816,1262981520
 	
 	;NodeAttribute::, Model::polySurface3
-	C: "OO",1254154352,352862864
+	C: "OO",350056240,1262986176
 	
 	;Model::transform10, Model::polySurface3
-	C: "OO",352867520,352862864
+	C: "OO",1262990832,1262986176
 	
 	;NodeAttribute::, Model::transform10
-	C: "OO",1254153872,352867520
+	C: "OO",350055952,1262990832
 	
 	;NodeAttribute::, Model::polySurface4
-	C: "OO",1254154640,352872176
+	C: "OO",350055664,1262995488
 	
 	;Model::transform11, Model::polySurface4
-	C: "OO",352876832,352872176
+	C: "OO",1263000144,1262995488
 	
 	;NodeAttribute::, Model::transform11
-	C: "OO",1254154544,352876832
+	C: "OO",350056816,1263000144
 	
-	;Texture::file7, Material::lambert9
-	C: "OP",576774736,649680112, "DiffuseColor"
+	;Texture::file8, Material::phong1
+	C: "OP",347691344,352301920, "DiffuseColor"
 	
 	;Texture::file4, Material::lambert6
-	C: "OP",576775248,649674352, "DiffuseColor"
+	C: "OP",347688784,1372110928, "DiffuseColor"
 	
-	;Texture::file6, Material::lambert8
-	C: "OP",476829360,649674672, "DiffuseColor"
+	;Texture::file10, Material::phong3
+	C: "OP",347689296,352310320, "DiffuseColor"
 	
 	;Texture::file5, Material::lambert7
-	C: "OP",476828336,649676912, "DiffuseColor"
+	C: "OP",347690832,1372110288, "DiffuseColor"
 	
-	;Texture::file3, Material::lambert4
-	C: "OP",1253755744,649674992, "DiffuseColor"
+	;Texture::file9, Material::phong2
+	C: "OP",347689808,352300720, "DiffuseColor"
 	
-	;Video::file7, Texture::file7
-	C: "OO",1249069216,576774736
+	;Video::file8, Texture::file8
+	C: "OO",352309120,347691344
 	
 	;Video::file4, Texture::file4
-	C: "OO",1249068816,576775248
+	C: "OO",352309520,347688784
 	
-	;Video::file6, Texture::file6
-	C: "OO",1249068016,476829360
+	;Video::file10, Texture::file10
+	C: "OO",352312720,347689296
 	
 	;Video::file5, Texture::file5
-	C: "OO",1249074816,476828336
+	C: "OO",352310720,347690832
 	
-	;Video::file3, Texture::file3
-	C: "OO",1249075216,1253755744
+	;Video::file9, Texture::file9
+	C: "OO",352312320,347689808
 	
 	;Geometry::, Model::polySurface5
-	C: "OO",1249070016,352881488
+	C: "OO",352303120,1263004800
 	
-	;Material::lambert9, Model::polySurface5
-	C: "OO",649680112,352881488
+	;Material::phong1, Model::polySurface5
+	C: "OO",352301920,1263004800
 	
 	;Material::lambert10, Model::polySurface5
-	C: "OO",649674032,352881488
+	C: "OO",1372111248,1263004800
 	
 	;Material::lambert6, Model::polySurface5
-	C: "OO",649674352,352881488
+	C: "OO",1372110928,1263004800
 	
-	;Material::lambert8, Model::polySurface5
-	C: "OO",649674672,352881488
+	;Material::phong3, Model::polySurface5
+	C: "OO",352310320,1263004800
 	
 	;Material::lambert7, Model::polySurface5
-	C: "OO",649676912,352881488
+	C: "OO",1372110288,1263004800
 	
-	;Material::lambert4, Model::polySurface5
-	C: "OO",649674992,352881488
+	;Material::phong2, Model::polySurface5
+	C: "OO",352300720,1263004800
 }
 ;Takes section
 ;----------------------------------------------------

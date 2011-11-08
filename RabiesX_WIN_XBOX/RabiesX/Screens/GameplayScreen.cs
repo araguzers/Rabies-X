@@ -898,16 +898,16 @@ namespace RabiesX
                 araguzCollectibleEntities.Add(new Entity());
                 araguzCollectibleEntities[index].ConstrainToWorldYAxis = true;
                 araguzCollectibleEntities[index].Position = new Vector3(X, Y, Z);
-                collectibleIndex = collectibleRandom.Next() % 2;
+                collectibleIndex = collectibleRandom.Next() % 3;
                 if (collectibleIndex == 0)
                 {
                     araguzCollectibles.Add(new Collectible("araguz", "plasma container", 2));
                     araguzCollectibleModels.Add(new MyModel("Models\\plasma_container", content));
                     araguzCollectibleModels[index].Texture("Textures\\Bucket", content);
                     araguzCollectibleModels[index].Texture("Textures\\White", content);
-                    araguzCollectibleModels[index].Position = new Vector3(X, Y, Z);
+                    //araguzCollectibleModels[index].Position = new Vector3(X, Y, Z);
                 }
-                else
+                else if (collectibleIndex == 1)
                 {
                     araguzCollectibles.Add(new Collectible("araguz", "chemicals", 2));
                     araguzCollectibleModels.Add(new MyModel("Models\\chemicals", content));
@@ -915,7 +915,16 @@ namespace RabiesX
                     araguzCollectibleModels[index].Texture("Textures\\Chemical2", content);
                     araguzCollectibleModels[index].Texture("Textures\\RedLiquid", content);
                     araguzCollectibleModels[index].Texture("Textures\\TopOfFlask", content);
-                    araguzCollectibleModels[index].Position = new Vector3(X, Y, Z);
+                    //araguzCollectibleModels[index].Position = new Vector3(X, Y, Z);
+                }
+                else
+                {
+                    araguzCollectibles.Add(new Collectible("araguz", "barrel widener", 2));
+                    araguzCollectibleModels.Add(new MyModel("Models\\barrel_widener", content));
+                    araguzCollectibleModels[index].Texture("Textures\\dark-metal-texture", content);
+                    araguzCollectibleModels[index].Texture("Textures\\Metal1", content);
+                    araguzCollectibleModels[index].Texture("Textures\\steel-mesh", content);
+                    //araguzCollectibleModels[index].Position = new Vector3(X, Y, Z);
                 }
                 BoundingSphere sphere = new BoundingSphere();
                 foreach (ModelMesh mesh in araguzCollectibleModels[index].ModelHeld.Meshes)
@@ -955,14 +964,14 @@ namespace RabiesX
                     jacksonCollectibles.Add(new Collectible("jackson", "mini anvil", 2));
                     jacksonCollectibleModels.Add(new MyModel("Models\\mini_anvil", content));
                     jacksonCollectibleModels[index].Texture("Textures\\dark-metal-texture", content);
-                    jacksonCollectibleModels[index].Position = new Vector3(X, Y, Z);
+                    //jacksonCollectibleModels[index].Position = new Vector3(X, Y, Z);
                 }
                 else
                 {
                     jacksonCollectibles.Add(new Collectible("jackson", "repair hammer", 2));
                     jacksonCollectibleModels.Add(new MyModel("Models\\repair_hammer", content));
                     jacksonCollectibleModels[index].Texture("Textures\\Hammer", content);
-                    jacksonCollectibleModels[index].Position = new Vector3(X, Y, Z);
+                    //jacksonCollectibleModels[index].Position = new Vector3(X, Y, Z);
                 }
                 BoundingSphere sphere = new BoundingSphere();
                 foreach (ModelMesh mesh in jacksonCollectibleModels[index].ModelHeld.Meshes)

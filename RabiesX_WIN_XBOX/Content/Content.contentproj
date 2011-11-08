@@ -167,6 +167,11 @@
       <Importer>FbxImporter</Importer>
       <Processor>ModelProcessor</Processor>
     </Compile>
+    <Compile Include="Models\barrel_widener.fbx">
+      <Name>barrel_widener</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>ModelProcessor</Processor>
+    </Compile>
     <None Include="Text Files\AraguzEasy.txt">
       <Name>AraguzEasy</Name>
     </None>
