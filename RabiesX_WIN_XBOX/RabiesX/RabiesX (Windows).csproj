@@ -65,11 +65,6 @@
     <XnaCompressContent>true</XnaCompressContent>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Characters\Antagonist.cs" />
-    <Compile Include="Characters\Character.cs" />
-    <Compile Include="Characters\Enemy.cs" />
-    <Compile Include="Characters\Protagonist.cs" />
-    <Compile Include="Collectibles\Collectible.cs" />
     <Compile Include="ModelManager\Entity.cs" />
     <Compile Include="Game.cs" />
     <Compile Include="MapManager\Sky.cs" />
@@ -90,9 +85,6 @@
     <Compile Include="Screens\PauseMenuScreen.cs" />
     <Compile Include="Screens\PlayerIndexEventArgs.cs" />
     <Compile Include="MapManager\ThirdPersonCamera.cs" />
-    <Compile Include="Storage\Storage.cs" />
-    <Compile Include="Weapons\PlasmaGun.cs" />
-    <Compile Include="Weapons\Sword.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Game.ico" />

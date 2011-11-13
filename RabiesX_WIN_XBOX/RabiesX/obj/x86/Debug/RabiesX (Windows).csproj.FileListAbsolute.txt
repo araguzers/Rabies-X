@@ -37,130 +37,36 @@ C:\Users\Nshidbaby\Documents\College\COSC 4348\Rabies-X\Rabies-X\RabiesX_WIN_XBO
 C:\Users\Nshidbaby\Documents\College\COSC 4348\Rabies-X\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Models\gloves_0.xnb
 C:\Users\Nshidbaby\Documents\College\COSC 4348\Rabies-X\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Models\clr_armor_0.xnb
 C:\Users\Nshidbaby\Documents\College\COSC 4348\Rabies-X\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Models\squirrel_headbody_0.xnb
-C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\background.xnb
-C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\blank.xnb
-C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\gradient.xnb
-C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Textures\B1_stars.xnb
-C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Textures\wedge_p1_diff_v1.xnb
-C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\sky.xnb
-C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\terrain.xnb
-C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\healthbar.xnb
-C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Models\p1_wedge.xnb
-C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Models\squirrel.xnb
-C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Audio\Waves\menu_1.xnb
-C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Audio\Waves\menu_2.xnb
-C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Fonts\gamefont.xnb
-C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Fonts\menufont.xnb
-C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Fonts\ingamefont.xnb
-C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Models\ball.xnb
-C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\rocks_0.xnb
-C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\textures\wedge_p1_diff_v1_0.xnb
-C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Models\gloves_0.xnb
-C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Models\clr_armor_0.xnb
-C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Models\squirrel_headbody_0.xnb
-C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Models\ball_decal_map_0.xnb
-C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Rabies-X.exe
-C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Rabies-X.pdb
-C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\obj\x86\Debug\ResolveAssemblyReference.cache
-C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
-C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\obj\x86\Debug\Rabies-X.exe
-C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\obj\x86\Debug\Rabies-X.pdb
-C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Models\isabella.xnb
-C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Models\guzcruiseroof1.xnb
-C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Textures\guzcruiseroof1.xnb
-C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Textures\cushions.xnb
-C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Textures\dooropen.xnb
-C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Textures\guzcruiseroofmiddle.xnb
-C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Textures\water.xnb
-C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Models\cushions.xnb
-C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Models\dooropen.xnb
-C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Models\guzcruiseroofmiddle.xnb
-C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Models\water.xnb
-C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\cushions.xnb
-C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\dooropen.xnb
-C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\guzcruiseroof1.xnb
-C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\guzcruiseroofmiddle.xnb
-C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\water.xnb
-C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Textures\guzcruiseroof1_0.xnb
-C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Textures\guzcruiseroofmiddle_0.xnb
-C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Textures\cushions_0.xnb
-C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Textures\dooropen_0.xnb
-C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Textures\water_0.xnb
-C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Audio\Waves\carengine.xnb
-C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Textures\Bucket.xnb
-C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Textures\White.xnb
-C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Models\Bucket.xnb
-C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Models\White.xnb
-C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Bucket.xnb
-C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\White.xnb
-C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Models\plasma_container.xnb
-C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Models\Bucket_0.xnb
-C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Textures\guzcruiseroof1.jpg
-C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Textures\cushions.jpg
-C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Textures\dooropen.jpg
-C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Textures\guzcruiseroofmiddle.jpg
-C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Textures\water.jpg
-C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Textures\Bucket.jpg
-C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Textures\White.jpg
-C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Chemical1.xnb
-C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Chemical2.xnb
-C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\RedLiquid.xnb
-C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\TopOfFlask.xnb
-C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Models\Chemical1.xnb
-C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Models\Chemical2.xnb
-C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Models\RedLiquid.xnb
-C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Models\TopOfFlask.xnb
-C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Textures\Chemical1.xnb
-C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Textures\Chemical2.xnb
-C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Textures\RedLiquid.xnb
-C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Textures\TopOfFlask.xnb
-C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Models\chemicals.xnb
-C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Models\Chemical1_0.xnb
-C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Models\TopOfFlask_0.xnb
-C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Models\RedLiquid_0.xnb
-C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Models\Chemical2_0.xnb
-C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Models\Hammer.xnb
-C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Hammer.xnb
-C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Textures\Hammer.xnb
-C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Models\repair_hammer.xnb
-C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Models\Hammer_0.xnb
-C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Models\close-up-of-wood-texture.xnb
-C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Models\dark-metal-texture.xnb
-C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Models\Metal1.xnb
-C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Models\paving_stone.xnb
-C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Models\stainless-steel.xnb
-C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Models\steel-mesh.xnb
-C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Models\White_Stone.xnb
-C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Models\WoodTexture14.xnb
-C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Models\Wood_texture.xnb
-C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Models\Wood_texture_2.xnb
-C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Textures\close-up-of-wood-texture.xnb
-C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Textures\dark-metal-texture.xnb
-C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Textures\Metal1.xnb
-C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Textures\paving_stone.xnb
-C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Textures\stainless-steel.xnb
-C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Textures\steel-mesh.xnb
-C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Textures\White_Stone.xnb
-C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Textures\WoodTexture14.xnb
-C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Textures\Wood_texture.xnb
-C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Textures\Wood_texture_2.xnb
-C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\close-up-of-wood-texture.xnb
-C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\dark-metal-texture.xnb
-C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Metal1.xnb
-C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\paving_stone.xnb
-C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\stainless-steel.xnb
-C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\steel-mesh.xnb
-C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\White_Stone.xnb
-C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\WoodTexture14.xnb
-C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Wood_texture.xnb
-C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Wood_texture_2.xnb
-C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Models\mini_anvil.xnb
-C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Models\dark-metal-texture_0.xnb
-C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Models\barrel_widener.xnb
-C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Models\steel-mesh_0.xnb
-C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Models\Metal1_0.xnb
-C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Models\sword_sharpener.xnb
-C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Models\Wood_texture_0.xnb
-C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Models\White_Stone_0.xnb
-C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Models\WoodTexture14_0.xnb
-C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Models\close-up-of-wood-texture_0.xnb
+C:\Users\Nshidbaby\Documents\College\COSC 4348\Locale\RabiesX_WIN_XBOX (Backup 11-3-2011)\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\background.xnb
+C:\Users\Nshidbaby\Documents\College\COSC 4348\Locale\RabiesX_WIN_XBOX (Backup 11-3-2011)\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\blank.xnb
+C:\Users\Nshidbaby\Documents\College\COSC 4348\Locale\RabiesX_WIN_XBOX (Backup 11-3-2011)\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\gradient.xnb
+C:\Users\Nshidbaby\Documents\College\COSC 4348\Locale\RabiesX_WIN_XBOX (Backup 11-3-2011)\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Textures\B1_stars.xnb
+C:\Users\Nshidbaby\Documents\College\COSC 4348\Locale\RabiesX_WIN_XBOX (Backup 11-3-2011)\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Textures\wedge_p1_diff_v1.xnb
+C:\Users\Nshidbaby\Documents\College\COSC 4348\Locale\RabiesX_WIN_XBOX (Backup 11-3-2011)\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\sky.xnb
+C:\Users\Nshidbaby\Documents\College\COSC 4348\Locale\RabiesX_WIN_XBOX (Backup 11-3-2011)\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\terrain.xnb
+C:\Users\Nshidbaby\Documents\College\COSC 4348\Locale\RabiesX_WIN_XBOX (Backup 11-3-2011)\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\healthbar.xnb
+C:\Users\Nshidbaby\Documents\College\COSC 4348\Locale\RabiesX_WIN_XBOX (Backup 11-3-2011)\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Models\squirrel.xnb
+C:\Users\Nshidbaby\Documents\College\COSC 4348\Locale\RabiesX_WIN_XBOX (Backup 11-3-2011)\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Audio\Waves\menu_1.xnb
+C:\Users\Nshidbaby\Documents\College\COSC 4348\Locale\RabiesX_WIN_XBOX (Backup 11-3-2011)\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Audio\Waves\menu_2.xnb
+C:\Users\Nshidbaby\Documents\College\COSC 4348\Locale\RabiesX_WIN_XBOX (Backup 11-3-2011)\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Fonts\gamefont.xnb
+C:\Users\Nshidbaby\Documents\College\COSC 4348\Locale\RabiesX_WIN_XBOX (Backup 11-3-2011)\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Fonts\menufont.xnb
+C:\Users\Nshidbaby\Documents\College\COSC 4348\Locale\RabiesX_WIN_XBOX (Backup 11-3-2011)\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Fonts\ingamefont.xnb
+C:\Users\Nshidbaby\Documents\College\COSC 4348\Locale\RabiesX_WIN_XBOX (Backup 11-3-2011)\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Models\ball.xnb
+C:\Users\Nshidbaby\Documents\College\COSC 4348\Locale\RabiesX_WIN_XBOX (Backup 11-3-2011)\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\rocks_0.xnb
+C:\Users\Nshidbaby\Documents\College\COSC 4348\Locale\RabiesX_WIN_XBOX (Backup 11-3-2011)\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\textures\wedge_p1_diff_v1_0.xnb
+C:\Users\Nshidbaby\Documents\College\COSC 4348\Locale\RabiesX_WIN_XBOX (Backup 11-3-2011)\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Models\gloves_0.xnb
+C:\Users\Nshidbaby\Documents\College\COSC 4348\Locale\RabiesX_WIN_XBOX (Backup 11-3-2011)\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Models\clr_armor_0.xnb
+C:\Users\Nshidbaby\Documents\College\COSC 4348\Locale\RabiesX_WIN_XBOX (Backup 11-3-2011)\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Models\squirrel_headbody_0.xnb
+C:\Users\Nshidbaby\Documents\College\COSC 4348\Locale\RabiesX_WIN_XBOX (Backup 11-3-2011)\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Models\ball_decal_map_0.xnb
+C:\Users\Nshidbaby\Documents\College\COSC 4348\Locale\RabiesX_WIN_XBOX (Backup 11-3-2011)\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Rabies-X.exe
+C:\Users\Nshidbaby\Documents\College\COSC 4348\Locale\RabiesX_WIN_XBOX (Backup 11-3-2011)\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Rabies-X.pdb
+C:\Users\Nshidbaby\Documents\College\COSC 4348\Locale\RabiesX_WIN_XBOX (Backup 11-3-2011)\RabiesX_WIN_XBOX\RabiesX\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\Nshidbaby\Documents\College\COSC 4348\Locale\RabiesX_WIN_XBOX (Backup 11-3-2011)\RabiesX_WIN_XBOX\RabiesX\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+C:\Users\Nshidbaby\Documents\College\COSC 4348\Locale\RabiesX_WIN_XBOX (Backup 11-3-2011)\RabiesX_WIN_XBOX\RabiesX\obj\x86\Debug\Rabies-X.exe
+C:\Users\Nshidbaby\Documents\College\COSC 4348\Locale\RabiesX_WIN_XBOX (Backup 11-3-2011)\RabiesX_WIN_XBOX\RabiesX\obj\x86\Debug\Rabies-X.pdb
+C:\Users\Nshidbaby\Documents\College\COSC 4348\Locale\RabiesX_WIN_XBOX (Backup 11-3-2011)\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Models\rabiddog.xnb
+C:\Users\Nshidbaby\Documents\College\COSC 4348\Locale\RabiesX_WIN_XBOX (Backup 11-3-2011)\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\images\DogSkin_0.xnb
+C:\Users\Nshidbaby\Documents\College\COSC 4348\Locale\RabiesX_WIN_XBOX (Backup 11-3-2011)\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\images\DogPupil_0.xnb
+C:\Users\Nshidbaby\Documents\College\COSC 4348\Locale\RabiesX_WIN_XBOX (Backup 11-3-2011)\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\images\DogEyes_0.xnb
+C:\Users\Nshidbaby\Documents\College\COSC 4348\Locale\RabiesX_WIN_XBOX (Backup 11-3-2011)\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Models\p1_wedge.xnb
+C:\Users\Nshidbaby\Documents\College\COSC 4348\Locale\RabiesX_WIN_XBOX (Backup 11-3-2011)\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Effects\effects.xnb

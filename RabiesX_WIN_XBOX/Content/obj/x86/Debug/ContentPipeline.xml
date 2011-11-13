@@ -7,8 +7,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\background.xnb</Output>
-      <Time>2011-10-22T14:55:55.6531727-05:00</Time>
+      <Output>C:\Users\Nshidbaby\Documents\College\COSC 4348\Locale\RabiesX_WIN_XBOX (Backup 11-3-2011)\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\background.xnb</Output>
+      <Time>2011-10-16T23:55:25.45445-05:00</Time>
     </Item>
     <Item>
       <Source>blank.png</Source>
@@ -16,8 +16,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\blank.xnb</Output>
-      <Time>2011-10-22T14:55:55.6571729-05:00</Time>
+      <Output>C:\Users\Nshidbaby\Documents\College\COSC 4348\Locale\RabiesX_WIN_XBOX (Backup 11-3-2011)\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\blank.xnb</Output>
+      <Time>2011-10-16T23:55:25.45445-05:00</Time>
     </Item>
     <Item>
       <Source>gradient.png</Source>
@@ -25,8 +25,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\gradient.xnb</Output>
-      <Time>2011-10-22T14:55:55.6611731-05:00</Time>
+      <Output>C:\Users\Nshidbaby\Documents\College\COSC 4348\Locale\RabiesX_WIN_XBOX (Backup 11-3-2011)\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\gradient.xnb</Output>
+      <Time>2011-10-16T23:55:25.45445-05:00</Time>
     </Item>
     <Item>
       <Source>Textures\B1_stars.tga</Source>
@@ -34,8 +34,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Textures\B1_stars.xnb</Output>
-      <Time>2011-10-22T14:55:55.6181706-05:00</Time>
+      <Output>C:\Users\Nshidbaby\Documents\College\COSC 4348\Locale\RabiesX_WIN_XBOX (Backup 11-3-2011)\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Textures\B1_stars.xnb</Output>
+      <Time>2011-10-16T23:55:25.43445-05:00</Time>
     </Item>
     <Item>
       <Source>Textures\wedge_p1_diff_v1.tga</Source>
@@ -43,8 +43,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Textures\wedge_p1_diff_v1.xnb</Output>
-      <Time>2011-10-22T14:55:55.6391719-05:00</Time>
+      <Output>C:\Users\Nshidbaby\Documents\College\COSC 4348\Locale\RabiesX_WIN_XBOX (Backup 11-3-2011)\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Textures\wedge_p1_diff_v1.xnb</Output>
+      <Time>2011-10-16T23:55:25.44445-05:00</Time>
     </Item>
     <Item>
       <Source>sky.bmp</Source>
@@ -52,8 +52,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>SkyProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\sky.xnb</Output>
-      <Time>2011-10-28T15:23:38.190112-05:00</Time>
+      <Output>C:\Users\Nshidbaby\Documents\College\COSC 4348\Locale\RabiesX_WIN_XBOX (Backup 11-3-2011)\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\sky.xnb</Output>
+      <Time>2011-10-16T23:55:25.5644502-05:00</Time>
     </Item>
     <Item>
       <Source>terrain.bmp</Source>
@@ -61,9 +61,9 @@
       <Importer>TextureImporter</Importer>
       <Processor>TerrainProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\terrain.xnb</Output>
-      <Time>2011-10-22T14:55:55.9061871-05:00</Time>
-      <Request>C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\rocks_0.xnb</Request>
+      <Output>C:\Users\Nshidbaby\Documents\College\COSC 4348\Locale\RabiesX_WIN_XBOX (Backup 11-3-2011)\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\terrain.xnb</Output>
+      <Time>2011-10-16T23:55:25.5644502-05:00</Time>
+      <Request>C:\Users\Nshidbaby\Documents\College\COSC 4348\Locale\RabiesX_WIN_XBOX (Backup 11-3-2011)\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\rocks_0.xnb</Request>
     </Item>
     <Item>
       <Source>healthbar.png</Source>
@@ -71,319 +71,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\healthbar.xnb</Output>
-      <Time>2011-10-22T14:55:55.6641733-05:00</Time>
-    </Item>
-    <Item>
-      <Source>Models\guzcruiseroof1.jpg</Source>
-      <Name>Models\guzcruiseroof1</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Models\guzcruiseroof1.xnb</Output>
-      <Time>2011-10-27T15:15:39.0169843-05:00</Time>
-    </Item>
-    <Item>
-      <Source>Textures\guzcruiseroof1.jpg</Source>
-      <Name>Textures\guzcruiseroof1</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Textures\guzcruiseroof1.xnb</Output>
-      <Time>2011-10-27T15:15:39.0169843-05:00</Time>
-    </Item>
-    <Item>
-      <Source>Textures\cushions.jpg</Source>
-      <Name>Textures\cushions</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Textures\cushions.xnb</Output>
-      <Time>2011-10-27T15:22:24.4041711-05:00</Time>
-    </Item>
-    <Item>
-      <Source>Textures\dooropen.jpg</Source>
-      <Name>Textures\dooropen</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Textures\dooropen.xnb</Output>
-      <Time>2011-10-27T15:22:56.1199852-05:00</Time>
-    </Item>
-    <Item>
-      <Source>Textures\guzcruiseroofmiddle.jpg</Source>
-      <Name>Textures\guzcruiseroofmiddle</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Textures\guzcruiseroofmiddle.xnb</Output>
-      <Time>2011-10-27T15:23:27.2687668-05:00</Time>
-    </Item>
-    <Item>
-      <Source>Textures\water.jpg</Source>
-      <Name>Textures\water</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Textures\water.xnb</Output>
-      <Time>2011-10-27T15:23:53.9562932-05:00</Time>
-    </Item>
-    <Item>
-      <Source>Models\cushions.jpg</Source>
-      <Name>Models\cushions</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Models\cushions.xnb</Output>
-      <Time>2011-10-27T15:30:22.4805156-05:00</Time>
-    </Item>
-    <Item>
-      <Source>Models\dooropen.jpg</Source>
-      <Name>Models\dooropen</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Models\dooropen.xnb</Output>
-      <Time>2011-10-27T15:30:22.4895161-05:00</Time>
-    </Item>
-    <Item>
-      <Source>Models\guzcruiseroofmiddle.jpg</Source>
-      <Name>Models\guzcruiseroofmiddle</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Models\guzcruiseroofmiddle.xnb</Output>
-      <Time>2011-10-27T15:30:22.4985166-05:00</Time>
-    </Item>
-    <Item>
-      <Source>Models\water.jpg</Source>
-      <Name>Models\water</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Models\water.xnb</Output>
-      <Time>2011-10-27T15:30:22.505517-05:00</Time>
-    </Item>
-    <Item>
-      <Source>cushions.jpg</Source>
-      <Name>cushions</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\cushions.xnb</Output>
-      <Time>2011-10-27T15:30:40.2945345-05:00</Time>
-    </Item>
-    <Item>
-      <Source>dooropen.jpg</Source>
-      <Name>dooropen</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\dooropen.xnb</Output>
-      <Time>2011-10-27T15:30:40.3055351-05:00</Time>
-    </Item>
-    <Item>
-      <Source>guzcruiseroof1.jpg</Source>
-      <Name>guzcruiseroof1</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\guzcruiseroof1.xnb</Output>
-      <Time>2011-10-27T15:30:40.3125355-05:00</Time>
-    </Item>
-    <Item>
-      <Source>guzcruiseroofmiddle.jpg</Source>
-      <Name>guzcruiseroofmiddle</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\guzcruiseroofmiddle.xnb</Output>
-      <Time>2011-10-27T15:30:40.3205359-05:00</Time>
-    </Item>
-    <Item>
-      <Source>water.jpg</Source>
-      <Name>water</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\water.xnb</Output>
-      <Time>2011-10-27T15:30:40.3295365-05:00</Time>
-    </Item>
-    <Item>
-      <Source>Textures\Bucket.jpg</Source>
-      <Name>Textures\Bucket</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Textures\Bucket.xnb</Output>
-      <Time>2011-10-29T18:33:31.6339931-05:00</Time>
-    </Item>
-    <Item>
-      <Source>Textures\White.jpg</Source>
-      <Name>Textures\White</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Textures\White.xnb</Output>
-      <Time>2011-10-29T18:40:08.10567-05:00</Time>
-    </Item>
-    <Item>
-      <Source>Models\Bucket.jpg</Source>
-      <Name>Models\Bucket</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Models\Bucket.xnb</Output>
-      <Time>2011-10-29T18:33:31.6339931-05:00</Time>
-    </Item>
-    <Item>
-      <Source>Models\White.jpg</Source>
-      <Name>Models\White</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Models\White.xnb</Output>
-      <Time>2011-10-29T18:40:08.10567-05:00</Time>
-    </Item>
-    <Item>
-      <Source>Bucket.jpg</Source>
-      <Name>Bucket</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Bucket.xnb</Output>
-      <Time>2011-10-29T18:33:31.6339931-05:00</Time>
-    </Item>
-    <Item>
-      <Source>White.jpg</Source>
-      <Name>White</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\White.xnb</Output>
-      <Time>2011-10-29T18:40:08.10567-05:00</Time>
-    </Item>
-    <Item>
-      <Source>Chemical1.jpg</Source>
-      <Name>Chemical1</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Chemical1.xnb</Output>
-      <Time>2011-10-29T20:41:23.2457842-05:00</Time>
-    </Item>
-    <Item>
-      <Source>Chemical2.jpg</Source>
-      <Name>Chemical2</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Chemical2.xnb</Output>
-      <Time>2011-10-29T22:19:52.5277758-05:00</Time>
-    </Item>
-    <Item>
-      <Source>RedLiquid.jpg</Source>
-      <Name>RedLiquid</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\RedLiquid.xnb</Output>
-      <Time>2011-10-29T21:55:12.2051062-05:00</Time>
-    </Item>
-    <Item>
-      <Source>TopOfFlask.jpg</Source>
-      <Name>TopOfFlask</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\TopOfFlask.xnb</Output>
-      <Time>2011-10-29T20:51:59.6861866-05:00</Time>
-    </Item>
-    <Item>
-      <Source>Models\Chemical1.jpg</Source>
-      <Name>Models\Chemical1</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Models\Chemical1.xnb</Output>
-      <Time>2011-10-29T20:41:23.2457842-05:00</Time>
-    </Item>
-    <Item>
-      <Source>Models\Chemical2.jpg</Source>
-      <Name>Models\Chemical2</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Models\Chemical2.xnb</Output>
-      <Time>2011-10-29T22:19:52.5277758-05:00</Time>
-    </Item>
-    <Item>
-      <Source>Models\RedLiquid.jpg</Source>
-      <Name>Models\RedLiquid</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Models\RedLiquid.xnb</Output>
-      <Time>2011-10-29T21:55:12.2051062-05:00</Time>
-    </Item>
-    <Item>
-      <Source>Models\TopOfFlask.jpg</Source>
-      <Name>Models\TopOfFlask</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Models\TopOfFlask.xnb</Output>
-      <Time>2011-10-29T20:51:59.6861866-05:00</Time>
-    </Item>
-    <Item>
-      <Source>Textures\Chemical1.jpg</Source>
-      <Name>Textures\Chemical1</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Textures\Chemical1.xnb</Output>
-      <Time>2011-10-29T20:41:23.2457842-05:00</Time>
-    </Item>
-    <Item>
-      <Source>Textures\Chemical2.jpg</Source>
-      <Name>Textures\Chemical2</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Textures\Chemical2.xnb</Output>
-      <Time>2011-10-29T22:19:52.5277758-05:00</Time>
-    </Item>
-    <Item>
-      <Source>Textures\RedLiquid.jpg</Source>
-      <Name>Textures\RedLiquid</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Textures\RedLiquid.xnb</Output>
-      <Time>2011-10-29T21:55:12.2051062-05:00</Time>
-    </Item>
-    <Item>
-      <Source>Textures\TopOfFlask.jpg</Source>
-      <Name>Textures\TopOfFlask</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Textures\TopOfFlask.xnb</Output>
-      <Time>2011-10-29T20:51:59.6861866-05:00</Time>
-    </Item>
-    <Item>
-      <Source>Models\p1_wedge.fbx</Source>
-      <Name>Models\p1_wedge</Name>
-      <Importer>FbxImporter</Importer>
-      <Processor>ModelProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Models\p1_wedge.xnb</Output>
-      <Time>2011-10-22T14:55:55.537166-05:00</Time>
-      <Dependency>
-        <Key>obj\x86\Debug\Models\p1_wedge_0.xml</Key>
-        <Value>2011-10-30T21:54:15.4148591-05:00</Value>
-      </Dependency>
-      <Request>C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\textures\wedge_p1_diff_v1_0.xnb</Request>
+      <Output>C:\Users\Nshidbaby\Documents\College\COSC 4348\Locale\RabiesX_WIN_XBOX (Backup 11-3-2011)\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\healthbar.xnb</Output>
+      <Time>2011-10-16T23:55:25.45445-05:00</Time>
     </Item>
     <Item>
       <Source>Models\squirrel.fbx</Source>
@@ -391,64 +80,15 @@
       <Importer>FbxImporter</Importer>
       <Processor>ModelProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Models\squirrel.xnb</Output>
-      <Time>2011-10-22T14:55:55.5781684-05:00</Time>
+      <Output>C:\Users\Nshidbaby\Documents\College\COSC 4348\Locale\RabiesX_WIN_XBOX (Backup 11-3-2011)\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Models\squirrel.xnb</Output>
+      <Time>2011-10-16T23:55:25.40445-05:00</Time>
       <Dependency>
         <Key>obj\x86\Debug\Models\squirrel_0.xml</Key>
-        <Value>2011-10-30T21:54:17.6249855-05:00</Value>
+        <Value>2011-11-10T19:58:47.9046286-06:00</Value>
       </Dependency>
-      <Request>C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Models\gloves_0.xnb</Request>
-      <Request>C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Models\clr_armor_0.xnb</Request>
-      <Request>C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Models\squirrel_headbody_0.xnb</Request>
-    </Item>
-    <Item>
-      <Source>Models\isabella.fbx</Source>
-      <Name>Models\isabella</Name>
-      <Importer>FbxImporter</Importer>
-      <Processor>ModelProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Models\isabella.xnb</Output>
-      <Time>2011-10-27T16:21:38.1304327-05:00</Time>
-      <Dependency>
-        <Key>obj\x86\Debug\Models\isabella_0.xml</Key>
-        <Value>2011-10-30T21:54:25.3104251-05:00</Value>
-      </Dependency>
-      <Request>C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Textures\guzcruiseroof1_0.xnb</Request>
-      <Request>C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Textures\guzcruiseroofmiddle_0.xnb</Request>
-      <Request>C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Textures\cushions_0.xnb</Request>
-      <Request>C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Textures\dooropen_0.xnb</Request>
-      <Request>C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Textures\water_0.xnb</Request>
-    </Item>
-    <Item>
-      <Source>Models\plasma_container.fbx</Source>
-      <Name>Models\plasma_container</Name>
-      <Importer>FbxImporter</Importer>
-      <Processor>ModelProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Models\plasma_container.xnb</Output>
-      <Time>2011-10-30T14:45:41.5851122-05:00</Time>
-      <Dependency>
-        <Key>obj\x86\Debug\Models\plasma_container_0.xml</Key>
-        <Value>2011-10-30T21:54:27.0705258-05:00</Value>
-      </Dependency>
-      <Request>C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Models\Bucket_0.xnb</Request>
-    </Item>
-    <Item>
-      <Source>Models\chemicals.fbx</Source>
-      <Name>Models\chemicals</Name>
-      <Importer>FbxImporter</Importer>
-      <Processor>ModelProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Models\chemicals.xnb</Output>
-      <Time>2011-10-30T19:48:29.8042749-05:00</Time>
-      <Dependency>
-        <Key>obj\x86\Debug\Models\chemicals_0.xml</Key>
-        <Value>2011-10-30T21:54:27.9555764-05:00</Value>
-      </Dependency>
-      <Request>C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Models\Chemical1_0.xnb</Request>
-      <Request>C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Models\TopOfFlask_0.xnb</Request>
-      <Request>C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Models\RedLiquid_0.xnb</Request>
-      <Request>C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Models\Chemical2_0.xnb</Request>
+      <Request>C:\Users\Nshidbaby\Documents\College\COSC 4348\Locale\RabiesX_WIN_XBOX (Backup 11-3-2011)\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Models\gloves_0.xnb</Request>
+      <Request>C:\Users\Nshidbaby\Documents\College\COSC 4348\Locale\RabiesX_WIN_XBOX (Backup 11-3-2011)\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Models\clr_armor_0.xnb</Request>
+      <Request>C:\Users\Nshidbaby\Documents\College\COSC 4348\Locale\RabiesX_WIN_XBOX (Backup 11-3-2011)\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Models\squirrel_headbody_0.xnb</Request>
     </Item>
     <Item>
       <Source>Audio\Waves\menu_1.wav</Source>
@@ -456,8 +96,8 @@
       <Importer>WavImporter</Importer>
       <Processor>SoundEffectProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Audio\Waves\menu_1.xnb</Output>
-      <Time>2011-10-22T14:55:55.2961522-05:00</Time>
+      <Output>C:\Users\Nshidbaby\Documents\College\COSC 4348\Locale\RabiesX_WIN_XBOX (Backup 11-3-2011)\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Audio\Waves\menu_1.xnb</Output>
+      <Time>2011-10-16T23:55:25.2444497-05:00</Time>
     </Item>
     <Item>
       <Source>Audio\Waves\menu_2.wav</Source>
@@ -465,17 +105,8 @@
       <Importer>WavImporter</Importer>
       <Processor>SoundEffectProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Audio\Waves\menu_2.xnb</Output>
-      <Time>2011-10-22T14:55:55.3261539-05:00</Time>
-    </Item>
-    <Item>
-      <Source>Audio\Waves\carengine.wav</Source>
-      <Name>Audio\Waves\carengine</Name>
-      <Importer>WavImporter</Importer>
-      <Processor>SoundEffectProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Audio\Waves\carengine.xnb</Output>
-      <Time>2011-10-28T16:55:37.7378121-05:00</Time>
+      <Output>C:\Users\Nshidbaby\Documents\College\COSC 4348\Locale\RabiesX_WIN_XBOX (Backup 11-3-2011)\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Audio\Waves\menu_2.xnb</Output>
+      <Time>2011-10-16T23:55:25.2644498-05:00</Time>
     </Item>
     <Item>
       <Source>Fonts\gamefont.spritefont</Source>
@@ -483,8 +114,8 @@
       <Importer>FontDescriptionImporter</Importer>
       <Processor>FontDescriptionProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Fonts\gamefont.xnb</Output>
-      <Time>2011-10-22T14:55:55.3341544-05:00</Time>
+      <Output>C:\Users\Nshidbaby\Documents\College\COSC 4348\Locale\RabiesX_WIN_XBOX (Backup 11-3-2011)\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Fonts\gamefont.xnb</Output>
+      <Time>2011-10-16T23:55:25.2744498-05:00</Time>
     </Item>
     <Item>
       <Source>Fonts\menufont.spritefont</Source>
@@ -492,8 +123,8 @@
       <Importer>FontDescriptionImporter</Importer>
       <Processor>FontDescriptionProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Fonts\menufont.xnb</Output>
-      <Time>2011-10-22T14:55:55.3921577-05:00</Time>
+      <Output>C:\Users\Nshidbaby\Documents\College\COSC 4348\Locale\RabiesX_WIN_XBOX (Backup 11-3-2011)\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Fonts\menufont.xnb</Output>
+      <Time>2011-10-16T23:55:25.2744498-05:00</Time>
     </Item>
     <Item>
       <Source>Fonts\ingamefont.spritefont</Source>
@@ -501,8 +132,8 @@
       <Importer>FontDescriptionImporter</Importer>
       <Processor>FontDescriptionProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Fonts\ingamefont.xnb</Output>
-      <Time>2011-10-22T14:55:55.3671563-05:00</Time>
+      <Output>C:\Users\Nshidbaby\Documents\College\COSC 4348\Locale\RabiesX_WIN_XBOX (Backup 11-3-2011)\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Fonts\ingamefont.xnb</Output>
+      <Time>2011-10-16T23:55:25.2744498-05:00</Time>
     </Item>
     <Item>
       <Source>Models\ball.x</Source>
@@ -510,13 +141,13 @@
       <Importer>XImporter</Importer>
       <Processor>ModelProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Models\ball.xnb</Output>
-      <Time>2011-10-22T14:55:55.4101588-05:00</Time>
+      <Output>C:\Users\Nshidbaby\Documents\College\COSC 4348\Locale\RabiesX_WIN_XBOX (Backup 11-3-2011)\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Models\ball.xnb</Output>
+      <Time>2011-10-16T23:55:25.2744498-05:00</Time>
       <Dependency>
         <Key>obj\x86\Debug\Models\ball_0.xml</Key>
-        <Value>2011-10-30T21:54:29.5936701-05:00</Value>
+        <Value>2011-11-10T19:58:50.3296658-06:00</Value>
       </Dependency>
-      <Request>C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Models\ball_decal_map_0.xnb</Request>
+      <Request>C:\Users\Nshidbaby\Documents\College\COSC 4348\Locale\RabiesX_WIN_XBOX (Backup 11-3-2011)\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Models\ball_decal_map_0.xnb</Request>
     </Item>
     <Item>
       <Source>rocks.bmp</Source>
@@ -531,15 +162,8 @@
         <Data Key="PremultiplyAlpha" Type="bool">true</Data>
       </Parameters>
       <Options>None</Options>
-      <Output>C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\rocks_0.xnb</Output>
-      <Time>2011-10-22T14:55:55.8211823-05:00</Time>
-    </Item>
-    <Item>
-      <Source>Models\p1_wedge.fbx</Source>
-      <Importer>FbxImporter</Importer>
-      <Options>IntermediateFile, DontCacheImportedData</Options>
-      <Output>obj\x86\Debug\Models\p1_wedge_0.xml</Output>
-      <Time>2011-10-22T14:55:55.537166-05:00</Time>
+      <Output>C:\Users\Nshidbaby\Documents\College\COSC 4348\Locale\RabiesX_WIN_XBOX (Backup 11-3-2011)\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\rocks_0.xnb</Output>
+      <Time>2011-10-16T23:55:25.5144501-05:00</Time>
     </Item>
     <Item>
       <Source>textures\wedge_p1_diff_v1.tga</Source>
@@ -554,15 +178,15 @@
         <Data Key="PremultiplyAlpha" Type="bool">true</Data>
       </Parameters>
       <Options>None</Options>
-      <Output>C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\textures\wedge_p1_diff_v1_0.xnb</Output>
-      <Time>2011-10-22T14:55:55.6391719-05:00</Time>
+      <Output>C:\Users\Nshidbaby\Documents\College\COSC 4348\Locale\RabiesX_WIN_XBOX (Backup 11-3-2011)\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\textures\wedge_p1_diff_v1_0.xnb</Output>
+      <Time>2011-10-16T23:55:25.44445-05:00</Time>
     </Item>
     <Item>
       <Source>Models\squirrel.fbx</Source>
       <Importer>FbxImporter</Importer>
       <Options>IntermediateFile, DontCacheImportedData</Options>
       <Output>obj\x86\Debug\Models\squirrel_0.xml</Output>
-      <Time>2011-10-22T14:55:55.5781684-05:00</Time>
+      <Time>2011-10-16T23:55:25.40445-05:00</Time>
     </Item>
     <Item>
       <Source>Models\gloves.dds</Source>
@@ -577,8 +201,8 @@
         <Data Key="PremultiplyAlpha" Type="bool">true</Data>
       </Parameters>
       <Options>None</Options>
-      <Output>C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Models\gloves_0.xnb</Output>
-      <Time>2011-10-22T14:55:55.501164-05:00</Time>
+      <Output>C:\Users\Nshidbaby\Documents\College\COSC 4348\Locale\RabiesX_WIN_XBOX (Backup 11-3-2011)\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Models\gloves_0.xnb</Output>
+      <Time>2011-10-16T23:55:25.3344499-05:00</Time>
     </Item>
     <Item>
       <Source>Models\clr_armor.jpg</Source>
@@ -593,8 +217,8 @@
         <Data Key="PremultiplyAlpha" Type="bool">true</Data>
       </Parameters>
       <Options>None</Options>
-      <Output>C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Models\clr_armor_0.xnb</Output>
-      <Time>2011-10-22T14:55:55.4561614-05:00</Time>
+      <Output>C:\Users\Nshidbaby\Documents\College\COSC 4348\Locale\RabiesX_WIN_XBOX (Backup 11-3-2011)\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Models\clr_armor_0.xnb</Output>
+      <Time>2011-10-16T23:55:25.3244498-05:00</Time>
     </Item>
     <Item>
       <Source>Models\squirrel_headbody.jpg</Source>
@@ -609,196 +233,15 @@
         <Data Key="PremultiplyAlpha" Type="bool">true</Data>
       </Parameters>
       <Options>None</Options>
-      <Output>C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Models\squirrel_headbody_0.xnb</Output>
-      <Time>2011-10-22T14:55:55.590169-05:00</Time>
-    </Item>
-    <Item>
-      <Source>Models\isabella.fbx</Source>
-      <Importer>FbxImporter</Importer>
-      <Options>IntermediateFile, DontCacheImportedData</Options>
-      <Output>obj\x86\Debug\Models\isabella_0.xml</Output>
-      <Time>2011-10-27T16:21:38.1304327-05:00</Time>
-    </Item>
-    <Item>
-      <Source>Textures\guzcruiseroof1.jpg</Source>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Parameters>
-        <Data Key="ColorKeyColor" Type="Framework:Color">FFFF00FF</Data>
-        <Data Key="ColorKeyEnabled" Type="bool">true</Data>
-        <Data Key="TextureFormat" Type="Processors:TextureProcessorOutputFormat">DxtCompressed</Data>
-        <Data Key="GenerateMipmaps" Type="bool">true</Data>
-        <Data Key="ResizeToPowerOfTwo" Type="bool">false</Data>
-        <Data Key="PremultiplyAlpha" Type="bool">true</Data>
-      </Parameters>
-      <Options>None</Options>
-      <Output>C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Textures\guzcruiseroof1_0.xnb</Output>
-      <Time>2011-10-27T15:15:39.0169843-05:00</Time>
-    </Item>
-    <Item>
-      <Source>Textures\guzcruiseroofmiddle.jpg</Source>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Parameters>
-        <Data Key="ColorKeyColor" Type="Framework:Color">FFFF00FF</Data>
-        <Data Key="ColorKeyEnabled" Type="bool">true</Data>
-        <Data Key="TextureFormat" Type="Processors:TextureProcessorOutputFormat">DxtCompressed</Data>
-        <Data Key="GenerateMipmaps" Type="bool">true</Data>
-        <Data Key="ResizeToPowerOfTwo" Type="bool">false</Data>
-        <Data Key="PremultiplyAlpha" Type="bool">true</Data>
-      </Parameters>
-      <Options>None</Options>
-      <Output>C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Textures\guzcruiseroofmiddle_0.xnb</Output>
-      <Time>2011-10-27T15:23:27.2687668-05:00</Time>
-    </Item>
-    <Item>
-      <Source>Textures\cushions.jpg</Source>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Parameters>
-        <Data Key="ColorKeyColor" Type="Framework:Color">FFFF00FF</Data>
-        <Data Key="ColorKeyEnabled" Type="bool">true</Data>
-        <Data Key="TextureFormat" Type="Processors:TextureProcessorOutputFormat">DxtCompressed</Data>
-        <Data Key="GenerateMipmaps" Type="bool">true</Data>
-        <Data Key="ResizeToPowerOfTwo" Type="bool">false</Data>
-        <Data Key="PremultiplyAlpha" Type="bool">true</Data>
-      </Parameters>
-      <Options>None</Options>
-      <Output>C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Textures\cushions_0.xnb</Output>
-      <Time>2011-10-27T15:22:24.4041711-05:00</Time>
-    </Item>
-    <Item>
-      <Source>Textures\dooropen.jpg</Source>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Parameters>
-        <Data Key="ColorKeyColor" Type="Framework:Color">FFFF00FF</Data>
-        <Data Key="ColorKeyEnabled" Type="bool">true</Data>
-        <Data Key="TextureFormat" Type="Processors:TextureProcessorOutputFormat">DxtCompressed</Data>
-        <Data Key="GenerateMipmaps" Type="bool">true</Data>
-        <Data Key="ResizeToPowerOfTwo" Type="bool">false</Data>
-        <Data Key="PremultiplyAlpha" Type="bool">true</Data>
-      </Parameters>
-      <Options>None</Options>
-      <Output>C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Textures\dooropen_0.xnb</Output>
-      <Time>2011-10-27T15:22:56.1199852-05:00</Time>
-    </Item>
-    <Item>
-      <Source>Textures\water.jpg</Source>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Parameters>
-        <Data Key="ColorKeyColor" Type="Framework:Color">FFFF00FF</Data>
-        <Data Key="ColorKeyEnabled" Type="bool">true</Data>
-        <Data Key="TextureFormat" Type="Processors:TextureProcessorOutputFormat">DxtCompressed</Data>
-        <Data Key="GenerateMipmaps" Type="bool">true</Data>
-        <Data Key="ResizeToPowerOfTwo" Type="bool">false</Data>
-        <Data Key="PremultiplyAlpha" Type="bool">true</Data>
-      </Parameters>
-      <Options>None</Options>
-      <Output>C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Textures\water_0.xnb</Output>
-      <Time>2011-10-27T15:23:53.9562932-05:00</Time>
-    </Item>
-    <Item>
-      <Source>Models\plasma_container.fbx</Source>
-      <Importer>FbxImporter</Importer>
-      <Options>IntermediateFile, DontCacheImportedData</Options>
-      <Output>obj\x86\Debug\Models\plasma_container_0.xml</Output>
-      <Time>2011-10-30T14:45:41.5851122-05:00</Time>
-    </Item>
-    <Item>
-      <Source>Models\Bucket.jpg</Source>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Parameters>
-        <Data Key="ColorKeyColor" Type="Framework:Color">FFFF00FF</Data>
-        <Data Key="ColorKeyEnabled" Type="bool">true</Data>
-        <Data Key="TextureFormat" Type="Processors:TextureProcessorOutputFormat">DxtCompressed</Data>
-        <Data Key="GenerateMipmaps" Type="bool">true</Data>
-        <Data Key="ResizeToPowerOfTwo" Type="bool">false</Data>
-        <Data Key="PremultiplyAlpha" Type="bool">true</Data>
-      </Parameters>
-      <Options>None</Options>
-      <Output>C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Models\Bucket_0.xnb</Output>
-      <Time>2011-10-29T18:33:31.6339931-05:00</Time>
-    </Item>
-    <Item>
-      <Source>Models\chemicals.fbx</Source>
-      <Importer>FbxImporter</Importer>
-      <Options>IntermediateFile, DontCacheImportedData</Options>
-      <Output>obj\x86\Debug\Models\chemicals_0.xml</Output>
-      <Time>2011-10-30T19:48:29.8042749-05:00</Time>
-    </Item>
-    <Item>
-      <Source>Models\Chemical1.jpg</Source>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Parameters>
-        <Data Key="ColorKeyColor" Type="Framework:Color">FFFF00FF</Data>
-        <Data Key="ColorKeyEnabled" Type="bool">true</Data>
-        <Data Key="TextureFormat" Type="Processors:TextureProcessorOutputFormat">DxtCompressed</Data>
-        <Data Key="GenerateMipmaps" Type="bool">true</Data>
-        <Data Key="ResizeToPowerOfTwo" Type="bool">false</Data>
-        <Data Key="PremultiplyAlpha" Type="bool">true</Data>
-      </Parameters>
-      <Options>None</Options>
-      <Output>C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Models\Chemical1_0.xnb</Output>
-      <Time>2011-10-29T20:41:23.2457842-05:00</Time>
-    </Item>
-    <Item>
-      <Source>Models\TopOfFlask.jpg</Source>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Parameters>
-        <Data Key="ColorKeyColor" Type="Framework:Color">FFFF00FF</Data>
-        <Data Key="ColorKeyEnabled" Type="bool">true</Data>
-        <Data Key="TextureFormat" Type="Processors:TextureProcessorOutputFormat">DxtCompressed</Data>
-        <Data Key="GenerateMipmaps" Type="bool">true</Data>
-        <Data Key="ResizeToPowerOfTwo" Type="bool">false</Data>
-        <Data Key="PremultiplyAlpha" Type="bool">true</Data>
-      </Parameters>
-      <Options>None</Options>
-      <Output>C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Models\TopOfFlask_0.xnb</Output>
-      <Time>2011-10-29T20:51:59.6861866-05:00</Time>
-    </Item>
-    <Item>
-      <Source>Models\RedLiquid.jpg</Source>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Parameters>
-        <Data Key="ColorKeyColor" Type="Framework:Color">FFFF00FF</Data>
-        <Data Key="ColorKeyEnabled" Type="bool">true</Data>
-        <Data Key="TextureFormat" Type="Processors:TextureProcessorOutputFormat">DxtCompressed</Data>
-        <Data Key="GenerateMipmaps" Type="bool">true</Data>
-        <Data Key="ResizeToPowerOfTwo" Type="bool">false</Data>
-        <Data Key="PremultiplyAlpha" Type="bool">true</Data>
-      </Parameters>
-      <Options>None</Options>
-      <Output>C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Models\RedLiquid_0.xnb</Output>
-      <Time>2011-10-29T21:55:12.2051062-05:00</Time>
-    </Item>
-    <Item>
-      <Source>Models\Chemical2.jpg</Source>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Parameters>
-        <Data Key="ColorKeyColor" Type="Framework:Color">FFFF00FF</Data>
-        <Data Key="ColorKeyEnabled" Type="bool">true</Data>
-        <Data Key="TextureFormat" Type="Processors:TextureProcessorOutputFormat">DxtCompressed</Data>
-        <Data Key="GenerateMipmaps" Type="bool">true</Data>
-        <Data Key="ResizeToPowerOfTwo" Type="bool">false</Data>
-        <Data Key="PremultiplyAlpha" Type="bool">true</Data>
-      </Parameters>
-      <Options>None</Options>
-      <Output>C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Models\Chemical2_0.xnb</Output>
-      <Time>2011-10-29T22:19:52.5277758-05:00</Time>
+      <Output>C:\Users\Nshidbaby\Documents\College\COSC 4348\Locale\RabiesX_WIN_XBOX (Backup 11-3-2011)\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Models\squirrel_headbody_0.xnb</Output>
+      <Time>2011-10-16T23:55:25.40445-05:00</Time>
     </Item>
     <Item>
       <Source>Models\ball.x</Source>
       <Importer>XImporter</Importer>
       <Options>IntermediateFile, DontCacheImportedData</Options>
       <Output>obj\x86\Debug\Models\ball_0.xml</Output>
-      <Time>2011-10-22T14:55:55.4101588-05:00</Time>
+      <Time>2011-10-16T23:55:25.2744498-05:00</Time>
     </Item>
     <Item>
       <Source>Models\ball_decal_map.dds</Source>
@@ -813,59 +256,34 @@
         <Data Key="PremultiplyAlpha" Type="bool">true</Data>
       </Parameters>
       <Options>None</Options>
-      <Output>C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Models\ball_decal_map_0.xnb</Output>
-      <Time>2011-10-22T14:55:55.4471609-05:00</Time>
+      <Output>C:\Users\Nshidbaby\Documents\College\COSC 4348\Locale\RabiesX_WIN_XBOX (Backup 11-3-2011)\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Models\ball_decal_map_0.xnb</Output>
+      <Time>2011-10-16T23:55:25.3244498-05:00</Time>
     </Item>
     <Item>
-      <Source>Models\Hammer.jpg</Source>
-      <Name>Models\Hammer</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Models\Hammer.xnb</Output>
-      <Time>2011-10-29T19:40:12.1088072-05:00</Time>
-    </Item>
-    <Item>
-      <Source>Hammer.jpg</Source>
-      <Name>Hammer</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Hammer.xnb</Output>
-      <Time>2011-10-29T19:40:12.1088072-05:00</Time>
-    </Item>
-    <Item>
-      <Source>Textures\Hammer.jpg</Source>
-      <Name>Textures\Hammer</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Textures\Hammer.xnb</Output>
-      <Time>2011-10-29T19:40:12.1088072-05:00</Time>
-    </Item>
-    <Item>
-      <Source>Models\repair_hammer.fbx</Source>
-      <Name>Models\repair_hammer</Name>
+      <Source>Models\rabiddog.fbx</Source>
+      <Name>Models\rabiddog</Name>
       <Importer>FbxImporter</Importer>
       <Processor>ModelProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Models\repair_hammer.xnb</Output>
-      <Time>2011-10-31T14:49:16.3761542-05:00</Time>
+      <Output>C:\Users\Nshidbaby\Documents\College\COSC 4348\Locale\RabiesX_WIN_XBOX (Backup 11-3-2011)\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Models\rabiddog.xnb</Output>
+      <Time>2011-11-03T17:06:49-05:00</Time>
       <Dependency>
-        <Key>obj\x86\Debug\Models\repair_hammer_0.xml</Key>
-        <Value>2011-10-31T14:49:35.4372444-05:00</Value>
+        <Key>obj\x86\Debug\Models\rabiddog_0.xml</Key>
+        <Value>2011-11-11T01:09:59.2268159-06:00</Value>
       </Dependency>
-      <Request>C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Models\Hammer_0.xnb</Request>
+      <Request>C:\Users\Nshidbaby\Documents\College\COSC 4348\Locale\RabiesX_WIN_XBOX (Backup 11-3-2011)\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\images\DogSkin_0.xnb</Request>
+      <Request>C:\Users\Nshidbaby\Documents\College\COSC 4348\Locale\RabiesX_WIN_XBOX (Backup 11-3-2011)\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\images\DogPupil_0.xnb</Request>
+      <Request>C:\Users\Nshidbaby\Documents\College\COSC 4348\Locale\RabiesX_WIN_XBOX (Backup 11-3-2011)\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\images\DogEyes_0.xnb</Request>
     </Item>
     <Item>
-      <Source>Models\repair_hammer.fbx</Source>
+      <Source>Models\rabiddog.fbx</Source>
       <Importer>FbxImporter</Importer>
       <Options>IntermediateFile, DontCacheImportedData</Options>
-      <Output>obj\x86\Debug\Models\repair_hammer_0.xml</Output>
-      <Time>2011-10-31T14:49:16.3761542-05:00</Time>
+      <Output>obj\x86\Debug\Models\rabiddog_0.xml</Output>
+      <Time>2011-11-03T17:06:49-05:00</Time>
     </Item>
     <Item>
-      <Source>Models\Hammer.jpg</Source>
+      <Source>images\DogSkin.jpg</Source>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Parameters>
@@ -877,458 +295,70 @@
         <Data Key="PremultiplyAlpha" Type="bool">true</Data>
       </Parameters>
       <Options>None</Options>
-      <Output>C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Models\Hammer_0.xnb</Output>
-      <Time>2011-10-29T19:40:12.1088072-05:00</Time>
+      <Output>C:\Users\Nshidbaby\Documents\College\COSC 4348\Locale\RabiesX_WIN_XBOX (Backup 11-3-2011)\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\images\DogSkin_0.xnb</Output>
+      <Time>2011-11-11T01:26:25.3000289-06:00</Time>
     </Item>
     <Item>
-      <Source>Models\close-up-of-wood-texture.jpg</Source>
-      <Name>Models\close-up-of-wood-texture</Name>
+      <Source>images\DogPupil.jpg</Source>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
+      <Parameters>
+        <Data Key="ColorKeyColor" Type="Framework:Color">FFFF00FF</Data>
+        <Data Key="ColorKeyEnabled" Type="bool">true</Data>
+        <Data Key="TextureFormat" Type="Processors:TextureProcessorOutputFormat">DxtCompressed</Data>
+        <Data Key="GenerateMipmaps" Type="bool">true</Data>
+        <Data Key="ResizeToPowerOfTwo" Type="bool">false</Data>
+        <Data Key="PremultiplyAlpha" Type="bool">true</Data>
+      </Parameters>
       <Options>None</Options>
-      <Output>C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Models\close-up-of-wood-texture.xnb</Output>
-      <Time>2011-11-08T13:22:14.1505708-06:00</Time>
+      <Output>C:\Users\Nshidbaby\Documents\College\COSC 4348\Locale\RabiesX_WIN_XBOX (Backup 11-3-2011)\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\images\DogPupil_0.xnb</Output>
+      <Time>2011-11-11T01:27:04.9976934-06:00</Time>
     </Item>
     <Item>
-      <Source>Models\dark-metal-texture.jpg</Source>
-      <Name>Models\dark-metal-texture</Name>
+      <Source>images\DogEyes.jpg</Source>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
+      <Parameters>
+        <Data Key="ColorKeyColor" Type="Framework:Color">FFFF00FF</Data>
+        <Data Key="ColorKeyEnabled" Type="bool">true</Data>
+        <Data Key="TextureFormat" Type="Processors:TextureProcessorOutputFormat">DxtCompressed</Data>
+        <Data Key="GenerateMipmaps" Type="bool">true</Data>
+        <Data Key="ResizeToPowerOfTwo" Type="bool">false</Data>
+        <Data Key="PremultiplyAlpha" Type="bool">true</Data>
+      </Parameters>
       <Options>None</Options>
-      <Output>C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Models\dark-metal-texture.xnb</Output>
-      <Time>2011-11-08T13:12:18.5125022-06:00</Time>
+      <Output>C:\Users\Nshidbaby\Documents\College\COSC 4348\Locale\RabiesX_WIN_XBOX (Backup 11-3-2011)\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\images\DogEyes_0.xnb</Output>
+      <Time>2011-11-11T01:27:49.5407757-06:00</Time>
     </Item>
     <Item>
-      <Source>Models\Metal1.jpg</Source>
-      <Name>Models\Metal1</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Models\Metal1.xnb</Output>
-      <Time>2011-11-08T14:14:04.6734825-06:00</Time>
-    </Item>
-    <Item>
-      <Source>Models\paving_stone.jpg</Source>
-      <Name>Models\paving_stone</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Models\paving_stone.xnb</Output>
-      <Time>2011-11-08T12:47:48-06:00</Time>
-    </Item>
-    <Item>
-      <Source>Models\stainless-steel.jpg</Source>
-      <Name>Models\stainless-steel</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Models\stainless-steel.xnb</Output>
-      <Time>2011-11-08T13:25:47.0437476-06:00</Time>
-    </Item>
-    <Item>
-      <Source>Models\steel-mesh.jpg</Source>
-      <Name>Models\steel-mesh</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Models\steel-mesh.xnb</Output>
-      <Time>2011-11-08T14:13:03.2579698-06:00</Time>
-    </Item>
-    <Item>
-      <Source>Models\White_Stone.jpg</Source>
-      <Name>Models\White_Stone</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Models\White_Stone.xnb</Output>
-      <Time>2011-11-08T16:31:13.6081507-06:00</Time>
-    </Item>
-    <Item>
-      <Source>Models\WoodTexture14.jpg</Source>
-      <Name>Models\WoodTexture14</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Models\WoodTexture14.xnb</Output>
-      <Time>2011-11-08T15:45:33.615432-06:00</Time>
-    </Item>
-    <Item>
-      <Source>Models\Wood_texture.jpg</Source>
-      <Name>Models\Wood_texture</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Models\Wood_texture.xnb</Output>
-      <Time>2011-11-08T12:47:48-06:00</Time>
-    </Item>
-    <Item>
-      <Source>Models\Wood_texture_2.jpg</Source>
-      <Name>Models\Wood_texture_2</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Models\Wood_texture_2.xnb</Output>
-      <Time>2011-11-08T13:28:40.52167-06:00</Time>
-    </Item>
-    <Item>
-      <Source>Textures\close-up-of-wood-texture.jpg</Source>
-      <Name>Textures\close-up-of-wood-texture</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Textures\close-up-of-wood-texture.xnb</Output>
-      <Time>2011-11-08T15:46:24.8013597-06:00</Time>
-    </Item>
-    <Item>
-      <Source>Textures\dark-metal-texture.jpg</Source>
-      <Name>Textures\dark-metal-texture</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Textures\dark-metal-texture.xnb</Output>
-      <Time>2011-11-08T13:12:18.5125022-06:00</Time>
-    </Item>
-    <Item>
-      <Source>Textures\Metal1.jpg</Source>
-      <Name>Textures\Metal1</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Textures\Metal1.xnb</Output>
-      <Time>2011-11-08T14:14:04.6734825-06:00</Time>
-    </Item>
-    <Item>
-      <Source>Textures\paving_stone.jpg</Source>
-      <Name>Textures\paving_stone</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Textures\paving_stone.xnb</Output>
-      <Time>2011-11-08T12:47:48-06:00</Time>
-    </Item>
-    <Item>
-      <Source>Textures\stainless-steel.jpg</Source>
-      <Name>Textures\stainless-steel</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Textures\stainless-steel.xnb</Output>
-      <Time>2011-11-08T13:25:47.0437476-06:00</Time>
-    </Item>
-    <Item>
-      <Source>Textures\steel-mesh.jpg</Source>
-      <Name>Textures\steel-mesh</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Textures\steel-mesh.xnb</Output>
-      <Time>2011-11-08T14:13:03.2579698-06:00</Time>
-    </Item>
-    <Item>
-      <Source>Textures\White_Stone.jpg</Source>
-      <Name>Textures\White_Stone</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Textures\White_Stone.xnb</Output>
-      <Time>2011-11-08T16:31:13.6081507-06:00</Time>
-    </Item>
-    <Item>
-      <Source>Textures\WoodTexture14.jpg</Source>
-      <Name>Textures\WoodTexture14</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Textures\WoodTexture14.xnb</Output>
-      <Time>2011-11-08T16:08:26.9649831-06:00</Time>
-    </Item>
-    <Item>
-      <Source>Textures\Wood_texture.jpg</Source>
-      <Name>Textures\Wood_texture</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Textures\Wood_texture.xnb</Output>
-      <Time>2011-11-08T12:47:48-06:00</Time>
-    </Item>
-    <Item>
-      <Source>Textures\Wood_texture_2.jpg</Source>
-      <Name>Textures\Wood_texture_2</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Textures\Wood_texture_2.xnb</Output>
-      <Time>2011-11-08T13:28:40.52167-06:00</Time>
-    </Item>
-    <Item>
-      <Source>close-up-of-wood-texture.jpg</Source>
-      <Name>close-up-of-wood-texture</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\close-up-of-wood-texture.xnb</Output>
-      <Time>2011-11-08T13:22:14.1505708-06:00</Time>
-    </Item>
-    <Item>
-      <Source>dark-metal-texture.jpg</Source>
-      <Name>dark-metal-texture</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\dark-metal-texture.xnb</Output>
-      <Time>2011-11-08T13:12:18.5125022-06:00</Time>
-    </Item>
-    <Item>
-      <Source>Metal1.jpg</Source>
-      <Name>Metal1</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Metal1.xnb</Output>
-      <Time>2011-11-08T14:14:04.6734825-06:00</Time>
-    </Item>
-    <Item>
-      <Source>paving_stone.jpg</Source>
-      <Name>paving_stone</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\paving_stone.xnb</Output>
-      <Time>2011-11-08T12:47:48-06:00</Time>
-    </Item>
-    <Item>
-      <Source>stainless-steel.jpg</Source>
-      <Name>stainless-steel</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\stainless-steel.xnb</Output>
-      <Time>2011-11-08T13:25:47.0437476-06:00</Time>
-    </Item>
-    <Item>
-      <Source>steel-mesh.jpg</Source>
-      <Name>steel-mesh</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\steel-mesh.xnb</Output>
-      <Time>2011-11-08T14:13:03.2579698-06:00</Time>
-    </Item>
-    <Item>
-      <Source>White_Stone.jpg</Source>
-      <Name>White_Stone</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\White_Stone.xnb</Output>
-      <Time>2011-11-08T16:32:26.7253327-06:00</Time>
-    </Item>
-    <Item>
-      <Source>WoodTexture14.jpg</Source>
-      <Name>WoodTexture14</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\WoodTexture14.xnb</Output>
-      <Time>2011-11-08T16:07:30.6907644-06:00</Time>
-    </Item>
-    <Item>
-      <Source>Wood_texture.jpg</Source>
-      <Name>Wood_texture</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Wood_texture.xnb</Output>
-      <Time>2011-11-08T12:47:48-06:00</Time>
-    </Item>
-    <Item>
-      <Source>Wood_texture_2.jpg</Source>
-      <Name>Wood_texture_2</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Wood_texture_2.xnb</Output>
-      <Time>2011-11-08T13:28:40.52167-06:00</Time>
-    </Item>
-    <Item>
-      <Source>Models\mini_anvil.fbx</Source>
-      <Name>Models\mini_anvil</Name>
+      <Source>Models\p1_wedge.fbx</Source>
+      <Name>Models\p1_wedge</Name>
       <Importer>FbxImporter</Importer>
       <Processor>ModelProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Models\mini_anvil.xnb</Output>
-      <Time>2011-11-08T13:17:18.4396571-06:00</Time>
+      <Output>C:\Users\Nshidbaby\Documents\College\COSC 4348\Locale\RabiesX_WIN_XBOX (Backup 11-3-2011)\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Models\p1_wedge.xnb</Output>
+      <Time>2011-10-16T23:55:25.3744499-05:00</Time>
       <Dependency>
-        <Key>obj\x86\Debug\Models\mini_anvil_0.xml</Key>
-        <Value>2011-11-08T13:30:26.1827134-06:00</Value>
+        <Key>obj\x86\Debug\Models\p1_wedge_0.xml</Key>
+        <Value>2011-11-12T21:53:19.321803-06:00</Value>
       </Dependency>
-      <Request>C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Models\dark-metal-texture_0.xnb</Request>
+      <Request>C:\Users\Nshidbaby\Documents\College\COSC 4348\Locale\RabiesX_WIN_XBOX (Backup 11-3-2011)\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\textures\wedge_p1_diff_v1_0.xnb</Request>
     </Item>
     <Item>
-      <Source>Models\mini_anvil.fbx</Source>
+      <Source>Models\p1_wedge.fbx</Source>
       <Importer>FbxImporter</Importer>
       <Options>IntermediateFile, DontCacheImportedData</Options>
-      <Output>obj\x86\Debug\Models\mini_anvil_0.xml</Output>
-      <Time>2011-11-08T13:17:18.4396571-06:00</Time>
+      <Output>obj\x86\Debug\Models\p1_wedge_0.xml</Output>
+      <Time>2011-10-16T23:55:25.3744499-05:00</Time>
     </Item>
     <Item>
-      <Source>Models\dark-metal-texture.jpg</Source>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Parameters>
-        <Data Key="ColorKeyColor" Type="Framework:Color">FFFF00FF</Data>
-        <Data Key="ColorKeyEnabled" Type="bool">true</Data>
-        <Data Key="TextureFormat" Type="Processors:TextureProcessorOutputFormat">DxtCompressed</Data>
-        <Data Key="GenerateMipmaps" Type="bool">true</Data>
-        <Data Key="ResizeToPowerOfTwo" Type="bool">false</Data>
-        <Data Key="PremultiplyAlpha" Type="bool">true</Data>
-      </Parameters>
+      <Source>Effects\effects.fx</Source>
+      <Name>Effects\effects</Name>
+      <Importer>EffectImporter</Importer>
+      <Processor>EffectProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Models\dark-metal-texture_0.xnb</Output>
-      <Time>2011-11-08T13:12:18.5125022-06:00</Time>
-    </Item>
-    <Item>
-      <Source>Models\barrel_widener.fbx</Source>
-      <Name>Models\barrel_widener</Name>
-      <Importer>FbxImporter</Importer>
-      <Processor>ModelProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Models\barrel_widener.xnb</Output>
-      <Time>2011-11-08T14:19:50.7092746-06:00</Time>
-      <Dependency>
-        <Key>obj\x86\Debug\Models\barrel_widener_0.xml</Key>
-        <Value>2011-11-08T14:20:00.9238589-06:00</Value>
-      </Dependency>
-      <Request>C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Models\steel-mesh_0.xnb</Request>
-      <Request>C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Models\dark-metal-texture_0.xnb</Request>
-      <Request>C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Models\Metal1_0.xnb</Request>
-    </Item>
-    <Item>
-      <Source>Models\barrel_widener.fbx</Source>
-      <Importer>FbxImporter</Importer>
-      <Options>IntermediateFile, DontCacheImportedData</Options>
-      <Output>obj\x86\Debug\Models\barrel_widener_0.xml</Output>
-      <Time>2011-11-08T14:19:50.7092746-06:00</Time>
-    </Item>
-    <Item>
-      <Source>Models\steel-mesh.jpg</Source>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Parameters>
-        <Data Key="ColorKeyColor" Type="Framework:Color">FFFF00FF</Data>
-        <Data Key="ColorKeyEnabled" Type="bool">true</Data>
-        <Data Key="TextureFormat" Type="Processors:TextureProcessorOutputFormat">DxtCompressed</Data>
-        <Data Key="GenerateMipmaps" Type="bool">true</Data>
-        <Data Key="ResizeToPowerOfTwo" Type="bool">false</Data>
-        <Data Key="PremultiplyAlpha" Type="bool">true</Data>
-      </Parameters>
-      <Options>None</Options>
-      <Output>C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Models\steel-mesh_0.xnb</Output>
-      <Time>2011-11-08T14:13:03.2579698-06:00</Time>
-    </Item>
-    <Item>
-      <Source>Models\Metal1.jpg</Source>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Parameters>
-        <Data Key="ColorKeyColor" Type="Framework:Color">FFFF00FF</Data>
-        <Data Key="ColorKeyEnabled" Type="bool">true</Data>
-        <Data Key="TextureFormat" Type="Processors:TextureProcessorOutputFormat">DxtCompressed</Data>
-        <Data Key="GenerateMipmaps" Type="bool">true</Data>
-        <Data Key="ResizeToPowerOfTwo" Type="bool">false</Data>
-        <Data Key="PremultiplyAlpha" Type="bool">true</Data>
-      </Parameters>
-      <Options>None</Options>
-      <Output>C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Models\Metal1_0.xnb</Output>
-      <Time>2011-11-08T14:14:04.6734825-06:00</Time>
-    </Item>
-    <Item>
-      <Source>Models\sword_sharpener.fbx</Source>
-      <Name>Models\sword_sharpener</Name>
-      <Importer>FbxImporter</Importer>
-      <Processor>ModelProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Models\sword_sharpener.xnb</Output>
-      <Time>2011-11-08T16:23:08.1703852-06:00</Time>
-      <Dependency>
-        <Key>obj\x86\Debug\Models\sword_sharpener_0.xml</Key>
-        <Value>2011-11-08T16:23:09.4674594-06:00</Value>
-      </Dependency>
-      <Request>C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Models\Wood_texture_0.xnb</Request>
-      <Request>C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Models\White_Stone_0.xnb</Request>
-      <Request>C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Models\WoodTexture14_0.xnb</Request>
-      <Request>C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Models\close-up-of-wood-texture_0.xnb</Request>
-    </Item>
-    <Item>
-      <Source>Models\sword_sharpener.fbx</Source>
-      <Importer>FbxImporter</Importer>
-      <Options>IntermediateFile, DontCacheImportedData</Options>
-      <Output>obj\x86\Debug\Models\sword_sharpener_0.xml</Output>
-      <Time>2011-11-08T16:23:08.1703852-06:00</Time>
-    </Item>
-    <Item>
-      <Source>Models\Wood_texture.jpg</Source>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Parameters>
-        <Data Key="ColorKeyColor" Type="Framework:Color">FFFF00FF</Data>
-        <Data Key="ColorKeyEnabled" Type="bool">true</Data>
-        <Data Key="TextureFormat" Type="Processors:TextureProcessorOutputFormat">DxtCompressed</Data>
-        <Data Key="GenerateMipmaps" Type="bool">true</Data>
-        <Data Key="ResizeToPowerOfTwo" Type="bool">false</Data>
-        <Data Key="PremultiplyAlpha" Type="bool">true</Data>
-      </Parameters>
-      <Options>None</Options>
-      <Output>C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Models\Wood_texture_0.xnb</Output>
-      <Time>2011-11-08T12:47:48-06:00</Time>
-    </Item>
-    <Item>
-      <Source>Models\White_Stone.jpg</Source>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Parameters>
-        <Data Key="ColorKeyColor" Type="Framework:Color">FFFF00FF</Data>
-        <Data Key="ColorKeyEnabled" Type="bool">true</Data>
-        <Data Key="TextureFormat" Type="Processors:TextureProcessorOutputFormat">DxtCompressed</Data>
-        <Data Key="GenerateMipmaps" Type="bool">true</Data>
-        <Data Key="ResizeToPowerOfTwo" Type="bool">false</Data>
-        <Data Key="PremultiplyAlpha" Type="bool">true</Data>
-      </Parameters>
-      <Options>None</Options>
-      <Output>C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Models\White_Stone_0.xnb</Output>
-      <Time>2011-11-08T16:31:13.6081507-06:00</Time>
-    </Item>
-    <Item>
-      <Source>Models\WoodTexture14.jpg</Source>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Parameters>
-        <Data Key="ColorKeyColor" Type="Framework:Color">FFFF00FF</Data>
-        <Data Key="ColorKeyEnabled" Type="bool">true</Data>
-        <Data Key="TextureFormat" Type="Processors:TextureProcessorOutputFormat">DxtCompressed</Data>
-        <Data Key="GenerateMipmaps" Type="bool">true</Data>
-        <Data Key="ResizeToPowerOfTwo" Type="bool">false</Data>
-        <Data Key="PremultiplyAlpha" Type="bool">true</Data>
-      </Parameters>
-      <Options>None</Options>
-      <Output>C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Models\WoodTexture14_0.xnb</Output>
-      <Time>2011-11-08T15:45:33.615432-06:00</Time>
-    </Item>
-    <Item>
-      <Source>Models\close-up-of-wood-texture.jpg</Source>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Parameters>
-        <Data Key="ColorKeyColor" Type="Framework:Color">FFFF00FF</Data>
-        <Data Key="ColorKeyEnabled" Type="bool">true</Data>
-        <Data Key="TextureFormat" Type="Processors:TextureProcessorOutputFormat">DxtCompressed</Data>
-        <Data Key="GenerateMipmaps" Type="bool">true</Data>
-        <Data Key="ResizeToPowerOfTwo" Type="bool">false</Data>
-        <Data Key="PremultiplyAlpha" Type="bool">true</Data>
-      </Parameters>
-      <Options>None</Options>
-      <Output>C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Models\close-up-of-wood-texture_0.xnb</Output>
-      <Time>2011-11-08T13:22:14.1505708-06:00</Time>
+      <Output>C:\Users\Nshidbaby\Documents\College\COSC 4348\Locale\RabiesX_WIN_XBOX (Backup 11-3-2011)\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Effects\effects.xnb</Output>
+      <Time>2011-11-12T23:09:03.124635-06:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
@@ -1336,15 +366,15 @@
       <TargetProfile>Reach</TargetProfile>
       <BuildConfiguration>Debug</BuildConfiguration>
       <CompressContent>false</CompressContent>
-      <RootDirectory>C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\Content\</RootDirectory>
-      <LoggerRootDirectory>C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\</LoggerRootDirectory>
-      <IntermediateDirectory>C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\Content\obj\x86\Debug\</IntermediateDirectory>
-      <OutputDirectory>C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\</OutputDirectory>
+      <RootDirectory>C:\Users\Nshidbaby\Documents\College\COSC 4348\Locale\RabiesX_WIN_XBOX (Backup 11-3-2011)\RabiesX_WIN_XBOX\Content\</RootDirectory>
+      <LoggerRootDirectory>C:\Users\Nshidbaby\Documents\College\COSC 4348\Locale\RabiesX_WIN_XBOX (Backup 11-3-2011)\RabiesX_WIN_XBOX\RabiesX\</LoggerRootDirectory>
+      <IntermediateDirectory>C:\Users\Nshidbaby\Documents\College\COSC 4348\Locale\RabiesX_WIN_XBOX (Backup 11-3-2011)\RabiesX_WIN_XBOX\Content\obj\x86\Debug\</IntermediateDirectory>
+      <OutputDirectory>C:\Users\Nshidbaby\Documents\College\COSC 4348\Locale\RabiesX_WIN_XBOX (Backup 11-3-2011)\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\</OutputDirectory>
     </Settings>
     <Assemblies>
       <Assembly>
-        <Key>C:\UH\Gerry Araguz\Rabies-X\RabiesX_WIN_XBOX\RabiesXPipeline\bin\x86\Debug\RabiesXPipeline.dll</Key>
-        <Value>2011-10-30T21:39:04.3157472-05:00</Value>
+        <Key>C:\Users\Nshidbaby\Documents\College\COSC 4348\Locale\RabiesX_WIN_XBOX (Backup 11-3-2011)\RabiesX_WIN_XBOX\RabiesXPipeline\bin\x86\Debug\RabiesXPipeline.dll</Key>
+        <Value>2011-10-16T23:55:26.3244512-05:00</Value>
       </Assembly>
       <Assembly>
         <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.XImporter.dll</Key>
@@ -1372,7 +402,7 @@
       </Assembly>
       <Assembly>
         <Key>C:\Windows\Microsoft.Net\assembly\GAC_32\Microsoft.Xna.Framework.Content.Pipeline\v4.0_4.0.0.0__842cf8be1de50553\Microsoft.Xna.Framework.Content.Pipeline.dll</Key>
-        <Value>2011-08-27T19:59:32.3620057-05:00</Value>
+        <Value>2011-08-26T02:40:35.85867-05:00</Value>
       </Assembly>
     </Assemblies>
   </Asset>

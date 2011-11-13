@@ -9,17 +9,15 @@
 
 #region Using Statements
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using System.Text;
 using System.Threading;
-using System.IO;
+using System.Collections;
 using Microsoft.Xna.Framework;
+using System.Collections.Generic;
 using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
-using Microsoft.Xna.Framework.Storage;
 #endregion
 
 namespace RabiesX
@@ -34,7 +32,7 @@ namespace RabiesX
     {
         #region Fields
 
-        private const float PLAYER_FORWARD_SPEED = 150.0f;
+        private const float PLAYER_FORWARD_SPEED = 120.0f;
         private const float PLAYER_HEADING_SPEED = 120.0f;
         private const float PLAYER_ROLLING_SPEED = 280.0f;
 
@@ -47,7 +45,11 @@ namespace RabiesX
         private const float CAMERA_MAX_SPRING_CONSTANT = 100.0f;
         private const float CAMERA_MIN_SPRING_CONSTANT = 1.0f;
 
-        private const int NUMBER_OF_COLLECTIBLES_ON_THE_MAP = 200;
+        private const int MAX_TIME_LEFT = 300;
+        private int timeLeft = MAX_TIME_LEFT;
+        int elapsedUpdateTime = 0;
+
+        private const int TOTAL_RABID_DOGS = 3;
 
         ContentManager content;
         SpriteFont gameFont;
@@ -58,12 +60,21 @@ namespace RabiesX
         Vector2 playerPosition = new Vector2(100, 100);
         Vector2 enemyPosition = new Vector2(100, 100);
 
+        // Set triangle indicator for level.
+        Effect effect;
+        Vector3 indicatorPos;
+        int indicatorScale = 5;
+        private List<VertexPositionColor[]> vertices;
+
+        private float angle = 0.0f;
+
         // Set health bar for level.
         SpriteBatch mBatch;
         Texture2D mHealthBar;
 
         // Set current health for level.
         int mCurrentHealth = 100;
+        float playerHealthDecr = 0.0f;
         
         // Set sky and terrain for level.
         Model terrain;
@@ -71,13 +82,7 @@ namespace RabiesX
 
         // Set the 3D model to draw.
         private MyModel playerModel;
-        //private MyModel itemModel;
-
-        //Sets the sounds.
-        private SoundEffect sound;
-        private SoundEffectInstance soundInstance;
-
-        private Storage storage;
+        private List<MyModel> rabidDogModels;
 
         // Aspect ratio determines how to scale 3d to 2d projection.
         float aspectRatio;
@@ -94,48 +99,26 @@ namespace RabiesX
         private int framesPerSecond;
         private Entity playerEntity;
         private Entity terrainEntity;
-        //private Entity itemEntity;
-
-        private List<Entity> araguzCollectibleEntities;
-        private List<MyModel> araguzCollectibleModels;
-        private List<Collectible> araguzCollectibles;
-        private List<BoundingSphere> araguzCollectibleBounds;
-        private List<float> araguzRadii;
-        private List<Entity> jacksonCollectibleEntities;
-        private List<MyModel> jacksonCollectibleModels;
-        private List<Collectible> jacksonCollectibles;
-        private List<BoundingSphere> jacksonCollectibleBounds;
-        private List<float> jacksonRadii;
-
-        //private string difficultyLevel;
+        private List<int> rabidDogHealths;
+        private List<Entity> rabidDogEntities;
+        private List<Vector3> rabidDogPreviousPositions;
         private float playerRadius;
         private float terrainRadius;
-        //private float itemRadius;
+        private List<float> rabidDogRadii;
         private Matrix[] modelTransforms;
+        private List<Matrix[]> modelEnemyTransforms;
         private TimeSpan elapsedTime = TimeSpan.Zero;
         private TimeSpan prevElapsedTime = TimeSpan.Zero;
         private bool displayHelp;
-        private bool metJackson;
-
-        //private Random rand;
 
         private ThirdPersonCamera camera;
 
         private KeyboardState curKeyboardState;
         private KeyboardState prevKeyboardState;
 
-        private Character araguz;
-        private Character jackson;
-
         BoundingSphere playerBounds;
         BoundingSphere terrainBounds;
-
-        List<BoundingSphere> araguzBounds;
-
-        //private FileStream readStream;
-        //private FileStream writeStream;
-        //private StreamReader reader;
-        //private StreamWriter writer;
+        List<BoundingSphere> rabidDogBounds;
 
         private bool flicker;
 
@@ -204,24 +187,40 @@ namespace RabiesX
 
             // Load the health bar image.
             mHealthBar = content.Load<Texture2D>("healthbar");
-           
-            // Load models and set aspect ratio.
-            playerModel = new MyModel("Models\\isabella", content);
-            //playerModel.Texture("Textures\\wedge_p1_diff_v1", content);
-            playerModel.Texture("Textures\\guzcruiseroofmiddle", content);
-            playerModel.Texture("Textures\\guzcruiseroof1", content);
-            playerModel.Texture("Textures\\cushions", content);
-            playerModel.Texture("Textures\\dooropen", content);
-            playerModel.Texture("Textures\\water", content);
 
-            sound = content.Load<SoundEffect>("Audio\\Waves\\carengine");
-            soundInstance = sound.CreateInstance();
-            soundInstance.IsLooped.Equals(true);
-           
+            // Load the effects and setup vertices for triangle indicator.
+            vertices = new List<VertexPositionColor[]>();
+            effect = content.Load<Effect>("Effects\\effects");
+            indicatorPos = new Vector3(5, 45, 0);
+            SetUpVertices(indicatorPos, indicatorScale);
+
+            // Intialize lists for enemies.
+            rabidDogHealths = new List<int>();
+            rabidDogRadii = new List<float>();
+            rabidDogModels = new List<MyModel>();
+            rabidDogEntities = new List<Entity>();
+            rabidDogBounds = new List<BoundingSphere>();
+            modelEnemyTransforms = new List<Matrix[]>();
+            rabidDogPreviousPositions = new List<Vector3>();
+            for (int i = 0; i < TOTAL_RABID_DOGS; i++)
+            {
+                rabidDogHealths.Add(100);
+                modelEnemyTransforms.Add(null);
+                rabidDogPreviousPositions.Add(new Vector3());
+            }
+
+            // Load models and set aspect ratio.
+            playerModel = new MyModel("Models\\ball", content);
+            playerModel.Texture("Textures\\wedge_p1_diff_v1", content);
+            for (int i = 0; i < TOTAL_RABID_DOGS; i++)
+            {
+                rabidDogModels.Add(new MyModel("Models\\ball", content));
+                rabidDogModels[i].Texture("Textures\\wedge_p1_diff_v1", content);
+            }
+
             // Load terrain and sky.
             terrain = content.Load<Model>("terrain");
             sky = content.Load<Sky>("sky");
-            //sky = content.Load<Sky>("GraySky");
 
             // Determine the radius of the player model.           
             BoundingSphere bounds = new BoundingSphere();
@@ -230,6 +229,17 @@ namespace RabiesX
             playerRadius = bounds.Radius;
 
             playerBounds = bounds;
+
+            // Determine the radii of the enemy models.  
+            for (int i = 0; i < TOTAL_RABID_DOGS; i++)
+            {
+                BoundingSphere rbounds = new BoundingSphere();
+                foreach (ModelMesh mesh in rabidDogModels[i].ModelHeld.Meshes)
+                    rbounds = BoundingSphere.CreateMerged(rbounds, mesh.BoundingSphere);
+                rabidDogRadii.Add(rbounds.Radius);
+
+                rabidDogBounds.Add(rbounds);
+            }
 
             // Determine the radius of the height map.           
             BoundingSphere tbounds = new BoundingSphere();
@@ -250,81 +260,30 @@ namespace RabiesX
             playerEntity = new Entity();
             playerEntity.ConstrainToWorldYAxis = true;
             playerEntity.Position = new Vector3(0.0f, 1.0f + playerRadius, 0.0f);
+            
+            // Setup the enemy entities.
+            for (int i = 0; i < TOTAL_RABID_DOGS; i++)
+            {
+                rabidDogEntities.Add(new Entity());
+                rabidDogEntities[i].ConstrainToWorldYAxis = true;
+                rabidDogEntities[i].Position = new Vector3(random.Next(1000) * -1.0f + 200.0f, 1.0f + rabidDogRadii[i], random.Next(500));
+            }
 
             // Setup the terrain entity.
             terrainEntity = new Entity();
             terrainEntity.ConstrainToWorldYAxis = true;
             terrainEntity.Position = new Vector3(0.0f, 1.0f + terrainRadius, 0.0f);
 
-            //araguzCollectibleModels = new List<MyModel>();
-            //araguzCollectibleEntities = new List<Entity>();
-            //araguzCollectibleBounds = new List<BoundingSphere>();
-            //araguzBounds = new List<BoundingSphere>();
-            //araguzRadii = new List<float>();
-
-            //araguzCollectibleModels.Add(new MyModel("Models\\chemicals", content));
-            //araguzCollectibleModels[0].Texture("Textures\\Chemical1", content);
-            //araguzCollectibleModels[0].Texture("Textures\\Chemical2", content);
-            //araguzCollectibleModels[0].Texture("Textures\\RedLiquid", content);
-            //araguzCollectibleModels[0].Texture("Textures\\TopOfFlask", content);
-            //araguzCollectibleModels.Add(new MyModel("Models\\plasma_container", content));
-            //araguzCollectibleModels[1].Texture("Textures\\Bucket", content);
-            //araguzCollectibleModels[1].Texture("Textures\\White", content);
-            //itemModel.Position = new Vector3(0.0f, 1.0f + playerRadius, 0.0f);
-
-            //araguzCollectibleBounds.Add(new BoundingSphere());
-            //araguzCollectibleBounds.Add(new BoundingSphere());
-            //foreach (ModelMesh mesh in araguzCollectibleModels[0].ModelHeld.Meshes)
-            //    araguzCollectibleBounds[0] = BoundingSphere.CreateMerged(araguzCollectibleBounds[0], mesh.BoundingSphere);
-            //foreach (ModelMesh mesh in araguzCollectibleModels[1].ModelHeld.Meshes)
-            //    araguzCollectibleBounds[1] = BoundingSphere.CreateMerged(araguzCollectibleBounds[1], mesh.BoundingSphere);
-            //araguzRadii.Add(araguzCollectibleBounds[0].Radius);
-            //araguzRadii.Add(araguzCollectibleBounds[1].Radius);
-            //araguzBounds.Add(araguzCollectibleBounds[0]);
-            //araguzBounds.Add(araguzCollectibleBounds[1]);
-
-            //araguzCollectibleEntities.Add(new Entity());
-            //araguzCollectibleEntities.Add(new Entity());
-            //araguzCollectibleEntities[0].ConstrainToWorldYAxis = true;
-            //araguzCollectibleEntities[1].ConstrainToWorldYAxis = true;
-            ////itemEntity.Position = new Vector3(0.0f, 1.0f + playerRadius, 0.0f);
-            //araguzCollectibleEntities[0].Position = new Vector3(-1000, 1000, 0);
-            //araguzCollectibleEntities[1].Position = new Vector3(-600, 700, 0);
-            //creates random collectible entities to help Araguz.
-            GenerateAraguzCollectibles();
-            GenerateJacksonCollectibles();
-           
-            //creates Geraldo Araguz.
-            araguz = new Protagonist();
-            ((Protagonist)araguz).plasmaGun = new PlasmaGun();
-            
-            //StorageDevice device
-            /*creates Russell Jackson aka Sadulgo Randol. His type will be antagonist even if he
-            initially takes cover as Araguz's "ally" */
-            jackson = new Antagonist();
-            ((Antagonist)jackson).sword = new Sword();
-
-            storage = new Storage();
-            metJackson = storage.MetJackson;
-
-            //AsyncCallback callback = new AsyncCallback(storage.CreateStorage); //receives a parameter of type result
-            //IAsyncResult result = StorageDevice.BeginShowSelector(callback, null);
-            //storage.CreateStorage(result);
             // A real game would probably have more content than this sample, so
             // it would take longer to load. We simulate that by delaying for a
             // while, giving you a chance to admire the beautiful loading screen.
-            Thread.Sleep(500);
+            Thread.Sleep(3000);
 
             // Once the load has finished, we use ResetElapsedTime to tell the game's
             // timing mechanism that we have just finished a very long frame, and that
             // it should not try to catch up.
             ScreenManager.Game.ResetElapsedTime();
         }
-
-        //public void myCallback(IAsyncResult result)
-        //{
-            
-        //}
 
 
         /// <summary>
@@ -333,6 +292,34 @@ namespace RabiesX
         public override void UnloadContent()
         {
             content.Unload();
+        }
+
+        private void SetUpVertices(Vector3 pos, int scale)
+        {
+            Vector3 vertex1 = new Vector3(pos.X - scale, pos.Y - scale, pos.Z + 2*scale);
+            Vector3 vertex2 = new Vector3(pos.X + scale, pos.Y + scale, pos.Z);
+            Vector3 vertex3 = new Vector3(pos.X + scale, pos.Y - scale, pos.Z + 2*scale);
+            Vector3 vertex4 = new Vector3(pos.X - scale, pos.Y - scale, pos.Z);
+
+            vertices.Add(new VertexPositionColor[3]); // front face
+            vertices[0][0] = new VertexPositionColor(vertex1, Color.Blue); // bottom-left
+            vertices[0][1] = new VertexPositionColor(vertex2, Color.Red); // top vertex
+            vertices[0][2] = new VertexPositionColor(vertex3, Color.Green); // bottom-right
+
+            vertices.Add(new VertexPositionColor[3]); // left face
+            vertices[1][0] = new VertexPositionColor(vertex4, Color.Blue); // bottom-left
+            vertices[1][1] = new VertexPositionColor(vertex2, Color.Red); // top vertex
+            vertices[1][2] = new VertexPositionColor(vertex1, Color.Green); // bottom-right
+
+            vertices.Add(new VertexPositionColor[3]); // right face
+            vertices[2][0] = new VertexPositionColor(vertex3, Color.Blue); // bottom-left
+            vertices[2][1] = new VertexPositionColor(vertex2, Color.Red); // top vertex
+            vertices[2][2] = new VertexPositionColor(vertex4, Color.Green); // bottom-right
+
+            vertices.Add(new VertexPositionColor[3]); // bottom face
+            vertices[3][0] = new VertexPositionColor(vertex1, Color.Blue); // bottom-left
+            vertices[3][1] = new VertexPositionColor(vertex4, Color.Red); // top vertex
+            vertices[3][2] = new VertexPositionColor(vertex3, Color.Green); // bottom-right
         }
 
         #endregion
@@ -360,7 +347,11 @@ namespace RabiesX
             {
                 ProcessKeyboard();
                 UpdatePlayer(gameTime);
+                UpdateEnemies(gameTime);
                 UpdateFrameRate(gameTime);
+
+                // Rotate triangle level indicator.
+                angle += 0.005f;
 
                 // Apply some random jitter to make the enemy move around.
                 const float randomization = 10;
@@ -446,6 +437,10 @@ namespace RabiesX
 
             camera.Perspective(CAMERA_FOVX, (float)newWidth / (float)newHeight,
                 CAMERA_ZNEAR, CAMERA_ZFAR);
+
+            // Set current screen width and height.
+            screenWidth = newWidth;
+            screenHeight = newHeight;
         }
 
         private void UpdatePlayer(GameTime gameTime)
@@ -453,6 +448,7 @@ namespace RabiesX
             float pitch = 0.0f;
             float heading = 0.0f;
             float forwardSpeed = 0.0f;
+            Vector3 playerPrevPosition = playerEntity.Position;
 
             if (curKeyboardState.IsKeyDown(Keys.W) ||
                 curKeyboardState.IsKeyDown(Keys.Up))
@@ -499,7 +495,7 @@ namespace RabiesX
             // Update the player's state.
             playerEntity.Velocity = new Vector3(0.0f, 0.0f, forwardSpeed);
             playerEntity.Orient(heading, 0.0f, 0.0f);
-            //playerEntity.Rotate(0.0f, pitch, 0.0f);
+            playerEntity.Rotate(0.0f, pitch, 0.0f);
             playerEntity.Update(gameTime);
 
             // Then move the camera based on where the player has moved to.
@@ -510,32 +506,114 @@ namespace RabiesX
             camera.Rotate((forwardSpeed >= 0.0f) ? heading : -heading, 0.0f);
             camera.LookAt(playerEntity.Position);
             camera.Update(gameTime);
-            
+
+            bool enemiesDeadChk = true;
+            // keep player from colliding with enemies and decrease health if collision
+            for (int k = 0; k < TOTAL_RABID_DOGS; k++)
+            {
+                if ((((Math.Abs(playerEntity.Position.X - rabidDogEntities[k].Position.X) + Math.Abs(playerEntity.Position.Z - rabidDogEntities[k].Position.Z)) / 2) < (playerRadius + rabidDogRadii[k] - 19.5)))
+                {
+                    playerEntity.Position = playerPrevPosition;
+                    playerHealthDecr += 0.1f; // add up damage to player
+                    if (playerHealthDecr >= 1.0f)
+                    {
+                        mCurrentHealth -= 1; // decrease player health by 1 unit
+                        //Force the health to remain between 0 and 100.           
+                        mCurrentHealth = (int)MathHelper.Clamp(mCurrentHealth, 0, 100);
+                        playerHealthDecr = 0.0f;
+                    }
+                }
+                if ((enemiesDeadChk == true) && (rabidDogHealths[k] > 0))
+                {
+                    enemiesDeadChk = false;
+                }
+            }
+
+            if ((enemiesDeadChk == true) && (((Math.Abs(playerEntity.Position.X - indicatorPos.X) + Math.Abs(playerEntity.Position.Z - indicatorPos.Z)) / 2) < (playerRadius + indicatorScale*2 - 19.5)))
+            {
+                // player can advance to next level
+                //ScreenManager.AddScreen(new NextLevelScreen(), ControllingPlayer);
+            }
+
             // Test current health bar.
 
             // If Page Up is pressed, increase the health bar.
-            //if (curKeyboardState.IsKeyDown(Keys.PageUp) == true)
-            //{
-                //mCurrentHealth += 1;
-                //araguz.Heal(1);
-            //}
+            if (curKeyboardState.IsKeyDown(Keys.PageUp) == true)
+            {
+                mCurrentHealth += 1;
+            }
             // If Page Down is pressed, decrease the health bar.
-            //if (curKeyboardState.IsKeyDown(Keys.PageDown) == true)
-            //{
-                //mCurrentHealth -= 1;
-                //araguz.Wound(1);
-            //}
+            if (curKeyboardState.IsKeyDown(Keys.PageDown) == true)
+            {
+                mCurrentHealth -= 1;
+            }
             //Force the health to remain between 0 and 100.           
-            //mCurrentHealth = (int)MathHelper.Clamp(mCurrentHealth, 0, 100);
-            araguz.Health = (int)MathHelper.Clamp(mCurrentHealth, 0, 100);
+            mCurrentHealth = (int)MathHelper.Clamp(mCurrentHealth, 0, 100);
 
-            //if (mCurrentHealth == 0)
-            if(araguz.Health == 0)
+            if (mCurrentHealth == 0)
             {
                 // Game is over, so go to continue or quit screen.
-                if (metJackson)
-                    jackson.Health = 0;
                 ScreenManager.AddScreen(new GameOverScreen(), ControllingPlayer);
+            }
+        }
+
+        private void UpdateEnemies(GameTime gameTime)
+        {
+            for (int i = 0; i < TOTAL_RABID_DOGS; i++)
+            {
+                rabidDogPreviousPositions[i] = rabidDogEntities[i].Position;
+                double xDiff = rabidDogEntities[i].Position.X - playerEntity.Position.X;
+                double zDiff = rabidDogEntities[i].Position.Z - playerEntity.Position.Z;
+                double distFromPlayer = Math.Sqrt(Math.Pow(xDiff, 2) + Math.Pow(zDiff, 2));
+                if (distFromPlayer < 700)
+                {
+                    if (rabidDogEntities[i].Position.X < playerEntity.Position.X)
+                    {
+                        rabidDogEntities[i].Position = new Vector3(rabidDogEntities[i].Position.X + 1, rabidDogEntities[i].Position.Y, rabidDogEntities[i].Position.Z);
+                    }
+                    else if (rabidDogEntities[i].Position.X > playerEntity.Position.X)
+                    {
+                        rabidDogEntities[i].Position = new Vector3(rabidDogEntities[i].Position.X - 1, rabidDogEntities[i].Position.Y, rabidDogEntities[i].Position.Z);
+                    }
+                    if (rabidDogEntities[i].Position.Z < playerEntity.Position.Z)
+                    {
+                        rabidDogEntities[i].Position = new Vector3(rabidDogEntities[i].Position.X, rabidDogEntities[i].Position.Y, rabidDogEntities[i].Position.Z + 1);
+                    }
+                    else if (rabidDogEntities[i].Position.Z > playerEntity.Position.Z)
+                    {
+                        rabidDogEntities[i].Position = new Vector3(rabidDogEntities[i].Position.X, rabidDogEntities[i].Position.Y, rabidDogEntities[i].Position.Z - 1);
+                    }
+                }
+                else
+                {
+                    // enemies stay where they are, and separate if they are too close to each other
+                }
+                for (int j = 0; j < TOTAL_RABID_DOGS; j++)
+                {
+                    if (j != i)
+                    {        
+                        // keep enemies from colliding with each other
+                        if ((((Math.Abs(rabidDogEntities[i].Position.X - rabidDogEntities[j].Position.X) + Math.Abs(rabidDogEntities[i].Position.Z - rabidDogEntities[j].Position.Z)) / 2) < (rabidDogRadii[i] + rabidDogRadii[j] - 5)))
+                        {
+                            rabidDogEntities[i].Position = rabidDogPreviousPositions[i];
+                            break;
+                        }
+                    }
+                }
+                // keep enemies from colliding with the player and decrease health if collision
+                if ((((Math.Abs(rabidDogEntities[i].Position.X - playerEntity.Position.X) + Math.Abs(rabidDogEntities[i].Position.Z - playerEntity.Position.Z)) / 2) < (rabidDogRadii[i] + playerRadius - 19.5)))
+                {
+                    rabidDogEntities[i].Position = rabidDogPreviousPositions[i];
+                    playerHealthDecr += 0.1f; // add up damage to player
+                    if (playerHealthDecr >= 1.0f)
+                    {
+                        mCurrentHealth -= 1; // decrease player health by 1 unit
+                        //Force the health to remain between 0 and 100.           
+                        mCurrentHealth = (int)MathHelper.Clamp(mCurrentHealth, 0, 100);
+                        playerHealthDecr = 0.0f;
+                    }
+                }
+                rabidDogEntities[i].Update(gameTime);
             }
         }
 
@@ -543,17 +621,51 @@ namespace RabiesX
         {
             elapsedTime += gameTime.ElapsedGameTime;
 
+            // Update Frame Rate
             if (elapsedTime > TimeSpan.FromSeconds(1))
             {
                 elapsedTime -= TimeSpan.FromSeconds(1);
                 framesPerSecond = frames;
                 frames = 0;
             }
+
+            
+            elapsedUpdateTime += gameTime.ElapsedGameTime.Milliseconds;
+
+            // Update Time Left
+            if (elapsedUpdateTime >= 1000)
+            {
+                timeLeft--;
+                elapsedUpdateTime = 0; //reset counter
+                if (timeLeft <= 0)
+                {
+                    // Game is over, so go to continue or quit screen.
+                    ScreenManager.AddScreen(new GameOverScreen(), ControllingPlayer);
+                }
+            }
         }
 
         private void IncrementFrameCounter()
         {
             ++frames;
+        }
+
+        private void DrawIndicator()
+        {
+            effect.CurrentTechnique = effect.Techniques["ColoredNoShading"];
+            effect.Parameters["xView"].SetValue(camera.ViewMatrix);
+            effect.Parameters["xProjection"].SetValue(camera.ProjectionMatrix);
+            Matrix worldMatrix = Matrix.CreateRotationY(3 * angle);
+            effect.Parameters["xWorld"].SetValue(worldMatrix);
+
+            foreach (EffectPass pass in effect.CurrentTechnique.Passes)
+            {
+                pass.Apply();
+                foreach (VertexPositionColor[] v in vertices)
+                {
+                    ScreenManager.GraphicsDevice.DrawUserPrimitives(PrimitiveType.TriangleList, v, 0, 1, VertexPositionColor.VertexDeclaration);
+                }
+            }
         }
 
         private void DrawPlayer()
@@ -579,26 +691,29 @@ namespace RabiesX
             }
         }
 
-        private void DrawCollectible(Entity entity, MyModel model)
+        private void DrawEnemies()
         {
-            if (modelTransforms == null)
-                modelTransforms = new Matrix[model.ModelHeld.Bones.Count];
-
-            model.ModelHeld.CopyAbsoluteBoneTransformsTo(modelTransforms);
-
-            foreach (ModelMesh m in model.ModelHeld.Meshes)
+            for (int i = 0; i < TOTAL_RABID_DOGS; i++)
             {
-                foreach (BasicEffect e in m.Effects)
-                {
-                    e.PreferPerPixelLighting = true;
-                    e.TextureEnabled = true;
-                    e.EnableDefaultLighting();
-                    e.World = modelTransforms[m.ParentBone.Index] * entity.WorldMatrix;
-                    e.View = camera.ViewMatrix;
-                    e.Projection = camera.ProjectionMatrix;
-                }
+                if (modelEnemyTransforms[i] == null)
+                    modelEnemyTransforms[i] = new Matrix[rabidDogModels[i].ModelHeld.Bones.Count];
 
-                m.Draw();
+                rabidDogModels[i].ModelHeld.CopyAbsoluteBoneTransformsTo(modelEnemyTransforms[i]);
+
+                foreach (ModelMesh m in rabidDogModels[i].ModelHeld.Meshes)
+                {
+                    foreach (BasicEffect e in m.Effects)
+                    {
+                        e.PreferPerPixelLighting = true;
+                        e.TextureEnabled = true;
+                        e.EnableDefaultLighting();
+                        e.World = modelEnemyTransforms[i][m.ParentBone.Index] * rabidDogEntities[i].WorldMatrix;
+                        e.View = camera.ViewMatrix;
+                        e.Projection = camera.ProjectionMatrix;
+                    }
+
+                    m.Draw();
+                }
             }
         }
 
@@ -673,71 +788,19 @@ namespace RabiesX
             {
                 // Otherwise move the player position.
                 Vector2 movement = Vector2.Zero;
+                
+                if (keyboardState.IsKeyDown(Keys.A))
+                    movement.X--;
+
+                if (keyboardState.IsKeyDown(Keys.D))
+                    movement.X++;
 
                 if (keyboardState.IsKeyDown(Keys.W))
-                {
-                    if(OtherKeysUp(keyboardState, Keys.W))
-                        soundInstance.Play();
                     movement.Y--;
-                }
+
                 if (keyboardState.IsKeyDown(Keys.S))
-                {
-                    if(OtherKeysUp(keyboardState, Keys.S))
-                        soundInstance.Play();
                     movement.Y++;
-                }
-                if (keyboardState.IsKeyDown(Keys.A))
-                {
-                    if(OtherKeysUp(keyboardState, Keys.A))
-                        soundInstance.Play();
-                    movement.X--;
-                }
-                if (keyboardState.IsKeyDown(Keys.D))
-                {
-                    if(OtherKeysUp(keyboardState, Keys.D))
-                        soundInstance.Play();
-                    movement.X++;
-                }              
-                if (keyboardState.IsKeyDown(Keys.Up))
-                {
-                    if(OtherKeysUp(keyboardState, Keys.Up))
-                        soundInstance.Play();
-                    movement.Y--;
-                }
-                if (keyboardState.IsKeyDown(Keys.Down))
-                {
-                    if(OtherKeysUp(keyboardState, Keys.Down))
-                        soundInstance.Play();
-                    movement.Y++;
-                }
-                if (keyboardState.IsKeyDown(Keys.Left))
-                {
-                    if(OtherKeysUp(keyboardState, Keys.Left))
-                        soundInstance.Play();
-                    movement.X--;
-                }
-                if (keyboardState.IsKeyDown(Keys.Right))
-                {
-                    if(OtherKeysUp(keyboardState, Keys.Right))
-                        soundInstance.Play();
-                    movement.X++;
-                }
-                if (keyboardState.IsKeyUp(Keys.W) && OtherKeysUp(keyboardState, Keys.W))
-                    soundInstance.Stop();
-                if (keyboardState.IsKeyUp(Keys.Up) && OtherKeysUp(keyboardState, Keys.Up))
-                    soundInstance.Stop();              
-                if (keyboardState.IsKeyUp(Keys.S) && OtherKeysUp(keyboardState, Keys.S))
-                    soundInstance.Stop();
-                if (keyboardState.IsKeyUp(Keys.Down) && OtherKeysUp(keyboardState, Keys.Down))
-                    soundInstance.Stop();
-                if (keyboardState.IsKeyUp(Keys.A) && OtherKeysUp(keyboardState, Keys.A))
-                    soundInstance.Stop();
-                if (keyboardState.IsKeyUp(Keys.Left) && OtherKeysUp(keyboardState, Keys.Left))
-                    soundInstance.Stop();
-                if (keyboardState.IsKeyUp(Keys.D) && OtherKeysUp(keyboardState, Keys.D))
-                    soundInstance.Stop();
-                if (keyboardState.IsKeyUp(Keys.Right) && OtherKeysUp(keyboardState, Keys.Right))
-                    soundInstance.Stop();
+                
                 Vector2 thumbstick = gamePadState.ThumbSticks.Left;
 
                 movement.X += thumbstick.X;
@@ -771,11 +834,9 @@ namespace RabiesX
             
             DrawPlayer();
 
-            int index;          
-            for (index = 0; index < NUMBER_OF_COLLECTIBLES_ON_THE_MAP / 2; index++)
-                DrawCollectible(araguzCollectibleEntities[index], araguzCollectibleModels[index]);
-            for (index = 0; index < NUMBER_OF_COLLECTIBLES_ON_THE_MAP / 2; index++)
-                DrawCollectible(jacksonCollectibleEntities[index], jacksonCollectibleModels[index]);
+            DrawEnemies();
+
+            DrawIndicator();
 
             sky.Draw(camera.ViewMatrix, camera.ProjectionMatrix);
 
@@ -790,28 +851,27 @@ namespace RabiesX
 
             //Draw the negative space for the health bar.
             mBatch.Draw(mHealthBar, new Rectangle(ScreenManager.Game.GraphicsDevice.Viewport.Width - mHealthBar.Width - 30, 30, mHealthBar.Width, 25), new Rectangle(0, 45, mHealthBar.Width, 25), Color.Gray);
+
             // Draw the current health for the health bar.
-            //if (mCurrentHealth > 50)
-            if (araguz.Health > 50)
+            if (mCurrentHealth > 50)
             {
-                mBatch.Draw(mHealthBar, new Rectangle(ScreenManager.Game.GraphicsDevice.Viewport.Width - mHealthBar.Width - 30, 30, (int)(mHealthBar.Width * ((double)araguz.Health / 100)), 25), new Rectangle(0, 45, mHealthBar.Width, 25), Color.DarkRed);
+                mBatch.Draw(mHealthBar, new Rectangle(ScreenManager.Game.GraphicsDevice.Viewport.Width - mHealthBar.Width - 30, 30, (int)(mHealthBar.Width * ((double)mCurrentHealth / 100)), 25), new Rectangle(0, 45, mHealthBar.Width, 25), Color.DarkRed);
             }
-            //else if ((mCurrentHealth <= 50) && (mCurrentHealth > 25))
-            else if((araguz.Health <= 50) && (araguz.Health > 25))
+            else if ((mCurrentHealth <= 50) && (mCurrentHealth > 25))
             {
-                mBatch.Draw(mHealthBar, new Rectangle(ScreenManager.Game.GraphicsDevice.Viewport.Width - mHealthBar.Width - 30, 30, (int)(mHealthBar.Width * ((double)araguz.Health / 100)), 25), new Rectangle(0, 45, mHealthBar.Width, 25), Color.Red);
+                mBatch.Draw(mHealthBar, new Rectangle(ScreenManager.Game.GraphicsDevice.Viewport.Width - mHealthBar.Width - 30, 30, (int)(mHealthBar.Width * ((double)mCurrentHealth / 100)), 25), new Rectangle(0, 45, mHealthBar.Width, 25), Color.Red);
             }
             else
             {
                 if (flicker == true)
                 {
-                    mBatch.Draw(mHealthBar, new Rectangle(ScreenManager.Game.GraphicsDevice.Viewport.Width - mHealthBar.Width - 30, 30, (int)(mHealthBar.Width * ((double)araguz.Health / 100)), 25), new Rectangle(0, 45, mHealthBar.Width, 25), Color.Red);
+                    mBatch.Draw(mHealthBar, new Rectangle(ScreenManager.Game.GraphicsDevice.Viewport.Width - mHealthBar.Width - 30, 30, (int)(mHealthBar.Width * ((double)mCurrentHealth / 100)), 25), new Rectangle(0, 45, mHealthBar.Width, 25), Color.Red);
                     prevElapsedTime = elapsedTime;
                     flicker = false;
                 }
                 else if ((flicker == false) && (elapsedTime != prevElapsedTime))
                 {
-                    mBatch.Draw(mHealthBar, new Rectangle(ScreenManager.Game.GraphicsDevice.Viewport.Width - mHealthBar.Width - 30, 30, (int)(mHealthBar.Width * ((double)araguz.Health / 100)), 25), new Rectangle(0, 45, mHealthBar.Width, 25), Color.Transparent);
+                    mBatch.Draw(mHealthBar, new Rectangle(ScreenManager.Game.GraphicsDevice.Viewport.Width - mHealthBar.Width - 30, 30, (int)(mHealthBar.Width * ((double)mCurrentHealth / 100)), 25), new Rectangle(0, 45, mHealthBar.Width, 25), Color.Transparent);
                     flicker = true;
                 }
             }
@@ -828,8 +888,21 @@ namespace RabiesX
             
             spriteBatchAlpha.DrawString(gameFont, "// TODO", playerPosition, Color.Green);
 
-            //spriteBatchAlpha.DrawString(gameFont, "Insert Gameplay Here",
-            //                       enemyPosition, Color.DarkRed);
+            spriteBatchAlpha.DrawString(gameFont, "Insert Gameplay Here",
+                                   enemyPosition, Color.DarkRed);
+
+            // Draw timer text.
+            string secs = (timeLeft%60).ToString();
+            if ((timeLeft % 60) < 10)
+            {
+                secs = "0" + secs;
+            }
+            Color timeLeftColor = Color.White;
+            if (timeLeft < 60)
+            {
+                timeLeftColor = Color.Red;
+            }
+            spriteBatchAlpha.DrawString(gameFont, (timeLeft / 60) + ":" + secs, new Vector2(screenWidth/2 - 45, 10), timeLeftColor);
 
             spriteBatchAlpha.End();
             base.Draw(gameTime);
@@ -876,143 +949,5 @@ namespace RabiesX
         }
 
         #endregion
-
-        private void GenerateAraguzCollectibles()
-        {
-            int X, Y, Z;
-            Vector3[] araguzPositions = new Vector3[NUMBER_OF_COLLECTIBLES_ON_THE_MAP / 2]; //60
-            araguzCollectibleEntities = new List<Entity>();
-            araguzCollectibleModels = new List<MyModel>();
-            araguzCollectibles = new List<Collectible>();
-            araguzCollectibleBounds = new List<BoundingSphere>();
-            araguzRadii = new List<float>();
-            Random collectibleRandom;
-            int index;
-            int collectibleIndex;
-            collectibleRandom = new Random();
-            for (index = 0; index < NUMBER_OF_COLLECTIBLES_ON_THE_MAP / 2; index++)
-            {
-                X = collectibleRandom.Next(-1000, 1000);
-                Y = collectibleRandom.Next(-1000, 1000);
-                Z = 0;
-                araguzCollectibleEntities.Add(new Entity());
-                araguzCollectibleEntities[index].ConstrainToWorldYAxis = true;
-                araguzCollectibleEntities[index].Position = new Vector3(X, Y, Z);
-                collectibleIndex = collectibleRandom.Next() % 3;
-                if (collectibleIndex == 0)
-                {
-                    araguzCollectibles.Add(new Collectible("araguz", "plasma container", 2));
-                    araguzCollectibleModels.Add(new MyModel("Models\\plasma_container", content));
-                    araguzCollectibleModels[index].Texture("Textures\\Bucket", content);
-                    araguzCollectibleModels[index].Texture("Textures\\White", content);
-                    //araguzCollectibleModels[index].Position = new Vector3(X, Y, Z);
-                }
-                else if (collectibleIndex == 1)
-                {
-                    araguzCollectibles.Add(new Collectible("araguz", "chemicals", 2));
-                    araguzCollectibleModels.Add(new MyModel("Models\\chemicals", content));
-                    araguzCollectibleModels[index].Texture("Textures\\Chemical1", content);
-                    araguzCollectibleModels[index].Texture("Textures\\Chemical2", content);
-                    araguzCollectibleModels[index].Texture("Textures\\RedLiquid", content);
-                    araguzCollectibleModels[index].Texture("Textures\\TopOfFlask", content);
-                    //araguzCollectibleModels[index].Position = new Vector3(X, Y, Z);
-                }
-                else
-                {
-                    araguzCollectibles.Add(new Collectible("araguz", "barrel widener", 2));
-                    araguzCollectibleModels.Add(new MyModel("Models\\barrel_widener", content));
-                    araguzCollectibleModels[index].Texture("Textures\\dark-metal-texture", content);
-                    araguzCollectibleModels[index].Texture("Textures\\Metal1", content);
-                    araguzCollectibleModels[index].Texture("Textures\\steel-mesh", content);
-                    //araguzCollectibleModels[index].Position = new Vector3(X, Y, Z);
-                }
-                BoundingSphere sphere = new BoundingSphere();
-                foreach (ModelMesh mesh in araguzCollectibleModels[index].ModelHeld.Meshes)
-                {
-                    sphere = BoundingSphere.CreateMerged(sphere, mesh.BoundingSphere);
-                    araguzRadii.Add(sphere.Radius);
-                    sphere.Center = new Vector3(X, Y, Z);
-                    araguzCollectibleBounds.Add(sphere);
-                }
-            }
-        }
-
-        private void GenerateJacksonCollectibles()
-        {
-            int X, Y, Z;
-            Vector3[] jacksonPositions = new Vector3[NUMBER_OF_COLLECTIBLES_ON_THE_MAP / 2];
-            jacksonCollectibleEntities = new List<Entity>();
-            jacksonCollectibleModels = new List<MyModel>();
-            jacksonCollectibles = new List<Collectible>();
-            jacksonCollectibleBounds = new List<BoundingSphere>();
-            jacksonRadii = new List<float>();
-            Random collectibleRandom = new Random();
-            int index;
-            int collectibleIndex;
-            for (index = 0; index < NUMBER_OF_COLLECTIBLES_ON_THE_MAP / 2; index++)
-            {
-                //collectibleRandom = new Random();
-                X = collectibleRandom.Next(-1000, 1000);
-                Y = collectibleRandom.Next(-1000, 1000);
-                Z = 0;
-                jacksonCollectibleEntities.Add(new Entity());
-                jacksonCollectibleEntities[index].ConstrainToWorldYAxis = true;
-                jacksonCollectibleEntities[index].Position = new Vector3(X, Y, Z);
-                collectibleIndex = collectibleRandom.Next() % 3;
-                if (collectibleIndex == 0)
-                {
-                    jacksonCollectibles.Add(new Collectible("jackson", "mini anvil", 2));
-                    jacksonCollectibleModels.Add(new MyModel("Models\\mini_anvil", content));
-                    jacksonCollectibleModels[index].Texture("Textures\\dark-metal-texture", content);
-                    //jacksonCollectibleModels[index].Position = new Vector3(X, Y, Z);
-                }
-                else if (collectibleIndex == 1)
-                {
-                    jacksonCollectibles.Add(new Collectible("jackson", "repair hammer", 2));
-                    jacksonCollectibleModels.Add(new MyModel("Models\\repair_hammer", content));
-                    jacksonCollectibleModels[index].Texture("Textures\\Hammer", content);
-                    //jacksonCollectibleModels[index].Position = new Vector3(X, Y, Z);
-                }
-                else
-                {
-                    jacksonCollectibles.Add(new Collectible("jackson", "sword sharpener", 2));
-                    jacksonCollectibleModels.Add(new MyModel("Models\\sword_sharpener", content));
-                    jacksonCollectibleModels[index].Texture("Textures\\close-up-of-wood-texture", content);
-                    jacksonCollectibleModels[index].Texture("Textures\\Wood_texture", content);
-                    jacksonCollectibleModels[index].Texture("Textures\\Wood_texture_2", content);
-                    jacksonCollectibleModels[index].Texture("Textures\\WoodTexture14", content);
-                    //jacksonCollectibleModels[index].Position = new Vector3(X, Y, Z);
-                }
-                BoundingSphere sphere = new BoundingSphere();
-                foreach (ModelMesh mesh in jacksonCollectibleModels[index].ModelHeld.Meshes)
-                {
-                    sphere = BoundingSphere.CreateMerged(sphere, mesh.BoundingSphere);
-                    jacksonRadii.Add(sphere.Radius);
-                    sphere.Center = new Vector3(X, Y, Z);
-                    jacksonCollectibleBounds.Add(sphere);
-                }
-            }
-        }
-
-        private bool OtherKeysUp(KeyboardState state, Keys theKey)
-        {
-            Keys[] gameKeys = {Keys.H, Keys.Space, Keys.LeftAlt, Keys.RightAlt, Keys.Enter, Keys.Add,
-                                  Keys.Subtract, Keys.A, Keys.W, Keys.S, Keys.D, Keys.Up, Keys.Left,
-                                  Keys.Right, Keys.Down, Keys.E, Keys.R};
-            bool keysAreUp = true;
-            foreach (Keys key in gameKeys)
-            {
-                if (key != theKey)
-                    keysAreUp = keysAreUp && state.IsKeyUp(key);
-            }
-            return keysAreUp;
-        }
-
-        private bool Collision(Vector3 position1, Vector3 position2)
-        {
-            if (position1 == position2)
-                return true;
-            return false;
-        }
     }
 }
