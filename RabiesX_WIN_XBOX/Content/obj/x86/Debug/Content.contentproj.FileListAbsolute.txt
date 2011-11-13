@@ -1,3 +1,4 @@
 C:\Users\Nshidbaby\Documents\College\COSC 4348\Source Code\GSMSample_4_0_WIN_XBOX\Content\obj\x86\Debug\ResolveAssemblyReference.cache
 C:\Users\Nshidbaby\Documents\College\COSC 4348\Rabies-X\Rabies-X\RabiesX_WIN_XBOX\Content\obj\x86\Debug\ResolveAssemblyReference.cache
 C:\Users\Nshidbaby\Documents\College\COSC 4348\Locale\RabiesX_WIN_XBOX (Backup 11-3-2011)\RabiesX_WIN_XBOX\Content\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\UH\NewAraguzGame\Rabies-X\RabiesX_WIN_XBOX\Content\obj\x86\Debug\ResolveAssemblyReference.cache

@@ -50,6 +50,7 @@ namespace RabiesX
         int elapsedUpdateTime = 0;
 
         private const int TOTAL_RABID_DOGS = 3;
+        //private const int TOTAL_DECORS = 1;
 
         ContentManager content;
         SpriteFont gameFont;
@@ -84,6 +85,7 @@ namespace RabiesX
         private MyModel playerModel;
         private List<MyModel> rabidDogModels;
 
+        private MyModel dumpsterModel;
         // Aspect ratio determines how to scale 3d to 2d projection.
         float aspectRatio;
 
@@ -99,11 +101,13 @@ namespace RabiesX
         private int framesPerSecond;
         private Entity playerEntity;
         private Entity terrainEntity;
+        private Entity dumpsterEntity;
         private List<int> rabidDogHealths;
         private List<Entity> rabidDogEntities;
         private List<Vector3> rabidDogPreviousPositions;
         private float playerRadius;
         private float terrainRadius;
+        private float dumpsterRadius;
         private List<float> rabidDogRadii;
         private Matrix[] modelTransforms;
         private List<Matrix[]> modelEnemyTransforms;
@@ -118,6 +122,7 @@ namespace RabiesX
 
         BoundingSphere playerBounds;
         BoundingSphere terrainBounds;
+        BoundingSphere dumpsterBounds;
         List<BoundingSphere> rabidDogBounds;
 
         private bool flicker;
@@ -218,6 +223,13 @@ namespace RabiesX
                 rabidDogModels[i].Texture("Textures\\wedge_p1_diff_v1", content);
             }
 
+            dumpsterModel = new MyModel("Models\\dumpster", content);
+            playerModel.Texture("Textures\\wedge_p1_diff_v1", content);
+            dumpsterModel.Texture("Textures\\bikegear", content);
+            dumpsterModel.Texture("Textures\\tirecolor", content);
+            dumpsterModel.Texture("Textures\\rustymetal", content);
+            dumpsterModel.Texture("Textures\\nolittering", content);
+
             // Load terrain and sky.
             terrain = content.Load<Model>("terrain");
             sky = content.Load<Sky>("sky");
@@ -229,6 +241,13 @@ namespace RabiesX
             playerRadius = bounds.Radius;
 
             playerBounds = bounds;
+
+            BoundingSphere dbounds = new BoundingSphere();
+            foreach (ModelMesh mesh in dumpsterModel.ModelHeld.Meshes)
+                dbounds = BoundingSphere.CreateMerged(dbounds, mesh.BoundingSphere);
+            dumpsterRadius = dbounds.Radius;
+
+            dumpsterBounds = dbounds;
 
             // Determine the radii of the enemy models.  
             for (int i = 0; i < TOTAL_RABID_DOGS; i++)
@@ -260,6 +279,10 @@ namespace RabiesX
             playerEntity = new Entity();
             playerEntity.ConstrainToWorldYAxis = true;
             playerEntity.Position = new Vector3(0.0f, 1.0f + playerRadius, 0.0f);
+
+            dumpsterEntity = new Entity();
+            dumpsterEntity.ConstrainToWorldYAxis = true;
+            dumpsterEntity.Position = new Vector3(0.0f, 1.0f + dumpsterRadius, 0.0f);
             
             // Setup the enemy entities.
             for (int i = 0; i < TOTAL_RABID_DOGS; i++)
@@ -691,6 +714,29 @@ namespace RabiesX
             }
         }
 
+        private void DrawDumpster()
+        {
+            //if (modelTransforms == null)
+            //    modelTransforms = new Matrix[dumpsterModel.ModelHeld.Bones.Count];
+
+            //dumpsterModel.ModelHeld.CopyAbsoluteBoneTransformsTo(modelTransforms);
+
+            foreach (ModelMesh m in dumpsterModel.ModelHeld.Meshes)
+            {
+                foreach (BasicEffect e in m.Effects)
+                {
+                    e.PreferPerPixelLighting = true;
+                    e.TextureEnabled = true;
+                    e.EnableDefaultLighting();
+                    e.World = dumpsterEntity.WorldMatrix;
+                    e.View = camera.ViewMatrix;
+                    e.Projection = camera.ProjectionMatrix;
+                }
+
+                m.Draw();
+            }
+        }
+
         private void DrawEnemies()
         {
             for (int i = 0; i < TOTAL_RABID_DOGS; i++)
@@ -834,6 +880,8 @@ namespace RabiesX
             
             DrawPlayer();
 
+            DrawDumpster();
+
             DrawEnemies();
 
             DrawIndicator();
@@ -886,10 +934,10 @@ namespace RabiesX
 
             spriteBatchAlpha.Begin(0, BlendState.AlphaBlend);
             
-            spriteBatchAlpha.DrawString(gameFont, "// TODO", playerPosition, Color.Green);
+            //spriteBatchAlpha.DrawString(gameFont, "// TODO", playerPosition, Color.Green);
 
-            spriteBatchAlpha.DrawString(gameFont, "Insert Gameplay Here",
-                                   enemyPosition, Color.DarkRed);
+            //spriteBatchAlpha.DrawString(gameFont, "Insert Gameplay Here",
+                                   //enemyPosition, Color.DarkRed);
 
             // Draw timer text.
             string secs = (timeLeft%60).ToString();

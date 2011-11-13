@@ -3,7 +3,7 @@
   <Asset Type="Graphics:MeshContent">
     <Name>pCube2</Name>
     <Identity>
-      <SourceFilename>C:\Users\Nshidbaby\Documents\College\COSC 4348\Locale\RabiesX_WIN_XBOX (Backup 11-3-2011)\RabiesX_WIN_XBOX\Content\Models\rabiddog.fbx</SourceFilename>
+      <SourceFilename>C:\UH\NewAraguzGame\Rabies-X\RabiesX_WIN_XBOX\Content\Models\rabiddog.fbx</SourceFilename>
       <SourceTool>FbxImporter</SourceTool>
     </Identity>
     <Transform>1 0 0 0 0 1 0 0 0 0 1 0 -16.7154064 16.2775879 -2.4252 1</Transform>
@@ -48,7 +48,7 @@
     <Resource ID="#Resource1" Type="Graphics:BasicMaterialContent">
       <Name>phong1</Name>
       <Identity>
-        <SourceFilename>C:\Users\Nshidbaby\Documents\College\COSC 4348\Locale\RabiesX_WIN_XBOX (Backup 11-3-2011)\RabiesX_WIN_XBOX\Content\Models\rabiddog.fbx</SourceFilename>
+        <SourceFilename>C:\UH\NewAraguzGame\Rabies-X\RabiesX_WIN_XBOX\Content\Models\rabiddog.fbx</SourceFilename>
         <SourceTool>FbxImporter</SourceTool>
       </Identity>
       <OpaqueData>
@@ -70,7 +70,7 @@
     <Resource ID="#Resource2" Type="Graphics:BasicMaterialContent">
       <Name>phong3</Name>
       <Identity>
-        <SourceFilename>C:\Users\Nshidbaby\Documents\College\COSC 4348\Locale\RabiesX_WIN_XBOX (Backup 11-3-2011)\RabiesX_WIN_XBOX\Content\Models\rabiddog.fbx</SourceFilename>
+        <SourceFilename>C:\UH\NewAraguzGame\Rabies-X\RabiesX_WIN_XBOX\Content\Models\rabiddog.fbx</SourceFilename>
         <SourceTool>FbxImporter</SourceTool>
       </Identity>
       <OpaqueData>
@@ -92,7 +92,7 @@
     <Resource ID="#Resource3" Type="Graphics:BasicMaterialContent">
       <Name>phong2</Name>
       <Identity>
-        <SourceFilename>C:\Users\Nshidbaby\Documents\College\COSC 4348\Locale\RabiesX_WIN_XBOX (Backup 11-3-2011)\RabiesX_WIN_XBOX\Content\Models\rabiddog.fbx</SourceFilename>
+        <SourceFilename>C:\UH\NewAraguzGame\Rabies-X\RabiesX_WIN_XBOX\Content\Models\rabiddog.fbx</SourceFilename>
         <SourceTool>FbxImporter</SourceTool>
       </Identity>
       <OpaqueData>
