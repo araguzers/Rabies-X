@@ -55,3 +55,5 @@ Content\Models\cushions_0.xnb
 Content\Models\dooropen_0.xnb
 Content\Models\water_0.xnb
 Content\Models\ball_decal_map_0.xnb
+Content\Audio\Waves\araguzbattlecry.xnb
+Content\Audio\Waves\winningyell.xnb

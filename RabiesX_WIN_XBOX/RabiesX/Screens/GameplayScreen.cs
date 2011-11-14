@@ -61,6 +61,12 @@ namespace RabiesX
         private SoundEffect sound;
         private SoundEffectInstance soundInstance;
 
+        private SoundEffect cry;
+        private SoundEffectInstance cryInstance;
+
+        private SoundEffect win;
+        private SoundEffectInstance winInstance;
+
         private SpriteBatch spriteBatch;
         private SpriteFont spriteFont;
 
@@ -87,27 +93,27 @@ namespace RabiesX
         Model terrain;
         Sky sky;
 
-        Controller controller;
-        List<Controller.Action> actionList;
+        //Controller controller;
+        //List<Controller.Action> actionList;
 
         Vector3 lightDir1 = new Vector3(1, 1, 1);
 
-        Model dual;
+        //Model dual;
 
-        Vector3 dudePos; //dude position
-        Quaternion dudeQRot; //Quaternion rotation
-        float dudeRotY;
-        float dudeRotX;
+        //Vector3 dudePos; //dude position
+        //Quaternion dudeQRot; //Quaternion rotation
+        //float dudeRotY;
+        //float dudeRotX;
 
         List<Bullet> bulletList = new List<Bullet>();//bullet list
-        Shape bulletShape;
+        //Shape bulletShape;
 
         List<Target> targetList = new List<Target>();//target list
-        Shape targetShape;
+        //Shape targetShape;
 
-        int numTarget = 0;
+        //int numTarget = 0;
 
-        int score_enemies = 0;
+        //int score_enemies = 0;
 
         //used for collectibles
         const int NUM_OF_Target = 50; //total number of collectibles on the screen
@@ -119,11 +125,11 @@ namespace RabiesX
         int[] tZValues = { -2000, 40000 };
 
 
-        bool gamePaused = false;
-        Vector2 screenCenter;
+        //bool gamePaused = false;
+        //Vector2 screenCenter;
         Vector3 STARTING_POSITION = Vector3.Zero;
         //const int NUM_COLLECTED_TO_WIN = 50;
-        Matrix view, projection;
+        //Matrix view, projection;
 
         // Set the 3D model to draw.
         private MyModel playerModel;
@@ -217,6 +223,12 @@ namespace RabiesX
             GameStateManagementGame.graphics.PreferredBackBufferHeight = screenHeight;
             GameStateManagementGame.graphics.PreferMultiSampling = true;
             GameStateManagementGame.graphics.ApplyChanges();
+
+            cry = content.Load<SoundEffect>("Audio\\Waves\\araguzbattlecry");
+            cryInstance = cry.CreateInstance();
+
+            win = content.Load<SoundEffect>("Audio\\Waves\\winningyell");
+            winInstance = win.CreateInstance();
 
             // Position the in-game text.
             fontPos = new Vector2(1.0f, 1.0f);
@@ -415,6 +427,8 @@ namespace RabiesX
                                                        bool coveredByOtherScreen)
         {
             base.Update(gameTime, otherScreenHasFocus, false);
+            if(timeLeft == 240)         
+                cryInstance.Play();
 
             // Gradually fade in or out depending on whether we are covered by the pause screen.
             if (coveredByOtherScreen)
@@ -719,6 +733,7 @@ namespace RabiesX
                 if (timeLeft <= 0)
                 {
                     // Game is over, so go to continue or quit screen.
+                    winInstance.Play();
                     ScreenManager.AddScreen(new GameOverScreen(), ControllingPlayer);
                 }
             }
@@ -852,6 +867,7 @@ namespace RabiesX
                 buffer.AppendFormat("  Spring constant: {0}\n", springConstant.ToString("f2"));
                 buffer.AppendFormat("  Damping constant: {0}\n", dampingConstant.ToString("f2"));
                 buffer.AppendLine();
+                buffer.AppendFormat("I, Russell Jackson, challenge you, Geraldo \"Merry Gerry\" Araguz, to survive\n for 5 minutes in this park with these diseased dogs!\n I can guarantee that you will not survive for even one.\nThat GuzCruise of yours will not protect you for long...\nGet him, boys!!\n\n");
                 buffer.AppendLine("Press H to display help");
             }
 

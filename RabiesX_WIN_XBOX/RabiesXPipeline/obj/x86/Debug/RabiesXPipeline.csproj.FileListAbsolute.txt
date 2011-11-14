@@ -13,3 +13,8 @@ C:\Users\Junior\Desktop\RBXWithCar\Rabies-X\RabiesX_WIN_XBOX\RabiesXPipeline\bin
 C:\Users\Junior\Desktop\RBXWithCar\Rabies-X\RabiesX_WIN_XBOX\RabiesXPipeline\obj\x86\Debug\ResolveAssemblyReference.cache
 C:\Users\Junior\Desktop\RBXWithCar\Rabies-X\RabiesX_WIN_XBOX\RabiesXPipeline\obj\x86\Debug\RabiesXPipeline.dll
 C:\Users\Junior\Desktop\RBXWithCar\Rabies-X\RabiesX_WIN_XBOX\RabiesXPipeline\obj\x86\Debug\RabiesXPipeline.pdb
+C:\Users\Junior\Desktop\RabiesPlusSquirrel\Rabies-X\RabiesX_WIN_XBOX\RabiesXPipeline\bin\x86\Debug\RabiesXPipeline.dll
+C:\Users\Junior\Desktop\RabiesPlusSquirrel\Rabies-X\RabiesX_WIN_XBOX\RabiesXPipeline\bin\x86\Debug\RabiesXPipeline.pdb
+C:\Users\Junior\Desktop\RabiesPlusSquirrel\Rabies-X\RabiesX_WIN_XBOX\RabiesXPipeline\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\Junior\Desktop\RabiesPlusSquirrel\Rabies-X\RabiesX_WIN_XBOX\RabiesXPipeline\obj\x86\Debug\RabiesXPipeline.dll
+C:\Users\Junior\Desktop\RabiesPlusSquirrel\Rabies-X\RabiesX_WIN_XBOX\RabiesXPipeline\obj\x86\Debug\RabiesXPipeline.pdb
