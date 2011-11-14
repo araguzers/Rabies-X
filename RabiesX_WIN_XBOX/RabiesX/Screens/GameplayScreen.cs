@@ -55,6 +55,10 @@ namespace RabiesX
         ContentManager content;
         SpriteFont gameFont;
 
+        //Sets the sounds.
+        private SoundEffect sound;
+        private SoundEffectInstance soundInstance;
+
         private SpriteBatch spriteBatch;
         private SpriteFont spriteFont;
 
@@ -215,8 +219,18 @@ namespace RabiesX
             }
 
             // Load models and set aspect ratio.
-            playerModel = new MyModel("Models\\ball", content);
-            playerModel.Texture("Textures\\wedge_p1_diff_v1", content);
+            playerModel = new MyModel("Models\\isabella", content);
+            //playerModel.Texture("Textures\\wedge_p1_diff_v1", content);
+            playerModel.Texture("Textures\\guzcruiseroofmiddle", content);
+            playerModel.Texture("Textures\\guzcruiseroof1", content);
+            playerModel.Texture("Textures\\cushions", content);
+            playerModel.Texture("Textures\\dooropen", content);
+            playerModel.Texture("Textures\\water", content);
+
+            sound = content.Load<SoundEffect>("Audio\\Waves\\carengine");
+            soundInstance = sound.CreateInstance();
+            soundInstance.IsLooped.Equals(true);
+
             for (int i = 0; i < TOTAL_RABID_DOGS; i++)
             {
                 rabidDogModels.Add(new MyModel("Models\\ball", content));
@@ -518,7 +532,7 @@ namespace RabiesX
             // Update the player's state.
             playerEntity.Velocity = new Vector3(0.0f, 0.0f, forwardSpeed);
             playerEntity.Orient(heading, 0.0f, 0.0f);
-            playerEntity.Rotate(0.0f, pitch, 0.0f);
+            //playerEntity.Rotate(0.0f, pitch, 0.0f);
             playerEntity.Update(gameTime);
 
             // Then move the camera based on where the player has moved to.
@@ -834,19 +848,76 @@ namespace RabiesX
             {
                 // Otherwise move the player position.
                 Vector2 movement = Vector2.Zero;
-                
-                if (keyboardState.IsKeyDown(Keys.A))
-                    movement.X--;
-
-                if (keyboardState.IsKeyDown(Keys.D))
-                    movement.X++;
 
                 if (keyboardState.IsKeyDown(Keys.W))
+                {
+                    if (OtherKeysUp(keyboardState, Keys.W))
+                        soundInstance.Play();
                     movement.Y--;
-
+                }
                 if (keyboardState.IsKeyDown(Keys.S))
+                {
+                    if (OtherKeysUp(keyboardState, Keys.S))
+                        soundInstance.Play();
                     movement.Y++;
-                
+                }
+                if (keyboardState.IsKeyDown(Keys.A))
+                {
+                    if (OtherKeysUp(keyboardState, Keys.A))
+                        soundInstance.Play();
+                    movement.X--;
+                }
+                if (keyboardState.IsKeyDown(Keys.D))
+                {
+                    if (OtherKeysUp(keyboardState, Keys.D))
+                        soundInstance.Play();
+                    movement.X++;
+                }
+                if (keyboardState.IsKeyDown(Keys.Up))
+                {
+                    if (OtherKeysUp(keyboardState, Keys.Up))
+                        soundInstance.Play();
+                    movement.Y--;
+                }
+                if (keyboardState.IsKeyDown(Keys.Down))
+                {
+                    if (OtherKeysUp(keyboardState, Keys.Down))
+                        soundInstance.Play();
+                    movement.Y++;
+                }
+                if (keyboardState.IsKeyDown(Keys.Left))
+                {
+                    if (OtherKeysUp(keyboardState, Keys.Left))
+                        soundInstance.Play();
+                    movement.X--;
+                }
+                if (keyboardState.IsKeyDown(Keys.Right))
+                {
+                    if (OtherKeysUp(keyboardState, Keys.Right))
+                        soundInstance.Play();
+                    movement.X++;
+                }
+                //if (keyboardState.IsKeyDown(Keys.E))
+                //{
+                //    if (OtherKeysUp(keyboardState, Keys.E))
+                //        cryInstance.Play();
+                //}
+                if (keyboardState.IsKeyUp(Keys.W) && OtherKeysUp(keyboardState, Keys.W))
+                    soundInstance.Stop();
+                if (keyboardState.IsKeyUp(Keys.Up) && OtherKeysUp(keyboardState, Keys.Up))
+                    soundInstance.Stop();
+                if (keyboardState.IsKeyUp(Keys.S) && OtherKeysUp(keyboardState, Keys.S))
+                    soundInstance.Stop();
+                if (keyboardState.IsKeyUp(Keys.Down) && OtherKeysUp(keyboardState, Keys.Down))
+                    soundInstance.Stop();
+                if (keyboardState.IsKeyUp(Keys.A) && OtherKeysUp(keyboardState, Keys.A))
+                    soundInstance.Stop();
+                if (keyboardState.IsKeyUp(Keys.Left) && OtherKeysUp(keyboardState, Keys.Left))
+                    soundInstance.Stop();
+                if (keyboardState.IsKeyUp(Keys.D) && OtherKeysUp(keyboardState, Keys.D))
+                    soundInstance.Stop();
+                if (keyboardState.IsKeyUp(Keys.Right) && OtherKeysUp(keyboardState, Keys.Right))
+                    soundInstance.Stop();
                 Vector2 thumbstick = gamePadState.ThumbSticks.Left;
 
                 movement.X += thumbstick.X;
@@ -997,5 +1068,19 @@ namespace RabiesX
         }
 
         #endregion
+
+        private bool OtherKeysUp(KeyboardState state, Keys theKey)
+        {
+            Keys[] gameKeys = {Keys.H, Keys.Space, Keys.LeftAlt, Keys.RightAlt, Keys.Enter, Keys.Add,
+                                  Keys.Subtract, Keys.A, Keys.W, Keys.S, Keys.D, Keys.Up, Keys.Left,
+                                  Keys.Right, Keys.Down, Keys.E, Keys.R};
+            bool keysAreUp = true;
+            foreach (Keys key in gameKeys)
+            {
+                if (key != theKey)
+                    keysAreUp = keysAreUp && state.IsKeyUp(key);
+            }
+            return keysAreUp;
+        }
     }
 }
