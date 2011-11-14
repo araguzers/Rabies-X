@@ -20,6 +20,8 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 #endregion
 
+//some logic is credited to Mr. Jose Baez-Franceschi. The trajectory logic, specifically - it came from his squirrel game.
+
 namespace RabiesX
 {
     /// <summary>
@@ -84,6 +86,44 @@ namespace RabiesX
         // Set sky and terrain for level.
         Model terrain;
         Sky sky;
+
+        Controller controller;
+        List<Controller.Action> actionList;
+
+        Vector3 lightDir1 = new Vector3(1, 1, 1);
+
+        Model dual;
+
+        Vector3 dudePos; //dude position
+        Quaternion dudeQRot; //Quaternion rotation
+        float dudeRotY;
+        float dudeRotX;
+
+        List<Bullet> bulletList = new List<Bullet>();//bullet list
+        Shape bulletShape;
+
+        List<Target> targetList = new List<Target>();//target list
+        Shape targetShape;
+
+        int numTarget = 0;
+
+        int score_enemies = 0;
+
+        //used for collectibles
+        const int NUM_OF_Target = 50; //total number of collectibles on the screen
+        List<Enemy> targets = new List<Enemy>(); //list of targets
+        List<Vector2> usedTargetXZ; //used locations (so we don't have multiple targets on 1 spot)
+        const int tMAX = 1;
+        const int tMIN = 0;
+        int[] tXValues = { -2000, 20000 };
+        int[] tZValues = { -2000, 40000 };
+
+
+        bool gamePaused = false;
+        Vector2 screenCenter;
+        Vector3 STARTING_POSITION = Vector3.Zero;
+        //const int NUM_COLLECTED_TO_WIN = 50;
+        Matrix view, projection;
 
         // Set the 3D model to draw.
         private MyModel playerModel;
@@ -168,6 +208,8 @@ namespace RabiesX
             // Get current screen width and height.
             screenWidth = ScreenManager.Game.GraphicsDevice.Viewport.Width;
             screenHeight = ScreenManager.Game.GraphicsDevice.Viewport.Height;
+
+            usedTargetXZ = new List<Vector2>();
 
             // Setup frame buffer.
             GameStateManagementGame.graphics.SynchronizeWithVerticalRetrace = false;

@@ -5,9 +5,9 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Rabies-X")]
-[assembly: AssemblyProduct("Rabies-X")]
-[assembly: AssemblyDescription("Astronaut named Geraldo Araguz returns from a mission to save earth from a new Rabies outbreak.")]
+[assembly: AssemblyTitle("R.B.X.")]
+[assembly: AssemblyProduct("R.B.X.")]
+[assembly: AssemblyDescription("Astronaut named Geraldo Araguz returns from a mission to save earth from a new outbreak of a mystery disease called R.B.X. by the public.")]
 [assembly: AssemblyCompany("The Araguzers")]
 [assembly: AssemblyCopyright("Copyright © The Araguzers 2011")]
 [assembly: AssemblyTrademark("")]
