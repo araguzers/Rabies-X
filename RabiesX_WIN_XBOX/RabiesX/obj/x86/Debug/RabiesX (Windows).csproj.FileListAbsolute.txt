@@ -244,3 +244,13 @@ C:\Users\Junior\Desktop\RabiesPlusSquirrel\Rabies-X\RabiesX_WIN_XBOX\RabiesX\obj
 C:\Users\Junior\Desktop\RabiesPlusSquirrel\Rabies-X\RabiesX_WIN_XBOX\RabiesX\obj\x86\Debug\Rabies-X.pdb
 C:\Users\Junior\Desktop\RabiesPlusSquirrel\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Audio\Waves\araguzbattlecry.xnb
 C:\Users\Junior\Desktop\RabiesPlusSquirrel\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Audio\Waves\winningyell.xnb
+C:\Users\Junior\Desktop\RabiesPlusSquirrel\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Models\DogEyes.xnb
+C:\Users\Junior\Desktop\RabiesPlusSquirrel\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Models\DogPupil.xnb
+C:\Users\Junior\Desktop\RabiesPlusSquirrel\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Models\DogSkin.xnb
+C:\Users\Junior\Desktop\RabiesPlusSquirrel\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Textures\DogEyes.xnb
+C:\Users\Junior\Desktop\RabiesPlusSquirrel\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Textures\DogPupil.xnb
+C:\Users\Junior\Desktop\RabiesPlusSquirrel\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Textures\DogSkin.xnb
+C:\Users\Junior\Desktop\RabiesPlusSquirrel\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Models\diseased_dog.xnb
+C:\Users\Junior\Desktop\RabiesPlusSquirrel\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\DogSkin_0.xnb
+C:\Users\Junior\Desktop\RabiesPlusSquirrel\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\DogPupil_0.xnb
+C:\Users\Junior\Desktop\RabiesPlusSquirrel\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\DogEyes_0.xnb

@@ -287,8 +287,12 @@ namespace RabiesX
 
             for (int i = 0; i < TOTAL_RABID_DOGS; i++)
             {
-                rabidDogModels.Add(new MyModel("Models\\ball", content));
-                rabidDogModels[i].Texture("Textures\\wedge_p1_diff_v1", content);
+                //rabidDogModels.Add(new MyModel("Models\\ball", content));
+                //rabidDogModels[i].Texture("Textures\\wedge_p1_diff_v1", content);
+                rabidDogModels.Add(new MyModel("Models\\diseased_dog", content));
+                rabidDogModels[i].Texture("Textures\\DogEyes", content);
+                rabidDogModels[i].Texture("Textures\\DogPupil", content);
+                rabidDogModels[i].Texture("Textures\\DogSkin", content);
             }
 
             dumpsterModel = new MyModel("Models\\dumpster", content);

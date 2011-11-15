@@ -742,6 +742,131 @@
       <Output>C:\Users\Junior\Desktop\RabiesPlusSquirrel\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Audio\Waves\winningyell.xnb</Output>
       <Time>2011-11-14T17:11:26.0102734-06:00</Time>
     </Item>
+    <Item>
+      <Source>Models\DogEyes.jpg</Source>
+      <Name>Models\DogEyes</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Junior\Desktop\RabiesPlusSquirrel\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Models\DogEyes.xnb</Output>
+      <Time>2011-11-03T15:41:13.5646601-05:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\DogPupil.jpg</Source>
+      <Name>Models\DogPupil</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Junior\Desktop\RabiesPlusSquirrel\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Models\DogPupil.xnb</Output>
+      <Time>2011-11-03T16:10:24.2637943-05:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\DogSkin.jpg</Source>
+      <Name>Models\DogSkin</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Junior\Desktop\RabiesPlusSquirrel\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Models\DogSkin.xnb</Output>
+      <Time>2011-11-03T15:35:40.2065931-05:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\DogEyes.jpg</Source>
+      <Name>Textures\DogEyes</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Junior\Desktop\RabiesPlusSquirrel\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Textures\DogEyes.xnb</Output>
+      <Time>2011-11-03T15:41:13.5646601-05:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\DogPupil.jpg</Source>
+      <Name>Textures\DogPupil</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Junior\Desktop\RabiesPlusSquirrel\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Textures\DogPupil.xnb</Output>
+      <Time>2011-11-03T16:10:24.2637943-05:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\DogSkin.jpg</Source>
+      <Name>Textures\DogSkin</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Junior\Desktop\RabiesPlusSquirrel\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Textures\DogSkin.xnb</Output>
+      <Time>2011-11-03T15:35:40.2065931-05:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\diseased_dog.fbx</Source>
+      <Name>Models\diseased_dog</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>ModelProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Junior\Desktop\RabiesPlusSquirrel\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Models\diseased_dog.xnb</Output>
+      <Time>2011-11-14T18:07:45.5235705-06:00</Time>
+      <Dependency>
+        <Key>obj\x86\Debug\Models\diseased_dog_0.xml</Key>
+        <Value>2011-11-14T18:08:04.5906611-06:00</Value>
+      </Dependency>
+      <Request>C:\Users\Junior\Desktop\RabiesPlusSquirrel\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\DogSkin_0.xnb</Request>
+      <Request>C:\Users\Junior\Desktop\RabiesPlusSquirrel\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\DogPupil_0.xnb</Request>
+      <Request>C:\Users\Junior\Desktop\RabiesPlusSquirrel\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\DogEyes_0.xnb</Request>
+    </Item>
+    <Item>
+      <Source>Models\diseased_dog.fbx</Source>
+      <Importer>FbxImporter</Importer>
+      <Options>IntermediateFile, DontCacheImportedData</Options>
+      <Output>obj\x86\Debug\Models\diseased_dog_0.xml</Output>
+      <Time>2011-11-14T18:07:45.5235705-06:00</Time>
+    </Item>
+    <Item>
+      <Source>C:\UH\Rabies-X Game\Rabies-X\images\DogSkin.jpg</Source>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Parameters>
+        <Data Key="ColorKeyColor" Type="Framework:Color">FFFF00FF</Data>
+        <Data Key="ColorKeyEnabled" Type="bool">true</Data>
+        <Data Key="TextureFormat" Type="Processors:TextureProcessorOutputFormat">DxtCompressed</Data>
+        <Data Key="GenerateMipmaps" Type="bool">true</Data>
+        <Data Key="ResizeToPowerOfTwo" Type="bool">false</Data>
+        <Data Key="PremultiplyAlpha" Type="bool">true</Data>
+      </Parameters>
+      <Options>None</Options>
+      <Output>C:\Users\Junior\Desktop\RabiesPlusSquirrel\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\DogSkin_0.xnb</Output>
+      <Time>2011-11-03T15:35:40.2065931-05:00</Time>
+    </Item>
+    <Item>
+      <Source>C:\UH\Rabies-X Game\Rabies-X\images\DogPupil.jpg</Source>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Parameters>
+        <Data Key="ColorKeyColor" Type="Framework:Color">FFFF00FF</Data>
+        <Data Key="ColorKeyEnabled" Type="bool">true</Data>
+        <Data Key="TextureFormat" Type="Processors:TextureProcessorOutputFormat">DxtCompressed</Data>
+        <Data Key="GenerateMipmaps" Type="bool">true</Data>
+        <Data Key="ResizeToPowerOfTwo" Type="bool">false</Data>
+        <Data Key="PremultiplyAlpha" Type="bool">true</Data>
+      </Parameters>
+      <Options>None</Options>
+      <Output>C:\Users\Junior\Desktop\RabiesPlusSquirrel\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\DogPupil_0.xnb</Output>
+      <Time>2011-11-03T16:10:24.2637943-05:00</Time>
+    </Item>
+    <Item>
+      <Source>C:\UH\Rabies-X Game\Rabies-X\images\DogEyes.jpg</Source>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Parameters>
+        <Data Key="ColorKeyColor" Type="Framework:Color">FFFF00FF</Data>
+        <Data Key="ColorKeyEnabled" Type="bool">true</Data>
+        <Data Key="TextureFormat" Type="Processors:TextureProcessorOutputFormat">DxtCompressed</Data>
+        <Data Key="GenerateMipmaps" Type="bool">true</Data>
+        <Data Key="ResizeToPowerOfTwo" Type="bool">false</Data>
+        <Data Key="PremultiplyAlpha" Type="bool">true</Data>
+      </Parameters>
+      <Options>None</Options>
+      <Output>C:\Users\Junior\Desktop\RabiesPlusSquirrel\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\DogEyes_0.xnb</Output>
+      <Time>2011-11-03T15:41:13.5646601-05:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <TargetPlatform>Windows</TargetPlatform>
