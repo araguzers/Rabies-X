@@ -51,7 +51,7 @@ namespace RabiesX
         private int timeLeft = MAX_TIME_LEFT;
         int elapsedUpdateTime = 0;
 
-        private const int TOTAL_RABID_DOGS = 3;
+        private const int TOTAL_RABID_DOGS = 5;
         //private const int TOTAL_DECORS = 1;
 
         ContentManager content;
@@ -66,6 +66,18 @@ namespace RabiesX
 
         private SoundEffect win;
         private SoundEffectInstance winInstance;
+
+        private SoundEffect bark;
+        private SoundEffectInstance barkInstance;
+
+        private SoundEffect gameMusic;
+        private SoundEffectInstance gameMusicInstance;
+
+        private SoundEffect donotfear;
+        private SoundEffectInstance donotfearInstance;
+
+        private SoundEffect motherearth;
+        private SoundEffectInstance motherearthInstance;
 
         private SpriteBatch spriteBatch;
         private SpriteFont spriteFont;
@@ -230,6 +242,20 @@ namespace RabiesX
             win = content.Load<SoundEffect>("Audio\\Waves\\winningyell");
             winInstance = win.CreateInstance();
 
+            bark = content.Load<SoundEffect>("Audio\\Waves\\barkingdog");
+            barkInstance = bark.CreateInstance();
+
+            donotfear = content.Load<SoundEffect>("Audio\\Waves\\donotfear");
+            donotfearInstance = donotfear.CreateInstance();
+
+            motherearth = content.Load<SoundEffect>("Audio\\Waves\\motherearth");
+            motherearthInstance = motherearth.CreateInstance();
+
+            gameMusic = content.Load<SoundEffect>("Audio\\Waves\\gamemusic");
+            gameMusicInstance = gameMusic.CreateInstance();
+            gameMusicInstance.IsLooped = true;
+            //gameMusicInstance.Play();
+
             // Position the in-game text.
             fontPos = new Vector2(1.0f, 1.0f);
 
@@ -290,6 +316,7 @@ namespace RabiesX
                 //rabidDogModels.Add(new MyModel("Models\\ball", content));
                 //rabidDogModels[i].Texture("Textures\\wedge_p1_diff_v1", content);
                 rabidDogModels.Add(new MyModel("Models\\diseased_dog", content));
+                //rabidDogModels.Add(new MyModel("Models\\rabid_dog", content));
                 rabidDogModels[i].Texture("Textures\\DogEyes", content);
                 rabidDogModels[i].Texture("Textures\\DogPupil", content);
                 rabidDogModels[i].Texture("Textures\\DogSkin", content);
@@ -431,8 +458,20 @@ namespace RabiesX
                                                        bool coveredByOtherScreen)
         {
             base.Update(gameTime, otherScreenHasFocus, false);
-            if(timeLeft == 240)         
+            if ((timeLeft % 12) == 0 && timeLeft >= 0)
+                if(!barkInstance.IsDisposed)
+                    barkInstance.Play();
+            if (timeLeft == 240)
                 cryInstance.Play();
+            if (timeLeft == 180)
+                donotfearInstance.Play();
+            if (timeLeft == 120)
+                motherearthInstance.Play();
+            if (timeLeft <= 0)
+                if(!barkInstance.IsDisposed)
+                    barkInstance.Stop();
+            //if (timeLeft <= 0)
+            //    gameMusicInstance.Stop();
 
             // Gradually fade in or out depending on whether we are covered by the pause screen.
             if (coveredByOtherScreen)
@@ -738,6 +777,7 @@ namespace RabiesX
                 {
                     // Game is over, so go to continue or quit screen.
                     winInstance.Play();
+                    barkInstance.Dispose();
                     ScreenManager.AddScreen(new GameOverScreen(), ControllingPlayer);
                 }
             }
@@ -841,6 +881,7 @@ namespace RabiesX
         private void DrawText()
         {
             StringBuilder buffer = new StringBuilder();
+            string jacksonTaunt = "";
 
             if (displayHelp)
             {
@@ -871,7 +912,19 @@ namespace RabiesX
                 buffer.AppendFormat("  Spring constant: {0}\n", springConstant.ToString("f2"));
                 buffer.AppendFormat("  Damping constant: {0}\n", dampingConstant.ToString("f2"));
                 buffer.AppendLine();
-                buffer.AppendFormat("I, Russell Jackson, challenge you, Geraldo \"Merry Gerry\" Araguz, to survive\n for 5 minutes in this park with these diseased dogs!\n I can guarantee that you will not survive for even one.\nThat GuzCruise of yours will not protect you for long...\nGet him, boys!!\n\n");
+                if (timeLeft <= 300 && timeLeft >= 240)
+                    jacksonTaunt = "I, Russell Jackson, challenge you, Geraldo \"Merry Gerry\" Araguz, to survive\n for 5 minutes in this park with these diseased dogs!\n I can guarantee that you will not survive for even one.\nThat GuzCruise of yours will not protect you for long...\nGet him, boys!!\n\n";
+                if(timeLeft < 240 && timeLeft >= 180)
+                    jacksonTaunt = "So you survived for one minute. Big wuff. Speaking of wuff - get him, boys!\n\n";
+                if (timeLeft < 180 && timeLeft >= 120)
+                    jacksonTaunt = "Two minutes? Purrrrrrlease. Speaking of purr, pretend Gerry's a cat and get him, boys!!\n\n";
+                if (timeLeft < 120 && timeLeft >= 60)
+                    jacksonTaunt = "Geraldo Araguz, you survived for more than half the time. You got some bones.\nSpeaking of bones, pretend he's one and get him, boys!!\n\n";
+                if (timeLeft < 60 && timeLeft >= 0)
+                    jacksonTaunt = "One minute to lose, Geraldo Araguz! You still have a chance to get him, boys!!\n\n";
+                if (timeLeft <= 0)
+                    jacksonTaunt = "NOOOOOOOOOOOOOOOOOOOOOO!\n\n";
+                buffer.AppendFormat(jacksonTaunt);
                 buffer.AppendLine("Press H to display help");
             }
 

@@ -867,6 +867,65 @@
       <Output>C:\Users\Junior\Desktop\RabiesPlusSquirrel\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\DogEyes_0.xnb</Output>
       <Time>2011-11-03T15:41:13.5646601-05:00</Time>
     </Item>
+    <Item>
+      <Source>Models\rabid_dog.fbx</Source>
+      <Name>Models\rabid_dog</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>ModelProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Junior\Desktop\RabiesPlusSquirrel\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Models\rabid_dog.xnb</Output>
+      <Time>2011-11-15T17:22:43.362044-06:00</Time>
+      <Dependency>
+        <Key>obj\x86\Debug\Models\rabid_dog_0.xml</Key>
+        <Value>2011-11-15T17:23:57.5552876-06:00</Value>
+      </Dependency>
+      <Request>C:\Users\Junior\Desktop\RabiesPlusSquirrel\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\DogSkin_0.xnb</Request>
+      <Request>C:\Users\Junior\Desktop\RabiesPlusSquirrel\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\DogPupil_0.xnb</Request>
+      <Request>C:\Users\Junior\Desktop\RabiesPlusSquirrel\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\DogEyes_0.xnb</Request>
+    </Item>
+    <Item>
+      <Source>Models\rabid_dog.fbx</Source>
+      <Importer>FbxImporter</Importer>
+      <Options>IntermediateFile, DontCacheImportedData</Options>
+      <Output>obj\x86\Debug\Models\rabid_dog_0.xml</Output>
+      <Time>2011-11-15T17:22:43.362044-06:00</Time>
+    </Item>
+    <Item>
+      <Source>Audio\Waves\barkingdog.wav</Source>
+      <Name>Audio\Waves\barkingdog</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Junior\Desktop\RabiesPlusSquirrel\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Audio\Waves\barkingdog.xnb</Output>
+      <Time>2011-11-16T13:25:44.7173423-06:00</Time>
+    </Item>
+    <Item>
+      <Source>Audio\Waves\gamemusic.wav</Source>
+      <Name>Audio\Waves\gamemusic</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Junior\Desktop\RabiesPlusSquirrel\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Audio\Waves\gamemusic.xnb</Output>
+      <Time>2011-11-16T13:44:11.7846629-06:00</Time>
+    </Item>
+    <Item>
+      <Source>Audio\Waves\donotfear.wav</Source>
+      <Name>Audio\Waves\donotfear</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Junior\Desktop\RabiesPlusSquirrel\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Audio\Waves\donotfear.xnb</Output>
+      <Time>2011-11-16T14:10:00.2652309-06:00</Time>
+    </Item>
+    <Item>
+      <Source>Audio\Waves\motherearth.wav</Source>
+      <Name>Audio\Waves\motherearth</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Junior\Desktop\RabiesPlusSquirrel\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Audio\Waves\motherearth.xnb</Output>
+      <Time>2011-11-16T14:10:53.2692626-06:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <TargetPlatform>Windows</TargetPlatform>
