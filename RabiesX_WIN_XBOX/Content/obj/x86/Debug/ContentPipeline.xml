@@ -81,7 +81,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Junior\Desktop\RabiesPlusSquirrel\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Textures\bikegear.xnb</Output>
-      <Time>2011-11-14T16:00:33.9520696-06:00</Time>
+      <Time>2011-11-17T13:39:23.956178-06:00</Time>
     </Item>
     <Item>
       <Source>Textures\nolittering.jpg</Source>
@@ -108,7 +108,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Junior\Desktop\RabiesPlusSquirrel\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Textures\tirecolor.xnb</Output>
-      <Time>2011-11-14T16:00:34.0830771-06:00</Time>
+      <Time>2011-11-17T13:39:24.0921858-06:00</Time>
     </Item>
     <Item>
       <Source>Models\bikegear.jpg</Source>
@@ -117,7 +117,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Junior\Desktop\RabiesPlusSquirrel\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Models\bikegear.xnb</Output>
-      <Time>2011-11-14T16:00:33.4800426-06:00</Time>
+      <Time>2011-11-12T17:10:15.2153221-06:00</Time>
     </Item>
     <Item>
       <Source>Models\nolittering.jpg</Source>
@@ -144,7 +144,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Junior\Desktop\RabiesPlusSquirrel\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Models\tirecolor.xnb</Output>
-      <Time>2011-11-14T16:00:33.8740651-06:00</Time>
+      <Time>2011-11-12T17:18:14.3727283-06:00</Time>
     </Item>
     <Item>
       <Source>Models\cushions.jpg</Source>
@@ -486,7 +486,7 @@
       </Parameters>
       <Options>None</Options>
       <Output>C:\Users\Junior\Desktop\RabiesPlusSquirrel\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Models\tirecolor_0.xnb</Output>
-      <Time>2011-11-14T16:00:33.8740651-06:00</Time>
+      <Time>2011-11-12T17:18:14.3727283-06:00</Time>
     </Item>
     <Item>
       <Source>Models\bikegear.jpg</Source>
@@ -502,7 +502,7 @@
       </Parameters>
       <Options>None</Options>
       <Output>C:\Users\Junior\Desktop\RabiesPlusSquirrel\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Models\bikegear_0.xnb</Output>
-      <Time>2011-11-14T16:00:33.4800426-06:00</Time>
+      <Time>2011-11-12T17:10:15.2153221-06:00</Time>
     </Item>
     <Item>
       <Source>Models\squirrel.fbx</Source>
@@ -925,6 +925,63 @@
       <Options>None</Options>
       <Output>C:\Users\Junior\Desktop\RabiesPlusSquirrel\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Audio\Waves\motherearth.xnb</Output>
       <Time>2011-11-16T14:10:53.2692626-06:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\blue.jpg</Source>
+      <Name>Models\blue</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Junior\Desktop\RabiesPlusSquirrel\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Models\blue.xnb</Output>
+      <Time>2011-11-12T17:22:29.4183161-06:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\blue.jpg</Source>
+      <Name>Textures\blue</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Junior\Desktop\RabiesPlusSquirrel\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Textures\blue.xnb</Output>
+      <Time>2011-11-17T13:39:24.0001806-06:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\tricycle.fbx</Source>
+      <Name>Models\tricycle</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>ModelProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Junior\Desktop\RabiesPlusSquirrel\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Models\tricycle.xnb</Output>
+      <Time>2011-11-17T14:07:34.2258559-06:00</Time>
+      <Dependency>
+        <Key>obj\x86\Debug\Models\tricycle_0.xml</Key>
+        <Value>2011-11-17T14:09:46.786438-06:00</Value>
+      </Dependency>
+      <Request>C:\Users\Junior\Desktop\RabiesPlusSquirrel\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Models\tirecolor_0.xnb</Request>
+      <Request>C:\Users\Junior\Desktop\RabiesPlusSquirrel\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Models\bikegear_0.xnb</Request>
+      <Request>C:\Users\Junior\Desktop\RabiesPlusSquirrel\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Models\blue_0.xnb</Request>
+    </Item>
+    <Item>
+      <Source>Models\tricycle.fbx</Source>
+      <Importer>FbxImporter</Importer>
+      <Options>IntermediateFile, DontCacheImportedData</Options>
+      <Output>obj\x86\Debug\Models\tricycle_0.xml</Output>
+      <Time>2011-11-17T14:07:34.2258559-06:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\blue.jpg</Source>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Parameters>
+        <Data Key="ColorKeyColor" Type="Framework:Color">FFFF00FF</Data>
+        <Data Key="ColorKeyEnabled" Type="bool">true</Data>
+        <Data Key="TextureFormat" Type="Processors:TextureProcessorOutputFormat">DxtCompressed</Data>
+        <Data Key="GenerateMipmaps" Type="bool">true</Data>
+        <Data Key="ResizeToPowerOfTwo" Type="bool">false</Data>
+        <Data Key="PremultiplyAlpha" Type="bool">true</Data>
+      </Parameters>
+      <Options>None</Options>
+      <Output>C:\Users\Junior\Desktop\RabiesPlusSquirrel\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Models\blue_0.xnb</Output>
+      <Time>2011-11-12T17:22:29.4183161-06:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>

@@ -72,3 +72,7 @@ Content\Audio\Waves\barkingdog.xnb
 Content\Audio\Waves\gamemusic.xnb
 Content\Audio\Waves\donotfear.xnb
 Content\Audio\Waves\motherearth.xnb
+Content\Models\blue.xnb
+Content\Textures\blue.xnb
+Content\Models\tricycle.xnb
+Content\Models\blue_0.xnb
