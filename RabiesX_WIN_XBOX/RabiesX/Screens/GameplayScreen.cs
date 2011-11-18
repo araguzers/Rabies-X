@@ -79,6 +79,9 @@ namespace RabiesX
         private SoundEffect motherearth;
         private SoundEffectInstance motherearthInstance;
 
+        private SoundEffect callmegerry;
+        private SoundEffectInstance callmegerryInstance;
+
         private SpriteBatch spriteBatch;
         private SpriteFont spriteFont;
 
@@ -254,6 +257,9 @@ namespace RabiesX
 
             motherearth = content.Load<SoundEffect>("Audio\\Waves\\motherearth");
             motherearthInstance = motherearth.CreateInstance();
+
+            callmegerry = content.Load<SoundEffect>("Audio\\Waves\\callmegerry");
+            callmegerryInstance = callmegerry.CreateInstance();
 
             gameMusic = content.Load<SoundEffect>("Audio\\Waves\\gamemusic");
             gameMusicInstance = gameMusic.CreateInstance();
@@ -487,6 +493,8 @@ namespace RabiesX
                 donotfearInstance.Play();
             if (timeLeft == 120)
                 motherearthInstance.Play();
+            if (timeLeft == 60)
+                callmegerryInstance.Play();
             if (timeLeft <= 0)
                 if(!barkInstance.IsDisposed)
                     barkInstance.Stop();

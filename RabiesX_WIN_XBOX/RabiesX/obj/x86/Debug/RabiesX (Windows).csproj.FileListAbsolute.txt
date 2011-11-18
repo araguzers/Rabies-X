@@ -263,3 +263,4 @@ C:\Users\Junior\Desktop\RabiesPlusSquirrel\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin
 C:\Users\Junior\Desktop\RabiesPlusSquirrel\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Textures\blue.xnb
 C:\Users\Junior\Desktop\RabiesPlusSquirrel\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Models\tricycle.xnb
 C:\Users\Junior\Desktop\RabiesPlusSquirrel\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Models\blue_0.xnb
+C:\Users\Junior\Desktop\RabiesPlusSquirrel\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Audio\Waves\callmegerry.xnb

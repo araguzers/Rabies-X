@@ -413,7 +413,7 @@ Objects:  {
 		}
 		UseMipMap: 0
 		Filename: "C:/UH/Rabies-X Game/Rabies-X/images/basketballtexture.jpg"
-		RelativeFilename: "..\..\..\..\..\..\..\..\UH\Rabies-X Game\Rabies-X\images\basketballtexture.jpg"
+		RelativeFilename: "basketballtexture.jpg"
 	}
 	Texture: 314581296, "Texture::file1", "" {
 		Type: "TextureVideoClip"
@@ -426,7 +426,7 @@ Objects:  {
 		}
 		Media: "Video::file1"
 		FileName: "C:/UH/Rabies-X Game/Rabies-X/images/basketballtexture.jpg"
-		RelativeFilename: "..\..\..\..\..\..\..\..\UH\Rabies-X Game\Rabies-X\images\basketballtexture.jpg"
+		RelativeFilename: "basketballtexture.jpg"
 		ModelUVTranslation: 0,0
 		ModelUVScaling: 1,1
 		Texture_Alpha_Source: "None"
