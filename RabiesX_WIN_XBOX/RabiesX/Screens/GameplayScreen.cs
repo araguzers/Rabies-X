@@ -309,13 +309,14 @@ namespace RabiesX
             }
 
             // Load models and set aspect ratio.
-            playerModel = new MyModel("Models\\isabella", content);
+            playerModel = new MyModel("Models\\isabella_with_plasma", content);
             //playerModel.Texture("Textures\\wedge_p1_diff_v1", content);
             playerModel.Texture("Textures\\guzcruiseroofmiddle", content);
             playerModel.Texture("Textures\\guzcruiseroof1", content);
             playerModel.Texture("Textures\\cushions", content);
             playerModel.Texture("Textures\\dooropen", content);
             playerModel.Texture("Textures\\water", content);
+            playerModel.Texture("Textures\\plasma_gun_metal", content);
 
             sound = content.Load<SoundEffect>("Audio\\Waves\\carengine");
             soundInstance = sound.CreateInstance();

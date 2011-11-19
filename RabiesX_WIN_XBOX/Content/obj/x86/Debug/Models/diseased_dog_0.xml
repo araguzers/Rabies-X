@@ -3,7 +3,7 @@
   <Asset Type="Graphics:MeshContent">
     <Name>pCube2</Name>
     <Identity>
-      <SourceFilename>C:\Users\Junior\Desktop\RabiesPlusSquirrel\Rabies-X\RabiesX_WIN_XBOX\Content\Models\diseased_dog.fbx</SourceFilename>
+      <SourceFilename>C:\Users\Junior\Desktop\ProjectileAraguz\Rabies-X\RabiesX_WIN_XBOX\Content\Models\diseased_dog.fbx</SourceFilename>
       <SourceTool>FbxImporter</SourceTool>
     </Identity>
     <Transform>7.62559128 0 0 0 0 7.62559128 0 0 0 0 7.62559128 0 -16.7154064 16.2775879 -2.4252 1</Transform>
@@ -48,7 +48,7 @@
     <Resource ID="#Resource1" Type="Graphics:BasicMaterialContent">
       <Name>phong1</Name>
       <Identity>
-        <SourceFilename>C:\Users\Junior\Desktop\RabiesPlusSquirrel\Rabies-X\RabiesX_WIN_XBOX\Content\Models\diseased_dog.fbx</SourceFilename>
+        <SourceFilename>C:\Users\Junior\Desktop\ProjectileAraguz\Rabies-X\RabiesX_WIN_XBOX\Content\Models\diseased_dog.fbx</SourceFilename>
         <SourceTool>FbxImporter</SourceTool>
       </Identity>
       <OpaqueData>
@@ -70,7 +70,7 @@
     <Resource ID="#Resource2" Type="Graphics:BasicMaterialContent">
       <Name>phong3</Name>
       <Identity>
-        <SourceFilename>C:\Users\Junior\Desktop\RabiesPlusSquirrel\Rabies-X\RabiesX_WIN_XBOX\Content\Models\diseased_dog.fbx</SourceFilename>
+        <SourceFilename>C:\Users\Junior\Desktop\ProjectileAraguz\Rabies-X\RabiesX_WIN_XBOX\Content\Models\diseased_dog.fbx</SourceFilename>
         <SourceTool>FbxImporter</SourceTool>
       </Identity>
       <OpaqueData>
@@ -92,7 +92,7 @@
     <Resource ID="#Resource3" Type="Graphics:BasicMaterialContent">
       <Name>phong2</Name>
       <Identity>
-        <SourceFilename>C:\Users\Junior\Desktop\RabiesPlusSquirrel\Rabies-X\RabiesX_WIN_XBOX\Content\Models\diseased_dog.fbx</SourceFilename>
+        <SourceFilename>C:\Users\Junior\Desktop\ProjectileAraguz\Rabies-X\RabiesX_WIN_XBOX\Content\Models\diseased_dog.fbx</SourceFilename>
         <SourceTool>FbxImporter</SourceTool>
       </Identity>
       <OpaqueData>
