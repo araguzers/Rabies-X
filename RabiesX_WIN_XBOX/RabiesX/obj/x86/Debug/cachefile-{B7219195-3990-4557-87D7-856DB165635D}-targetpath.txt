@@ -34,6 +34,8 @@ Content\Models\blue.xnb
 Content\Textures\blue.xnb
 Content\Models\plasma_gun_metal.xnb
 Content\Textures\plasma_gun_metal.xnb
+Content\Models\yellow.xnb
+Content\Textures\yellow.xnb
 Content\Models\diseased_dog.xnb
 Content\Models\p1_wedge.xnb
 Content\Models\dumpster.xnb
@@ -42,6 +44,7 @@ Content\Models\rabiddog.xnb
 Content\Models\rabid_dog.xnb
 Content\Models\tricycle.xnb
 Content\Models\isabella_with_plasma.xnb
+Content\Models\bullet.xnb
 Content\Audio\Waves\menu_1.xnb
 Content\Audio\Waves\menu_2.xnb
 Content\Audio\Waves\carengine.xnb
@@ -72,11 +75,12 @@ Content\Models\squirrel_headbody_0.xnb
 Content\images\DogSkin_0.xnb
 Content\images\DogPupil_0.xnb
 Content\images\DogEyes_0.xnb
+Content\Models\blue_0.xnb
 Content\Models\guzcruiseroof1_0.xnb
 Content\Models\guzcruiseroofmiddle_0.xnb
 Content\Models\cushions_0.xnb
 Content\Models\dooropen_0.xnb
 Content\Models\water_0.xnb
-Content\Models\blue_0.xnb
 Content\Models\plasma_gun_metal_0.xnb
+Content\Models\yellow_0.xnb
 Content\Models\ball_decal_map_0.xnb

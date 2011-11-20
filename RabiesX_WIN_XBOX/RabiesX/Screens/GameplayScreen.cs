@@ -38,6 +38,10 @@ namespace RabiesX
         private const float PLAYER_HEADING_SPEED = 120.0f;
         private const float PLAYER_ROLLING_SPEED = 280.0f;
 
+        private const float BULLET_FORWARD_SPEED = 720.0f;
+        private const float BULLET_HEADING_SPEED = 720.0f;
+        private const float BULLET_ROLLING_SPEED = 1680.0f;
+
         private const float TERRAIN_WIDTH = 1258.0f;
         private const float TERRAIN_HEIGHT = 1258.0f;
 
@@ -51,7 +55,9 @@ namespace RabiesX
         private int timeLeft = MAX_TIME_LEFT;
         int elapsedUpdateTime = 0;
 
-        private const int TOTAL_RABID_DOGS = 5;
+        private Dictionary<string, bool> compass;
+
+        private int TOTAL_RABID_DOGS = 5;
         //private const int TOTAL_DECORS = 1;
 
         ContentManager content;
@@ -86,6 +92,7 @@ namespace RabiesX
         private SpriteFont spriteFont;
 
         Vector2 playerPosition = new Vector2(100, 100);
+        Vector2 bulletPosition = new Vector2(100, 100);
         Vector2 enemyPosition = new Vector2(100, 100);
 
         // Set triangle indicator for level.
@@ -120,10 +127,10 @@ namespace RabiesX
         //float dudeRotY;
         //float dudeRotX;
 
-        List<Bullet> bulletList = new List<Bullet>();//bullet list
+        //List<Bullet> bulletList = new List<Bullet>();//bullet list
         //Shape bulletShape;
 
-        List<Target> targetList = new List<Target>();//target list
+        //List<Target> targetList = new List<Target>();//target list
         //Shape targetShape;
 
         //int numTarget = 0;
@@ -148,6 +155,7 @@ namespace RabiesX
 
         // Set the 3D model to draw.
         private MyModel playerModel;
+        private List<MyModel> bulletModels;
         private List<MyModel> rabidDogModels;
 
         private MyModel dumpsterModel;
@@ -166,13 +174,18 @@ namespace RabiesX
         private int frames;
         private int framesPerSecond;
         private Entity playerEntity;
+        //private Entity bulletEntity = null;
         private Entity terrainEntity;
         private Entity dumpsterEntity;
         private Entity tricycleEntity;
         private List<int> rabidDogHealths;
         private List<Entity> rabidDogEntities;
         private List<Vector3> rabidDogPreviousPositions;
+        private List<Entity> bulletEntities;
+        private List<float> bulletRadii;
+        private List<bool> bulletFlying;
         private float playerRadius;
+        //private float bulletRadius = 0;
         private float terrainRadius;
         private float dumpsterRadius;
         private float tricycleRadius;
@@ -183,16 +196,20 @@ namespace RabiesX
         private TimeSpan prevElapsedTime = TimeSpan.Zero;
         private bool displayHelp;
 
+        //private int bulletIndex = 0;
+
         private ThirdPersonCamera camera;
 
         private KeyboardState curKeyboardState;
         private KeyboardState prevKeyboardState;
 
         BoundingSphere playerBounds;
+        //BoundingSphere bulletBounds;
         BoundingSphere terrainBounds;
         BoundingSphere dumpsterBounds;
         BoundingSphere tricycleBounds;
         List<BoundingSphere> rabidDogBounds;
+        List<BoundingSphere> bulletBounds;
 
         private bool flicker;
 
@@ -242,6 +259,12 @@ namespace RabiesX
             GameStateManagementGame.graphics.PreferredBackBufferHeight = screenHeight;
             GameStateManagementGame.graphics.PreferMultiSampling = true;
             GameStateManagementGame.graphics.ApplyChanges();
+
+            compass = new Dictionary<string, bool>();
+            compass.Add("up", false);
+            compass.Add("down", false);
+            compass.Add("left", false);
+            compass.Add("right", false);
 
             cry = content.Load<SoundEffect>("Audio\\Waves\\araguzbattlecry");
             cryInstance = cry.CreateInstance();
@@ -299,6 +322,11 @@ namespace RabiesX
             rabidDogModels = new List<MyModel>();
             rabidDogEntities = new List<Entity>();
             rabidDogBounds = new List<BoundingSphere>();
+            bulletModels = new List<MyModel>();
+            bulletEntities = new List<Entity>();
+            bulletBounds = new List<BoundingSphere>();
+            bulletRadii = new List<float>();
+            bulletFlying = new List<bool>();
             modelEnemyTransforms = new List<Matrix[]>();
             rabidDogPreviousPositions = new List<Vector3>();
             for (int i = 0; i < TOTAL_RABID_DOGS; i++)
@@ -473,6 +501,25 @@ namespace RabiesX
 
         #endregion
 
+        private void CreateBullet()
+        {
+            bulletModels.Add(new MyModel("Models\\bullet", content));
+            bulletModels[bulletModels.Count - 1].Texture("Textures\\yellow", content);
+
+            BoundingSphere bbounds = new BoundingSphere();
+            foreach (ModelMesh mesh in bulletModels[bulletModels.Count - 1].ModelHeld.Meshes)
+                bbounds = BoundingSphere.CreateMerged(bbounds, mesh.BoundingSphere);
+            bulletRadii.Add(bbounds.Radius);
+            bulletBounds.Add(bbounds);
+
+            bulletEntities.Add(new Entity());
+            bulletEntities[bulletModels.Count - 1].ConstrainToWorldYAxis = true;
+            bulletEntities[bulletModels.Count - 1].Position = new Vector3(playerEntity.Position.X, playerEntity.Position.Y, playerEntity.Position.Z);
+
+            bulletFlying.Add(true);
+            //bulletIndex++;
+        }
+
         #region Update and Draw
 
 
@@ -513,6 +560,7 @@ namespace RabiesX
                 ProcessKeyboard();
                 UpdatePlayer(gameTime);
                 UpdateEnemies(gameTime);
+                UpdateBullets(gameTime);
                 UpdateFrameRate(gameTime);
 
                 // Rotate triangle level indicator.
@@ -618,6 +666,10 @@ namespace RabiesX
             if (curKeyboardState.IsKeyDown(Keys.W) ||
                 curKeyboardState.IsKeyDown(Keys.Up))
             {
+                compass["up"] = true;
+                compass["down"] = false;
+                compass["left"] = false;
+                compass["right"] = false;
                 forwardSpeed = PLAYER_FORWARD_SPEED;
                 pitch = -PLAYER_ROLLING_SPEED;
             }
@@ -625,6 +677,10 @@ namespace RabiesX
             if (curKeyboardState.IsKeyDown(Keys.S) ||
                 curKeyboardState.IsKeyDown(Keys.Down))
             {
+                compass["up"] = false;
+                compass["down"] = true;
+                compass["left"] = false;
+                compass["right"] = false;
                 forwardSpeed = -PLAYER_FORWARD_SPEED;
                 pitch = PLAYER_ROLLING_SPEED;
             }
@@ -632,12 +688,20 @@ namespace RabiesX
             if (curKeyboardState.IsKeyDown(Keys.D) ||
                 curKeyboardState.IsKeyDown(Keys.Right))
             {
+                compass["up"] = false;
+                compass["down"] = false;
+                compass["left"] = false;
+                compass["right"] = true;
                 heading = -PLAYER_HEADING_SPEED;
             }
 
             if (curKeyboardState.IsKeyDown(Keys.A) ||
                 curKeyboardState.IsKeyDown(Keys.Left))
             {
+                compass["up"] = false;
+                compass["down"] = false;
+                compass["left"] = true;
+                compass["right"] = false;
                 heading = PLAYER_HEADING_SPEED;
             }
 
@@ -782,6 +846,170 @@ namespace RabiesX
             }
         }
 
+        private void UpdateBullets(GameTime gameTime)
+        {
+            float pitch = 0.0f;
+            float heading = 0.0f;
+            float forwardSpeed = 0.0f;
+            Vector3 bulletPrevPosition; 
+            for(int index = 0; index < bulletEntities.Count; index++)
+            {
+                bulletPrevPosition = bulletEntities[index].Position;
+
+                if (compass["up"])
+                {
+                    forwardSpeed = PLAYER_FORWARD_SPEED + 100;
+                    pitch = -(PLAYER_ROLLING_SPEED + 100);
+                }
+
+                if (compass["down"])
+                {
+                    forwardSpeed = -(PLAYER_FORWARD_SPEED + 100);
+                    pitch = PLAYER_ROLLING_SPEED + 100;
+                }
+
+                if (compass["right"])
+                {
+                    heading = -(PLAYER_HEADING_SPEED + 100);
+                }
+
+                if (compass["left"])
+                {
+                    heading = PLAYER_HEADING_SPEED + 100;
+                }
+
+                // Prevent the player from moving off the edge of the floor.
+                float floorBoundaryZ = TERRAIN_HEIGHT * 0.5f - playerRadius;
+                float floorBoundaryX = TERRAIN_WIDTH * 0.5f - playerRadius;
+                float elapsedTimeSec = (float)gameTime.ElapsedGameTime.TotalSeconds;
+                float velocity = forwardSpeed * elapsedTimeSec;
+                Vector3 newBulletPos = bulletEntities[index].Position + bulletEntities[index].Forward * velocity;
+
+                if (newBulletPos.Z > floorBoundaryZ)
+                {
+                    forwardSpeed = 0.0f;
+                    bulletModels.RemoveAt(index);
+                    bulletEntities.RemoveAt(index);
+                    bulletBounds.RemoveAt(index);
+                    bulletRadii.RemoveAt(index);
+                    bulletFlying[index] = false;
+                }
+                else if (newBulletPos.Z < -floorBoundaryZ)
+                {
+                    forwardSpeed = 0.0f;
+                    bulletModels.RemoveAt(index);
+                    bulletEntities.RemoveAt(index);
+                    bulletBounds.RemoveAt(index);
+                    bulletRadii.RemoveAt(index);
+                    bulletFlying[index] = false;
+                }
+                else if (newBulletPos.X > floorBoundaryX)
+                {
+                    forwardSpeed = 0.0f;
+                    bulletModels.RemoveAt(index);
+                    bulletEntities.RemoveAt(index);
+                    bulletBounds.RemoveAt(index);
+                    bulletRadii.RemoveAt(index);
+                    bulletFlying[index] = false;
+                }
+                else if (newBulletPos.X < -floorBoundaryX)
+                {
+                    forwardSpeed = 0.0f;
+                    bulletModels.RemoveAt(index);
+                    bulletEntities.RemoveAt(index);
+                    bulletBounds.RemoveAt(index);
+                    bulletRadii.RemoveAt(index);
+                    bulletFlying[index] = false;
+                }
+
+                // Update the player's state.
+                if (bulletFlying[index])
+                {
+                    bulletEntities[index].Velocity = new Vector3(0.0f, 0.0f, forwardSpeed);
+                    bulletEntities[index].Orient(heading, 0.0f, 0.0f);
+                    bulletEntities[index].Rotate(0.0f, pitch, 0.0f);
+                    bulletEntities[index].Update(gameTime);
+                }
+
+                // Then move the camera based on where the player has moved to.
+                // When the player is moving backwards rotations are inverted to
+                // match the direction of travel. Consequently the camera's
+                // rotation needs to be inverted as well.
+
+                //camera.Rotate((forwardSpeed >= 0.0f) ? heading : -heading, 0.0f);
+                //camera.LookAt(playerEntity.Position);
+                //camera.Update(gameTime);
+
+                //bool enemiesDeadChk = true;
+                // keep player from colliding with enemies and decrease health if collision
+                //int rabidDogs = TOTAL_RABID_DOGS;
+                for (int k = 0; k < TOTAL_RABID_DOGS; k++)
+                {
+                    if (bulletFlying[index])
+                    {
+                        if ((((Math.Abs(bulletEntities[index].Position.X - rabidDogEntities[k].Position.X) + Math.Abs(bulletEntities[index].Position.Z - rabidDogEntities[k].Position.Z)) / 2) < (bulletRadii[index] + rabidDogRadii[k] - 19.5)))
+                        {
+                            bulletModels.RemoveAt(index);
+                            bulletEntities.RemoveAt(index);
+                            bulletBounds.RemoveAt(index);
+                            bulletRadii.RemoveAt(index);
+                            bulletFlying[index] = false;
+                            rabidDogHealths[k] -= 20;
+                            if (rabidDogHealths[k] <= 0)
+                            {
+                                rabidDogModels.RemoveAt(k);
+                                rabidDogEntities.RemoveAt(k);
+                                rabidDogBounds.RemoveAt(k);
+                                rabidDogRadii.RemoveAt(k);
+                                rabidDogHealths.RemoveAt(k);
+                                TOTAL_RABID_DOGS--;
+                            }
+                            if (TOTAL_RABID_DOGS == 0)
+                            {
+                                winInstance.Play();
+                                barkInstance.Dispose();
+                                ScreenManager.AddScreen(new GameOverScreen(), ControllingPlayer);
+                                break;
+                            }
+                        }
+                        //if ((enemiesDeadChk == true) && (rabidDogHealths[k] > 0))
+                        //{
+                        //    enemiesDeadChk = false;
+                        //}
+                    }
+
+                    //if ((enemiesDeadChk == true) && (((Math.Abs(playerEntity.Position.X - indicatorPos.X) + Math.Abs(playerEntity.Position.Z - indicatorPos.Z)) / 2) < (playerRadius + indicatorScale * 2 - 19.5)))
+                    //{
+                    //    // player can advance to next level
+                    //    //ScreenManager.AddScreen(new NextLevelScreen(), ControllingPlayer);
+                    //}
+
+                    // Test current health bar.
+
+                    // If Page Up is pressed, increase the health bar.
+                    //if (curKeyboardState.IsKeyDown(Keys.PageUp) == true)
+                    //{
+                    //    mCurrentHealth += 1;
+                    //}
+                    // If Page Down is pressed, decrease the health bar.
+                    //if (curKeyboardState.IsKeyDown(Keys.PageDown) == true)
+                    //{
+                    //    mCurrentHealth -= 1;
+                    //}
+                    ////Force the health to remain between 0 and 100.           
+                    //mCurrentHealth = (int)MathHelper.Clamp(mCurrentHealth, 0, 100);
+
+                    //if (mCurrentHealth == 0)
+                    //{
+                    //    // Game is over, so go to continue or quit screen.
+                    //    ScreenManager.AddScreen(new GameOverScreen(), ControllingPlayer);
+                    //}
+                    if (TOTAL_RABID_DOGS == 0)
+                        break;
+                }
+            }
+        }
+
         private void UpdateFrameRate(GameTime gameTime)
         {
             elapsedTime += gameTime.ElapsedGameTime;
@@ -901,6 +1129,31 @@ namespace RabiesX
                 }
 
                 m.Draw();
+            }
+        }
+
+        private void DrawBullets()
+        {
+            //if (modelTransforms == null)
+            //    modelTransforms = new Matrix[dumpsterModel.ModelHeld.Bones.Count];
+
+            //dumpsterModel.ModelHeld.CopyAbsoluteBoneTransformsTo(modelTransforms);
+            for (int i = 0; i < bulletModels.Count; i++)
+            {
+                foreach (ModelMesh m in bulletModels[i].ModelHeld.Meshes)
+                {
+                    foreach (BasicEffect e in m.Effects)
+                    {
+                        e.PreferPerPixelLighting = true;
+                        e.TextureEnabled = true;
+                        e.EnableDefaultLighting();
+                        e.World = bulletEntities[i].WorldMatrix;
+                        e.View = camera.ViewMatrix;
+                        e.Projection = camera.ProjectionMatrix;
+                    }
+
+                    m.Draw();
+                }
             }
         }
 
@@ -1064,11 +1317,10 @@ namespace RabiesX
                         soundInstance.Play();
                     movement.X++;
                 }
-                //if (keyboardState.IsKeyDown(Keys.E))
-                //{
-                //    if (OtherKeysUp(keyboardState, Keys.E))
-                //        cryInstance.Play();
-                //}
+                if (keyboardState.IsKeyDown(Keys.E))
+                {
+                    CreateBullet();
+                }
                 if (keyboardState.IsKeyUp(Keys.W) && OtherKeysUp(keyboardState, Keys.W))
                     soundInstance.Stop();
                 if (keyboardState.IsKeyUp(Keys.Up) && OtherKeysUp(keyboardState, Keys.Up))
@@ -1123,6 +1375,8 @@ namespace RabiesX
             DrawTricycle();
 
             DrawEnemies();
+
+            DrawBullets();
 
             DrawIndicator();
 
