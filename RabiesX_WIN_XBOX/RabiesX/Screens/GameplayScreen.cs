@@ -22,6 +22,8 @@ using Microsoft.Xna.Framework.Input;
 
 //some logic is credited to Mr. Jose Baez-Franceschi. The trajectory logic, specifically - it came from his squirrel game.
 
+//Credit goes to Joe Eid for voicing Russell Jackson.
+
 namespace RabiesX
 {
     /// <summary>
@@ -38,12 +40,13 @@ namespace RabiesX
         private const float PLAYER_HEADING_SPEED = 120.0f;
         private const float PLAYER_ROLLING_SPEED = 280.0f;
 
-        private const float BULLET_FORWARD_SPEED = 720.0f;
-        private const float BULLET_HEADING_SPEED = 720.0f;
-        private const float BULLET_ROLLING_SPEED = 1680.0f;
+        //private const float BULLET_FORWARD_SPEED = 720.0f;
+        //private const float BULLET_HEADING_SPEED = 720.0f;
+        //private const float BULLET_ROLLING_SPEED = 1680.0f;
 
-        private const float TERRAIN_WIDTH = 1258.0f;
-        private const float TERRAIN_HEIGHT = 1258.0f;
+        private const float TERRAIN_WIDTH = 3000.0f;
+        private const float TERRAIN_HEIGHT = 3000.0f;
+        //changed the width & height of the terrain to the magic number, 3000!
 
         private const float CAMERA_FOVX = 80.0f;
         private const float CAMERA_ZFAR = TERRAIN_WIDTH * 2.0f;
@@ -88,12 +91,22 @@ namespace RabiesX
         private SoundEffect callmegerry;
         private SoundEffectInstance callmegerryInstance;
 
+        private SoundEffect jacksonwincry;
+        private SoundEffectInstance jacksonwincryInstance;
+
+        private SoundEffect jacksonlosecry;
+        private SoundEffectInstance jacksonlosecryInstance;
+
+        private SoundEffect taunt;
+        private SoundEffectInstance tauntInstance;
+
         private SpriteBatch spriteBatch;
         private SpriteFont spriteFont;
 
         Vector2 playerPosition = new Vector2(100, 100);
         Vector2 bulletPosition = new Vector2(100, 100);
         Vector2 enemyPosition = new Vector2(100, 100);
+        Vector2 dumpsterPosition = new Vector2(1500, 1500);
 
         // Set triangle indicator for level.
         Effect effect;
@@ -284,6 +297,15 @@ namespace RabiesX
             callmegerry = content.Load<SoundEffect>("Audio\\Waves\\callmegerry");
             callmegerryInstance = callmegerry.CreateInstance();
 
+            jacksonwincry = content.Load<SoundEffect>("Audio\\Waves\\jacksonwincry");
+            jacksonwincryInstance = jacksonwincry.CreateInstance();
+
+            jacksonlosecry = content.Load<SoundEffect>("Audio\\Waves\\jacksonlosecry");
+            jacksonlosecryInstance = jacksonlosecry.CreateInstance();
+
+            taunt = content.Load<SoundEffect>("Audio\\Waves\\jacksontaunt");
+            tauntInstance = taunt.CreateInstance();
+
             gameMusic = content.Load<SoundEffect>("Audio\\Waves\\gamemusic");
             gameMusicInstance = gameMusic.CreateInstance();
             gameMusicInstance.IsLooped = true;
@@ -432,7 +454,8 @@ namespace RabiesX
 
             dumpsterEntity = new Entity();
             dumpsterEntity.ConstrainToWorldYAxis = true;
-            dumpsterEntity.Position = new Vector3(0.0f, 1.0f + dumpsterRadius, 0.0f);
+            dumpsterEntity.Position = new Vector3(100.0f, 100.0f, 0.0f);
+            //dumpsterModel.Position = new Vector3(-100.0f, -100.0f + dumpsterRadius, 0.0f);
 
             tricycleEntity = new Entity();
             tricycleEntity.ConstrainToWorldYAxis = true;
@@ -532,6 +555,8 @@ namespace RabiesX
                                                        bool coveredByOtherScreen)
         {
             base.Update(gameTime, otherScreenHasFocus, false);
+            if (timeLeft == 300)
+                tauntInstance.Play();
             if ((timeLeft % 12) == 0 && timeLeft >= 0)
                 if(!barkInstance.IsDisposed)
                     barkInstance.Play();
@@ -561,7 +586,9 @@ namespace RabiesX
                 UpdatePlayer(gameTime);
                 UpdateEnemies(gameTime);
                 UpdateBullets(gameTime);
+                UpdateDumpster(gameTime);
                 UpdateFrameRate(gameTime);
+                //dumpsterEntity.Update(gameTime);
 
                 // Rotate triangle level indicator.
                 angle += 0.005f;
@@ -782,6 +809,7 @@ namespace RabiesX
             if (mCurrentHealth == 0)
             {
                 // Game is over, so go to continue or quit screen.
+                jacksonwincryInstance.Play();
                 ScreenManager.AddScreen(new GameOverScreen(), ControllingPlayer);
             }
         }
@@ -844,6 +872,22 @@ namespace RabiesX
                 }
                 rabidDogEntities[i].Update(gameTime);
             }
+        }
+
+        private void UpdateDumpster(GameTime gameTime)
+        {
+            //float pitch = 0.0f;
+            float heading = 0.0f;
+            //float forwardSpeed = 0.0f;
+            Vector3 dumpsterPrevPosition = dumpsterEntity.Position;
+
+            // Prevent the player from moving off the edge of the floor.
+            float floorBoundaryZ = TERRAIN_HEIGHT * 0.5f - dumpsterRadius;
+            float floorBoundaryX = TERRAIN_WIDTH * 0.5f - dumpsterRadius;
+            float elapsedTimeSec = (float)gameTime.ElapsedGameTime.TotalSeconds;
+
+            dumpsterEntity.Orient(heading, 0.0f, 0.0f);
+            dumpsterEntity.Update(gameTime);
         }
 
         private void UpdateBullets(GameTime gameTime)
@@ -954,7 +998,7 @@ namespace RabiesX
                             bulletBounds.RemoveAt(index);
                             bulletRadii.RemoveAt(index);
                             bulletFlying[index] = false;
-                            rabidDogHealths[k] -= 20;
+                            rabidDogHealths[k]--;
                             if (rabidDogHealths[k] <= 0)
                             {
                                 rabidDogModels.RemoveAt(k);
@@ -967,6 +1011,7 @@ namespace RabiesX
                             if (TOTAL_RABID_DOGS == 0)
                             {
                                 winInstance.Play();
+                                jacksonlosecryInstance.Play();
                                 barkInstance.Dispose();
                                 ScreenManager.AddScreen(new GameOverScreen(), ControllingPlayer);
                                 break;
@@ -1033,7 +1078,7 @@ namespace RabiesX
                 if (timeLeft <= 0)
                 {
                     // Game is over, so go to continue or quit screen.
-                    winInstance.Play();
+                    jacksonwincryInstance.Play();
                     barkInstance.Dispose();
                     ScreenManager.AddScreen(new GameOverScreen(), ControllingPlayer);
                 }
@@ -1319,7 +1364,8 @@ namespace RabiesX
                 }
                 if (keyboardState.IsKeyDown(Keys.E))
                 {
-                    CreateBullet();
+                    if((timeLeft % 2) == 0)
+                        CreateBullet();
                 }
                 if (keyboardState.IsKeyUp(Keys.W) && OtherKeysUp(keyboardState, Keys.W))
                     soundInstance.Stop();

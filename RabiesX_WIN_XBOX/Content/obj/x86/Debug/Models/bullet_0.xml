@@ -3,7 +3,7 @@
   <Asset Type="Graphics:MeshContent">
     <Name>pSphere1</Name>
     <Identity>
-      <SourceFilename>C:\UH\PlasmaIsabella\Rabies-X\RabiesX_WIN_XBOX\Content\Models\bullet.fbx</SourceFilename>
+      <SourceFilename>C:\Users\Junior\Desktop\AraguzInPark\Rabies-X\RabiesX_WIN_XBOX\Content\Models\bullet.fbx</SourceFilename>
       <SourceTool>FbxImporter</SourceTool>
     </Identity>
     <Transform>5.353946 0 0 0 0 5.353946 0 0 0 0 5.353946 0 -3.11853456 6.596663 -0.101358078 1</Transform>
@@ -26,7 +26,7 @@
     <Resource ID="#Resource1" Type="Graphics:BasicMaterialContent">
       <Name>phong1</Name>
       <Identity>
-        <SourceFilename>C:\UH\PlasmaIsabella\Rabies-X\RabiesX_WIN_XBOX\Content\Models\bullet.fbx</SourceFilename>
+        <SourceFilename>C:\Users\Junior\Desktop\AraguzInPark\Rabies-X\RabiesX_WIN_XBOX\Content\Models\bullet.fbx</SourceFilename>
         <SourceTool>FbxImporter</SourceTool>
       </Identity>
       <OpaqueData>

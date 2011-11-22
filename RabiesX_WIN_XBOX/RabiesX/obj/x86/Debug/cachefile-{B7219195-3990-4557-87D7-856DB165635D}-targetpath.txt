@@ -84,3 +84,6 @@ Content\Models\water_0.xnb
 Content\Models\plasma_gun_metal_0.xnb
 Content\Models\yellow_0.xnb
 Content\Models\ball_decal_map_0.xnb
+Content\Audio\Waves\jacksonwincry.xnb
+Content\Audio\Waves\jacksonlosecry.xnb
+Content\Audio\Waves\jacksontaunt.xnb
