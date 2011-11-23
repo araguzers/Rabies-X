@@ -12,6 +12,17 @@ Content\Models\squirrel.xnb
 Content\Models\rabiddog.xnb
 Content\Audio\Waves\menu_1.xnb
 Content\Audio\Waves\menu_2.xnb
+Content\Audio\Waves\araguzbattlecry.xnb
+Content\Audio\Waves\barkingdog.xnb
+Content\Audio\Waves\callmegerry.xnb
+Content\Audio\Waves\carengine.xnb
+Content\Audio\Waves\donotfear.xnb
+Content\Audio\Waves\gamemusic.xnb
+Content\Audio\Waves\jacksonlosecry.xnb
+Content\Audio\Waves\jacksontaunt.xnb
+Content\Audio\Waves\jacksonwincry.xnb
+Content\Audio\Waves\motherearth.xnb
+Content\Audio\Waves\winningyell.xnb
 Content\Fonts\gamefont.xnb
 Content\Fonts\menufont.xnb
 Content\Fonts\ingamefont.xnb

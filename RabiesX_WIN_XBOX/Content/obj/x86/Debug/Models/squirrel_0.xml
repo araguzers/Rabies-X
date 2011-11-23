@@ -3,7 +3,7 @@
   <Asset Type="Graphics:NodeContent">
     <Name>RootNode</Name>
     <Identity>
-      <SourceFilename>C:\Users\Nshidbaby\Documents\College\COSC 4348\Rabies-X\Rabies-X\RabiesX_WIN_XBOX\Content\Models\squirrel.fbx</SourceFilename>
+      <SourceFilename>C:\Users\Junior\Desktop\GeraldoWithoutCar\Rabies-X\RabiesX_WIN_XBOX\Content\Models\squirrel.fbx</SourceFilename>
       <SourceTool>FbxImporter</SourceTool>
     </Identity>
     <Transform>1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1</Transform>
@@ -14182,7 +14182,7 @@
     <Resource ID="#Resource1" Type="Graphics:BasicMaterialContent">
       <Name>gloves</Name>
       <Identity>
-        <SourceFilename>C:\Users\Nshidbaby\Documents\College\COSC 4348\Rabies-X\Rabies-X\RabiesX_WIN_XBOX\Content\Models\squirrel.fbx</SourceFilename>
+        <SourceFilename>C:\Users\Junior\Desktop\GeraldoWithoutCar\Rabies-X\RabiesX_WIN_XBOX\Content\Models\squirrel.fbx</SourceFilename>
         <SourceTool>FbxImporter</SourceTool>
       </Identity>
       <OpaqueData>
@@ -14204,7 +14204,7 @@
     <Resource ID="#Resource2" Type="Graphics:BasicMaterialContent">
       <Name>matArmor</Name>
       <Identity>
-        <SourceFilename>C:\Users\Nshidbaby\Documents\College\COSC 4348\Rabies-X\Rabies-X\RabiesX_WIN_XBOX\Content\Models\squirrel.fbx</SourceFilename>
+        <SourceFilename>C:\Users\Junior\Desktop\GeraldoWithoutCar\Rabies-X\RabiesX_WIN_XBOX\Content\Models\squirrel.fbx</SourceFilename>
         <SourceTool>FbxImporter</SourceTool>
       </Identity>
       <OpaqueData>
@@ -14226,7 +14226,7 @@
     <Resource ID="#Resource3" Type="Graphics:BasicMaterialContent">
       <Name>squirrelBody</Name>
       <Identity>
-        <SourceFilename>C:\Users\Nshidbaby\Documents\College\COSC 4348\Rabies-X\Rabies-X\RabiesX_WIN_XBOX\Content\Models\squirrel.fbx</SourceFilename>
+        <SourceFilename>C:\Users\Junior\Desktop\GeraldoWithoutCar\Rabies-X\RabiesX_WIN_XBOX\Content\Models\squirrel.fbx</SourceFilename>
         <SourceTool>FbxImporter</SourceTool>
       </Identity>
       <OpaqueData>
@@ -14248,7 +14248,7 @@
     <Resource ID="#Resource4" Type="Graphics:BasicMaterialContent">
       <Name>matLegs</Name>
       <Identity>
-        <SourceFilename>C:\Users\Nshidbaby\Documents\College\COSC 4348\Rabies-X\Rabies-X\RabiesX_WIN_XBOX\Content\Models\squirrel.fbx</SourceFilename>
+        <SourceFilename>C:\Users\Junior\Desktop\GeraldoWithoutCar\Rabies-X\RabiesX_WIN_XBOX\Content\Models\squirrel.fbx</SourceFilename>
         <SourceTool>FbxImporter</SourceTool>
       </Identity>
       <OpaqueData>
@@ -14270,7 +14270,7 @@
     <Resource ID="#Resource5" Type="Graphics:BasicMaterialContent">
       <Name>blinn1</Name>
       <Identity>
-        <SourceFilename>C:\Users\Nshidbaby\Documents\College\COSC 4348\Rabies-X\Rabies-X\RabiesX_WIN_XBOX\Content\Models\squirrel.fbx</SourceFilename>
+        <SourceFilename>C:\Users\Junior\Desktop\GeraldoWithoutCar\Rabies-X\RabiesX_WIN_XBOX\Content\Models\squirrel.fbx</SourceFilename>
         <SourceTool>FbxImporter</SourceTool>
       </Identity>
       <OpaqueData>

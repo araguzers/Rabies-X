@@ -36,8 +36,8 @@ namespace RabiesX
         private const float PLAYER_HEADING_SPEED = 120.0f;
         private const float PLAYER_ROLLING_SPEED = 280.0f;
 
-        private const float TERRAIN_WIDTH = 1258.0f;
-        private const float TERRAIN_HEIGHT = 1258.0f;
+        private const float TERRAIN_WIDTH = 3000.0f;
+        private const float TERRAIN_HEIGHT = 3000.0f;
 
         private const float CAMERA_FOVX = 80.0f;
         private const float CAMERA_ZFAR = TERRAIN_WIDTH * 2.0f;
@@ -49,10 +49,44 @@ namespace RabiesX
         private int timeLeft = MAX_TIME_LEFT;
         int elapsedUpdateTime = 0;
 
-        private int TOTAL_RABID_DOGS = 3;
+        private int TOTAL_RABID_DOGS = 5;
 
         ContentManager content;
         SpriteFont gameFont;
+
+        //Sets the sounds.
+        private SoundEffect sound;
+        private SoundEffectInstance soundInstance;
+
+        private SoundEffect cry;
+        private SoundEffectInstance cryInstance;
+
+        private SoundEffect win;
+        private SoundEffectInstance winInstance;
+
+        private SoundEffect bark;
+        private SoundEffectInstance barkInstance;
+
+        private SoundEffect gameMusic;
+        private SoundEffectInstance gameMusicInstance;
+
+        private SoundEffect donotfear;
+        private SoundEffectInstance donotfearInstance;
+
+        private SoundEffect motherearth;
+        private SoundEffectInstance motherearthInstance;
+
+        private SoundEffect callmegerry;
+        private SoundEffectInstance callmegerryInstance;
+
+        private SoundEffect jacksonwincry;
+        private SoundEffectInstance jacksonwincryInstance;
+
+        private SoundEffect jacksonlosecry;
+        private SoundEffectInstance jacksonlosecryInstance;
+
+        private SoundEffect taunt;
+        private SoundEffectInstance tauntInstance;
 
         private SpriteBatch spriteBatch;
         private SpriteFont spriteFont;
@@ -99,6 +133,10 @@ namespace RabiesX
 
         // Aspect ratio determines how to scale 3d to 2d projection.
         float aspectRatio;
+
+        AnimationClip clip;
+        Model dogModel;
+        Model araguzModel;
 
         Random random = new Random();
 
@@ -184,6 +222,38 @@ namespace RabiesX
             GameStateManagementGame.graphics.PreferMultiSampling = true;
             GameStateManagementGame.graphics.ApplyChanges();
 
+            cry = content.Load<SoundEffect>("Audio\\Waves\\araguzbattlecry");
+            cryInstance = cry.CreateInstance();
+
+            win = content.Load<SoundEffect>("Audio\\Waves\\winningyell");
+            winInstance = win.CreateInstance();
+
+            bark = content.Load<SoundEffect>("Audio\\Waves\\barkingdog");
+            barkInstance = bark.CreateInstance();
+
+            donotfear = content.Load<SoundEffect>("Audio\\Waves\\donotfear");
+            donotfearInstance = donotfear.CreateInstance();
+
+            motherearth = content.Load<SoundEffect>("Audio\\Waves\\motherearth");
+            motherearthInstance = motherearth.CreateInstance();
+
+            callmegerry = content.Load<SoundEffect>("Audio\\Waves\\callmegerry");
+            callmegerryInstance = callmegerry.CreateInstance();
+
+            jacksonwincry = content.Load<SoundEffect>("Audio\\Waves\\jacksonwincry");
+            jacksonwincryInstance = jacksonwincry.CreateInstance();
+
+            jacksonlosecry = content.Load<SoundEffect>("Audio\\Waves\\jacksonlosecry");
+            jacksonlosecryInstance = jacksonlosecry.CreateInstance();
+
+            taunt = content.Load<SoundEffect>("Audio\\Waves\\jacksontaunt");
+            tauntInstance = taunt.CreateInstance();
+
+            gameMusic = content.Load<SoundEffect>("Audio\\Waves\\gamemusic");
+            gameMusicInstance = gameMusic.CreateInstance();
+            gameMusicInstance.IsLooped = true;
+            //gameMusicInstance.Play();
+
             // Position the in-game text.
             fontPos = new Vector2(1.0f, 1.0f);
 
@@ -242,6 +312,10 @@ namespace RabiesX
                 rabidDogModels.Add(new MyModel("Models\\ball", content));
                 rabidDogModels[i].Texture("Textures\\wedge_p1_diff_v1", content);
             }
+
+            sound = content.Load<SoundEffect>("Audio\\Waves\\carengine");
+            soundInstance = sound.CreateInstance();
+            soundInstance.IsLooped.Equals(true);
 
             // Load terrain and sky.
             terrain = content.Load<Model>("terrain");
@@ -349,6 +423,44 @@ namespace RabiesX
 
         #endregion
 
+        private void LoadAraguz()
+        {
+            Model currentModel = content.Load<Model>("geraldo_araguz");
+
+            // Look up our custom skinning information.
+            SkinningData skinningData = currentModel.Tag as SkinningData;
+
+            if (skinningData == null)
+                throw new InvalidOperationException
+                    ("This model does not contain a SkinningData tag.");
+
+            // Create an animation player, and start decoding an animation clip.
+            AnimationPlayer animationPlayer = new AnimationPlayer(skinningData);
+
+            AnimationClip clip = skinningData.AnimationClips["Take 001"];
+
+            animationPlayer.StartClip(clip);
+        }
+
+        private void LoadDog()
+        {
+            dogModel = content.Load<Model>("sick_dog");
+
+            // Look up our custom skinning information.
+            SkinningData skinningData = dogModel.Tag as SkinningData;
+
+            if (skinningData == null)
+                throw new InvalidOperationException
+                    ("This model does not contain a SkinningData tag.");
+
+            // Create an animation player, and start decoding an animation clip.
+            AnimationPlayer animationPlayer = new AnimationPlayer(skinningData);
+
+            AnimationClip clip = skinningData.AnimationClips["Take 001"];
+
+            animationPlayer.StartClip(clip);
+        }
+
         #region Update and Draw
 
 
@@ -361,6 +473,25 @@ namespace RabiesX
                                                        bool coveredByOtherScreen)
         {
             base.Update(gameTime, otherScreenHasFocus, false);
+            if (IsActive)
+            {
+                if (timeLeft == 300)
+                    tauntInstance.Play();
+                if ((timeLeft % 12) == 0 && timeLeft >= 0)
+                    if (!barkInstance.IsDisposed)
+                        barkInstance.Play();
+                if (timeLeft == 240)
+                    cryInstance.Play();
+                if (timeLeft == 180)
+                    donotfearInstance.Play();
+                if (timeLeft == 120)
+                    motherearthInstance.Play();
+                if (timeLeft == 60)
+                    callmegerryInstance.Play();
+                if (timeLeft <= 0)
+                    if (!barkInstance.IsDisposed)
+                        barkInstance.Stop();
+            }
 
             // Gradually fade in or out depending on whether we are covered by the pause screen.
             if (coveredByOtherScreen)
@@ -600,6 +731,9 @@ namespace RabiesX
             if (mCurrentHealth == 0)
             {
                 // Game is over, so go to continue or quit screen.
+                jacksonwincryInstance.Play();
+                if(!barkInstance.IsDisposed)
+                     barkInstance.Dispose();
                 ScreenManager.AddScreen(new GameOverScreen(), ControllingPlayer);
             }
         }
@@ -651,6 +785,14 @@ namespace RabiesX
                             break;
                         }
                     }
+            }
+            if (TOTAL_RABID_DOGS == 0)
+            {
+                winInstance.Play();
+                jacksonlosecryInstance.Play();
+                if (!barkInstance.IsDisposed)
+                    barkInstance.Dispose();
+                ScreenManager.AddScreen(new GameOverScreen(), ControllingPlayer);
             }
         }
         }
@@ -738,6 +880,9 @@ namespace RabiesX
                 if (timeLeft <= 0)
                 {
                     // Game is over, so go to continue or quit screen.
+                    jacksonwincryInstance.Play();
+                    if(!barkInstance.IsDisposed)
+                         barkInstance.Dispose();
                     ScreenManager.AddScreen(new GameOverScreen(), ControllingPlayer);
                 }
             }
@@ -849,6 +994,7 @@ namespace RabiesX
         private void DrawText()
         {
             StringBuilder buffer = new StringBuilder();
+            string jacksonTaunt = "";
 
             if (displayHelp)
             {
@@ -880,6 +1026,19 @@ namespace RabiesX
                 buffer.AppendFormat("  Spring constant: {0}\n", springConstant.ToString("f2"));
                 buffer.AppendFormat("  Damping constant: {0}\n", dampingConstant.ToString("f2"));
                 buffer.AppendLine();
+                if (timeLeft <= 300 && timeLeft >= 240)
+                    jacksonTaunt = "I, Russell Jackson, challenge you, Geraldo \"Merry Gerry\" Araguz, to survive\n for 5 minutes in this park with these diseased dogs!\n I can guarantee that you will not survive for even one.\nThat GuzCruise of yours will not protect you for long...\nGet him, boys!!\n\n";
+                if (timeLeft < 240 && timeLeft >= 180)
+                    jacksonTaunt = "So you survived for one minute. Big wuff. Speaking of wuff - get him, boys!\n\n";
+                if (timeLeft < 180 && timeLeft >= 120)
+                    jacksonTaunt = "Two minutes? Purrrrrrlease. Speaking of purr, pretend Gerry's a cat and get him, boys!!\n\n";
+                if (timeLeft < 120 && timeLeft >= 60)
+                    jacksonTaunt = "Geraldo Araguz, you survived for more than half the time. You got some bones.\nSpeaking of bones, pretend he's one and get him, boys!!\n\n";
+                if (timeLeft < 60 && timeLeft >= 0)
+                    jacksonTaunt = "One minute to lose, Geraldo Araguz! You still have a chance to get him, boys!!\n\n";
+                if (timeLeft <= 0)
+                    jacksonTaunt = "NOOOOOOOOOOOOOOOOOOOOOO!\n\n";
+                buffer.AppendFormat(jacksonTaunt);
                 buffer.AppendLine("Press H to display help");
             }
 
@@ -894,6 +1053,53 @@ namespace RabiesX
         /// </summary>
         public override void HandleInput(InputState input)
         {
+            //if (input == null)
+            //    throw new ArgumentNullException("input");
+
+            //// Look up inputs for the active player profile.
+            //int playerIndex = (int)ControllingPlayer.Value;
+
+            //KeyboardState keyboardState = input.CurrentKeyboardStates[playerIndex];
+            //GamePadState gamePadState = input.CurrentGamePadStates[playerIndex];
+
+            //// The game pauses either if the user presses the pause button, or if
+            //// they unplug the active gamepad. This requires us to keep track of
+            //// whether a gamepad was ever plugged in, because we don't want to pause
+            //// on PC if they are playing with a keyboard and have no gamepad at all!
+            //bool gamePadDisconnected = !gamePadState.IsConnected &&
+            //                           input.GamePadWasConnected[playerIndex];
+
+            //if (input.IsPauseGame(ControllingPlayer) || gamePadDisconnected)
+            //{
+            //    ScreenManager.AddScreen(new PauseMenuScreen(), ControllingPlayer);
+            //}
+            //else
+            //{
+            //    // Otherwise move the player position.
+            //    Vector2 movement = Vector2.Zero;
+                
+            //    if (keyboardState.IsKeyDown(Keys.A))
+            //        movement.X--;
+
+            //    if (keyboardState.IsKeyDown(Keys.D))
+            //        movement.X++;
+
+            //    if (keyboardState.IsKeyDown(Keys.W))
+            //        movement.Y--;
+
+            //    if (keyboardState.IsKeyDown(Keys.S))
+            //        movement.Y++;
+                
+            //    Vector2 thumbstick = gamePadState.ThumbSticks.Left;
+
+            //    movement.X += thumbstick.X;
+            //    movement.Y -= thumbstick.Y;
+
+            //    if (movement.Length() > 1)
+            //        movement.Normalize();
+
+            //    playerPosition += movement * 2;
+            //}
             if (input == null)
                 throw new ArgumentNullException("input");
 
@@ -918,19 +1124,84 @@ namespace RabiesX
             {
                 // Otherwise move the player position.
                 Vector2 movement = Vector2.Zero;
-                
-                if (keyboardState.IsKeyDown(Keys.A))
-                    movement.X--;
-
-                if (keyboardState.IsKeyDown(Keys.D))
-                    movement.X++;
 
                 if (keyboardState.IsKeyDown(Keys.W))
+                {
+                    if (OtherKeysUp(keyboardState, Keys.W))
+                        soundInstance.Play();
                     movement.Y--;
-
+                }
                 if (keyboardState.IsKeyDown(Keys.S))
+                {
+                    if (OtherKeysUp(keyboardState, Keys.S))
+                        soundInstance.Play();
                     movement.Y++;
-                
+                }
+                if (keyboardState.IsKeyDown(Keys.A))
+                {
+                    if (OtherKeysUp(keyboardState, Keys.A))
+                        soundInstance.Play();
+                    movement.X--;
+                }
+                if (keyboardState.IsKeyDown(Keys.D))
+                {
+                    if (OtherKeysUp(keyboardState, Keys.D))
+                        soundInstance.Play();
+                    movement.X++;
+                }
+                if (keyboardState.IsKeyDown(Keys.Up))
+                {
+                    if (OtherKeysUp(keyboardState, Keys.Up))
+                        soundInstance.Play();
+                    movement.Y--;
+                }
+                if (keyboardState.IsKeyDown(Keys.Down))
+                {
+                    if (OtherKeysUp(keyboardState, Keys.Down))
+                        soundInstance.Play();
+                    movement.Y++;
+                }
+                if (keyboardState.IsKeyDown(Keys.Left))
+                {
+                    if (OtherKeysUp(keyboardState, Keys.Left))
+                        soundInstance.Play();
+                    movement.X--;
+                }
+                if (keyboardState.IsKeyDown(Keys.Right))
+                {
+                    if (OtherKeysUp(keyboardState, Keys.Right))
+                        soundInstance.Play();
+                    movement.X++;
+                }
+                //if (keyboardState.IsKeyDown(Keys.E))
+                //{
+                //    double currentTime = gameTime.TotalGameTime.TotalMilliseconds;
+                //    if ((currentTime - lastBulletTime) > 100)
+                //    {
+                //        Bullet newBullet = new Bullet();
+                //        newBullet.position = playerEntity.Position;
+                //        newBullet.rotation = playerEntity.Rotation;
+                //        bulletList.Add(newBullet);
+
+                //        lastBulletTime = currentTime;
+                //    }
+                //}
+                if (keyboardState.IsKeyUp(Keys.W) && OtherKeysUp(keyboardState, Keys.W))
+                    soundInstance.Stop();
+                if (keyboardState.IsKeyUp(Keys.Up) && OtherKeysUp(keyboardState, Keys.Up))
+                    soundInstance.Stop();
+                if (keyboardState.IsKeyUp(Keys.S) && OtherKeysUp(keyboardState, Keys.S))
+                    soundInstance.Stop();
+                if (keyboardState.IsKeyUp(Keys.Down) && OtherKeysUp(keyboardState, Keys.Down))
+                    soundInstance.Stop();
+                if (keyboardState.IsKeyUp(Keys.A) && OtherKeysUp(keyboardState, Keys.A))
+                    soundInstance.Stop();
+                if (keyboardState.IsKeyUp(Keys.Left) && OtherKeysUp(keyboardState, Keys.Left))
+                    soundInstance.Stop();
+                if (keyboardState.IsKeyUp(Keys.D) && OtherKeysUp(keyboardState, Keys.D))
+                    soundInstance.Stop();
+                if (keyboardState.IsKeyUp(Keys.Right) && OtherKeysUp(keyboardState, Keys.Right))
+                    soundInstance.Stop();
                 Vector2 thumbstick = gamePadState.ThumbSticks.Left;
 
                 movement.X += thumbstick.X;
@@ -1080,5 +1351,19 @@ namespace RabiesX
         }
 
         #endregion
+
+        private bool OtherKeysUp(KeyboardState state, Keys theKey)
+        {
+            Keys[] gameKeys = {Keys.H, Keys.Space, Keys.LeftAlt, Keys.RightAlt, Keys.Enter, Keys.Add,
+                                  Keys.Subtract, Keys.A, Keys.W, Keys.S, Keys.D, Keys.Up, Keys.Left,
+                                  Keys.Right, Keys.Down, Keys.E, Keys.R};
+            bool keysAreUp = true;
+            foreach (Keys key in gameKeys)
+            {
+                if (key != theKey)
+                    keysAreUp = keysAreUp && state.IsKeyUp(key);
+            }
+            return keysAreUp;
+        }
     }
 }
