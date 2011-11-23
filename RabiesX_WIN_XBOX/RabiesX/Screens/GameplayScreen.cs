@@ -857,6 +857,7 @@ namespace RabiesX
                 buffer.AppendLine("Press D or RIGHT to turn the player to the right");
                 buffer.AppendLine("Press A or LEFT to turn the player to the left");
                 buffer.AppendLine();
+                buffer.AppendLine("Press RIGHT CONTROL to shoot player weaponry.");
                 buffer.AppendLine("Press PAGEUP and PAGEDOWN to change the player's health bar.");
                 buffer.AppendLine("Press SPACE to enable and disable the camera's spring system");
                 buffer.AppendLine("Press + and - to change the camera's spring constant");

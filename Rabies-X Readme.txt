@@ -8,6 +8,8 @@ Controls:
 
 Test Model: Left, Right, Up, Down, or (A, D, S, W)
 
+Weapons: Right Control
+
 Health Bar: PageUp, PageDown
 
 Camera Spring System: Spacebar (enable/disable)
