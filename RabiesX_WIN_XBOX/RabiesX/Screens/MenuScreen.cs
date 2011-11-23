@@ -309,7 +309,7 @@ namespace RabiesX
                     }
                 }
             }
-            else if ((menuoption == "Play Game") || (menuoption == "Restart Game"))
+            else if ((menuoption == "Play Game") || (menuoption == "Restart Game") || (menuoption == "Continue Game"))
             {
                 if (keyboardEntry == "Escape")
                 {

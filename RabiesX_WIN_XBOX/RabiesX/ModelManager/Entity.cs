@@ -315,11 +315,16 @@ namespace RabiesX
             set { constrainedToWorldYAxis = value; }
         }
         
+        public Quaternion Rotation
+        {
+            get { return rotation; }
+        }
+
         public Vector3 Forward
         {
             get { return forward; }
         }
-        
+
         public Vector3 Position
         {
             get { return position; }

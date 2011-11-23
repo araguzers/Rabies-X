@@ -139,8 +139,7 @@ namespace RabiesX
                 SpriteBatch spriteBatch = ScreenManager.SpriteBatch;
                 SpriteFont font = ScreenManager.Font;
 
-                //changing the message here
-                const string message = "Filling Gas Tank...";
+                const string message = "Loading...";
 
                 // Center the text in the viewport.
                 Viewport viewport = ScreenManager.GraphicsDevice.Viewport;

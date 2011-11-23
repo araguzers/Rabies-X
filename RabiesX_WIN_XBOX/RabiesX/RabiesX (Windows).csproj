@@ -65,17 +65,7 @@
     <XnaCompressContent>true</XnaCompressContent>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="CuringDogs\AnimationClip.cs" />
-    <Compile Include="CuringDogs\AnimationPlayer.cs" />
-    <Compile Include="CuringDogs\Bullet.cs" />
-    <Compile Include="CuringDogs\ClipPlayer.cs" />
-    <Compile Include="CuringDogs\Controller.cs" />
-    <Compile Include="CuringDogs\Enemy.cs" />
-    <Compile Include="CuringDogs\Keyframe.cs" />
-    <Compile Include="CuringDogs\Shape.cs" />
-    <Compile Include="CuringDogs\SkinningData.cs" />
-    <Compile Include="CuringDogs\Target.cs" />
-    <Compile Include="CuringDogs\Transform.cs" />
+    <Compile Include="ModelManager\Quad.cs" />
     <Compile Include="ModelManager\Entity.cs" />
     <Compile Include="Game.cs" />
     <Compile Include="MapManager\Sky.cs" />
@@ -92,6 +82,7 @@
     <Compile Include="Screens\MenuEntry.cs" />
     <Compile Include="Screens\MenuScreen.cs" />
     <Compile Include="Screens\MessageBoxScreen.cs" />
+    <Compile Include="Screens\NextLevelScreen.cs" />
     <Compile Include="Screens\OptionsMenuScreen.cs" />
     <Compile Include="Screens\PauseMenuScreen.cs" />
     <Compile Include="Screens\PlayerIndexEventArgs.cs" />

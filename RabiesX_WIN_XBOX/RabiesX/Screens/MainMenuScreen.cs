@@ -26,7 +26,7 @@ namespace RabiesX
         /// Constructor fills in the menu contents.
         /// </summary>
         public MainMenuScreen()
-            : base("R.B.X.")
+            : base("Rabies-X")
         {
             // Create our menu entries.
             MenuEntry playGameMenuEntry = new MenuEntry("Play Game");

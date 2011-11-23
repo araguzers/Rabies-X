@@ -20,10 +20,6 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 #endregion
 
-//some logic is credited to Mr. Jose Baez-Franceschi. The trajectory logic, specifically - it came from his squirrel game.
-
-//Credit goes to Joe Eid for voicing Russell Jackson.
-
 namespace RabiesX
 {
     /// <summary>
@@ -40,13 +36,8 @@ namespace RabiesX
         private const float PLAYER_HEADING_SPEED = 120.0f;
         private const float PLAYER_ROLLING_SPEED = 280.0f;
 
-        //private const float BULLET_FORWARD_SPEED = 720.0f;
-        //private const float BULLET_HEADING_SPEED = 720.0f;
-        //private const float BULLET_ROLLING_SPEED = 1680.0f;
-
-        private const float TERRAIN_WIDTH = 3000.0f;
-        private const float TERRAIN_HEIGHT = 3000.0f;
-        //changed the width & height of the terrain to the magic number, 3000!
+        private const float TERRAIN_WIDTH = 1258.0f;
+        private const float TERRAIN_HEIGHT = 1258.0f;
 
         private const float CAMERA_FOVX = 80.0f;
         private const float CAMERA_ZFAR = TERRAIN_WIDTH * 2.0f;
@@ -58,55 +49,16 @@ namespace RabiesX
         private int timeLeft = MAX_TIME_LEFT;
         int elapsedUpdateTime = 0;
 
-        private Dictionary<string, bool> compass;
-
-        private int TOTAL_RABID_DOGS = 5;
-        //private const int TOTAL_DECORS = 1;
+        private int TOTAL_RABID_DOGS = 3;
 
         ContentManager content;
         SpriteFont gameFont;
-
-        //Sets the sounds.
-        private SoundEffect sound;
-        private SoundEffectInstance soundInstance;
-
-        private SoundEffect cry;
-        private SoundEffectInstance cryInstance;
-
-        private SoundEffect win;
-        private SoundEffectInstance winInstance;
-
-        private SoundEffect bark;
-        private SoundEffectInstance barkInstance;
-
-        private SoundEffect gameMusic;
-        private SoundEffectInstance gameMusicInstance;
-
-        private SoundEffect donotfear;
-        private SoundEffectInstance donotfearInstance;
-
-        private SoundEffect motherearth;
-        private SoundEffectInstance motherearthInstance;
-
-        private SoundEffect callmegerry;
-        private SoundEffectInstance callmegerryInstance;
-
-        private SoundEffect jacksonwincry;
-        private SoundEffectInstance jacksonwincryInstance;
-
-        private SoundEffect jacksonlosecry;
-        private SoundEffectInstance jacksonlosecryInstance;
-
-        private SoundEffect taunt;
-        private SoundEffectInstance tauntInstance;
 
         private SpriteBatch spriteBatch;
         private SpriteFont spriteFont;
 
         Vector2 playerPosition = new Vector2(100, 100);
-        Vector2 bulletPosition = new Vector2(100, 100);
         Vector2 enemyPosition = new Vector2(100, 100);
-        Vector2 dumpsterPosition = new Vector2(1500, 1500);
 
         // Set triangle indicator for level.
         Effect effect;
@@ -115,6 +67,19 @@ namespace RabiesX
         private List<VertexPositionColor[]> vertices;
 
         private float angle = 0.0f;
+
+        // Set bullets for level;
+        Quad quad;
+        Effect quadEffect;
+        struct Bullet
+        {
+            public Vector3 position;
+            public Quaternion rotation;
+        }
+        List<Bullet> bulletList = new List<Bullet> ();
+        double lastBulletTime = 0;
+        float bulletSpeed = 1.0f;
+        Texture2D bullets;
 
         // Set health bar for level.
         SpriteBatch mBatch;
@@ -128,51 +93,10 @@ namespace RabiesX
         Model terrain;
         Sky sky;
 
-        //Controller controller;
-        //List<Controller.Action> actionList;
-
-        Vector3 lightDir1 = new Vector3(1, 1, 1);
-
-        //Model dual;
-
-        //Vector3 dudePos; //dude position
-        //Quaternion dudeQRot; //Quaternion rotation
-        //float dudeRotY;
-        //float dudeRotX;
-
-        //List<Bullet> bulletList = new List<Bullet>();//bullet list
-        //Shape bulletShape;
-
-        //List<Target> targetList = new List<Target>();//target list
-        //Shape targetShape;
-
-        //int numTarget = 0;
-
-        //int score_enemies = 0;
-
-        //used for collectibles
-        const int NUM_OF_Target = 50; //total number of collectibles on the screen
-        List<Enemy> targets = new List<Enemy>(); //list of targets
-        List<Vector2> usedTargetXZ; //used locations (so we don't have multiple targets on 1 spot)
-        const int tMAX = 1;
-        const int tMIN = 0;
-        int[] tXValues = { -2000, 20000 };
-        int[] tZValues = { -2000, 40000 };
-
-
-        //bool gamePaused = false;
-        //Vector2 screenCenter;
-        Vector3 STARTING_POSITION = Vector3.Zero;
-        //const int NUM_COLLECTED_TO_WIN = 50;
-        //Matrix view, projection;
-
         // Set the 3D model to draw.
         private MyModel playerModel;
-        private List<MyModel> bulletModels;
         private List<MyModel> rabidDogModels;
 
-        private MyModel dumpsterModel;
-        private MyModel tricycleModel;
         // Aspect ratio determines how to scale 3d to 2d projection.
         float aspectRatio;
 
@@ -187,21 +111,13 @@ namespace RabiesX
         private int frames;
         private int framesPerSecond;
         private Entity playerEntity;
-        //private Entity bulletEntity = null;
         private Entity terrainEntity;
-        private Entity dumpsterEntity;
-        private Entity tricycleEntity;
         private List<int> rabidDogHealths;
+        private List<float> rabidDogHealthDecrs;
         private List<Entity> rabidDogEntities;
         private List<Vector3> rabidDogPreviousPositions;
-        private List<Entity> bulletEntities;
-        private List<float> bulletRadii;
-        private List<bool> bulletFlying;
         private float playerRadius;
-        //private float bulletRadius = 0;
         private float terrainRadius;
-        private float dumpsterRadius;
-        private float tricycleRadius;
         private List<float> rabidDogRadii;
         private Matrix[] modelTransforms;
         private List<Matrix[]> modelEnemyTransforms;
@@ -209,20 +125,17 @@ namespace RabiesX
         private TimeSpan prevElapsedTime = TimeSpan.Zero;
         private bool displayHelp;
 
-        //private int bulletIndex = 0;
-
         private ThirdPersonCamera camera;
+        private Vector3 cameraUpDirection;
 
+        private MouseState curMouseState;
+        private MouseState prevMouseState;
         private KeyboardState curKeyboardState;
         private KeyboardState prevKeyboardState;
 
         BoundingSphere playerBounds;
-        //BoundingSphere bulletBounds;
         BoundingSphere terrainBounds;
-        BoundingSphere dumpsterBounds;
-        BoundingSphere tricycleBounds;
         List<BoundingSphere> rabidDogBounds;
-        List<BoundingSphere> bulletBounds;
 
         private bool flicker;
 
@@ -264,8 +177,6 @@ namespace RabiesX
             screenWidth = ScreenManager.Game.GraphicsDevice.Viewport.Width;
             screenHeight = ScreenManager.Game.GraphicsDevice.Viewport.Height;
 
-            usedTargetXZ = new List<Vector2>();
-
             // Setup frame buffer.
             GameStateManagementGame.graphics.SynchronizeWithVerticalRetrace = false;
             GameStateManagementGame.graphics.PreferredBackBufferWidth = screenWidth;
@@ -273,48 +184,11 @@ namespace RabiesX
             GameStateManagementGame.graphics.PreferMultiSampling = true;
             GameStateManagementGame.graphics.ApplyChanges();
 
-            compass = new Dictionary<string, bool>();
-            compass.Add("up", false);
-            compass.Add("down", false);
-            compass.Add("left", false);
-            compass.Add("right", false);
-
-            cry = content.Load<SoundEffect>("Audio\\Waves\\araguzbattlecry");
-            cryInstance = cry.CreateInstance();
-
-            win = content.Load<SoundEffect>("Audio\\Waves\\winningyell");
-            winInstance = win.CreateInstance();
-
-            bark = content.Load<SoundEffect>("Audio\\Waves\\barkingdog");
-            barkInstance = bark.CreateInstance();
-
-            donotfear = content.Load<SoundEffect>("Audio\\Waves\\donotfear");
-            donotfearInstance = donotfear.CreateInstance();
-
-            motherearth = content.Load<SoundEffect>("Audio\\Waves\\motherearth");
-            motherearthInstance = motherearth.CreateInstance();
-
-            callmegerry = content.Load<SoundEffect>("Audio\\Waves\\callmegerry");
-            callmegerryInstance = callmegerry.CreateInstance();
-
-            jacksonwincry = content.Load<SoundEffect>("Audio\\Waves\\jacksonwincry");
-            jacksonwincryInstance = jacksonwincry.CreateInstance();
-
-            jacksonlosecry = content.Load<SoundEffect>("Audio\\Waves\\jacksonlosecry");
-            jacksonlosecryInstance = jacksonlosecry.CreateInstance();
-
-            taunt = content.Load<SoundEffect>("Audio\\Waves\\jacksontaunt");
-            tauntInstance = taunt.CreateInstance();
-
-            gameMusic = content.Load<SoundEffect>("Audio\\Waves\\gamemusic");
-            gameMusicInstance = gameMusic.CreateInstance();
-            gameMusicInstance.IsLooped = true;
-            //gameMusicInstance.Play();
-
             // Position the in-game text.
             fontPos = new Vector2(1.0f, 1.0f);
 
             // Setup the initial input states.
+            curMouseState = Mouse.GetState();
             curKeyboardState = Keyboard.GetState();
 
             // Load the game font.
@@ -331,6 +205,11 @@ namespace RabiesX
 
             // Load the health bar image.
             mHealthBar = content.Load<Texture2D>("healthbar");
+            
+            // Load the bullet image and setup bullet effects.
+            quadEffect = content.Load<Effect>("Effects\\effects");
+            quad = new Quad(ScreenManager.GraphicsDevice, Vector3.Zero, Vector3.Up, screenWidth, screenHeight);
+            bullets = content.Load<Texture2D>("bullet");
 
             // Load the effects and setup vertices for triangle indicator.
             vertices = new List<VertexPositionColor[]>();
@@ -343,57 +222,26 @@ namespace RabiesX
             rabidDogRadii = new List<float>();
             rabidDogModels = new List<MyModel>();
             rabidDogEntities = new List<Entity>();
+            rabidDogHealthDecrs = new List<float>();
             rabidDogBounds = new List<BoundingSphere>();
-            bulletModels = new List<MyModel>();
-            bulletEntities = new List<Entity>();
-            bulletBounds = new List<BoundingSphere>();
-            bulletRadii = new List<float>();
-            bulletFlying = new List<bool>();
             modelEnemyTransforms = new List<Matrix[]>();
             rabidDogPreviousPositions = new List<Vector3>();
             for (int i = 0; i < TOTAL_RABID_DOGS; i++)
             {
                 rabidDogHealths.Add(100);
+                rabidDogHealthDecrs.Add(0.0f);
                 modelEnemyTransforms.Add(null);
                 rabidDogPreviousPositions.Add(new Vector3());
             }
 
             // Load models and set aspect ratio.
-            playerModel = new MyModel("Models\\isabella_with_plasma", content);
-            //playerModel.Texture("Textures\\wedge_p1_diff_v1", content);
-            playerModel.Texture("Textures\\guzcruiseroofmiddle", content);
-            playerModel.Texture("Textures\\guzcruiseroof1", content);
-            playerModel.Texture("Textures\\cushions", content);
-            playerModel.Texture("Textures\\dooropen", content);
-            playerModel.Texture("Textures\\water", content);
-            playerModel.Texture("Textures\\plasma_gun_metal", content);
-
-            sound = content.Load<SoundEffect>("Audio\\Waves\\carengine");
-            soundInstance = sound.CreateInstance();
-            soundInstance.IsLooped.Equals(true);
-
+            playerModel = new MyModel("Models\\ball", content);
+            playerModel.Texture("Textures\\wedge_p1_diff_v1", content);
             for (int i = 0; i < TOTAL_RABID_DOGS; i++)
             {
-                //rabidDogModels.Add(new MyModel("Models\\ball", content));
-                //rabidDogModels[i].Texture("Textures\\wedge_p1_diff_v1", content);
-                rabidDogModels.Add(new MyModel("Models\\diseased_dog", content));
-                //rabidDogModels.Add(new MyModel("Models\\rabid_dog", content));
-                rabidDogModels[i].Texture("Textures\\DogEyes", content);
-                rabidDogModels[i].Texture("Textures\\DogPupil", content);
-                rabidDogModels[i].Texture("Textures\\DogSkin", content);
+                rabidDogModels.Add(new MyModel("Models\\ball", content));
+                rabidDogModels[i].Texture("Textures\\wedge_p1_diff_v1", content);
             }
-
-            dumpsterModel = new MyModel("Models\\dumpster", content);
-            //playerModel.Texture("Textures\\wedge_p1_diff_v1", content);
-            dumpsterModel.Texture("Textures\\bikegear", content);
-            dumpsterModel.Texture("Textures\\tirecolor", content);
-            dumpsterModel.Texture("Textures\\rustymetal", content);
-            dumpsterModel.Texture("Textures\\nolittering", content);
-
-            tricycleModel = new MyModel("Models\\tricycle", content);
-            tricycleModel.Texture("Textures\\bikegear", content);
-            tricycleModel.Texture("Textures\\tirecolor", content);
-            tricycleModel.Texture("Textures\\blue", content);
 
             // Load terrain and sky.
             terrain = content.Load<Model>("terrain");
@@ -406,20 +254,6 @@ namespace RabiesX
             playerRadius = bounds.Radius;
 
             playerBounds = bounds;
-
-            BoundingSphere dbounds = new BoundingSphere();
-            foreach (ModelMesh mesh in dumpsterModel.ModelHeld.Meshes)
-                dbounds = BoundingSphere.CreateMerged(dbounds, mesh.BoundingSphere);
-            dumpsterRadius = dbounds.Radius;
-
-            dumpsterBounds = dbounds;
-
-            BoundingSphere tribounds = new BoundingSphere();
-            foreach (ModelMesh mesh in tricycleModel.ModelHeld.Meshes)
-                tribounds = BoundingSphere.CreateMerged(tribounds, mesh.BoundingSphere);
-            tricycleRadius = tribounds.Radius;
-
-            tricycleBounds = tribounds;
 
             // Determine the radii of the enemy models.  
             for (int i = 0; i < TOTAL_RABID_DOGS; i++)
@@ -451,15 +285,6 @@ namespace RabiesX
             playerEntity = new Entity();
             playerEntity.ConstrainToWorldYAxis = true;
             playerEntity.Position = new Vector3(0.0f, 1.0f + playerRadius, 0.0f);
-
-            dumpsterEntity = new Entity();
-            dumpsterEntity.ConstrainToWorldYAxis = true;
-            dumpsterEntity.Position = new Vector3(100.0f, 100.0f, 0.0f);
-            //dumpsterModel.Position = new Vector3(-100.0f, -100.0f + dumpsterRadius, 0.0f);
-
-            tricycleEntity = new Entity();
-            tricycleEntity.ConstrainToWorldYAxis = true;
-            tricycleEntity.Position = new Vector3(100.0f, 100.0f + tricycleRadius, 0.0f);
             
             // Setup the enemy entities.
             for (int i = 0; i < TOTAL_RABID_DOGS; i++)
@@ -524,25 +349,6 @@ namespace RabiesX
 
         #endregion
 
-        private void CreateBullet()
-        {
-            bulletModels.Add(new MyModel("Models\\bullet", content));
-            bulletModels[bulletModels.Count - 1].Texture("Textures\\yellow", content);
-
-            BoundingSphere bbounds = new BoundingSphere();
-            foreach (ModelMesh mesh in bulletModels[bulletModels.Count - 1].ModelHeld.Meshes)
-                bbounds = BoundingSphere.CreateMerged(bbounds, mesh.BoundingSphere);
-            bulletRadii.Add(bbounds.Radius);
-            bulletBounds.Add(bbounds);
-
-            bulletEntities.Add(new Entity());
-            bulletEntities[bulletModels.Count - 1].ConstrainToWorldYAxis = true;
-            bulletEntities[bulletModels.Count - 1].Position = new Vector3(playerEntity.Position.X, playerEntity.Position.Y, playerEntity.Position.Z);
-
-            bulletFlying.Add(true);
-            //bulletIndex++;
-        }
-
         #region Update and Draw
 
 
@@ -555,24 +361,6 @@ namespace RabiesX
                                                        bool coveredByOtherScreen)
         {
             base.Update(gameTime, otherScreenHasFocus, false);
-            if (timeLeft == 300)
-                tauntInstance.Play();
-            if ((timeLeft % 12) == 0 && timeLeft >= 0)
-                if(!barkInstance.IsDisposed)
-                    barkInstance.Play();
-            if (timeLeft == 240)
-                cryInstance.Play();
-            if (timeLeft == 180)
-                donotfearInstance.Play();
-            if (timeLeft == 120)
-                motherearthInstance.Play();
-            if (timeLeft == 60)
-                callmegerryInstance.Play();
-            if (timeLeft <= 0)
-                if(!barkInstance.IsDisposed)
-                    barkInstance.Stop();
-            //if (timeLeft <= 0)
-            //    gameMusicInstance.Stop();
 
             // Gradually fade in or out depending on whether we are covered by the pause screen.
             if (coveredByOtherScreen)
@@ -582,13 +370,13 @@ namespace RabiesX
 
             if (IsActive)
             {
+                float moveSpeed = gameTime.ElapsedGameTime.Milliseconds / 500.0f * bulletSpeed;
+
                 ProcessKeyboard();
                 UpdatePlayer(gameTime);
                 UpdateEnemies(gameTime);
-                UpdateBullets(gameTime);
-                UpdateDumpster(gameTime);
                 UpdateFrameRate(gameTime);
-                //dumpsterEntity.Update(gameTime);
+                UpdateBulletPositions(moveSpeed);
 
                 // Rotate triangle level indicator.
                 angle += 0.005f;
@@ -689,14 +477,11 @@ namespace RabiesX
             float heading = 0.0f;
             float forwardSpeed = 0.0f;
             Vector3 playerPrevPosition = playerEntity.Position;
+            curMouseState = new MouseState();
 
             if (curKeyboardState.IsKeyDown(Keys.W) ||
                 curKeyboardState.IsKeyDown(Keys.Up))
             {
-                compass["up"] = true;
-                compass["down"] = false;
-                compass["left"] = false;
-                compass["right"] = false;
                 forwardSpeed = PLAYER_FORWARD_SPEED;
                 pitch = -PLAYER_ROLLING_SPEED;
             }
@@ -704,10 +489,6 @@ namespace RabiesX
             if (curKeyboardState.IsKeyDown(Keys.S) ||
                 curKeyboardState.IsKeyDown(Keys.Down))
             {
-                compass["up"] = false;
-                compass["down"] = true;
-                compass["left"] = false;
-                compass["right"] = false;
                 forwardSpeed = -PLAYER_FORWARD_SPEED;
                 pitch = PLAYER_ROLLING_SPEED;
             }
@@ -715,22 +496,29 @@ namespace RabiesX
             if (curKeyboardState.IsKeyDown(Keys.D) ||
                 curKeyboardState.IsKeyDown(Keys.Right))
             {
-                compass["up"] = false;
-                compass["down"] = false;
-                compass["left"] = false;
-                compass["right"] = true;
                 heading = -PLAYER_HEADING_SPEED;
             }
 
             if (curKeyboardState.IsKeyDown(Keys.A) ||
                 curKeyboardState.IsKeyDown(Keys.Left))
             {
-                compass["up"] = false;
-                compass["down"] = false;
-                compass["left"] = true;
-                compass["right"] = false;
                 heading = PLAYER_HEADING_SPEED;
             }
+
+            if (((curMouseState.LeftButton == ButtonState.Pressed) && (prevMouseState.LeftButton == ButtonState.Released)) || curKeyboardState.IsKeyDown(Keys.RightControl))
+            {
+                double currentTime = gameTime.TotalGameTime.TotalMilliseconds;
+                if ((currentTime - lastBulletTime) > 100)
+                {
+                    Bullet newBullet = new Bullet();
+                    newBullet.position = playerEntity.Position;
+                    newBullet.rotation = playerEntity.Rotation;
+                    bulletList.Add(newBullet);
+
+                    lastBulletTime = currentTime;
+                }
+            }
+            prevMouseState = curMouseState; 
 
             // Prevent the player from moving off the edge of the floor.
             float floorBoundaryZ = TERRAIN_HEIGHT * 0.5f - playerRadius;
@@ -751,7 +539,7 @@ namespace RabiesX
             // Update the player's state.
             playerEntity.Velocity = new Vector3(0.0f, 0.0f, forwardSpeed);
             playerEntity.Orient(heading, 0.0f, 0.0f);
-            //playerEntity.Rotate(0.0f, pitch, 0.0f);
+            playerEntity.Rotate(0.0f, pitch, 0.0f);
             playerEntity.Update(gameTime);
 
             // Then move the camera based on where the player has moved to.
@@ -759,6 +547,9 @@ namespace RabiesX
             // match the direction of travel. Consequently the camera's
             // rotation needs to be inverted as well.
 
+            Vector3 camup = new Vector3(0, 1, 0);
+            camup = Vector3.Transform(camup, Matrix.CreateFromQuaternion(playerEntity.Rotation));
+            cameraUpDirection = camup;
             camera.Rotate((forwardSpeed >= 0.0f) ? heading : -heading, 0.0f);
             camera.LookAt(playerEntity.Position);
             camera.Update(gameTime);
@@ -788,7 +579,7 @@ namespace RabiesX
             if ((enemiesDeadChk == true) && (((Math.Abs(playerEntity.Position.X - indicatorPos.X) + Math.Abs(playerEntity.Position.Z - indicatorPos.Z)) / 2) < (playerRadius + indicatorScale*2 - 19.5)))
             {
                 // player can advance to next level
-                //ScreenManager.AddScreen(new NextLevelScreen(), ControllingPlayer);
+                ScreenManager.AddScreen(new NextLevelScreen(), ControllingPlayer);
             }
 
             // Test current health bar.
@@ -809,9 +600,59 @@ namespace RabiesX
             if (mCurrentHealth == 0)
             {
                 // Game is over, so go to continue or quit screen.
-                jacksonwincryInstance.Play();
                 ScreenManager.AddScreen(new GameOverScreen(), ControllingPlayer);
             }
+        }
+
+        private void MoveForward(ref Vector3 position, Quaternion rotationQuat, float speed)
+        {
+            Vector3 addVector = Vector3.Transform(new Vector3(0, 32, -1), rotationQuat);
+            position += addVector * speed;
+        }
+
+        private void UpdateBulletPositions(float moveSpeed)
+        {
+            for (int i = 0; i < bulletList.Count; i++)
+            {
+                Bullet currentBullet = bulletList[i];
+                MoveForward(ref currentBullet.position, currentBullet.rotation, moveSpeed * 2.0f);
+                bulletList[i] = currentBullet;
+
+                // check if bullet hits an enemy and decrease the enemy's health
+                BoundingSphere bulletSphere = new BoundingSphere(currentBullet.position, 0.05f);
+                for (int j = 0; j < TOTAL_RABID_DOGS; j++)
+                {
+                    BoundingSphere enemySphere = new BoundingSphere(rabidDogEntities[j].Position, rabidDogModels[j].ModelHeld.Meshes[0].BoundingSphere.Radius);
+                    if (bulletSphere.Intersects(enemySphere))                    
+                    {
+                        rabidDogEntities[j].Position = rabidDogPreviousPositions[j];
+
+                        bulletList.RemoveAt(i);
+                        i--;
+
+                        rabidDogHealthDecrs[j] += 0.5f; // add up damage to enemy
+                        if (rabidDogHealthDecrs[j] >= 1.0f)
+                        {
+                            rabidDogHealths[j] -= 15; // decrease enemy health by 1 unit
+                            //Force the health to remain between 0 and 100.           
+                            rabidDogHealthDecrs[j] = 0.0f;
+                        }
+                        // check enemy health and destroy enemy if no health left
+                        if (rabidDogHealths[j] <= 0)
+                        {
+                            rabidDogRadii.RemoveAt(j);
+                            rabidDogModels.RemoveAt(j);
+                            rabidDogBounds.RemoveAt(j);
+                            rabidDogHealths.RemoveAt(j);
+                            rabidDogEntities.RemoveAt(j);
+                            rabidDogHealthDecrs.RemoveAt(j);
+                            rabidDogPreviousPositions.RemoveAt(j);
+                            TOTAL_RABID_DOGS--;
+                            break;
+                        }
+                    }
+            }
+        }
         }
 
         private void UpdateEnemies(GameTime gameTime)
@@ -874,187 +715,6 @@ namespace RabiesX
             }
         }
 
-        private void UpdateDumpster(GameTime gameTime)
-        {
-            //float pitch = 0.0f;
-            float heading = 0.0f;
-            //float forwardSpeed = 0.0f;
-            Vector3 dumpsterPrevPosition = dumpsterEntity.Position;
-
-            // Prevent the player from moving off the edge of the floor.
-            float floorBoundaryZ = TERRAIN_HEIGHT * 0.5f - dumpsterRadius;
-            float floorBoundaryX = TERRAIN_WIDTH * 0.5f - dumpsterRadius;
-            float elapsedTimeSec = (float)gameTime.ElapsedGameTime.TotalSeconds;
-
-            dumpsterEntity.Orient(heading, 0.0f, 0.0f);
-            dumpsterEntity.Update(gameTime);
-        }
-
-        private void UpdateBullets(GameTime gameTime)
-        {
-            float pitch = 0.0f;
-            float heading = 0.0f;
-            float forwardSpeed = 0.0f;
-            Vector3 bulletPrevPosition; 
-            for(int index = 0; index < bulletEntities.Count; index++)
-            {
-                bulletPrevPosition = bulletEntities[index].Position;
-
-                if (compass["up"])
-                {
-                    forwardSpeed = PLAYER_FORWARD_SPEED + 100;
-                    pitch = -(PLAYER_ROLLING_SPEED + 100);
-                }
-
-                if (compass["down"])
-                {
-                    forwardSpeed = -(PLAYER_FORWARD_SPEED + 100);
-                    pitch = PLAYER_ROLLING_SPEED + 100;
-                }
-
-                if (compass["right"])
-                {
-                    heading = -(PLAYER_HEADING_SPEED + 100);
-                }
-
-                if (compass["left"])
-                {
-                    heading = PLAYER_HEADING_SPEED + 100;
-                }
-
-                // Prevent the player from moving off the edge of the floor.
-                float floorBoundaryZ = TERRAIN_HEIGHT * 0.5f - playerRadius;
-                float floorBoundaryX = TERRAIN_WIDTH * 0.5f - playerRadius;
-                float elapsedTimeSec = (float)gameTime.ElapsedGameTime.TotalSeconds;
-                float velocity = forwardSpeed * elapsedTimeSec;
-                Vector3 newBulletPos = bulletEntities[index].Position + bulletEntities[index].Forward * velocity;
-
-                if (newBulletPos.Z > floorBoundaryZ)
-                {
-                    forwardSpeed = 0.0f;
-                    bulletModels.RemoveAt(index);
-                    bulletEntities.RemoveAt(index);
-                    bulletBounds.RemoveAt(index);
-                    bulletRadii.RemoveAt(index);
-                    bulletFlying[index] = false;
-                }
-                else if (newBulletPos.Z < -floorBoundaryZ)
-                {
-                    forwardSpeed = 0.0f;
-                    bulletModels.RemoveAt(index);
-                    bulletEntities.RemoveAt(index);
-                    bulletBounds.RemoveAt(index);
-                    bulletRadii.RemoveAt(index);
-                    bulletFlying[index] = false;
-                }
-                else if (newBulletPos.X > floorBoundaryX)
-                {
-                    forwardSpeed = 0.0f;
-                    bulletModels.RemoveAt(index);
-                    bulletEntities.RemoveAt(index);
-                    bulletBounds.RemoveAt(index);
-                    bulletRadii.RemoveAt(index);
-                    bulletFlying[index] = false;
-                }
-                else if (newBulletPos.X < -floorBoundaryX)
-                {
-                    forwardSpeed = 0.0f;
-                    bulletModels.RemoveAt(index);
-                    bulletEntities.RemoveAt(index);
-                    bulletBounds.RemoveAt(index);
-                    bulletRadii.RemoveAt(index);
-                    bulletFlying[index] = false;
-                }
-
-                // Update the player's state.
-                if (bulletFlying[index])
-                {
-                    bulletEntities[index].Velocity = new Vector3(0.0f, 0.0f, forwardSpeed);
-                    bulletEntities[index].Orient(heading, 0.0f, 0.0f);
-                    bulletEntities[index].Rotate(0.0f, pitch, 0.0f);
-                    bulletEntities[index].Update(gameTime);
-                }
-
-                // Then move the camera based on where the player has moved to.
-                // When the player is moving backwards rotations are inverted to
-                // match the direction of travel. Consequently the camera's
-                // rotation needs to be inverted as well.
-
-                //camera.Rotate((forwardSpeed >= 0.0f) ? heading : -heading, 0.0f);
-                //camera.LookAt(playerEntity.Position);
-                //camera.Update(gameTime);
-
-                //bool enemiesDeadChk = true;
-                // keep player from colliding with enemies and decrease health if collision
-                //int rabidDogs = TOTAL_RABID_DOGS;
-                for (int k = 0; k < TOTAL_RABID_DOGS; k++)
-                {
-                    if (bulletFlying[index])
-                    {
-                        if ((((Math.Abs(bulletEntities[index].Position.X - rabidDogEntities[k].Position.X) + Math.Abs(bulletEntities[index].Position.Z - rabidDogEntities[k].Position.Z)) / 2) < (bulletRadii[index] + rabidDogRadii[k] - 19.5)))
-                        {
-                            bulletModels.RemoveAt(index);
-                            bulletEntities.RemoveAt(index);
-                            bulletBounds.RemoveAt(index);
-                            bulletRadii.RemoveAt(index);
-                            bulletFlying[index] = false;
-                            rabidDogHealths[k]--;
-                            if (rabidDogHealths[k] <= 0)
-                            {
-                                rabidDogModels.RemoveAt(k);
-                                rabidDogEntities.RemoveAt(k);
-                                rabidDogBounds.RemoveAt(k);
-                                rabidDogRadii.RemoveAt(k);
-                                rabidDogHealths.RemoveAt(k);
-                                TOTAL_RABID_DOGS--;
-                            }
-                            if (TOTAL_RABID_DOGS == 0)
-                            {
-                                winInstance.Play();
-                                jacksonlosecryInstance.Play();
-                                barkInstance.Dispose();
-                                ScreenManager.AddScreen(new GameOverScreen(), ControllingPlayer);
-                                break;
-                            }
-                        }
-                        //if ((enemiesDeadChk == true) && (rabidDogHealths[k] > 0))
-                        //{
-                        //    enemiesDeadChk = false;
-                        //}
-                    }
-
-                    //if ((enemiesDeadChk == true) && (((Math.Abs(playerEntity.Position.X - indicatorPos.X) + Math.Abs(playerEntity.Position.Z - indicatorPos.Z)) / 2) < (playerRadius + indicatorScale * 2 - 19.5)))
-                    //{
-                    //    // player can advance to next level
-                    //    //ScreenManager.AddScreen(new NextLevelScreen(), ControllingPlayer);
-                    //}
-
-                    // Test current health bar.
-
-                    // If Page Up is pressed, increase the health bar.
-                    //if (curKeyboardState.IsKeyDown(Keys.PageUp) == true)
-                    //{
-                    //    mCurrentHealth += 1;
-                    //}
-                    // If Page Down is pressed, decrease the health bar.
-                    //if (curKeyboardState.IsKeyDown(Keys.PageDown) == true)
-                    //{
-                    //    mCurrentHealth -= 1;
-                    //}
-                    ////Force the health to remain between 0 and 100.           
-                    //mCurrentHealth = (int)MathHelper.Clamp(mCurrentHealth, 0, 100);
-
-                    //if (mCurrentHealth == 0)
-                    //{
-                    //    // Game is over, so go to continue or quit screen.
-                    //    ScreenManager.AddScreen(new GameOverScreen(), ControllingPlayer);
-                    //}
-                    if (TOTAL_RABID_DOGS == 0)
-                        break;
-                }
-            }
-        }
-
         private void UpdateFrameRate(GameTime gameTime)
         {
             elapsedTime += gameTime.ElapsedGameTime;
@@ -1074,12 +734,10 @@ namespace RabiesX
             if (elapsedUpdateTime >= 1000)
             {
                 timeLeft--;
-                elapsedUpdateTime = 0; //reset counter
+                elapsedUpdateTime = 0; // reset counter
                 if (timeLeft <= 0)
                 {
                     // Game is over, so go to continue or quit screen.
-                    jacksonwincryInstance.Play();
-                    barkInstance.Dispose();
                     ScreenManager.AddScreen(new GameOverScreen(), ControllingPlayer);
                 }
             }
@@ -1108,6 +766,37 @@ namespace RabiesX
             }
         }
 
+        private void DrawBullets()
+        {
+            if (bulletList.Count > 0)
+            {
+                quadEffect.CurrentTechnique = quadEffect.Techniques["Textured_2_0"];
+                quadEffect.Parameters["xView"].SetValue(camera.ViewMatrix);
+                quadEffect.Parameters["xProjection"].SetValue(camera.ProjectionMatrix);
+                quadEffect.Parameters["xTexture"].SetValue(bullets);
+                ScreenManager.GraphicsDevice.RasterizerState = RasterizerState.CullNone;
+                
+                for (int i = 0; i < bulletList.Count; i++)
+                {
+                    // scale down the quad
+                    Matrix worldMatrix = Matrix.CreateScale(0.05f, 0.05f, 0.05f) * Matrix.CreateBillboard(bulletList[i].position, camera.Position, cameraUpDirection, Vector3.Forward);
+
+                    foreach (EffectPass pass in quadEffect.CurrentTechnique.Passes)
+                    {
+                        quadEffect.Parameters["xWorld"].SetValue(worldMatrix);
+
+                        pass.Apply();
+
+                        ScreenManager.GraphicsDevice.SetVertexBuffer(quad.VertexBuffer);
+                        ScreenManager.GraphicsDevice.Indices = quad.IndexBuffer;
+                        ScreenManager.GraphicsDevice.DrawIndexedPrimitives(PrimitiveType.TriangleList, 0, 0, 4, 0, 2);                        
+                    }
+                }
+
+                ScreenManager.GraphicsDevice.RasterizerState = RasterizerState.CullCounterClockwise;
+            }
+        }
+
         private void DrawPlayer()
         {
             if (modelTransforms == null)
@@ -1128,77 +817,6 @@ namespace RabiesX
                 }
 
                 m.Draw();
-            }
-        }
-
-        private void DrawDumpster()
-        {
-            //if (modelTransforms == null)
-            //    modelTransforms = new Matrix[dumpsterModel.ModelHeld.Bones.Count];
-
-            //dumpsterModel.ModelHeld.CopyAbsoluteBoneTransformsTo(modelTransforms);
-
-            foreach (ModelMesh m in dumpsterModel.ModelHeld.Meshes)
-            {
-                foreach (BasicEffect e in m.Effects)
-                {
-                    e.PreferPerPixelLighting = true;
-                    e.TextureEnabled = true;
-                    e.EnableDefaultLighting();
-                    e.World = dumpsterEntity.WorldMatrix;
-                    e.View = camera.ViewMatrix;
-                    e.Projection = camera.ProjectionMatrix;
-                }
-
-                m.Draw();
-            }
-        }
-
-        private void DrawTricycle()
-        {
-            //if (modelTransforms == null)
-            //    modelTransforms = new Matrix[dumpsterModel.ModelHeld.Bones.Count];
-
-            //dumpsterModel.ModelHeld.CopyAbsoluteBoneTransformsTo(modelTransforms);
-
-            foreach (ModelMesh m in tricycleModel.ModelHeld.Meshes)
-            {
-                foreach (BasicEffect e in m.Effects)
-                {
-                    e.PreferPerPixelLighting = true;
-                    e.TextureEnabled = true;
-                    e.EnableDefaultLighting();
-                    e.World = dumpsterEntity.WorldMatrix;
-                    e.View = camera.ViewMatrix;
-                    e.Projection = camera.ProjectionMatrix;
-                }
-
-                m.Draw();
-            }
-        }
-
-        private void DrawBullets()
-        {
-            //if (modelTransforms == null)
-            //    modelTransforms = new Matrix[dumpsterModel.ModelHeld.Bones.Count];
-
-            //dumpsterModel.ModelHeld.CopyAbsoluteBoneTransformsTo(modelTransforms);
-            for (int i = 0; i < bulletModels.Count; i++)
-            {
-                foreach (ModelMesh m in bulletModels[i].ModelHeld.Meshes)
-                {
-                    foreach (BasicEffect e in m.Effects)
-                    {
-                        e.PreferPerPixelLighting = true;
-                        e.TextureEnabled = true;
-                        e.EnableDefaultLighting();
-                        e.World = bulletEntities[i].WorldMatrix;
-                        e.View = camera.ViewMatrix;
-                        e.Projection = camera.ProjectionMatrix;
-                    }
-
-                    m.Draw();
-                }
             }
         }
 
@@ -1231,7 +849,6 @@ namespace RabiesX
         private void DrawText()
         {
             StringBuilder buffer = new StringBuilder();
-            string jacksonTaunt = "";
 
             if (displayHelp)
             {
@@ -1262,19 +879,6 @@ namespace RabiesX
                 buffer.AppendFormat("  Spring constant: {0}\n", springConstant.ToString("f2"));
                 buffer.AppendFormat("  Damping constant: {0}\n", dampingConstant.ToString("f2"));
                 buffer.AppendLine();
-                if (timeLeft <= 300 && timeLeft >= 240)
-                    jacksonTaunt = "I, Russell Jackson, challenge you, Geraldo \"Merry Gerry\" Araguz, to survive\n for 5 minutes in this park with these diseased dogs!\n I can guarantee that you will not survive for even one.\nThat GuzCruise of yours will not protect you for long...\nGet him, boys!!\n\n";
-                if(timeLeft < 240 && timeLeft >= 180)
-                    jacksonTaunt = "So you survived for one minute. Big wuff. Speaking of wuff - get him, boys!\n\n";
-                if (timeLeft < 180 && timeLeft >= 120)
-                    jacksonTaunt = "Two minutes? Purrrrrrlease. Speaking of purr, pretend Gerry's a cat and get him, boys!!\n\n";
-                if (timeLeft < 120 && timeLeft >= 60)
-                    jacksonTaunt = "Geraldo Araguz, you survived for more than half the time. You got some bones.\nSpeaking of bones, pretend he's one and get him, boys!!\n\n";
-                if (timeLeft < 60 && timeLeft >= 0)
-                    jacksonTaunt = "One minute to lose, Geraldo Araguz! You still have a chance to get him, boys!!\n\n";
-                if (timeLeft <= 0)
-                    jacksonTaunt = "NOOOOOOOOOOOOOOOOOOOOOO!\n\n";
-                buffer.AppendFormat(jacksonTaunt);
                 buffer.AppendLine("Press H to display help");
             }
 
@@ -1313,76 +917,19 @@ namespace RabiesX
             {
                 // Otherwise move the player position.
                 Vector2 movement = Vector2.Zero;
+                
+                if (keyboardState.IsKeyDown(Keys.A))
+                    movement.X--;
+
+                if (keyboardState.IsKeyDown(Keys.D))
+                    movement.X++;
 
                 if (keyboardState.IsKeyDown(Keys.W))
-                {
-                    if (OtherKeysUp(keyboardState, Keys.W))
-                        soundInstance.Play();
                     movement.Y--;
-                }
+
                 if (keyboardState.IsKeyDown(Keys.S))
-                {
-                    if (OtherKeysUp(keyboardState, Keys.S))
-                        soundInstance.Play();
                     movement.Y++;
-                }
-                if (keyboardState.IsKeyDown(Keys.A))
-                {
-                    if (OtherKeysUp(keyboardState, Keys.A))
-                        soundInstance.Play();
-                    movement.X--;
-                }
-                if (keyboardState.IsKeyDown(Keys.D))
-                {
-                    if (OtherKeysUp(keyboardState, Keys.D))
-                        soundInstance.Play();
-                    movement.X++;
-                }
-                if (keyboardState.IsKeyDown(Keys.Up))
-                {
-                    if (OtherKeysUp(keyboardState, Keys.Up))
-                        soundInstance.Play();
-                    movement.Y--;
-                }
-                if (keyboardState.IsKeyDown(Keys.Down))
-                {
-                    if (OtherKeysUp(keyboardState, Keys.Down))
-                        soundInstance.Play();
-                    movement.Y++;
-                }
-                if (keyboardState.IsKeyDown(Keys.Left))
-                {
-                    if (OtherKeysUp(keyboardState, Keys.Left))
-                        soundInstance.Play();
-                    movement.X--;
-                }
-                if (keyboardState.IsKeyDown(Keys.Right))
-                {
-                    if (OtherKeysUp(keyboardState, Keys.Right))
-                        soundInstance.Play();
-                    movement.X++;
-                }
-                if (keyboardState.IsKeyDown(Keys.E))
-                {
-                    if((timeLeft % 2) == 0)
-                        CreateBullet();
-                }
-                if (keyboardState.IsKeyUp(Keys.W) && OtherKeysUp(keyboardState, Keys.W))
-                    soundInstance.Stop();
-                if (keyboardState.IsKeyUp(Keys.Up) && OtherKeysUp(keyboardState, Keys.Up))
-                    soundInstance.Stop();
-                if (keyboardState.IsKeyUp(Keys.S) && OtherKeysUp(keyboardState, Keys.S))
-                    soundInstance.Stop();
-                if (keyboardState.IsKeyUp(Keys.Down) && OtherKeysUp(keyboardState, Keys.Down))
-                    soundInstance.Stop();
-                if (keyboardState.IsKeyUp(Keys.A) && OtherKeysUp(keyboardState, Keys.A))
-                    soundInstance.Stop();
-                if (keyboardState.IsKeyUp(Keys.Left) && OtherKeysUp(keyboardState, Keys.Left))
-                    soundInstance.Stop();
-                if (keyboardState.IsKeyUp(Keys.D) && OtherKeysUp(keyboardState, Keys.D))
-                    soundInstance.Stop();
-                if (keyboardState.IsKeyUp(Keys.Right) && OtherKeysUp(keyboardState, Keys.Right))
-                    soundInstance.Stop();
+                
                 Vector2 thumbstick = gamePadState.ThumbSticks.Left;
 
                 movement.X += thumbstick.X;
@@ -1415,10 +962,6 @@ namespace RabiesX
             // possible, and turns depth testing on but depth writes off.
             
             DrawPlayer();
-
-            DrawDumpster();
-
-            DrawTricycle();
 
             DrawEnemies();
 
@@ -1474,10 +1017,9 @@ namespace RabiesX
 
             spriteBatchAlpha.Begin(0, BlendState.AlphaBlend);
             
-            //spriteBatchAlpha.DrawString(gameFont, "// TODO", playerPosition, Color.Green);
+            spriteBatchAlpha.DrawString(gameFont, "// TODO", playerPosition, Color.Green);
 
-            //spriteBatchAlpha.DrawString(gameFont, "Insert Gameplay Here",
-                                   //enemyPosition, Color.DarkRed);
+            spriteBatchAlpha.DrawString(gameFont, "Insert Gameplay Here", enemyPosition, Color.DarkRed);
 
             // Draw timer text.
             string secs = (timeLeft%60).ToString();
@@ -1537,19 +1079,5 @@ namespace RabiesX
         }
 
         #endregion
-
-        private bool OtherKeysUp(KeyboardState state, Keys theKey)
-        {
-            Keys[] gameKeys = {Keys.H, Keys.Space, Keys.LeftAlt, Keys.RightAlt, Keys.Enter, Keys.Add,
-                                  Keys.Subtract, Keys.A, Keys.W, Keys.S, Keys.D, Keys.Up, Keys.Left,
-                                  Keys.Right, Keys.Down, Keys.E, Keys.R};
-            bool keysAreUp = true;
-            foreach (Keys key in gameKeys)
-            {
-                if (key != theKey)
-                    keysAreUp = keysAreUp && state.IsKeyUp(key);
-            }
-            return keysAreUp;
-        }
     }
 }
