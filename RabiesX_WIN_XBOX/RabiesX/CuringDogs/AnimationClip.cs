@@ -15,7 +15,7 @@ using Microsoft.Xna.Framework.Content;
 
 //Credit goes to Mr. Jose Baez-Franceschi. This is from his squirrel game.
 
-namespace RabiesX
+namespace RabiesX 
 {
     /// <summary>
     /// An animation clip is the runtime equivalent of the

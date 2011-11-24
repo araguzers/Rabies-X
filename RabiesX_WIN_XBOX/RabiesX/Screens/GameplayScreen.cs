@@ -7,6 +7,10 @@
 //-----------------------------------------------------------------------------
 #endregion
 
+//Joe Eid: voicing Russell Jackson
+//Danny Neumann: voicing male government agent
+//Sassa: voicing female government agent (the "be careful" phrase).
+
 #region Using Statements
 using System;
 using System.Text;
@@ -18,6 +22,7 @@ using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using SkinnedModel;
 #endregion
 
 namespace RabiesX
@@ -36,8 +41,8 @@ namespace RabiesX
         private const float PLAYER_HEADING_SPEED = 120.0f;
         private const float PLAYER_ROLLING_SPEED = 280.0f;
 
-        private const float TERRAIN_WIDTH = 3000.0f;
-        private const float TERRAIN_HEIGHT = 3000.0f;
+        private const float TERRAIN_WIDTH = 3500.0f;
+        private const float TERRAIN_HEIGHT = 3500.0f;
 
         private const float CAMERA_FOVX = 80.0f;
         private const float CAMERA_ZFAR = TERRAIN_WIDTH * 2.0f;
@@ -50,6 +55,8 @@ namespace RabiesX
         int elapsedUpdateTime = 0;
 
         private int TOTAL_RABID_DOGS = 5;
+
+        AnimationPlayer animationPlayer;
 
         ContentManager content;
         SpriteFont gameFont;
@@ -87,6 +94,12 @@ namespace RabiesX
 
         private SoundEffect taunt;
         private SoundEffectInstance tauntInstance;
+
+        private SoundEffect becareful;
+        private SoundEffectInstance becarefulInstance;
+
+        private SoundEffect dogsinpark;
+        private SoundEffectInstance dogsinparkInstance;
 
         private SpriteBatch spriteBatch;
         private SpriteFont spriteFont;
@@ -249,6 +262,12 @@ namespace RabiesX
             taunt = content.Load<SoundEffect>("Audio\\Waves\\jacksontaunt");
             tauntInstance = taunt.CreateInstance();
 
+            becareful = content.Load<SoundEffect>("Audio\\Waves\\becareful");
+            becarefulInstance = becareful.CreateInstance();
+
+            dogsinpark = content.Load<SoundEffect>("Audio\\Waves\\dogsinpark");
+            dogsinparkInstance = dogsinpark.CreateInstance();
+
             gameMusic = content.Load<SoundEffect>("Audio\\Waves\\gamemusic");
             gameMusicInstance = gameMusic.CreateInstance();
             gameMusicInstance.IsLooped = true;
@@ -305,12 +324,17 @@ namespace RabiesX
             }
 
             // Load models and set aspect ratio.
-            playerModel = new MyModel("Models\\ball", content);
-            playerModel.Texture("Textures\\wedge_p1_diff_v1", content);
+            //playerModel = new MyModel("Models\\ball", content);
+            //playerModel.Texture("Textures\\wedge_p1_diff_v1", content);
+            LoadAraguz();
             for (int i = 0; i < TOTAL_RABID_DOGS; i++)
             {
-                rabidDogModels.Add(new MyModel("Models\\ball", content));
-                rabidDogModels[i].Texture("Textures\\wedge_p1_diff_v1", content);
+                rabidDogModels.Add(new MyModel("Models\\troubled_canine", content));
+                rabidDogModels[i].Texture("Textures\\DogEyes", content);
+                rabidDogModels[i].Texture("Textures\\DogPupil", content);
+                rabidDogModels[i].Texture("Textures\\DogSkin", content);
+                //rabidDogModels.Add(new MyModel("Models\\ball", content));
+                //rabidDogModels[i].Texture("Textures\\wedge_p1_diff_v1", content);
             }
 
             sound = content.Load<SoundEffect>("Audio\\Waves\\carengine");
@@ -425,17 +449,17 @@ namespace RabiesX
 
         private void LoadAraguz()
         {
-            Model currentModel = content.Load<Model>("geraldo_araguz");
+            playerModel = new MyModel("Models\\geraldo_araguz", content);
 
             // Look up our custom skinning information.
-            SkinningData skinningData = currentModel.Tag as SkinningData;
+            SkinningData skinningData = playerModel.ModelHeld.Tag as SkinningData;
 
             if (skinningData == null)
                 throw new InvalidOperationException
                     ("This model does not contain a SkinningData tag.");
 
             // Create an animation player, and start decoding an animation clip.
-            AnimationPlayer animationPlayer = new AnimationPlayer(skinningData);
+            animationPlayer = new AnimationPlayer(skinningData);
 
             AnimationClip clip = skinningData.AnimationClips["Take 001"];
 
@@ -472,11 +496,12 @@ namespace RabiesX
         public override void Update(GameTime gameTime, bool otherScreenHasFocus,
                                                        bool coveredByOtherScreen)
         {
+            animationPlayer.Update(gameTime.ElapsedGameTime, true, playerEntity.WorldMatrix);
             base.Update(gameTime, otherScreenHasFocus, false);
             if (IsActive)
             {
                 if (timeLeft == 300)
-                    tauntInstance.Play();
+                    becareful.Play();
                 if ((timeLeft % 12) == 0 && timeLeft >= 0)
                     if (!barkInstance.IsDisposed)
                         barkInstance.Play();
@@ -520,7 +545,7 @@ namespace RabiesX
 
                 // Apply a stabilizing force to stop the enemy moving off the screen.
                 Vector2 targetPosition = new Vector2(
-                    ScreenManager.GraphicsDevice.Viewport.Width / 2 - gameFont.MeasureString("Insert Gameplay Here").X / 2, 
+                    ScreenManager.GraphicsDevice.Viewport.Width / 2 - gameFont.MeasureString("").X / 2, 
                     200);
 
                 enemyPosition = Vector2.Lerp(enemyPosition, targetPosition, 0.05f);
@@ -670,7 +695,7 @@ namespace RabiesX
             // Update the player's state.
             playerEntity.Velocity = new Vector3(0.0f, 0.0f, forwardSpeed);
             playerEntity.Orient(heading, 0.0f, 0.0f);
-            playerEntity.Rotate(0.0f, pitch, 0.0f);
+            //playerEntity.Rotate(0.0f, pitch, 0.0f);
             playerEntity.Update(gameTime);
 
             // Then move the camera based on where the player has moved to.
@@ -740,8 +765,8 @@ namespace RabiesX
 
         private void MoveForward(ref Vector3 position, Quaternion rotationQuat, float speed)
         {
-            Vector3 addVector = Vector3.Transform(new Vector3(0, 32, -1), rotationQuat);
-            position += addVector * speed;
+            Vector3 addVector = Vector3.Transform(new Vector3(0, /*32*/-1, -1), rotationQuat);
+            position += addVector * (speed * 10);
         }
 
         private void UpdateBulletPositions(float moveSpeed)
@@ -939,6 +964,32 @@ namespace RabiesX
                 }
 
                 ScreenManager.GraphicsDevice.RasterizerState = RasterizerState.CullCounterClockwise;
+            }
+        }
+
+        private void DrawAraguz()
+        {
+            if (modelTransforms == null)
+                modelTransforms = new Matrix[playerModel.ModelHeld.Bones.Count];
+
+            //playerModel.ModelHeld.CopyAbsoluteBoneTransformsTo(modelTransforms);
+            modelTransforms = animationPlayer.GetSkinTransforms();
+            foreach (ModelMesh mesh in playerModel.ModelHeld.Meshes)
+            {
+                foreach (SkinnedEffect effect in mesh.Effects)
+                {
+                    effect.SetBoneTransforms(modelTransforms);
+
+                    effect.View = camera.ViewMatrix;
+                    effect.Projection = camera.ProjectionMatrix;
+
+                    effect.EnableDefaultLighting();
+
+                    effect.SpecularColor = new Vector3(0.25f);
+                    effect.SpecularPower = 16;
+                }
+
+                mesh.Draw();
             }
         }
 
@@ -1233,7 +1284,9 @@ namespace RabiesX
             // the sky forces all the sky vertices to be as far away as
             // possible, and turns depth testing on but depth writes off.
             
-            DrawPlayer();
+            //DrawPlayer();
+
+            DrawAraguz();
 
             DrawEnemies();
 
@@ -1289,9 +1342,9 @@ namespace RabiesX
 
             spriteBatchAlpha.Begin(0, BlendState.AlphaBlend);
             
-            spriteBatchAlpha.DrawString(gameFont, "// TODO", playerPosition, Color.Green);
+            //spriteBatchAlpha.DrawString(gameFont, "// TODO", playerPosition, Color.Green);
 
-            spriteBatchAlpha.DrawString(gameFont, "Insert Gameplay Here", enemyPosition, Color.DarkRed);
+            //spriteBatchAlpha.DrawString(gameFont, "Insert Gameplay Here", enemyPosition, Color.DarkRed);
 
             // Draw timer text.
             string secs = (timeLeft%60).ToString();

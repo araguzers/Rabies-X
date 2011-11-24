@@ -7,9 +7,18 @@ Content\sky.xnb
 Content\terrain.xnb
 Content\healthbar.xnb
 Content\bullet.xnb
+Content\Models\DogEyes.xnb
+Content\Models\DogPupil.xnb
+Content\Models\DogSkin.xnb
+Content\Textures\DogEyes.xnb
+Content\Textures\DogPupil.xnb
+Content\Textures\DogSkin.xnb
+Content\Models\gerry_tx.xnb
+Content\Textures\gerry_tx.xnb
 Content\Models\p1_wedge.xnb
 Content\Models\squirrel.xnb
 Content\Models\rabiddog.xnb
+Content\Models\troubled_canine.xnb
 Content\Audio\Waves\menu_1.xnb
 Content\Audio\Waves\menu_2.xnb
 Content\Audio\Waves\araguzbattlecry.xnb
@@ -23,6 +32,7 @@ Content\Audio\Waves\jacksontaunt.xnb
 Content\Audio\Waves\jacksonwincry.xnb
 Content\Audio\Waves\motherearth.xnb
 Content\Audio\Waves\winningyell.xnb
+Content\Audio\Waves\becareful.xnb
 Content\Fonts\gamefont.xnb
 Content\Fonts\menufont.xnb
 Content\Fonts\ingamefont.xnb
@@ -36,4 +46,10 @@ Content\Models\squirrel_headbody_0.xnb
 Content\images\DogSkin_0.xnb
 Content\images\DogPupil_0.xnb
 Content\images\DogEyes_0.xnb
+Content\Models\DogSkin_0.xnb
+Content\Models\DogPupil_0.xnb
+Content\Models\DogEyes_0.xnb
 Content\Models\ball_decal_map_0.xnb
+Content\Audio\Waves\dogsinpark.xnb
+Content\Models\geraldo_araguz.xnb
+Content\gerry_tx_0.xnb

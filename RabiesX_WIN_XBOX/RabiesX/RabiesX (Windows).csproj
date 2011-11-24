@@ -65,17 +65,6 @@
     <XnaCompressContent>true</XnaCompressContent>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="CuringDogs\AnimationClip.cs" />
-    <Compile Include="CuringDogs\AnimationPlayer.cs" />
-    <Compile Include="CuringDogs\Bullet.cs" />
-    <Compile Include="CuringDogs\ClipPlayer.cs" />
-    <Compile Include="CuringDogs\Controller.cs" />
-    <Compile Include="CuringDogs\Enemy.cs" />
-    <Compile Include="CuringDogs\Keyframe.cs" />
-    <Compile Include="CuringDogs\Shape.cs" />
-    <Compile Include="CuringDogs\SkinningData.cs" />
-    <Compile Include="CuringDogs\Target.cs" />
-    <Compile Include="CuringDogs\Transform.cs" />
     <Compile Include="ModelManager\Quad.cs" />
     <Compile Include="ModelManager\Entity.cs" />
     <Compile Include="Game.cs" />
@@ -158,11 +147,22 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\..\..\..\..\..\UH\SkinningSample_4_0\SkinnedModelPipeline\SkinnedModelPipeline.csproj">
+      <Project>{4636C7E1-B845-4B83-B96D-64A11B8A4515}</Project>
+      <Name>SkinnedModelPipeline</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\..\..\..\UH\SkinningSample_4_0\SkinnedModel\SkinnedModelWindows.csproj">
+      <Project>{0D41E29B-829F-4255-BCA5-64DC2677DA6D}</Project>
+      <Name>SkinnedModelWindows</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Content\Content.contentproj">
       <Project>{B7219195-3990-4557-87D7-856DB165635D}</Project>
       <Name>Content</Name>
       <XnaReferenceType>Content</XnaReferenceType>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="CuringDogs\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\XNA Game Studio\Microsoft.Xna.GameStudio.targets" />
