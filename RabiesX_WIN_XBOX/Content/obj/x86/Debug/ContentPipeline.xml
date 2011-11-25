@@ -666,6 +666,202 @@
       <Output>C:\Users\Junior\Desktop\GeraldoWithoutCar\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\gerry_tx_0.xnb</Output>
       <Time>2011-11-23T18:10:22.3440263-06:00</Time>
     </Item>
+    <Item>
+      <Source>Models\Chemical1.jpg</Source>
+      <Name>Models\Chemical1</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Junior\Desktop\GeraldoWithoutCar\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Models\Chemical1.xnb</Output>
+      <Time>2011-10-29T20:41:23.2457842-05:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\Chemical2.jpg</Source>
+      <Name>Models\Chemical2</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Junior\Desktop\GeraldoWithoutCar\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Models\Chemical2.xnb</Output>
+      <Time>2011-10-29T22:19:52.5277758-05:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\gray.jpg</Source>
+      <Name>Models\gray</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Junior\Desktop\GeraldoWithoutCar\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Models\gray.xnb</Output>
+      <Time>2011-11-12T17:20:38.5789764-06:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\RedLiquid.jpg</Source>
+      <Name>Models\RedLiquid</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Junior\Desktop\GeraldoWithoutCar\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Models\RedLiquid.xnb</Output>
+      <Time>2011-10-29T21:55:12.2051062-05:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\TopOfFlask.jpg</Source>
+      <Name>Models\TopOfFlask</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Junior\Desktop\GeraldoWithoutCar\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Models\TopOfFlask.xnb</Output>
+      <Time>2011-10-29T20:51:59.6861866-05:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\Chemical1.jpg</Source>
+      <Name>Textures\Chemical1</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Junior\Desktop\GeraldoWithoutCar\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Textures\Chemical1.xnb</Output>
+      <Time>2011-10-29T20:41:23.2457842-05:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\Chemical2.jpg</Source>
+      <Name>Textures\Chemical2</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Junior\Desktop\GeraldoWithoutCar\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Textures\Chemical2.xnb</Output>
+      <Time>2011-10-29T22:19:52.5277758-05:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\gray.jpg</Source>
+      <Name>Textures\gray</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Junior\Desktop\GeraldoWithoutCar\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Textures\gray.xnb</Output>
+      <Time>2011-11-12T17:20:38.5789764-06:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\RedLiquid.jpg</Source>
+      <Name>Textures\RedLiquid</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Junior\Desktop\GeraldoWithoutCar\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Textures\RedLiquid.xnb</Output>
+      <Time>2011-10-29T21:55:12.2051062-05:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\TopOfFlask.jpg</Source>
+      <Name>Textures\TopOfFlask</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Junior\Desktop\GeraldoWithoutCar\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Textures\TopOfFlask.xnb</Output>
+      <Time>2011-10-29T20:51:59.6861866-05:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\sample_bottle.fbx</Source>
+      <Name>Models\sample_bottle</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>ModelProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Junior\Desktop\GeraldoWithoutCar\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Models\sample_bottle.xnb</Output>
+      <Time>2011-11-25T14:07:23.2523386-06:00</Time>
+      <Dependency>
+        <Key>obj\x86\Debug\Models\sample_bottle_0.xml</Key>
+        <Value>2011-11-25T14:23:55.7871084-06:00</Value>
+      </Dependency>
+      <Request>C:\Users\Junior\Desktop\GeraldoWithoutCar\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Models\Chemical1_0.xnb</Request>
+      <Request>C:\Users\Junior\Desktop\GeraldoWithoutCar\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Models\TopOfFlask_0.xnb</Request>
+      <Request>C:\Users\Junior\Desktop\GeraldoWithoutCar\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Models\RedLiquid_0.xnb</Request>
+      <Request>C:\Users\Junior\Desktop\GeraldoWithoutCar\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Models\Chemical2_0.xnb</Request>
+    </Item>
+    <Item>
+      <Source>Models\sample_bottle.fbx</Source>
+      <Importer>FbxImporter</Importer>
+      <Options>IntermediateFile, DontCacheImportedData</Options>
+      <Output>obj\x86\Debug\Models\sample_bottle_0.xml</Output>
+      <Time>2011-11-25T14:07:23.2523386-06:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\Chemical1.jpg</Source>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Parameters>
+        <Data Key="ColorKeyColor" Type="Framework:Color">FFFF00FF</Data>
+        <Data Key="ColorKeyEnabled" Type="bool">true</Data>
+        <Data Key="TextureFormat" Type="Processors:TextureProcessorOutputFormat">DxtCompressed</Data>
+        <Data Key="GenerateMipmaps" Type="bool">true</Data>
+        <Data Key="ResizeToPowerOfTwo" Type="bool">false</Data>
+        <Data Key="PremultiplyAlpha" Type="bool">true</Data>
+      </Parameters>
+      <Options>None</Options>
+      <Output>C:\Users\Junior\Desktop\GeraldoWithoutCar\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Models\Chemical1_0.xnb</Output>
+      <Time>2011-10-29T20:41:23.2457842-05:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\TopOfFlask.jpg</Source>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Parameters>
+        <Data Key="ColorKeyColor" Type="Framework:Color">FFFF00FF</Data>
+        <Data Key="ColorKeyEnabled" Type="bool">true</Data>
+        <Data Key="TextureFormat" Type="Processors:TextureProcessorOutputFormat">DxtCompressed</Data>
+        <Data Key="GenerateMipmaps" Type="bool">true</Data>
+        <Data Key="ResizeToPowerOfTwo" Type="bool">false</Data>
+        <Data Key="PremultiplyAlpha" Type="bool">true</Data>
+      </Parameters>
+      <Options>None</Options>
+      <Output>C:\Users\Junior\Desktop\GeraldoWithoutCar\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Models\TopOfFlask_0.xnb</Output>
+      <Time>2011-10-29T20:51:59.6861866-05:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\RedLiquid.jpg</Source>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Parameters>
+        <Data Key="ColorKeyColor" Type="Framework:Color">FFFF00FF</Data>
+        <Data Key="ColorKeyEnabled" Type="bool">true</Data>
+        <Data Key="TextureFormat" Type="Processors:TextureProcessorOutputFormat">DxtCompressed</Data>
+        <Data Key="GenerateMipmaps" Type="bool">true</Data>
+        <Data Key="ResizeToPowerOfTwo" Type="bool">false</Data>
+        <Data Key="PremultiplyAlpha" Type="bool">true</Data>
+      </Parameters>
+      <Options>None</Options>
+      <Output>C:\Users\Junior\Desktop\GeraldoWithoutCar\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Models\RedLiquid_0.xnb</Output>
+      <Time>2011-10-29T21:55:12.2051062-05:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\Chemical2.jpg</Source>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Parameters>
+        <Data Key="ColorKeyColor" Type="Framework:Color">FFFF00FF</Data>
+        <Data Key="ColorKeyEnabled" Type="bool">true</Data>
+        <Data Key="TextureFormat" Type="Processors:TextureProcessorOutputFormat">DxtCompressed</Data>
+        <Data Key="GenerateMipmaps" Type="bool">true</Data>
+        <Data Key="ResizeToPowerOfTwo" Type="bool">false</Data>
+        <Data Key="PremultiplyAlpha" Type="bool">true</Data>
+      </Parameters>
+      <Options>None</Options>
+      <Output>C:\Users\Junior\Desktop\GeraldoWithoutCar\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Models\Chemical2_0.xnb</Output>
+      <Time>2011-10-29T22:19:52.5277758-05:00</Time>
+    </Item>
+    <Item>
+      <Source>Audio\Waves\clockisticking.wav</Source>
+      <Name>Audio\Waves\clockisticking</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Junior\Desktop\GeraldoWithoutCar\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Audio\Waves\clockisticking.xnb</Output>
+      <Time>2011-11-25T16:26:55.0111759-06:00</Time>
+    </Item>
+    <Item>
+      <Source>Audio\Waves\plasmaray.wav</Source>
+      <Name>Audio\Waves\plasmaray</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Junior\Desktop\GeraldoWithoutCar\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Audio\Waves\plasmaray.xnb</Output>
+      <Time>2011-11-25T17:23:04.5699036-06:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <TargetPlatform>Windows</TargetPlatform>

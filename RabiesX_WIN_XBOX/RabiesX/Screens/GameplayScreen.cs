@@ -54,7 +54,7 @@ namespace RabiesX
         private int timeLeft = MAX_TIME_LEFT;
         int elapsedUpdateTime = 0;
 
-        private int TOTAL_RABID_DOGS = 5;
+        private int TOTAL_RABID_DOGS = 10;
 
         AnimationPlayer animationPlayer;
 
@@ -100,6 +100,9 @@ namespace RabiesX
 
         private SoundEffect dogsinpark;
         private SoundEffectInstance dogsinparkInstance;
+
+        private SoundEffect plasmaray;
+        private SoundEffectInstance plasmarayInstance;
 
         private SpriteBatch spriteBatch;
         private SpriteFont spriteFont;
@@ -166,12 +169,16 @@ namespace RabiesX
         private List<int> rabidDogHealths;
         private List<float> rabidDogHealthDecrs;
         private List<Entity> rabidDogEntities;
+        private List<Entity> bottleEntities;
+        private List<MyModel> bottleModels;
         private List<Vector3> rabidDogPreviousPositions;
         private float playerRadius;
         private float terrainRadius;
         private List<float> rabidDogRadii;
+        private List<float> bottleRadii;
         private Matrix[] modelTransforms;
         private List<Matrix[]> modelEnemyTransforms;
+        private bool[] healed;
         private TimeSpan elapsedTime = TimeSpan.Zero;
         private TimeSpan prevElapsedTime = TimeSpan.Zero;
         private bool displayHelp;
@@ -187,6 +194,7 @@ namespace RabiesX
         BoundingSphere playerBounds;
         BoundingSphere terrainBounds;
         List<BoundingSphere> rabidDogBounds;
+        List<BoundingSphere> bottleBounds;
 
         private bool flicker;
 
@@ -268,6 +276,10 @@ namespace RabiesX
             dogsinpark = content.Load<SoundEffect>("Audio\\Waves\\dogsinpark");
             dogsinparkInstance = dogsinpark.CreateInstance();
 
+            plasmaray = content.Load<SoundEffect>("Audio\\Waves\\plasmaray");
+            plasmarayInstance = plasmaray.CreateInstance();
+            plasmarayInstance.IsLooped = true;
+
             gameMusic = content.Load<SoundEffect>("Audio\\Waves\\gamemusic");
             gameMusicInstance = gameMusic.CreateInstance();
             gameMusicInstance.IsLooped = true;
@@ -313,6 +325,10 @@ namespace RabiesX
             rabidDogEntities = new List<Entity>();
             rabidDogHealthDecrs = new List<float>();
             rabidDogBounds = new List<BoundingSphere>();
+            bottleModels = new List<MyModel>();
+            bottleEntities = new List<Entity>();
+            bottleBounds = new List<BoundingSphere>();
+            bottleRadii = new List<float>();
             modelEnemyTransforms = new List<Matrix[]>();
             rabidDogPreviousPositions = new List<Vector3>();
             for (int i = 0; i < TOTAL_RABID_DOGS; i++)
@@ -322,6 +338,10 @@ namespace RabiesX
                 modelEnemyTransforms.Add(null);
                 rabidDogPreviousPositions.Add(new Vector3());
             }
+
+            healed = new bool[TOTAL_RABID_DOGS];
+            for (int index = 0; index < TOTAL_RABID_DOGS; index++)
+                healed[index] = false;
 
             // Load models and set aspect ratio.
             //playerModel = new MyModel("Models\\ball", content);
@@ -333,13 +353,20 @@ namespace RabiesX
                 rabidDogModels[i].Texture("Textures\\DogEyes", content);
                 rabidDogModels[i].Texture("Textures\\DogPupil", content);
                 rabidDogModels[i].Texture("Textures\\DogSkin", content);
+                bottleModels.Add(new MyModel("Models\\sample_bottle", content));
+                bottleModels[i].Texture("Textures\\Chemical1", content);
+                bottleModels[i].Texture("Textures\\Chemical2", content);
+                bottleModels[i].Texture("Textures\\RedLiquid", content);
+                bottleModels[i].Texture("Textures\\TopOfFlask", content);
+                bottleModels[i].Texture("Textures\\gray", content);
                 //rabidDogModels.Add(new MyModel("Models\\ball", content));
                 //rabidDogModels[i].Texture("Textures\\wedge_p1_diff_v1", content);
             }
 
-            sound = content.Load<SoundEffect>("Audio\\Waves\\carengine");
+            sound = content.Load<SoundEffect>("Audio\\Waves\\clockisticking");
             soundInstance = sound.CreateInstance();
             soundInstance.IsLooped.Equals(true);
+            soundInstance.Play();
 
             // Load terrain and sky.
             terrain = content.Load<Model>("terrain");
@@ -362,6 +389,13 @@ namespace RabiesX
                 rabidDogRadii.Add(rbounds.Radius);
 
                 rabidDogBounds.Add(rbounds);
+
+                BoundingSphere bottlebounds = new BoundingSphere();
+                foreach (ModelMesh mesh in bottleModels[i].ModelHeld.Meshes)
+                    bottlebounds = BoundingSphere.CreateMerged(bottlebounds, mesh.BoundingSphere);
+                bottleRadii.Add(bottlebounds.Radius);
+
+                bottleBounds.Add(bottlebounds);
             }
 
             // Determine the radius of the height map.           
@@ -384,12 +418,16 @@ namespace RabiesX
             playerEntity.ConstrainToWorldYAxis = true;
             playerEntity.Position = new Vector3(0.0f, 1.0f + playerRadius, 0.0f);
             
-            // Setup the enemy entities.
+            // Setup the enemy and bottle entities.
             for (int i = 0; i < TOTAL_RABID_DOGS; i++)
             {
                 rabidDogEntities.Add(new Entity());
                 rabidDogEntities[i].ConstrainToWorldYAxis = true;
                 rabidDogEntities[i].Position = new Vector3(random.Next(1000) * -1.0f + 200.0f, 1.0f + rabidDogRadii[i], random.Next(500));
+
+                bottleEntities.Add(new Entity());
+                bottleEntities[i].ConstrainToWorldYAxis = true;
+                bottleEntities[i].Position = rabidDogEntities[i].Position;
             }
 
             // Setup the terrain entity.
@@ -501,6 +539,8 @@ namespace RabiesX
             if (IsActive)
             {
                 if (timeLeft == 300)
+                    dogsinparkInstance.Play();
+                if (timeLeft == 270)
                     becareful.Play();
                 if ((timeLeft % 12) == 0 && timeLeft >= 0)
                     if (!barkInstance.IsDisposed)
@@ -533,6 +573,7 @@ namespace RabiesX
                 UpdateEnemies(gameTime);
                 UpdateFrameRate(gameTime);
                 UpdateBulletPositions(moveSpeed);
+                //UpdateBottles(gameTime);
 
                 // Rotate triangle level indicator.
                 angle += 0.005f;
@@ -768,7 +809,7 @@ namespace RabiesX
             Vector3 addVector = Vector3.Transform(new Vector3(0, /*32*/-1, -1), rotationQuat);
             position += addVector * (speed * 10);
         }
-
+     
         private void UpdateBulletPositions(float moveSpeed)
         {
             for (int i = 0; i < bulletList.Count; i++)
@@ -785,6 +826,7 @@ namespace RabiesX
                     if (bulletSphere.Intersects(enemySphere))                    
                     {
                         rabidDogEntities[j].Position = rabidDogPreviousPositions[j];
+                        bottleEntities[j].Position = rabidDogPreviousPositions[j];
 
                         bulletList.RemoveAt(i);
                         i--;
@@ -806,13 +848,16 @@ namespace RabiesX
                             rabidDogEntities.RemoveAt(j);
                             rabidDogHealthDecrs.RemoveAt(j);
                             rabidDogPreviousPositions.RemoveAt(j);
+                            healed[j] = true;
                             TOTAL_RABID_DOGS--;
+                            //CreateBottle(currentPosition);
                             break;
                         }
                     }
             }
-            if (TOTAL_RABID_DOGS == 0)
+            if (TOTAL_RABID_DOGS == 0 /*&& bottleEntities.Count == 0 */)
             {
+                soundInstance.Stop();
                 winInstance.Play();
                 jacksonlosecryInstance.Play();
                 if (!barkInstance.IsDisposed)
@@ -821,6 +866,20 @@ namespace RabiesX
             }
         }
         }
+
+        //private void UpdateBottles(GameTime gameTime)
+        //{
+        //    for (int i = 0; i < bottleEntities.Count; i++)
+        //    {
+        //        if ((((Math.Abs(bottleEntities[i].Position.X - playerEntity.Position.X) + Math.Abs(bottleEntities[i].Position.Z - playerEntity.Position.Z)) / 2) < (bottleRadii[i] + playerRadius - 2.0)))
+        //        {
+        //            bottleRadii.RemoveAt(i);
+        //            bottleModels.RemoveAt(i);
+        //            bottleBounds.RemoveAt(i);
+        //            bottleEntities.RemoveAt(i);
+        //        }
+        //    }
+        //}
 
         private void UpdateEnemies(GameTime gameTime)
         {
@@ -835,18 +894,26 @@ namespace RabiesX
                     if (rabidDogEntities[i].Position.X < playerEntity.Position.X)
                     {
                         rabidDogEntities[i].Position = new Vector3(rabidDogEntities[i].Position.X + 1, rabidDogEntities[i].Position.Y, rabidDogEntities[i].Position.Z);
+                        if(!healed[i])
+                             bottleEntities[i].Position = new Vector3(bottleEntities[i].Position.X + 1, bottleEntities[i].Position.Y, bottleEntities[i].Position.Z);
                     }
                     else if (rabidDogEntities[i].Position.X > playerEntity.Position.X)
                     {
                         rabidDogEntities[i].Position = new Vector3(rabidDogEntities[i].Position.X - 1, rabidDogEntities[i].Position.Y, rabidDogEntities[i].Position.Z);
+                        if(!healed[i])
+                             bottleEntities[i].Position = new Vector3(bottleEntities[i].Position.X - 1, bottleEntities[i].Position.Y, bottleEntities[i].Position.Z);
                     }
                     if (rabidDogEntities[i].Position.Z < playerEntity.Position.Z)
                     {
                         rabidDogEntities[i].Position = new Vector3(rabidDogEntities[i].Position.X, rabidDogEntities[i].Position.Y, rabidDogEntities[i].Position.Z + 1);
+                        if(!healed[i])
+                             bottleEntities[i].Position = new Vector3(bottleEntities[i].Position.X, bottleEntities[i].Position.Y, bottleEntities[i].Position.Z + 1);
                     }
                     else if (rabidDogEntities[i].Position.Z > playerEntity.Position.Z)
                     {
                         rabidDogEntities[i].Position = new Vector3(rabidDogEntities[i].Position.X, rabidDogEntities[i].Position.Y, rabidDogEntities[i].Position.Z - 1);
+                        if(!healed[i])
+                             bottleEntities[i].Position = new Vector3(bottleEntities[i].Position.X, bottleEntities[i].Position.Y, bottleEntities[i].Position.Z - 1);
                     }
                 }
                 else
@@ -861,6 +928,7 @@ namespace RabiesX
                         if ((((Math.Abs(rabidDogEntities[i].Position.X - rabidDogEntities[j].Position.X) + Math.Abs(rabidDogEntities[i].Position.Z - rabidDogEntities[j].Position.Z)) / 2) < (rabidDogRadii[i] + rabidDogRadii[j] - 5)))
                         {
                             rabidDogEntities[i].Position = rabidDogPreviousPositions[i];
+                            bottleEntities[i].Position = rabidDogPreviousPositions[i];
                             break;
                         }
                     }
@@ -869,6 +937,7 @@ namespace RabiesX
                 if ((((Math.Abs(rabidDogEntities[i].Position.X - playerEntity.Position.X) + Math.Abs(rabidDogEntities[i].Position.Z - playerEntity.Position.Z)) / 2) < (rabidDogRadii[i] + playerRadius - 19.5)))
                 {
                     rabidDogEntities[i].Position = rabidDogPreviousPositions[i];
+                    bottleEntities[i].Position = rabidDogPreviousPositions[i];
                     playerHealthDecr += 0.1f; // add up damage to player
                     if (playerHealthDecr >= 1.0f)
                     {
@@ -879,6 +948,7 @@ namespace RabiesX
                     }
                 }
                 rabidDogEntities[i].Update(gameTime);
+                bottleEntities[i].Update(gameTime);
             }
         }
 
@@ -1038,6 +1108,35 @@ namespace RabiesX
                     }
 
                     m.Draw();
+                }
+            }
+        }
+
+        private void DrawBottles()
+        {
+            for (int i = 0; i < healed.Length; i++)
+            {
+                //if (modelEnemyTransforms[i] == null)
+                //    modelEnemyTransforms[i] = new Matrix[rabidDogModels[i].ModelHeld.Bones.Count];
+
+                //rabidDogModels[i].ModelHeld.CopyAbsoluteBoneTransformsTo(modelEnemyTransforms[i]);
+
+                if (healed[i])
+                {
+                    foreach (ModelMesh m in bottleModels[i].ModelHeld.Meshes)
+                    {
+                        foreach (BasicEffect e in m.Effects)
+                        {
+                            e.PreferPerPixelLighting = true;
+                            e.TextureEnabled = true;
+                            e.EnableDefaultLighting();
+                            e.World = bottleEntities[i].WorldMatrix;
+                            e.View = camera.ViewMatrix;
+                            e.Projection = camera.ProjectionMatrix;
+                        }
+
+                        m.Draw();
+                    }
                 }
             }
         }
@@ -1223,20 +1322,14 @@ namespace RabiesX
                     if (OtherKeysUp(keyboardState, Keys.Right))
                         soundInstance.Play();
                     movement.X++;
+                }               
+                if (keyboardState.IsKeyDown(Keys.RightControl))
+                {
+                    if (OtherKeysUp(keyboardState, Keys.RightControl) || keyboardState.IsKeyDown(Keys.W) || keyboardState.IsKeyDown(Keys.Up)
+                        || keyboardState.IsKeyDown(Keys.S) || keyboardState.IsKeyDown(Keys.Down) || keyboardState.IsKeyDown(Keys.A)
+                        || keyboardState.IsKeyDown(Keys.Left) || keyboardState.IsKeyDown(Keys.D) || keyboardState.IsKeyDown(Keys.Right))
+                        plasmarayInstance.Play();
                 }
-                //if (keyboardState.IsKeyDown(Keys.E))
-                //{
-                //    double currentTime = gameTime.TotalGameTime.TotalMilliseconds;
-                //    if ((currentTime - lastBulletTime) > 100)
-                //    {
-                //        Bullet newBullet = new Bullet();
-                //        newBullet.position = playerEntity.Position;
-                //        newBullet.rotation = playerEntity.Rotation;
-                //        bulletList.Add(newBullet);
-
-                //        lastBulletTime = currentTime;
-                //    }
-                //}
                 if (keyboardState.IsKeyUp(Keys.W) && OtherKeysUp(keyboardState, Keys.W))
                     soundInstance.Stop();
                 if (keyboardState.IsKeyUp(Keys.Up) && OtherKeysUp(keyboardState, Keys.Up))
@@ -1253,6 +1346,10 @@ namespace RabiesX
                     soundInstance.Stop();
                 if (keyboardState.IsKeyUp(Keys.Right) && OtherKeysUp(keyboardState, Keys.Right))
                     soundInstance.Stop();
+                if (keyboardState.IsKeyUp(Keys.RightControl) && (OtherKeysUp(keyboardState, Keys.RightControl) || keyboardState.IsKeyDown(Keys.W) || keyboardState.IsKeyDown(Keys.Up)
+                        || keyboardState.IsKeyDown(Keys.S) || keyboardState.IsKeyDown(Keys.Down) || keyboardState.IsKeyDown(Keys.A)
+                        || keyboardState.IsKeyDown(Keys.Left) || keyboardState.IsKeyDown(Keys.D) || keyboardState.IsKeyDown(Keys.Right)))
+                    plasmarayInstance.Stop();
                 Vector2 thumbstick = gamePadState.ThumbSticks.Left;
 
                 movement.X += thumbstick.X;
@@ -1291,6 +1388,8 @@ namespace RabiesX
             DrawEnemies();
 
             DrawBullets();
+
+            DrawBottles();
 
             DrawIndicator();
 
@@ -1409,7 +1508,7 @@ namespace RabiesX
         {
             Keys[] gameKeys = {Keys.H, Keys.Space, Keys.LeftAlt, Keys.RightAlt, Keys.Enter, Keys.Add,
                                   Keys.Subtract, Keys.A, Keys.W, Keys.S, Keys.D, Keys.Up, Keys.Left,
-                                  Keys.Right, Keys.Down, Keys.E, Keys.R};
+                                  Keys.Right, Keys.Down, Keys.E, Keys.R, Keys.RightControl};
             bool keysAreUp = true;
             foreach (Keys key in gameKeys)
             {
