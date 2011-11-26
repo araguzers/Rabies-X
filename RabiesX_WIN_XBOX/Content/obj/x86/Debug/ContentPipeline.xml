@@ -862,6 +862,24 @@
       <Output>C:\Users\Junior\Desktop\GeraldoWithoutCar\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Audio\Waves\plasmaray.xnb</Output>
       <Time>2011-11-25T17:23:04.5699036-06:00</Time>
     </Item>
+    <Item>
+      <Source>Audio\Waves\totherescue.wav</Source>
+      <Name>Audio\Waves\totherescue</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Junior\Desktop\GeraldoWithoutCar\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Audio\Waves\totherescue.xnb</Output>
+      <Time>2011-11-25T17:50:54.7084301-06:00</Time>
+    </Item>
+    <Item>
+      <Source>Audio\Waves\telepath.wav</Source>
+      <Name>Audio\Waves\telepath</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Junior\Desktop\GeraldoWithoutCar\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Audio\Waves\telepath.xnb</Output>
+      <Time>2011-11-25T17:58:56.5029871-06:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <TargetPlatform>Windows</TargetPlatform>

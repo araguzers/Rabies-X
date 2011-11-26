@@ -104,6 +104,12 @@ namespace RabiesX
         private SoundEffect plasmaray;
         private SoundEffectInstance plasmarayInstance;
 
+        private SoundEffect totherescue;
+        private SoundEffectInstance totherescueInstance;
+
+        private SoundEffect telepath;
+        private SoundEffectInstance telepathInstance;
+
         private SpriteBatch spriteBatch;
         private SpriteFont spriteFont;
 
@@ -275,6 +281,12 @@ namespace RabiesX
 
             dogsinpark = content.Load<SoundEffect>("Audio\\Waves\\dogsinpark");
             dogsinparkInstance = dogsinpark.CreateInstance();
+
+            totherescue = content.Load<SoundEffect>("Audio\\Waves\\totherescue");
+            totherescueInstance = totherescue.CreateInstance();
+
+            telepath = content.Load<SoundEffect>("Audio\\Waves\\telepath");
+            telepathInstance = telepath.CreateInstance();
 
             plasmaray = content.Load<SoundEffect>("Audio\\Waves\\plasmaray");
             plasmarayInstance = plasmaray.CreateInstance();
@@ -540,8 +552,12 @@ namespace RabiesX
             {
                 if (timeLeft == 300)
                     dogsinparkInstance.Play();
+                if (timeLeft == 285)
+                    telepathInstance.Play();
                 if (timeLeft == 270)
                     becareful.Play();
+                if (timeLeft == 268)
+                    totherescueInstance.Play();
                 if ((timeLeft % 12) == 0 && timeLeft >= 0)
                     if (!barkInstance.IsDisposed)
                         barkInstance.Play();
@@ -834,7 +850,7 @@ namespace RabiesX
                         rabidDogHealthDecrs[j] += 0.5f; // add up damage to enemy
                         if (rabidDogHealthDecrs[j] >= 1.0f)
                         {
-                            rabidDogHealths[j] -= 15; // decrease enemy health by 1 unit
+                            rabidDogHealths[j] -= 10; // decrease enemy health by 1 unit
                             //Force the health to remain between 0 and 100.           
                             rabidDogHealthDecrs[j] = 0.0f;
                         }

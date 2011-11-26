@@ -70,3 +70,5 @@ Content\Models\RedLiquid_0.xnb
 Content\Models\Chemical2_0.xnb
 Content\Audio\Waves\clockisticking.xnb
 Content\Audio\Waves\plasmaray.xnb
+Content\Audio\Waves\totherescue.xnb
+Content\Audio\Waves\telepath.xnb
