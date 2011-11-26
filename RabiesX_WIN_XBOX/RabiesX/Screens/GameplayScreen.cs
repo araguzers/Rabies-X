@@ -54,7 +54,7 @@ namespace RabiesX
         private int timeLeft = MAX_TIME_LEFT;
         int elapsedUpdateTime = 0;
 
-        private int TOTAL_RABID_DOGS = 5;
+        private int TOTAL_RABID_DOGS = 10;
 
         private int initialNumberOfDogs;
 
@@ -336,8 +336,8 @@ namespace RabiesX
             
             // Load the bullet image and setup bullet effects.
             quadEffect = content.Load<Effect>("Effects\\effects");
-            quad = new Quad(ScreenManager.GraphicsDevice, Vector3.Zero, Vector3.Up, screenWidth, screenHeight);
-            bullets = content.Load<Texture2D>("bullet");
+            quad = new Quad(ScreenManager.GraphicsDevice, Vector3.Zero, Vector3.Up, screenWidth / 2, screenHeight / 2);
+            bullets = content.Load<Texture2D>("Textures\\bulletfire");
 
             // Load the effects and setup vertices for triangle indicator.
             vertices = new List<VertexPositionColor[]>();
@@ -740,7 +740,7 @@ namespace RabiesX
             if (((curMouseState.LeftButton == ButtonState.Pressed) && (prevMouseState.LeftButton == ButtonState.Released)) || curKeyboardState.IsKeyDown(Keys.RightControl))
             {
                 double currentTime = gameTime.TotalGameTime.TotalMilliseconds;
-                if ((currentTime - lastBulletTime) > 100)
+                if ((currentTime - lastBulletTime) > 0)
                 {
                     Bullet newBullet = new Bullet();
                     newBullet.position = playerEntity.Position;
@@ -892,7 +892,7 @@ namespace RabiesX
                             rabidDogHealthDecrs[j] += 0.5f; // add up damage to enemy
                             if (rabidDogHealthDecrs[j] >= 1.0f)
                             {
-                                rabidDogHealths[j] -= 15; // decrease enemy health by 1 unit
+                                rabidDogHealths[j] -= 10; // decrease enemy health by 1 unit
                                 //Force the health to remain between 0 and 100.           
                                 rabidDogHealthDecrs[j] = 0.0f;
                             }
@@ -919,7 +919,7 @@ namespace RabiesX
                 jacksonlosecryInstance.Play();
                 if (!barkInstance.IsDisposed)
                     barkInstance.Dispose();
-                ScreenManager.AddScreen(new GameOverScreen(), ControllingPlayer);
+                ScreenManager.AddScreen(new NextLevelScreen(), ControllingPlayer);
             }
         }
         }
