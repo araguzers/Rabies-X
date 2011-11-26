@@ -56,6 +56,8 @@ namespace RabiesX
 
         private int TOTAL_RABID_DOGS = 10;
 
+        private int initialNumberOfDogs;
+
         AnimationPlayer animationPlayer;
 
         ContentManager content;
@@ -110,6 +112,9 @@ namespace RabiesX
         private SoundEffect telepath;
         private SoundEffectInstance telepathInstance;
 
+        private SoundEffect collectsample;
+        private SoundEffectInstance collectsampleInstance;
+
         private SpriteBatch spriteBatch;
         private SpriteFont spriteFont;
 
@@ -123,6 +128,8 @@ namespace RabiesX
         private List<VertexPositionColor[]> vertices;
 
         private float angle = 0.0f;
+
+        private int numberOfCollectedSamples;
 
         // Set bullets for level;
         Quad quad;
@@ -185,6 +192,7 @@ namespace RabiesX
         private Matrix[] modelTransforms;
         private List<Matrix[]> modelEnemyTransforms;
         private bool[] healed;
+        private bool[] collected;
         private TimeSpan elapsedTime = TimeSpan.Zero;
         private TimeSpan prevElapsedTime = TimeSpan.Zero;
         private bool displayHelp;
@@ -288,6 +296,9 @@ namespace RabiesX
             telepath = content.Load<SoundEffect>("Audio\\Waves\\telepath");
             telepathInstance = telepath.CreateInstance();
 
+            collectsample = content.Load<SoundEffect>("Audio\\Waves\\collectsample");
+            collectsampleInstance = collectsample.CreateInstance();
+
             plasmaray = content.Load<SoundEffect>("Audio\\Waves\\plasmaray");
             plasmarayInstance = plasmaray.CreateInstance();
             plasmarayInstance.IsLooped = true;
@@ -296,6 +307,10 @@ namespace RabiesX
             gameMusicInstance = gameMusic.CreateInstance();
             gameMusicInstance.IsLooped = true;
             //gameMusicInstance.Play();
+
+            numberOfCollectedSamples = 0;
+
+            initialNumberOfDogs = TOTAL_RABID_DOGS;
 
             // Position the in-game text.
             fontPos = new Vector2(1.0f, 1.0f);
@@ -352,8 +367,12 @@ namespace RabiesX
             }
 
             healed = new bool[TOTAL_RABID_DOGS];
+            collected = new bool[TOTAL_RABID_DOGS];
             for (int index = 0; index < TOTAL_RABID_DOGS; index++)
+            {
                 healed[index] = false;
+                collected[index] = false;
+            }
 
             // Load models and set aspect ratio.
             //playerModel = new MyModel("Models\\ball", content);
@@ -788,6 +807,19 @@ namespace RabiesX
                     enemiesDeadChk = false;
                 }
             }
+            //detects collision with disease sample, represented by a set of bottles
+            for (int index = 0; index < bottleEntities.Count; index++)
+            {
+                if (!collected[index])
+                {
+                    if ((((Math.Abs(playerEntity.Position.X - bottleEntities[index].Position.X) + Math.Abs(playerEntity.Position.Z - bottleEntities[index].Position.Z)) / 2) < (playerRadius + bottleRadii[index] - 19.5)))
+                    {
+                        collected[index] = true;
+                        numberOfCollectedSamples++;
+                        collectsampleInstance.Play();
+                    }
+                }
+            }
 
             if ((enemiesDeadChk == true) && (((Math.Abs(playerEntity.Position.X - indicatorPos.X) + Math.Abs(playerEntity.Position.Z - indicatorPos.Z)) / 2) < (playerRadius + indicatorScale*2 - 19.5)))
             {
@@ -850,7 +882,7 @@ namespace RabiesX
                         rabidDogHealthDecrs[j] += 0.5f; // add up damage to enemy
                         if (rabidDogHealthDecrs[j] >= 1.0f)
                         {
-                            rabidDogHealths[j] -= 10; // decrease enemy health by 1 unit
+                            rabidDogHealths[j] -= 15; // decrease enemy health by 1 unit
                             //Force the health to remain between 0 and 100.           
                             rabidDogHealthDecrs[j] = 0.0f;
                         }
@@ -866,12 +898,17 @@ namespace RabiesX
                             rabidDogPreviousPositions.RemoveAt(j);
                             healed[j] = true;
                             TOTAL_RABID_DOGS--;
+                            if (TOTAL_RABID_DOGS == 0)
+                            {
+                                if (!barkInstance.IsDisposed)
+                                    barkInstance.Dispose();
+                            }
                             //CreateBottle(currentPosition);
                             break;
                         }
                     }
             }
-            if (TOTAL_RABID_DOGS == 0 /*&& bottleEntities.Count == 0 */)
+            if (TOTAL_RABID_DOGS == 0 && numberOfCollectedSamples == initialNumberOfDogs)
             {
                 soundInstance.Stop();
                 winInstance.Play();
@@ -1137,7 +1174,7 @@ namespace RabiesX
 
                 //rabidDogModels[i].ModelHeld.CopyAbsoluteBoneTransformsTo(modelEnemyTransforms[i]);
 
-                if (healed[i])
+                if (healed[i] && !collected[i])
                 {
                     foreach (ModelMesh m in bottleModels[i].ModelHeld.Meshes)
                     {
@@ -1193,7 +1230,7 @@ namespace RabiesX
                 buffer.AppendFormat("  Damping constant: {0}\n", dampingConstant.ToString("f2"));
                 buffer.AppendLine();
                 if (timeLeft <= 300 && timeLeft >= 240)
-                    jacksonTaunt = "I, Russell Jackson, challenge you, Geraldo \"Merry Gerry\" Araguz, to survive\n for 5 minutes in this park with these diseased dogs!\n I can guarantee that you will not survive for even one.\nThat GuzCruise of yours will not protect you for long...\nGet him, boys!!\n\n";
+                    jacksonTaunt = "I, Russell Jackson, challenge you, Geraldo \"Merry Gerry\" Araguz, to survive\n for 5 minutes in this park with these diseased dogs!\n I can guarantee that you will not survive for even one.\nGet him, boys!!\n\n";
                 if (timeLeft < 240 && timeLeft >= 180)
                     jacksonTaunt = "So you survived for one minute. Big wuff. Speaking of wuff - get him, boys!\n\n";
                 if (timeLeft < 180 && timeLeft >= 120)

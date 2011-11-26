@@ -880,6 +880,15 @@
       <Output>C:\Users\Junior\Desktop\GeraldoWithoutCar\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Audio\Waves\telepath.xnb</Output>
       <Time>2011-11-25T17:58:56.5029871-06:00</Time>
     </Item>
+    <Item>
+      <Source>Audio\Waves\collectsample.wav</Source>
+      <Name>Audio\Waves\collectsample</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Junior\Desktop\GeraldoWithoutCar\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Audio\Waves\collectsample.xnb</Output>
+      <Time>2011-11-25T19:13:39.746414-06:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <TargetPlatform>Windows</TargetPlatform>

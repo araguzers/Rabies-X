@@ -72,3 +72,4 @@ Content\Audio\Waves\clockisticking.xnb
 Content\Audio\Waves\plasmaray.xnb
 Content\Audio\Waves\totherescue.xnb
 Content\Audio\Waves\telepath.xnb
+Content\Audio\Waves\collectsample.xnb
