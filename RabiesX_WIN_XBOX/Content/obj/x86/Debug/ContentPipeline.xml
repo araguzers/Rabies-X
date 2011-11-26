@@ -7,8 +7,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Junior\Desktop\GeraldoWithoutCar\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\background.xnb</Output>
-      <Time>2011-11-23T12:16:01.9049988-06:00</Time>
+      <Output>C:\Users\Junior\Desktop\DogsWithHealthbars\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\background.xnb</Output>
+      <Time>2011-11-25T20:30:45.2629784-06:00</Time>
     </Item>
     <Item>
       <Source>blank.png</Source>
@@ -16,8 +16,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Junior\Desktop\GeraldoWithoutCar\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\blank.xnb</Output>
-      <Time>2011-11-23T12:16:01.9119992-06:00</Time>
+      <Output>C:\Users\Junior\Desktop\DogsWithHealthbars\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\blank.xnb</Output>
+      <Time>2011-11-25T20:30:45.2669786-06:00</Time>
     </Item>
     <Item>
       <Source>gradient.png</Source>
@@ -25,8 +25,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Junior\Desktop\GeraldoWithoutCar\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\gradient.xnb</Output>
-      <Time>2011-11-23T12:16:01.9219998-06:00</Time>
+      <Output>C:\Users\Junior\Desktop\DogsWithHealthbars\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\gradient.xnb</Output>
+      <Time>2011-11-25T20:30:45.2769792-06:00</Time>
     </Item>
     <Item>
       <Source>Textures\B1_stars.tga</Source>
@@ -34,8 +34,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Junior\Desktop\GeraldoWithoutCar\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Textures\B1_stars.xnb</Output>
-      <Time>2011-11-23T12:16:01.3879692-06:00</Time>
+      <Output>C:\Users\Junior\Desktop\DogsWithHealthbars\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Textures\B1_stars.xnb</Output>
+      <Time>2011-11-25T20:30:45.1639727-06:00</Time>
     </Item>
     <Item>
       <Source>Textures\wedge_p1_diff_v1.tga</Source>
@@ -43,8 +43,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Junior\Desktop\GeraldoWithoutCar\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Textures\wedge_p1_diff_v1.xnb</Output>
-      <Time>2011-11-23T12:16:01.5629792-06:00</Time>
+      <Output>C:\Users\Junior\Desktop\DogsWithHealthbars\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Textures\wedge_p1_diff_v1.xnb</Output>
+      <Time>2011-11-25T20:30:45.2489776-06:00</Time>
     </Item>
     <Item>
       <Source>sky.bmp</Source>
@@ -52,8 +52,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>SkyProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Junior\Desktop\GeraldoWithoutCar\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\sky.xnb</Output>
-      <Time>2011-11-23T12:16:03.4800889-06:00</Time>
+      <Output>C:\Users\Junior\Desktop\DogsWithHealthbars\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\sky.xnb</Output>
+      <Time>2011-11-25T20:30:45.8760135-06:00</Time>
     </Item>
     <Item>
       <Source>terrain.bmp</Source>
@@ -61,9 +61,9 @@
       <Importer>TextureImporter</Importer>
       <Processor>TerrainProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Junior\Desktop\GeraldoWithoutCar\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\terrain.xnb</Output>
-      <Time>2011-11-23T12:16:03.5120907-06:00</Time>
-      <Request>C:\Users\Junior\Desktop\GeraldoWithoutCar\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\rocks_0.xnb</Request>
+      <Output>C:\Users\Junior\Desktop\DogsWithHealthbars\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\terrain.xnb</Output>
+      <Time>2011-11-25T20:30:45.885014-06:00</Time>
+      <Request>C:\Users\Junior\Desktop\DogsWithHealthbars\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\rocks_0.xnb</Request>
     </Item>
     <Item>
       <Source>healthbar.png</Source>
@@ -71,8 +71,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Junior\Desktop\GeraldoWithoutCar\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\healthbar.xnb</Output>
-      <Time>2011-11-23T12:16:01.926-06:00</Time>
+      <Output>C:\Users\Junior\Desktop\DogsWithHealthbars\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\healthbar.xnb</Output>
+      <Time>2011-11-25T20:30:45.2809794-06:00</Time>
     </Item>
     <Item>
       <Source>bullet.jpg</Source>
@@ -80,8 +80,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Junior\Desktop\GeraldoWithoutCar\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\bullet.xnb</Output>
-      <Time>2011-11-23T12:16:01.9179995-06:00</Time>
+      <Output>C:\Users\Junior\Desktop\DogsWithHealthbars\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\bullet.xnb</Output>
+      <Time>2011-11-25T20:30:45.272979-06:00</Time>
     </Item>
     <Item>
       <Source>Models\DogEyes.jpg</Source>
@@ -89,8 +89,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Junior\Desktop\GeraldoWithoutCar\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Models\DogEyes.xnb</Output>
-      <Time>2011-11-22T10:07:45.9402968-06:00</Time>
+      <Output>C:\Users\Junior\Desktop\DogsWithHealthbars\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Models\DogEyes.xnb</Output>
+      <Time>2011-11-25T20:30:44.5419372-06:00</Time>
     </Item>
     <Item>
       <Source>Models\DogPupil.jpg</Source>
@@ -98,8 +98,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Junior\Desktop\GeraldoWithoutCar\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Models\DogPupil.xnb</Output>
-      <Time>2011-11-22T10:07:45.944297-06:00</Time>
+      <Output>C:\Users\Junior\Desktop\DogsWithHealthbars\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Models\DogPupil.xnb</Output>
+      <Time>2011-11-25T20:30:44.5469374-06:00</Time>
     </Item>
     <Item>
       <Source>Models\DogSkin.jpg</Source>
@@ -107,8 +107,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Junior\Desktop\GeraldoWithoutCar\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Models\DogSkin.xnb</Output>
-      <Time>2011-11-22T10:07:45.9502974-06:00</Time>
+      <Output>C:\Users\Junior\Desktop\DogsWithHealthbars\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Models\DogSkin.xnb</Output>
+      <Time>2011-11-25T20:30:44.5539378-06:00</Time>
     </Item>
     <Item>
       <Source>Textures\DogEyes.jpg</Source>
@@ -116,8 +116,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Junior\Desktop\GeraldoWithoutCar\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Textures\DogEyes.xnb</Output>
-      <Time>2011-11-22T10:07:45.9402968-06:00</Time>
+      <Output>C:\Users\Junior\Desktop\DogsWithHealthbars\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Textures\DogEyes.xnb</Output>
+      <Time>2011-11-25T20:30:45.1809737-06:00</Time>
     </Item>
     <Item>
       <Source>Textures\DogPupil.jpg</Source>
@@ -125,8 +125,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Junior\Desktop\GeraldoWithoutCar\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Textures\DogPupil.xnb</Output>
-      <Time>2011-11-22T10:07:45.944297-06:00</Time>
+      <Output>C:\Users\Junior\Desktop\DogsWithHealthbars\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Textures\DogPupil.xnb</Output>
+      <Time>2011-11-25T20:30:45.1969746-06:00</Time>
     </Item>
     <Item>
       <Source>Textures\DogSkin.jpg</Source>
@@ -134,8 +134,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Junior\Desktop\GeraldoWithoutCar\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Textures\DogSkin.xnb</Output>
-      <Time>2011-11-22T10:07:45.9502974-06:00</Time>
+      <Output>C:\Users\Junior\Desktop\DogsWithHealthbars\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Textures\DogSkin.xnb</Output>
+      <Time>2011-11-25T20:30:45.202975-06:00</Time>
     </Item>
     <Item>
       <Source>Models\gerry_tx.jpg</Source>
@@ -143,8 +143,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Junior\Desktop\GeraldoWithoutCar\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Models\gerry_tx.xnb</Output>
-      <Time>2011-11-23T18:10:22.3440263-06:00</Time>
+      <Output>C:\Users\Junior\Desktop\DogsWithHealthbars\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Models\gerry_tx.xnb</Output>
+      <Time>2011-11-25T20:30:44.8669557-06:00</Time>
     </Item>
     <Item>
       <Source>Textures\gerry_tx.jpg</Source>
@@ -152,8 +152,98 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Junior\Desktop\GeraldoWithoutCar\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Textures\gerry_tx.xnb</Output>
-      <Time>2011-11-23T18:10:22.3440263-06:00</Time>
+      <Output>C:\Users\Junior\Desktop\DogsWithHealthbars\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Textures\gerry_tx.xnb</Output>
+      <Time>2011-11-25T20:30:45.2339767-06:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\Chemical1.jpg</Source>
+      <Name>Models\Chemical1</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Junior\Desktop\DogsWithHealthbars\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Models\Chemical1.xnb</Output>
+      <Time>2011-11-25T20:30:44.5309365-06:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\Chemical2.jpg</Source>
+      <Name>Models\Chemical2</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Junior\Desktop\DogsWithHealthbars\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Models\Chemical2.xnb</Output>
+      <Time>2011-11-25T20:30:44.5359368-06:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\gray.jpg</Source>
+      <Name>Models\gray</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Junior\Desktop\DogsWithHealthbars\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Models\gray.xnb</Output>
+      <Time>2011-11-25T20:30:44.9459603-06:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\RedLiquid.jpg</Source>
+      <Name>Models\RedLiquid</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Junior\Desktop\DogsWithHealthbars\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Models\RedLiquid.xnb</Output>
+      <Time>2011-11-25T20:30:44.5599382-06:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\TopOfFlask.jpg</Source>
+      <Name>Models\TopOfFlask</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Junior\Desktop\DogsWithHealthbars\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Models\TopOfFlask.xnb</Output>
+      <Time>2011-11-25T20:30:44.5669386-06:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\Chemical1.jpg</Source>
+      <Name>Textures\Chemical1</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Junior\Desktop\DogsWithHealthbars\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Textures\Chemical1.xnb</Output>
+      <Time>2011-11-25T20:30:45.1719732-06:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\Chemical2.jpg</Source>
+      <Name>Textures\Chemical2</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Junior\Desktop\DogsWithHealthbars\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Textures\Chemical2.xnb</Output>
+      <Time>2011-11-25T20:30:45.1759734-06:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\gray.jpg</Source>
+      <Name>Textures\gray</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Junior\Desktop\DogsWithHealthbars\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Textures\gray.xnb</Output>
+      <Time>2011-11-25T20:30:45.237977-06:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\RedLiquid.jpg</Source>
+      <Name>Textures\RedLiquid</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Junior\Desktop\DogsWithHealthbars\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Textures\RedLiquid.xnb</Output>
+      <Time>2011-11-25T20:30:45.2079752-06:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\TopOfFlask.jpg</Source>
+      <Name>Textures\TopOfFlask</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Junior\Desktop\DogsWithHealthbars\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Textures\TopOfFlask.xnb</Output>
+      <Time>2011-11-25T20:30:45.2159757-06:00</Time>
     </Item>
     <Item>
       <Source>Models\p1_wedge.fbx</Source>
@@ -161,13 +251,13 @@
       <Importer>FbxImporter</Importer>
       <Processor>ModelProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Junior\Desktop\GeraldoWithoutCar\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Models\p1_wedge.xnb</Output>
-      <Time>2011-11-23T12:16:00.8959411-06:00</Time>
+      <Output>C:\Users\Junior\Desktop\DogsWithHealthbars\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Models\p1_wedge.xnb</Output>
+      <Time>2011-11-25T20:30:44.9729618-06:00</Time>
       <Dependency>
         <Key>obj\x86\Debug\Models\p1_wedge_0.xml</Key>
-        <Value>2011-11-23T19:51:10.6449694-06:00</Value>
+        <Value>2011-11-25T20:43:39.0112343-06:00</Value>
       </Dependency>
-      <Request>C:\Users\Junior\Desktop\GeraldoWithoutCar\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\textures\wedge_p1_diff_v1_0.xnb</Request>
+      <Request>C:\Users\Junior\Desktop\DogsWithHealthbars\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\textures\wedge_p1_diff_v1_0.xnb</Request>
     </Item>
     <Item>
       <Source>Models\squirrel.fbx</Source>
@@ -175,15 +265,15 @@
       <Importer>FbxImporter</Importer>
       <Processor>ModelProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Junior\Desktop\GeraldoWithoutCar\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Models\squirrel.xnb</Output>
-      <Time>2011-11-23T12:16:01.2639621-06:00</Time>
+      <Output>C:\Users\Junior\Desktop\DogsWithHealthbars\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Models\squirrel.xnb</Output>
+      <Time>2011-11-25T20:30:45.0479661-06:00</Time>
       <Dependency>
         <Key>obj\x86\Debug\Models\squirrel_0.xml</Key>
-        <Value>2011-11-23T19:51:12.8820973-06:00</Value>
+        <Value>2011-11-25T20:43:42.642442-06:00</Value>
       </Dependency>
-      <Request>C:\Users\Junior\Desktop\GeraldoWithoutCar\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Models\gloves_0.xnb</Request>
-      <Request>C:\Users\Junior\Desktop\GeraldoWithoutCar\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Models\clr_armor_0.xnb</Request>
-      <Request>C:\Users\Junior\Desktop\GeraldoWithoutCar\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Models\squirrel_headbody_0.xnb</Request>
+      <Request>C:\Users\Junior\Desktop\DogsWithHealthbars\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Models\gloves_0.xnb</Request>
+      <Request>C:\Users\Junior\Desktop\DogsWithHealthbars\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Models\clr_armor_0.xnb</Request>
+      <Request>C:\Users\Junior\Desktop\DogsWithHealthbars\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Models\squirrel_headbody_0.xnb</Request>
     </Item>
     <Item>
       <Source>Models\rabiddog.fbx</Source>
@@ -191,15 +281,15 @@
       <Importer>FbxImporter</Importer>
       <Processor>ModelProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Junior\Desktop\GeraldoWithoutCar\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Models\rabiddog.xnb</Output>
-      <Time>2011-11-23T12:16:00.929943-06:00</Time>
+      <Output>C:\Users\Junior\Desktop\DogsWithHealthbars\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Models\rabiddog.xnb</Output>
+      <Time>2011-11-25T20:30:44.9839624-06:00</Time>
       <Dependency>
         <Key>obj\x86\Debug\Models\rabiddog_0.xml</Key>
-        <Value>2011-11-23T19:51:14.4441867-06:00</Value>
+        <Value>2011-11-25T20:43:43.6264982-06:00</Value>
       </Dependency>
-      <Request>C:\Users\Junior\Desktop\GeraldoWithoutCar\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\images\DogSkin_0.xnb</Request>
-      <Request>C:\Users\Junior\Desktop\GeraldoWithoutCar\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\images\DogPupil_0.xnb</Request>
-      <Request>C:\Users\Junior\Desktop\GeraldoWithoutCar\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\images\DogEyes_0.xnb</Request>
+      <Request>C:\Users\Junior\Desktop\DogsWithHealthbars\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\images\DogSkin_0.xnb</Request>
+      <Request>C:\Users\Junior\Desktop\DogsWithHealthbars\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\images\DogPupil_0.xnb</Request>
+      <Request>C:\Users\Junior\Desktop\DogsWithHealthbars\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\images\DogEyes_0.xnb</Request>
     </Item>
     <Item>
       <Source>Models\troubled_canine.fbx</Source>
@@ -207,15 +297,46 @@
       <Importer>FbxImporter</Importer>
       <Processor>ModelProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Junior\Desktop\GeraldoWithoutCar\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Models\troubled_canine.xnb</Output>
-      <Time>2011-11-23T18:25:29.050887-06:00</Time>
+      <Output>C:\Users\Junior\Desktop\DogsWithHealthbars\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Models\troubled_canine.xnb</Output>
+      <Time>2011-11-25T20:30:45.1299708-06:00</Time>
       <Dependency>
         <Key>obj\x86\Debug\Models\troubled_canine_0.xml</Key>
-        <Value>2011-11-23T19:51:16.9863321-06:00</Value>
+        <Value>2011-11-25T20:43:45.8116232-06:00</Value>
       </Dependency>
-      <Request>C:\Users\Junior\Desktop\GeraldoWithoutCar\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Models\DogSkin_0.xnb</Request>
-      <Request>C:\Users\Junior\Desktop\GeraldoWithoutCar\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Models\DogPupil_0.xnb</Request>
-      <Request>C:\Users\Junior\Desktop\GeraldoWithoutCar\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Models\DogEyes_0.xnb</Request>
+      <Request>C:\Users\Junior\Desktop\DogsWithHealthbars\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Models\DogSkin_0.xnb</Request>
+      <Request>C:\Users\Junior\Desktop\DogsWithHealthbars\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Models\DogPupil_0.xnb</Request>
+      <Request>C:\Users\Junior\Desktop\DogsWithHealthbars\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Models\DogEyes_0.xnb</Request>
+    </Item>
+    <Item>
+      <Source>Models\geraldo_araguz.fbx</Source>
+      <Name>Models\geraldo_araguz</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>SkinnedModelProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Junior\Desktop\DogsWithHealthbars\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Models\geraldo_araguz.xnb</Output>
+      <Time>2011-11-25T20:30:44.8549551-06:00</Time>
+      <Dependency>
+        <Key>obj\x86\Debug\Models\geraldo_araguz_0.xml</Key>
+        <Value>2011-11-25T20:43:53.9430883-06:00</Value>
+      </Dependency>
+      <Request>C:\Users\Junior\Desktop\DogsWithHealthbars\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\gerry_tx_0.xnb</Request>
+    </Item>
+    <Item>
+      <Source>Models\sample_bottle.fbx</Source>
+      <Name>Models\sample_bottle</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>ModelProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Junior\Desktop\DogsWithHealthbars\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Models\sample_bottle.xnb</Output>
+      <Time>2011-11-25T20:30:45.0049636-06:00</Time>
+      <Dependency>
+        <Key>obj\x86\Debug\Models\sample_bottle_0.xml</Key>
+        <Value>2011-11-25T20:43:55.4651754-06:00</Value>
+      </Dependency>
+      <Request>C:\Users\Junior\Desktop\DogsWithHealthbars\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Models\Chemical1_0.xnb</Request>
+      <Request>C:\Users\Junior\Desktop\DogsWithHealthbars\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Models\TopOfFlask_0.xnb</Request>
+      <Request>C:\Users\Junior\Desktop\DogsWithHealthbars\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Models\RedLiquid_0.xnb</Request>
+      <Request>C:\Users\Junior\Desktop\DogsWithHealthbars\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Models\Chemical2_0.xnb</Request>
     </Item>
     <Item>
       <Source>Audio\Waves\menu_1.wav</Source>
@@ -223,8 +344,8 @@
       <Importer>WavImporter</Importer>
       <Processor>SoundEffectProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Junior\Desktop\GeraldoWithoutCar\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Audio\Waves\menu_1.xnb</Output>
-      <Time>2011-11-22T10:07:44.0661896-06:00</Time>
+      <Output>C:\Users\Junior\Desktop\DogsWithHealthbars\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Audio\Waves\menu_1.xnb</Output>
+      <Time>2011-11-25T20:30:44.1389141-06:00</Time>
     </Item>
     <Item>
       <Source>Audio\Waves\menu_2.wav</Source>
@@ -232,8 +353,8 @@
       <Importer>WavImporter</Importer>
       <Processor>SoundEffectProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Junior\Desktop\GeraldoWithoutCar\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Audio\Waves\menu_2.xnb</Output>
-      <Time>2011-11-22T10:07:44.1831963-06:00</Time>
+      <Output>C:\Users\Junior\Desktop\DogsWithHealthbars\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Audio\Waves\menu_2.xnb</Output>
+      <Time>2011-11-25T20:30:44.1959174-06:00</Time>
     </Item>
     <Item>
       <Source>Audio\Waves\araguzbattlecry.wav</Source>
@@ -241,8 +362,8 @@
       <Importer>WavImporter</Importer>
       <Processor>SoundEffectProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Junior\Desktop\GeraldoWithoutCar\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Audio\Waves\araguzbattlecry.xnb</Output>
-      <Time>2011-11-22T10:07:41.8310618-06:00</Time>
+      <Output>C:\Users\Junior\Desktop\DogsWithHealthbars\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Audio\Waves\araguzbattlecry.xnb</Output>
+      <Time>2011-11-25T20:30:41.9987917-06:00</Time>
     </Item>
     <Item>
       <Source>Audio\Waves\barkingdog.wav</Source>
@@ -250,8 +371,8 @@
       <Importer>WavImporter</Importer>
       <Processor>SoundEffectProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Junior\Desktop\GeraldoWithoutCar\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Audio\Waves\barkingdog.xnb</Output>
-      <Time>2011-11-22T10:07:41.8660638-06:00</Time>
+      <Output>C:\Users\Junior\Desktop\DogsWithHealthbars\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Audio\Waves\barkingdog.xnb</Output>
+      <Time>2011-11-25T20:30:42.0067922-06:00</Time>
     </Item>
     <Item>
       <Source>Audio\Waves\callmegerry.wav</Source>
@@ -259,8 +380,8 @@
       <Importer>WavImporter</Importer>
       <Processor>SoundEffectProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Junior\Desktop\GeraldoWithoutCar\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Audio\Waves\callmegerry.xnb</Output>
-      <Time>2011-11-22T10:07:41.9360678-06:00</Time>
+      <Output>C:\Users\Junior\Desktop\DogsWithHealthbars\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Audio\Waves\callmegerry.xnb</Output>
+      <Time>2011-11-25T20:30:42.074796-06:00</Time>
     </Item>
     <Item>
       <Source>Audio\Waves\carengine.wav</Source>
@@ -268,8 +389,8 @@
       <Importer>WavImporter</Importer>
       <Processor>SoundEffectProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Junior\Desktop\GeraldoWithoutCar\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Audio\Waves\carengine.xnb</Output>
-      <Time>2011-11-22T10:07:42.0080719-06:00</Time>
+      <Output>C:\Users\Junior\Desktop\DogsWithHealthbars\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Audio\Waves\carengine.xnb</Output>
+      <Time>2011-11-25T20:30:42.1317993-06:00</Time>
     </Item>
     <Item>
       <Source>Audio\Waves\donotfear.wav</Source>
@@ -277,8 +398,8 @@
       <Importer>WavImporter</Importer>
       <Processor>SoundEffectProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Junior\Desktop\GeraldoWithoutCar\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Audio\Waves\donotfear.xnb</Output>
-      <Time>2011-11-22T10:07:42.0490742-06:00</Time>
+      <Output>C:\Users\Junior\Desktop\DogsWithHealthbars\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Audio\Waves\donotfear.xnb</Output>
+      <Time>2011-11-25T20:30:42.2908084-06:00</Time>
     </Item>
     <Item>
       <Source>Audio\Waves\gamemusic.wav</Source>
@@ -286,8 +407,8 @@
       <Importer>WavImporter</Importer>
       <Processor>SoundEffectProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Junior\Desktop\GeraldoWithoutCar\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Audio\Waves\gamemusic.xnb</Output>
-      <Time>2011-11-22T10:07:44.0121865-06:00</Time>
+      <Output>C:\Users\Junior\Desktop\DogsWithHealthbars\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Audio\Waves\gamemusic.xnb</Output>
+      <Time>2011-11-25T20:30:43.9729046-06:00</Time>
     </Item>
     <Item>
       <Source>Audio\Waves\jacksonlosecry.wav</Source>
@@ -295,8 +416,8 @@
       <Importer>WavImporter</Importer>
       <Processor>SoundEffectProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Junior\Desktop\GeraldoWithoutCar\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Audio\Waves\jacksonlosecry.xnb</Output>
-      <Time>2011-11-22T13:54:11.4533437-06:00</Time>
+      <Output>C:\Users\Junior\Desktop\DogsWithHealthbars\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Audio\Waves\jacksonlosecry.xnb</Output>
+      <Time>2011-11-25T20:30:44.0399084-06:00</Time>
     </Item>
     <Item>
       <Source>Audio\Waves\jacksontaunt.wav</Source>
@@ -304,8 +425,8 @@
       <Importer>WavImporter</Importer>
       <Processor>SoundEffectProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Junior\Desktop\GeraldoWithoutCar\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Audio\Waves\jacksontaunt.xnb</Output>
-      <Time>2011-11-22T14:03:18.8376523-06:00</Time>
+      <Output>C:\Users\Junior\Desktop\DogsWithHealthbars\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Audio\Waves\jacksontaunt.xnb</Output>
+      <Time>2011-11-25T20:30:44.1049122-06:00</Time>
     </Item>
     <Item>
       <Source>Audio\Waves\jacksonwincry.wav</Source>
@@ -313,8 +434,8 @@
       <Importer>WavImporter</Importer>
       <Processor>SoundEffectProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Junior\Desktop\GeraldoWithoutCar\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Audio\Waves\jacksonwincry.xnb</Output>
-      <Time>2011-11-22T12:04:16.3151234-06:00</Time>
+      <Output>C:\Users\Junior\Desktop\DogsWithHealthbars\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Audio\Waves\jacksonwincry.xnb</Output>
+      <Time>2011-11-25T20:30:44.1319137-06:00</Time>
     </Item>
     <Item>
       <Source>Audio\Waves\motherearth.wav</Source>
@@ -322,8 +443,8 @@
       <Importer>WavImporter</Importer>
       <Processor>SoundEffectProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Junior\Desktop\GeraldoWithoutCar\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Audio\Waves\motherearth.xnb</Output>
-      <Time>2011-11-22T10:07:44.2141981-06:00</Time>
+      <Output>C:\Users\Junior\Desktop\DogsWithHealthbars\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Audio\Waves\motherearth.xnb</Output>
+      <Time>2011-11-25T20:30:44.2159185-06:00</Time>
     </Item>
     <Item>
       <Source>Audio\Waves\winningyell.wav</Source>
@@ -331,8 +452,8 @@
       <Importer>WavImporter</Importer>
       <Processor>SoundEffectProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Junior\Desktop\GeraldoWithoutCar\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Audio\Waves\winningyell.xnb</Output>
-      <Time>2011-11-22T10:07:44.2381995-06:00</Time>
+      <Output>C:\Users\Junior\Desktop\DogsWithHealthbars\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Audio\Waves\winningyell.xnb</Output>
+      <Time>2011-11-25T20:30:44.3789278-06:00</Time>
     </Item>
     <Item>
       <Source>Audio\Waves\becareful.wav</Source>
@@ -340,8 +461,62 @@
       <Importer>WavImporter</Importer>
       <Processor>SoundEffectProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Junior\Desktop\GeraldoWithoutCar\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Audio\Waves\becareful.xnb</Output>
-      <Time>2011-11-23T20:21:16.0122305-06:00</Time>
+      <Output>C:\Users\Junior\Desktop\DogsWithHealthbars\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Audio\Waves\becareful.xnb</Output>
+      <Time>2011-11-25T20:30:42.0547949-06:00</Time>
+    </Item>
+    <Item>
+      <Source>Audio\Waves\dogsinpark.wav</Source>
+      <Name>Audio\Waves\dogsinpark</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Junior\Desktop\DogsWithHealthbars\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Audio\Waves\dogsinpark.xnb</Output>
+      <Time>2011-11-25T20:30:42.2588066-06:00</Time>
+    </Item>
+    <Item>
+      <Source>Audio\Waves\clockisticking.wav</Source>
+      <Name>Audio\Waves\clockisticking</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Junior\Desktop\DogsWithHealthbars\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Audio\Waves\clockisticking.xnb</Output>
+      <Time>2011-11-25T20:30:42.1708015-06:00</Time>
+    </Item>
+    <Item>
+      <Source>Audio\Waves\plasmaray.wav</Source>
+      <Name>Audio\Waves\plasmaray</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Junior\Desktop\DogsWithHealthbars\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Audio\Waves\plasmaray.xnb</Output>
+      <Time>2011-11-25T20:30:44.2449202-06:00</Time>
+    </Item>
+    <Item>
+      <Source>Audio\Waves\totherescue.wav</Source>
+      <Name>Audio\Waves\totherescue</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Junior\Desktop\DogsWithHealthbars\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Audio\Waves\totherescue.xnb</Output>
+      <Time>2011-11-25T20:30:44.3599267-06:00</Time>
+    </Item>
+    <Item>
+      <Source>Audio\Waves\telepath.wav</Source>
+      <Name>Audio\Waves\telepath</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Junior\Desktop\DogsWithHealthbars\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Audio\Waves\telepath.xnb</Output>
+      <Time>2011-11-25T20:30:44.2789221-06:00</Time>
+    </Item>
+    <Item>
+      <Source>Audio\Waves\collectsample.wav</Source>
+      <Name>Audio\Waves\collectsample</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Junior\Desktop\DogsWithHealthbars\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Audio\Waves\collectsample.xnb</Output>
+      <Time>2011-11-25T20:30:42.1908027-06:00</Time>
     </Item>
     <Item>
       <Source>Fonts\gamefont.spritefont</Source>
@@ -349,8 +524,8 @@
       <Importer>FontDescriptionImporter</Importer>
       <Processor>FontDescriptionProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Junior\Desktop\GeraldoWithoutCar\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Fonts\gamefont.xnb</Output>
-      <Time>2011-11-23T12:16:00.4099133-06:00</Time>
+      <Output>C:\Users\Junior\Desktop\DogsWithHealthbars\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Fonts\gamefont.xnb</Output>
+      <Time>2011-11-25T20:30:44.4929344-06:00</Time>
     </Item>
     <Item>
       <Source>Fonts\menufont.spritefont</Source>
@@ -358,8 +533,8 @@
       <Importer>FontDescriptionImporter</Importer>
       <Processor>FontDescriptionProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Junior\Desktop\GeraldoWithoutCar\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Fonts\menufont.xnb</Output>
-      <Time>2011-11-23T12:16:00.4249141-06:00</Time>
+      <Output>C:\Users\Junior\Desktop\DogsWithHealthbars\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Fonts\menufont.xnb</Output>
+      <Time>2011-11-25T20:30:44.5129355-06:00</Time>
     </Item>
     <Item>
       <Source>Fonts\ingamefont.spritefont</Source>
@@ -367,8 +542,8 @@
       <Importer>FontDescriptionImporter</Importer>
       <Processor>FontDescriptionProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Junior\Desktop\GeraldoWithoutCar\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Fonts\ingamefont.xnb</Output>
-      <Time>2011-11-23T12:16:00.4159136-06:00</Time>
+      <Output>C:\Users\Junior\Desktop\DogsWithHealthbars\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Fonts\ingamefont.xnb</Output>
+      <Time>2011-11-25T20:30:44.4989347-06:00</Time>
     </Item>
     <Item>
       <Source>Models\ball.x</Source>
@@ -376,13 +551,13 @@
       <Importer>XImporter</Importer>
       <Processor>ModelProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Junior\Desktop\GeraldoWithoutCar\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Models\ball.xnb</Output>
-      <Time>2011-11-23T12:16:00.4359148-06:00</Time>
+      <Output>C:\Users\Junior\Desktop\DogsWithHealthbars\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Models\ball.xnb</Output>
+      <Time>2011-11-25T20:30:44.5779392-06:00</Time>
       <Dependency>
         <Key>obj\x86\Debug\Models\ball_0.xml</Key>
-        <Value>2011-11-23T19:51:29.9090712-06:00</Value>
+        <Value>2011-11-25T20:44:02.8595983-06:00</Value>
       </Dependency>
-      <Request>C:\Users\Junior\Desktop\GeraldoWithoutCar\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Models\ball_decal_map_0.xnb</Request>
+      <Request>C:\Users\Junior\Desktop\DogsWithHealthbars\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Models\ball_decal_map_0.xnb</Request>
     </Item>
     <Item>
       <Source>Effects\effects.fx</Source>
@@ -390,8 +565,8 @@
       <Importer>EffectImporter</Importer>
       <Processor>EffectProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Junior\Desktop\GeraldoWithoutCar\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Effects\effects.xnb</Output>
-      <Time>2011-11-23T12:16:00.3999127-06:00</Time>
+      <Output>C:\Users\Junior\Desktop\DogsWithHealthbars\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Effects\effects.xnb</Output>
+      <Time>2011-11-25T20:30:44.4799336-06:00</Time>
     </Item>
     <Item>
       <Source>rocks.bmp</Source>
@@ -406,15 +581,15 @@
         <Data Key="PremultiplyAlpha" Type="bool">true</Data>
       </Parameters>
       <Options>None</Options>
-      <Output>C:\Users\Junior\Desktop\GeraldoWithoutCar\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\rocks_0.xnb</Output>
-      <Time>2011-11-23T12:16:02.8200511-06:00</Time>
+      <Output>C:\Users\Junior\Desktop\DogsWithHealthbars\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\rocks_0.xnb</Output>
+      <Time>2011-11-25T20:30:45.7910086-06:00</Time>
     </Item>
     <Item>
       <Source>Models\p1_wedge.fbx</Source>
       <Importer>FbxImporter</Importer>
       <Options>IntermediateFile, DontCacheImportedData</Options>
       <Output>obj\x86\Debug\Models\p1_wedge_0.xml</Output>
-      <Time>2011-11-23T12:16:00.8959411-06:00</Time>
+      <Time>2011-11-25T20:30:44.9729618-06:00</Time>
     </Item>
     <Item>
       <Source>textures\wedge_p1_diff_v1.tga</Source>
@@ -429,15 +604,15 @@
         <Data Key="PremultiplyAlpha" Type="bool">true</Data>
       </Parameters>
       <Options>None</Options>
-      <Output>C:\Users\Junior\Desktop\GeraldoWithoutCar\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\textures\wedge_p1_diff_v1_0.xnb</Output>
-      <Time>2011-11-23T12:16:01.5629792-06:00</Time>
+      <Output>C:\Users\Junior\Desktop\DogsWithHealthbars\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\textures\wedge_p1_diff_v1_0.xnb</Output>
+      <Time>2011-11-25T20:30:45.2489776-06:00</Time>
     </Item>
     <Item>
       <Source>Models\squirrel.fbx</Source>
       <Importer>FbxImporter</Importer>
       <Options>IntermediateFile, DontCacheImportedData</Options>
       <Output>obj\x86\Debug\Models\squirrel_0.xml</Output>
-      <Time>2011-11-23T12:16:01.2639621-06:00</Time>
+      <Time>2011-11-25T20:30:45.0479661-06:00</Time>
     </Item>
     <Item>
       <Source>Models\gloves.dds</Source>
@@ -452,8 +627,8 @@
         <Data Key="PremultiplyAlpha" Type="bool">true</Data>
       </Parameters>
       <Options>None</Options>
-      <Output>C:\Users\Junior\Desktop\GeraldoWithoutCar\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Models\gloves_0.xnb</Output>
-      <Time>2011-11-23T12:16:00.6819288-06:00</Time>
+      <Output>C:\Users\Junior\Desktop\DogsWithHealthbars\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Models\gloves_0.xnb</Output>
+      <Time>2011-11-25T20:30:44.94096-06:00</Time>
     </Item>
     <Item>
       <Source>Models\clr_armor.jpg</Source>
@@ -468,8 +643,8 @@
         <Data Key="PremultiplyAlpha" Type="bool">true</Data>
       </Parameters>
       <Options>None</Options>
-      <Output>C:\Users\Junior\Desktop\GeraldoWithoutCar\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Models\clr_armor_0.xnb</Output>
-      <Time>2011-11-23T12:16:00.631926-06:00</Time>
+      <Output>C:\Users\Junior\Desktop\DogsWithHealthbars\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Models\clr_armor_0.xnb</Output>
+      <Time>2011-11-25T20:30:44.6729446-06:00</Time>
     </Item>
     <Item>
       <Source>Models\squirrel_headbody.jpg</Source>
@@ -484,15 +659,15 @@
         <Data Key="PremultiplyAlpha" Type="bool">true</Data>
       </Parameters>
       <Options>None</Options>
-      <Output>C:\Users\Junior\Desktop\GeraldoWithoutCar\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Models\squirrel_headbody_0.xnb</Output>
-      <Time>2011-11-23T12:16:01.3569674-06:00</Time>
+      <Output>C:\Users\Junior\Desktop\DogsWithHealthbars\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Models\squirrel_headbody_0.xnb</Output>
+      <Time>2011-11-25T20:30:45.0599668-06:00</Time>
     </Item>
     <Item>
       <Source>Models\rabiddog.fbx</Source>
       <Importer>FbxImporter</Importer>
       <Options>IntermediateFile, DontCacheImportedData</Options>
       <Output>obj\x86\Debug\Models\rabiddog_0.xml</Output>
-      <Time>2011-11-23T12:16:00.929943-06:00</Time>
+      <Time>2011-11-25T20:30:44.9839624-06:00</Time>
     </Item>
     <Item>
       <Source>images\DogSkin.jpg</Source>
@@ -507,8 +682,8 @@
         <Data Key="PremultiplyAlpha" Type="bool">true</Data>
       </Parameters>
       <Options>None</Options>
-      <Output>C:\Users\Junior\Desktop\GeraldoWithoutCar\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\images\DogSkin_0.xnb</Output>
-      <Time>2011-11-23T12:16:02.0210054-06:00</Time>
+      <Output>C:\Users\Junior\Desktop\DogsWithHealthbars\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\images\DogSkin_0.xnb</Output>
+      <Time>2011-11-25T20:30:45.3019806-06:00</Time>
     </Item>
     <Item>
       <Source>images\DogPupil.jpg</Source>
@@ -523,8 +698,8 @@
         <Data Key="PremultiplyAlpha" Type="bool">true</Data>
       </Parameters>
       <Options>None</Options>
-      <Output>C:\Users\Junior\Desktop\GeraldoWithoutCar\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\images\DogPupil_0.xnb</Output>
-      <Time>2011-11-23T12:16:01.9390007-06:00</Time>
+      <Output>C:\Users\Junior\Desktop\DogsWithHealthbars\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\images\DogPupil_0.xnb</Output>
+      <Time>2011-11-25T20:30:45.2949802-06:00</Time>
     </Item>
     <Item>
       <Source>images\DogEyes.jpg</Source>
@@ -539,15 +714,15 @@
         <Data Key="PremultiplyAlpha" Type="bool">true</Data>
       </Parameters>
       <Options>None</Options>
-      <Output>C:\Users\Junior\Desktop\GeraldoWithoutCar\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\images\DogEyes_0.xnb</Output>
-      <Time>2011-11-23T12:16:01.9330004-06:00</Time>
+      <Output>C:\Users\Junior\Desktop\DogsWithHealthbars\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\images\DogEyes_0.xnb</Output>
+      <Time>2011-11-25T20:30:45.2899799-06:00</Time>
     </Item>
     <Item>
       <Source>Models\troubled_canine.fbx</Source>
       <Importer>FbxImporter</Importer>
       <Options>IntermediateFile, DontCacheImportedData</Options>
       <Output>obj\x86\Debug\Models\troubled_canine_0.xml</Output>
-      <Time>2011-11-23T18:25:29.050887-06:00</Time>
+      <Time>2011-11-25T20:30:45.1299708-06:00</Time>
     </Item>
     <Item>
       <Source>Models\DogSkin.jpg</Source>
@@ -562,8 +737,8 @@
         <Data Key="PremultiplyAlpha" Type="bool">true</Data>
       </Parameters>
       <Options>None</Options>
-      <Output>C:\Users\Junior\Desktop\GeraldoWithoutCar\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Models\DogSkin_0.xnb</Output>
-      <Time>2011-11-22T10:07:45.9502974-06:00</Time>
+      <Output>C:\Users\Junior\Desktop\DogsWithHealthbars\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Models\DogSkin_0.xnb</Output>
+      <Time>2011-11-25T20:30:44.5539378-06:00</Time>
     </Item>
     <Item>
       <Source>Models\DogPupil.jpg</Source>
@@ -578,8 +753,8 @@
         <Data Key="PremultiplyAlpha" Type="bool">true</Data>
       </Parameters>
       <Options>None</Options>
-      <Output>C:\Users\Junior\Desktop\GeraldoWithoutCar\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Models\DogPupil_0.xnb</Output>
-      <Time>2011-11-22T10:07:45.944297-06:00</Time>
+      <Output>C:\Users\Junior\Desktop\DogsWithHealthbars\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Models\DogPupil_0.xnb</Output>
+      <Time>2011-11-25T20:30:44.5469374-06:00</Time>
     </Item>
     <Item>
       <Source>Models\DogEyes.jpg</Source>
@@ -594,61 +769,15 @@
         <Data Key="PremultiplyAlpha" Type="bool">true</Data>
       </Parameters>
       <Options>None</Options>
-      <Output>C:\Users\Junior\Desktop\GeraldoWithoutCar\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Models\DogEyes_0.xnb</Output>
-      <Time>2011-11-22T10:07:45.9402968-06:00</Time>
+      <Output>C:\Users\Junior\Desktop\DogsWithHealthbars\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Models\DogEyes_0.xnb</Output>
+      <Time>2011-11-25T20:30:44.5419372-06:00</Time>
     </Item>
     <Item>
       <Source>Models\geraldo_araguz.fbx</Source>
       <Importer>FbxImporter</Importer>
       <Options>IntermediateFile, DontCacheImportedData</Options>
       <Output>obj\x86\Debug\Models\geraldo_araguz_0.xml</Output>
-      <Time>2011-11-23T22:11:34.5907915-06:00</Time>
-    </Item>
-    <Item>
-      <Source>Models\ball.x</Source>
-      <Importer>XImporter</Importer>
-      <Options>IntermediateFile, DontCacheImportedData</Options>
-      <Output>obj\x86\Debug\Models\ball_0.xml</Output>
-      <Time>2011-11-23T12:16:00.4359148-06:00</Time>
-    </Item>
-    <Item>
-      <Source>Models\ball_decal_map.dds</Source>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Parameters>
-        <Data Key="ColorKeyColor" Type="Framework:Color">FFFF00FF</Data>
-        <Data Key="ColorKeyEnabled" Type="bool">true</Data>
-        <Data Key="TextureFormat" Type="Processors:TextureProcessorOutputFormat">DxtCompressed</Data>
-        <Data Key="GenerateMipmaps" Type="bool">true</Data>
-        <Data Key="ResizeToPowerOfTwo" Type="bool">false</Data>
-        <Data Key="PremultiplyAlpha" Type="bool">true</Data>
-      </Parameters>
-      <Options>None</Options>
-      <Output>C:\Users\Junior\Desktop\GeraldoWithoutCar\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Models\ball_decal_map_0.xnb</Output>
-      <Time>2011-11-23T12:16:00.510919-06:00</Time>
-    </Item>
-    <Item>
-      <Source>Audio\Waves\dogsinpark.wav</Source>
-      <Name>Audio\Waves\dogsinpark</Name>
-      <Importer>WavImporter</Importer>
-      <Processor>SoundEffectProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Junior\Desktop\GeraldoWithoutCar\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Audio\Waves\dogsinpark.xnb</Output>
-      <Time>2011-11-23T20:43:41.5291896-06:00</Time>
-    </Item>
-    <Item>
-      <Source>Models\geraldo_araguz.fbx</Source>
-      <Name>Models\geraldo_araguz</Name>
-      <Importer>FbxImporter</Importer>
-      <Processor>SkinnedModelProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Junior\Desktop\GeraldoWithoutCar\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Models\geraldo_araguz.xnb</Output>
-      <Time>2011-11-23T22:11:34.5907915-06:00</Time>
-      <Dependency>
-        <Key>obj\x86\Debug\Models\geraldo_araguz_0.xml</Key>
-        <Value>2011-11-23T22:12:10.9058686-06:00</Value>
-      </Dependency>
-      <Request>C:\Users\Junior\Desktop\GeraldoWithoutCar\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\gerry_tx_0.xnb</Request>
+      <Time>2011-11-25T20:30:44.8549551-06:00</Time>
     </Item>
     <Item>
       <Source>C:\UH\SkinningSample_4_0\SkinningSample\Content\gerry_tx.jpg</Source>
@@ -663,122 +792,15 @@
         <Data Key="PremultiplyAlpha" Type="bool">true</Data>
       </Parameters>
       <Options>None</Options>
-      <Output>C:\Users\Junior\Desktop\GeraldoWithoutCar\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\gerry_tx_0.xnb</Output>
+      <Output>C:\Users\Junior\Desktop\DogsWithHealthbars\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\gerry_tx_0.xnb</Output>
       <Time>2011-11-23T18:10:22.3440263-06:00</Time>
-    </Item>
-    <Item>
-      <Source>Models\Chemical1.jpg</Source>
-      <Name>Models\Chemical1</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Junior\Desktop\GeraldoWithoutCar\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Models\Chemical1.xnb</Output>
-      <Time>2011-10-29T20:41:23.2457842-05:00</Time>
-    </Item>
-    <Item>
-      <Source>Models\Chemical2.jpg</Source>
-      <Name>Models\Chemical2</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Junior\Desktop\GeraldoWithoutCar\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Models\Chemical2.xnb</Output>
-      <Time>2011-10-29T22:19:52.5277758-05:00</Time>
-    </Item>
-    <Item>
-      <Source>Models\gray.jpg</Source>
-      <Name>Models\gray</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Junior\Desktop\GeraldoWithoutCar\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Models\gray.xnb</Output>
-      <Time>2011-11-12T17:20:38.5789764-06:00</Time>
-    </Item>
-    <Item>
-      <Source>Models\RedLiquid.jpg</Source>
-      <Name>Models\RedLiquid</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Junior\Desktop\GeraldoWithoutCar\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Models\RedLiquid.xnb</Output>
-      <Time>2011-10-29T21:55:12.2051062-05:00</Time>
-    </Item>
-    <Item>
-      <Source>Models\TopOfFlask.jpg</Source>
-      <Name>Models\TopOfFlask</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Junior\Desktop\GeraldoWithoutCar\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Models\TopOfFlask.xnb</Output>
-      <Time>2011-10-29T20:51:59.6861866-05:00</Time>
-    </Item>
-    <Item>
-      <Source>Textures\Chemical1.jpg</Source>
-      <Name>Textures\Chemical1</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Junior\Desktop\GeraldoWithoutCar\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Textures\Chemical1.xnb</Output>
-      <Time>2011-10-29T20:41:23.2457842-05:00</Time>
-    </Item>
-    <Item>
-      <Source>Textures\Chemical2.jpg</Source>
-      <Name>Textures\Chemical2</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Junior\Desktop\GeraldoWithoutCar\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Textures\Chemical2.xnb</Output>
-      <Time>2011-10-29T22:19:52.5277758-05:00</Time>
-    </Item>
-    <Item>
-      <Source>Textures\gray.jpg</Source>
-      <Name>Textures\gray</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Junior\Desktop\GeraldoWithoutCar\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Textures\gray.xnb</Output>
-      <Time>2011-11-12T17:20:38.5789764-06:00</Time>
-    </Item>
-    <Item>
-      <Source>Textures\RedLiquid.jpg</Source>
-      <Name>Textures\RedLiquid</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Junior\Desktop\GeraldoWithoutCar\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Textures\RedLiquid.xnb</Output>
-      <Time>2011-10-29T21:55:12.2051062-05:00</Time>
-    </Item>
-    <Item>
-      <Source>Textures\TopOfFlask.jpg</Source>
-      <Name>Textures\TopOfFlask</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Junior\Desktop\GeraldoWithoutCar\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Textures\TopOfFlask.xnb</Output>
-      <Time>2011-10-29T20:51:59.6861866-05:00</Time>
-    </Item>
-    <Item>
-      <Source>Models\sample_bottle.fbx</Source>
-      <Name>Models\sample_bottle</Name>
-      <Importer>FbxImporter</Importer>
-      <Processor>ModelProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Junior\Desktop\GeraldoWithoutCar\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Models\sample_bottle.xnb</Output>
-      <Time>2011-11-25T14:07:23.2523386-06:00</Time>
-      <Dependency>
-        <Key>obj\x86\Debug\Models\sample_bottle_0.xml</Key>
-        <Value>2011-11-25T14:23:55.7871084-06:00</Value>
-      </Dependency>
-      <Request>C:\Users\Junior\Desktop\GeraldoWithoutCar\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Models\Chemical1_0.xnb</Request>
-      <Request>C:\Users\Junior\Desktop\GeraldoWithoutCar\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Models\TopOfFlask_0.xnb</Request>
-      <Request>C:\Users\Junior\Desktop\GeraldoWithoutCar\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Models\RedLiquid_0.xnb</Request>
-      <Request>C:\Users\Junior\Desktop\GeraldoWithoutCar\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Models\Chemical2_0.xnb</Request>
     </Item>
     <Item>
       <Source>Models\sample_bottle.fbx</Source>
       <Importer>FbxImporter</Importer>
       <Options>IntermediateFile, DontCacheImportedData</Options>
       <Output>obj\x86\Debug\Models\sample_bottle_0.xml</Output>
-      <Time>2011-11-25T14:07:23.2523386-06:00</Time>
+      <Time>2011-11-25T20:30:45.0049636-06:00</Time>
     </Item>
     <Item>
       <Source>Models\Chemical1.jpg</Source>
@@ -793,8 +815,8 @@
         <Data Key="PremultiplyAlpha" Type="bool">true</Data>
       </Parameters>
       <Options>None</Options>
-      <Output>C:\Users\Junior\Desktop\GeraldoWithoutCar\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Models\Chemical1_0.xnb</Output>
-      <Time>2011-10-29T20:41:23.2457842-05:00</Time>
+      <Output>C:\Users\Junior\Desktop\DogsWithHealthbars\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Models\Chemical1_0.xnb</Output>
+      <Time>2011-11-25T20:30:44.5309365-06:00</Time>
     </Item>
     <Item>
       <Source>Models\TopOfFlask.jpg</Source>
@@ -809,8 +831,8 @@
         <Data Key="PremultiplyAlpha" Type="bool">true</Data>
       </Parameters>
       <Options>None</Options>
-      <Output>C:\Users\Junior\Desktop\GeraldoWithoutCar\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Models\TopOfFlask_0.xnb</Output>
-      <Time>2011-10-29T20:51:59.6861866-05:00</Time>
+      <Output>C:\Users\Junior\Desktop\DogsWithHealthbars\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Models\TopOfFlask_0.xnb</Output>
+      <Time>2011-11-25T20:30:44.5669386-06:00</Time>
     </Item>
     <Item>
       <Source>Models\RedLiquid.jpg</Source>
@@ -825,8 +847,8 @@
         <Data Key="PremultiplyAlpha" Type="bool">true</Data>
       </Parameters>
       <Options>None</Options>
-      <Output>C:\Users\Junior\Desktop\GeraldoWithoutCar\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Models\RedLiquid_0.xnb</Output>
-      <Time>2011-10-29T21:55:12.2051062-05:00</Time>
+      <Output>C:\Users\Junior\Desktop\DogsWithHealthbars\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Models\RedLiquid_0.xnb</Output>
+      <Time>2011-11-25T20:30:44.5599382-06:00</Time>
     </Item>
     <Item>
       <Source>Models\Chemical2.jpg</Source>
@@ -841,53 +863,31 @@
         <Data Key="PremultiplyAlpha" Type="bool">true</Data>
       </Parameters>
       <Options>None</Options>
-      <Output>C:\Users\Junior\Desktop\GeraldoWithoutCar\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Models\Chemical2_0.xnb</Output>
-      <Time>2011-10-29T22:19:52.5277758-05:00</Time>
+      <Output>C:\Users\Junior\Desktop\DogsWithHealthbars\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Models\Chemical2_0.xnb</Output>
+      <Time>2011-11-25T20:30:44.5359368-06:00</Time>
     </Item>
     <Item>
-      <Source>Audio\Waves\clockisticking.wav</Source>
-      <Name>Audio\Waves\clockisticking</Name>
-      <Importer>WavImporter</Importer>
-      <Processor>SoundEffectProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Junior\Desktop\GeraldoWithoutCar\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Audio\Waves\clockisticking.xnb</Output>
-      <Time>2011-11-25T16:26:55.0111759-06:00</Time>
+      <Source>Models\ball.x</Source>
+      <Importer>XImporter</Importer>
+      <Options>IntermediateFile, DontCacheImportedData</Options>
+      <Output>obj\x86\Debug\Models\ball_0.xml</Output>
+      <Time>2011-11-25T20:30:44.5779392-06:00</Time>
     </Item>
     <Item>
-      <Source>Audio\Waves\plasmaray.wav</Source>
-      <Name>Audio\Waves\plasmaray</Name>
-      <Importer>WavImporter</Importer>
-      <Processor>SoundEffectProcessor</Processor>
+      <Source>Models\ball_decal_map.dds</Source>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Parameters>
+        <Data Key="ColorKeyColor" Type="Framework:Color">FFFF00FF</Data>
+        <Data Key="ColorKeyEnabled" Type="bool">true</Data>
+        <Data Key="TextureFormat" Type="Processors:TextureProcessorOutputFormat">DxtCompressed</Data>
+        <Data Key="GenerateMipmaps" Type="bool">true</Data>
+        <Data Key="ResizeToPowerOfTwo" Type="bool">false</Data>
+        <Data Key="PremultiplyAlpha" Type="bool">true</Data>
+      </Parameters>
       <Options>None</Options>
-      <Output>C:\Users\Junior\Desktop\GeraldoWithoutCar\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Audio\Waves\plasmaray.xnb</Output>
-      <Time>2011-11-25T17:23:04.5699036-06:00</Time>
-    </Item>
-    <Item>
-      <Source>Audio\Waves\totherescue.wav</Source>
-      <Name>Audio\Waves\totherescue</Name>
-      <Importer>WavImporter</Importer>
-      <Processor>SoundEffectProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Junior\Desktop\GeraldoWithoutCar\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Audio\Waves\totherescue.xnb</Output>
-      <Time>2011-11-25T17:50:54.7084301-06:00</Time>
-    </Item>
-    <Item>
-      <Source>Audio\Waves\telepath.wav</Source>
-      <Name>Audio\Waves\telepath</Name>
-      <Importer>WavImporter</Importer>
-      <Processor>SoundEffectProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Junior\Desktop\GeraldoWithoutCar\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Audio\Waves\telepath.xnb</Output>
-      <Time>2011-11-25T17:58:56.5029871-06:00</Time>
-    </Item>
-    <Item>
-      <Source>Audio\Waves\collectsample.wav</Source>
-      <Name>Audio\Waves\collectsample</Name>
-      <Importer>WavImporter</Importer>
-      <Processor>SoundEffectProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Junior\Desktop\GeraldoWithoutCar\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Audio\Waves\collectsample.xnb</Output>
-      <Time>2011-11-25T19:13:39.746414-06:00</Time>
+      <Output>C:\Users\Junior\Desktop\DogsWithHealthbars\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\Models\ball_decal_map_0.xnb</Output>
+      <Time>2011-11-25T20:30:44.660944-06:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
@@ -895,10 +895,10 @@
       <TargetProfile>Reach</TargetProfile>
       <BuildConfiguration>Debug</BuildConfiguration>
       <CompressContent>false</CompressContent>
-      <RootDirectory>C:\Users\Junior\Desktop\GeraldoWithoutCar\Rabies-X\RabiesX_WIN_XBOX\Content\</RootDirectory>
-      <LoggerRootDirectory>C:\Users\Junior\Desktop\GeraldoWithoutCar\Rabies-X\RabiesX_WIN_XBOX\RabiesX\</LoggerRootDirectory>
-      <IntermediateDirectory>C:\Users\Junior\Desktop\GeraldoWithoutCar\Rabies-X\RabiesX_WIN_XBOX\Content\obj\x86\Debug\</IntermediateDirectory>
-      <OutputDirectory>C:\Users\Junior\Desktop\GeraldoWithoutCar\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\</OutputDirectory>
+      <RootDirectory>C:\Users\Junior\Desktop\DogsWithHealthbars\Rabies-X\RabiesX_WIN_XBOX\Content\</RootDirectory>
+      <LoggerRootDirectory>C:\Users\Junior\Desktop\DogsWithHealthbars\Rabies-X\RabiesX_WIN_XBOX\RabiesX\</LoggerRootDirectory>
+      <IntermediateDirectory>C:\Users\Junior\Desktop\DogsWithHealthbars\Rabies-X\RabiesX_WIN_XBOX\Content\obj\x86\Debug\</IntermediateDirectory>
+      <OutputDirectory>C:\Users\Junior\Desktop\DogsWithHealthbars\Rabies-X\RabiesX_WIN_XBOX\RabiesX\bin\x86\Debug\Content\</OutputDirectory>
     </Settings>
     <Assemblies>
       <Assembly>
@@ -910,8 +910,8 @@
         <Value>2011-10-21T16:35:42.4229137-05:00</Value>
       </Assembly>
       <Assembly>
-        <Key>C:\Users\Junior\Desktop\GeraldoWithoutCar\Rabies-X\RabiesX_WIN_XBOX\RabiesXPipeline\bin\x86\Debug\RabiesXPipeline.dll</Key>
-        <Value>2011-11-23T19:45:31.930596-06:00</Value>
+        <Key>C:\Users\Junior\Desktop\DogsWithHealthbars\Rabies-X\RabiesX_WIN_XBOX\RabiesXPipeline\bin\x86\Debug\RabiesXPipeline.dll</Key>
+        <Value>2011-11-25T20:30:57.3166678-06:00</Value>
       </Assembly>
       <Assembly>
         <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.XImporter.dll</Key>

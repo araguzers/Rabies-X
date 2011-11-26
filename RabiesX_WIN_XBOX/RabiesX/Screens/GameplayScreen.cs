@@ -54,7 +54,7 @@ namespace RabiesX
         private int timeLeft = MAX_TIME_LEFT;
         int elapsedUpdateTime = 0;
 
-        private int TOTAL_RABID_DOGS = 10;
+        private int TOTAL_RABID_DOGS = 5;
 
         private int initialNumberOfDogs;
 
@@ -366,9 +366,9 @@ namespace RabiesX
                 rabidDogPreviousPositions.Add(new Vector3());
             }
 
-            healed = new bool[TOTAL_RABID_DOGS];
-            collected = new bool[TOTAL_RABID_DOGS];
-            for (int index = 0; index < TOTAL_RABID_DOGS; index++)
+            healed = new bool[initialNumberOfDogs];
+            collected = new bool[initialNumberOfDogs];
+            for (int index = 0; index < initialNumberOfDogs; index++)
             {
                 healed[index] = false;
                 collected[index] = false;
@@ -788,31 +788,34 @@ namespace RabiesX
 
             bool enemiesDeadChk = true;
             // keep player from colliding with enemies and decrease health if collision
-            for (int k = 0; k < TOTAL_RABID_DOGS; k++)
+            for (int k = 0; k < initialNumberOfDogs; k++)
             {
-                if ((((Math.Abs(playerEntity.Position.X - rabidDogEntities[k].Position.X) + Math.Abs(playerEntity.Position.Z - rabidDogEntities[k].Position.Z)) / 2) < (playerRadius + rabidDogRadii[k] - 19.5)))
+                if (!healed[k])
                 {
-                    playerEntity.Position = playerPrevPosition;
-                    playerHealthDecr += 0.1f; // add up damage to player
-                    if (playerHealthDecr >= 1.0f)
+                    if ((((Math.Abs(playerEntity.Position.X - rabidDogEntities[k].Position.X) + Math.Abs(playerEntity.Position.Z - rabidDogEntities[k].Position.Z)) / 2) < (playerRadius + rabidDogRadii[k] - 19.5)))
                     {
-                        mCurrentHealth -= 1; // decrease player health by 1 unit
-                        //Force the health to remain between 0 and 100.           
-                        mCurrentHealth = (int)MathHelper.Clamp(mCurrentHealth, 0, 100);
-                        playerHealthDecr = 0.0f;
+                        playerEntity.Position = playerPrevPosition;
+                        playerHealthDecr += 0.1f; // add up damage to player
+                        if (playerHealthDecr >= 1.0f)
+                        {
+                            mCurrentHealth -= 1; // decrease player health by 1 unit
+                            //Force the health to remain between 0 and 100.           
+                            mCurrentHealth = (int)MathHelper.Clamp(mCurrentHealth, 0, 100);
+                            playerHealthDecr = 0.0f;
+                        }
                     }
-                }
-                if ((enemiesDeadChk == true) && (rabidDogHealths[k] > 0))
-                {
-                    enemiesDeadChk = false;
+                    if ((enemiesDeadChk == true) && (rabidDogHealths[k] > 0))
+                    {
+                        enemiesDeadChk = false;
+                    }
                 }
             }
             //detects collision with disease sample, represented by a set of bottles
             for (int index = 0; index < bottleEntities.Count; index++)
             {
-                if (!collected[index])
+                if ((((Math.Abs(playerEntity.Position.X - bottleEntities[index].Position.X) + Math.Abs(playerEntity.Position.Z - bottleEntities[index].Position.Z)) / 2) < (playerRadius + bottleRadii[index] - 19.5)))
                 {
-                    if ((((Math.Abs(playerEntity.Position.X - bottleEntities[index].Position.X) + Math.Abs(playerEntity.Position.Z - bottleEntities[index].Position.Z)) / 2) < (playerRadius + bottleRadii[index] - 19.5)))
+                    if(!collected[index])
                     {
                         collected[index] = true;
                         numberOfCollectedSamples++;
@@ -821,9 +824,14 @@ namespace RabiesX
                 }
             }
 
-            if ((enemiesDeadChk == true) && (((Math.Abs(playerEntity.Position.X - indicatorPos.X) + Math.Abs(playerEntity.Position.Z - indicatorPos.Z)) / 2) < (playerRadius + indicatorScale*2 - 19.5)))
+            if ((enemiesDeadChk == true) && (numberOfCollectedSamples == initialNumberOfDogs) && (((Math.Abs(playerEntity.Position.X - indicatorPos.X) + Math.Abs(playerEntity.Position.Z - indicatorPos.Z)) / 2) < (playerRadius + indicatorScale*2 - 19.5)))
             {
                 // player can advance to next level
+                soundInstance.Stop();
+                winInstance.Play();
+                jacksonlosecryInstance.Play();
+                if (!barkInstance.IsDisposed)
+                    barkInstance.Dispose();
                 ScreenManager.AddScreen(new NextLevelScreen(), ControllingPlayer);
             }
 
@@ -868,43 +876,39 @@ namespace RabiesX
 
                 // check if bullet hits an enemy and decrease the enemy's health
                 BoundingSphere bulletSphere = new BoundingSphere(currentBullet.position, 0.05f);
-                for (int j = 0; j < TOTAL_RABID_DOGS; j++)
+                for (int j = 0; j < initialNumberOfDogs; j++)
                 {
-                    BoundingSphere enemySphere = new BoundingSphere(rabidDogEntities[j].Position, rabidDogModels[j].ModelHeld.Meshes[0].BoundingSphere.Radius);
-                    if (bulletSphere.Intersects(enemySphere))                    
+                    if (!healed[j])
                     {
-                        rabidDogEntities[j].Position = rabidDogPreviousPositions[j];
-                        bottleEntities[j].Position = rabidDogPreviousPositions[j];
-
-                        bulletList.RemoveAt(i);
-                        i--;
-
-                        rabidDogHealthDecrs[j] += 0.5f; // add up damage to enemy
-                        if (rabidDogHealthDecrs[j] >= 1.0f)
+                        BoundingSphere enemySphere = new BoundingSphere(rabidDogEntities[j].Position, rabidDogModels[j].ModelHeld.Meshes[0].BoundingSphere.Radius);
+                        if (bulletSphere.Intersects(enemySphere))
                         {
-                            rabidDogHealths[j] -= 15; // decrease enemy health by 1 unit
-                            //Force the health to remain between 0 and 100.           
-                            rabidDogHealthDecrs[j] = 0.0f;
-                        }
-                        // check enemy health and destroy enemy if no health left
-                        if (rabidDogHealths[j] <= 0)
-                        {
-                            rabidDogRadii.RemoveAt(j);
-                            rabidDogModels.RemoveAt(j);
-                            rabidDogBounds.RemoveAt(j);
-                            rabidDogHealths.RemoveAt(j);
-                            rabidDogEntities.RemoveAt(j);
-                            rabidDogHealthDecrs.RemoveAt(j);
-                            rabidDogPreviousPositions.RemoveAt(j);
-                            healed[j] = true;
-                            TOTAL_RABID_DOGS--;
-                            if (TOTAL_RABID_DOGS == 0)
+                            rabidDogEntities[j].Position = rabidDogPreviousPositions[j];
+                            bottleEntities[j].Position = rabidDogPreviousPositions[j];
+
+                            bulletList.RemoveAt(i);
+                            i--;
+
+                            rabidDogHealthDecrs[j] += 0.5f; // add up damage to enemy
+                            if (rabidDogHealthDecrs[j] >= 1.0f)
                             {
-                                if (!barkInstance.IsDisposed)
-                                    barkInstance.Dispose();
+                                rabidDogHealths[j] -= 15; // decrease enemy health by 1 unit
+                                //Force the health to remain between 0 and 100.           
+                                rabidDogHealthDecrs[j] = 0.0f;
                             }
-                            //CreateBottle(currentPosition);
-                            break;
+                            // check enemy health and destroy enemy if no health left
+                            if (rabidDogHealths[j] <= 0)
+                            {
+                                healed[j] = true;
+                                TOTAL_RABID_DOGS--;
+                                if (TOTAL_RABID_DOGS == 0)
+                                {
+                                    if (!barkInstance.IsDisposed)
+                                        barkInstance.Dispose();
+                                }
+                                //CreateBottle(currentPosition);
+                                break;
+                            }
                         }
                     }
             }
@@ -936,72 +940,75 @@ namespace RabiesX
 
         private void UpdateEnemies(GameTime gameTime)
         {
-            for (int i = 0; i < TOTAL_RABID_DOGS; i++)
+            for (int i = 0; i < initialNumberOfDogs; i++)
             {
-                rabidDogPreviousPositions[i] = rabidDogEntities[i].Position;
-                double xDiff = rabidDogEntities[i].Position.X - playerEntity.Position.X;
-                double zDiff = rabidDogEntities[i].Position.Z - playerEntity.Position.Z;
-                double distFromPlayer = Math.Sqrt(Math.Pow(xDiff, 2) + Math.Pow(zDiff, 2));
-                if (distFromPlayer < 700)
+                if (!healed[i])
                 {
-                    if (rabidDogEntities[i].Position.X < playerEntity.Position.X)
+                    rabidDogPreviousPositions[i] = rabidDogEntities[i].Position;
+                    double xDiff = rabidDogEntities[i].Position.X - playerEntity.Position.X;
+                    double zDiff = rabidDogEntities[i].Position.Z - playerEntity.Position.Z;
+                    double distFromPlayer = Math.Sqrt(Math.Pow(xDiff, 2) + Math.Pow(zDiff, 2));
+                    if (distFromPlayer < 700)
                     {
-                        rabidDogEntities[i].Position = new Vector3(rabidDogEntities[i].Position.X + 1, rabidDogEntities[i].Position.Y, rabidDogEntities[i].Position.Z);
-                        if(!healed[i])
-                             bottleEntities[i].Position = new Vector3(bottleEntities[i].Position.X + 1, bottleEntities[i].Position.Y, bottleEntities[i].Position.Z);
-                    }
-                    else if (rabidDogEntities[i].Position.X > playerEntity.Position.X)
-                    {
-                        rabidDogEntities[i].Position = new Vector3(rabidDogEntities[i].Position.X - 1, rabidDogEntities[i].Position.Y, rabidDogEntities[i].Position.Z);
-                        if(!healed[i])
-                             bottleEntities[i].Position = new Vector3(bottleEntities[i].Position.X - 1, bottleEntities[i].Position.Y, bottleEntities[i].Position.Z);
-                    }
-                    if (rabidDogEntities[i].Position.Z < playerEntity.Position.Z)
-                    {
-                        rabidDogEntities[i].Position = new Vector3(rabidDogEntities[i].Position.X, rabidDogEntities[i].Position.Y, rabidDogEntities[i].Position.Z + 1);
-                        if(!healed[i])
-                             bottleEntities[i].Position = new Vector3(bottleEntities[i].Position.X, bottleEntities[i].Position.Y, bottleEntities[i].Position.Z + 1);
-                    }
-                    else if (rabidDogEntities[i].Position.Z > playerEntity.Position.Z)
-                    {
-                        rabidDogEntities[i].Position = new Vector3(rabidDogEntities[i].Position.X, rabidDogEntities[i].Position.Y, rabidDogEntities[i].Position.Z - 1);
-                        if(!healed[i])
-                             bottleEntities[i].Position = new Vector3(bottleEntities[i].Position.X, bottleEntities[i].Position.Y, bottleEntities[i].Position.Z - 1);
-                    }
-                }
-                else
-                {
-                    // enemies stay where they are, and separate if they are too close to each other
-                }
-                for (int j = 0; j < TOTAL_RABID_DOGS; j++)
-                {
-                    if (j != i)
-                    {        
-                        // keep enemies from colliding with each other
-                        if ((((Math.Abs(rabidDogEntities[i].Position.X - rabidDogEntities[j].Position.X) + Math.Abs(rabidDogEntities[i].Position.Z - rabidDogEntities[j].Position.Z)) / 2) < (rabidDogRadii[i] + rabidDogRadii[j] - 5)))
+                        if (rabidDogEntities[i].Position.X < playerEntity.Position.X)
                         {
-                            rabidDogEntities[i].Position = rabidDogPreviousPositions[i];
-                            bottleEntities[i].Position = rabidDogPreviousPositions[i];
-                            break;
+                            rabidDogEntities[i].Position = new Vector3(rabidDogEntities[i].Position.X + 1, rabidDogEntities[i].Position.Y, rabidDogEntities[i].Position.Z);
+                            if (!healed[i])
+                                bottleEntities[i].Position = new Vector3(bottleEntities[i].Position.X + 1, bottleEntities[i].Position.Y, bottleEntities[i].Position.Z);
+                        }
+                        else if (rabidDogEntities[i].Position.X > playerEntity.Position.X)
+                        {
+                            rabidDogEntities[i].Position = new Vector3(rabidDogEntities[i].Position.X - 1, rabidDogEntities[i].Position.Y, rabidDogEntities[i].Position.Z);
+                            if (!healed[i])
+                                bottleEntities[i].Position = new Vector3(bottleEntities[i].Position.X - 1, bottleEntities[i].Position.Y, bottleEntities[i].Position.Z);
+                        }
+                        if (rabidDogEntities[i].Position.Z < playerEntity.Position.Z)
+                        {
+                            rabidDogEntities[i].Position = new Vector3(rabidDogEntities[i].Position.X, rabidDogEntities[i].Position.Y, rabidDogEntities[i].Position.Z + 1);
+                            if (!healed[i])
+                                bottleEntities[i].Position = new Vector3(bottleEntities[i].Position.X, bottleEntities[i].Position.Y, bottleEntities[i].Position.Z + 1);
+                        }
+                        else if (rabidDogEntities[i].Position.Z > playerEntity.Position.Z)
+                        {
+                            rabidDogEntities[i].Position = new Vector3(rabidDogEntities[i].Position.X, rabidDogEntities[i].Position.Y, rabidDogEntities[i].Position.Z - 1);
+                            if (!healed[i])
+                                bottleEntities[i].Position = new Vector3(bottleEntities[i].Position.X, bottleEntities[i].Position.Y, bottleEntities[i].Position.Z - 1);
                         }
                     }
-                }
-                // keep enemies from colliding with the player and decrease health if collision
-                if ((((Math.Abs(rabidDogEntities[i].Position.X - playerEntity.Position.X) + Math.Abs(rabidDogEntities[i].Position.Z - playerEntity.Position.Z)) / 2) < (rabidDogRadii[i] + playerRadius - 19.5)))
-                {
-                    rabidDogEntities[i].Position = rabidDogPreviousPositions[i];
-                    bottleEntities[i].Position = rabidDogPreviousPositions[i];
-                    playerHealthDecr += 0.1f; // add up damage to player
-                    if (playerHealthDecr >= 1.0f)
+                    else
                     {
-                        mCurrentHealth -= 1; // decrease player health by 1 unit
-                        //Force the health to remain between 0 and 100.           
-                        mCurrentHealth = (int)MathHelper.Clamp(mCurrentHealth, 0, 100);
-                        playerHealthDecr = 0.0f;
+                        // enemies stay where they are, and separate if they are too close to each other
                     }
+                    for (int j = 0; j < TOTAL_RABID_DOGS; j++)
+                    {
+                        if (j != i)
+                        {
+                            // keep enemies from colliding with each other
+                            if ((((Math.Abs(rabidDogEntities[i].Position.X - rabidDogEntities[j].Position.X) + Math.Abs(rabidDogEntities[i].Position.Z - rabidDogEntities[j].Position.Z)) / 2) < (rabidDogRadii[i] + rabidDogRadii[j] - 5)))
+                            {
+                                rabidDogEntities[i].Position = rabidDogPreviousPositions[i];
+                                bottleEntities[i].Position = rabidDogPreviousPositions[i];
+                                break;
+                            }
+                        }
+                    }
+                    // keep enemies from colliding with the player and decrease health if collision
+                    if ((((Math.Abs(rabidDogEntities[i].Position.X - playerEntity.Position.X) + Math.Abs(rabidDogEntities[i].Position.Z - playerEntity.Position.Z)) / 2) < (rabidDogRadii[i] + playerRadius - 19.5)))
+                    {
+                        rabidDogEntities[i].Position = rabidDogPreviousPositions[i];
+                        bottleEntities[i].Position = rabidDogPreviousPositions[i];
+                        playerHealthDecr += 0.1f; // add up damage to player
+                        if (playerHealthDecr >= 1.0f)
+                        {
+                            mCurrentHealth -= 1; // decrease player health by 1 unit
+                            //Force the health to remain between 0 and 100.           
+                            mCurrentHealth = (int)MathHelper.Clamp(mCurrentHealth, 0, 100);
+                            playerHealthDecr = 0.0f;
+                        }
+                    }
+                    rabidDogEntities[i].Update(gameTime);
+                    bottleEntities[i].Update(gameTime);
                 }
-                rabidDogEntities[i].Update(gameTime);
-                bottleEntities[i].Update(gameTime);
             }
         }
 
@@ -1141,26 +1148,29 @@ namespace RabiesX
 
         private void DrawEnemies()
         {
-            for (int i = 0; i < TOTAL_RABID_DOGS; i++)
+            for (int i = 0; i < initialNumberOfDogs; i++)
             {
-                if (modelEnemyTransforms[i] == null)
-                    modelEnemyTransforms[i] = new Matrix[rabidDogModels[i].ModelHeld.Bones.Count];
-
-                rabidDogModels[i].ModelHeld.CopyAbsoluteBoneTransformsTo(modelEnemyTransforms[i]);
-
-                foreach (ModelMesh m in rabidDogModels[i].ModelHeld.Meshes)
+                if (!healed[i])
                 {
-                    foreach (BasicEffect e in m.Effects)
-                    {
-                        e.PreferPerPixelLighting = true;
-                        e.TextureEnabled = true;
-                        e.EnableDefaultLighting();
-                        e.World = modelEnemyTransforms[i][m.ParentBone.Index] * rabidDogEntities[i].WorldMatrix;
-                        e.View = camera.ViewMatrix;
-                        e.Projection = camera.ProjectionMatrix;
-                    }
+                    if (modelEnemyTransforms[i] == null)
+                        modelEnemyTransforms[i] = new Matrix[rabidDogModels[i].ModelHeld.Bones.Count];
 
-                    m.Draw();
+                    rabidDogModels[i].ModelHeld.CopyAbsoluteBoneTransformsTo(modelEnemyTransforms[i]);
+
+                    foreach (ModelMesh m in rabidDogModels[i].ModelHeld.Meshes)
+                    {
+                        foreach (BasicEffect e in m.Effects)
+                        {
+                            e.PreferPerPixelLighting = true;
+                            e.TextureEnabled = true;
+                            e.EnableDefaultLighting();
+                            e.World = modelEnemyTransforms[i][m.ParentBone.Index] * rabidDogEntities[i].WorldMatrix;
+                            e.View = camera.ViewMatrix;
+                            e.Projection = camera.ProjectionMatrix;
+                        }
+
+                        m.Draw();
+                    }
                 }
             }
         }
@@ -1459,6 +1469,12 @@ namespace RabiesX
 
             //Draw the negative space for the health bar.
             mBatch.Draw(mHealthBar, new Rectangle(ScreenManager.Game.GraphicsDevice.Viewport.Width - mHealthBar.Width - 30, 30, mHealthBar.Width, 25), new Rectangle(0, 45, mHealthBar.Width, 25), Color.Gray);
+
+            for (int index = 0; index < rabidDogHealths.Count; index++)
+            {
+                if(rabidDogHealths[index] > 50)
+                    mBatch.Draw(mHealthBar, new Rectangle(ScreenManager.Game.GraphicsDevice.Viewport.Width - mHealthBar.Width - 30, 30, (int)(mHealthBar.Width * ((double)mCurrentHealth / 100)), 25), new Rectangle((int)rabidDogEntities[index].Position.X, (int)rabidDogEntities[index].Position.Y + 45, mHealthBar.Width, 25), Color.DarkRed);
+            }
 
             // Draw the current health for the health bar.
             if (mCurrentHealth > 50)
