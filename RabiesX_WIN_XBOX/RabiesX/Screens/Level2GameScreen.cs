@@ -200,8 +200,8 @@ namespace RabiesX
             //content.Load<Texture2D>("Textures\\parkgrass");
             sky = content.Load<Sky>("sky");
 
-            levelModel = new MyModel("Models\\desertterrain", content);
-            levelModel.Texture("Textures\\desertwithstump", content);
+            levelModel = new MyModel("Models\\zanzibardesert", content);
+            levelModel.Texture("Textures\\desertmud", content);
 
             // Determine the radius of the player model.           
             BoundingSphere bounds = new BoundingSphere();
@@ -324,24 +324,23 @@ namespace RabiesX
             
             //DrawPlayer();
 
+            this.DrawEnemies();
+
             this.DrawAraguz();
 
-
-            DrawEnemies();
-
-            DrawBullets();
-
-            DrawBottles();
-
-            DrawIndicator();
-
-            sky.Draw(camera.ViewMatrix, camera.ProjectionMatrix);
-
-            DrawTerrain(camera.ViewMatrix, camera.ProjectionMatrix);
-
             this.DrawLevel();
-            
-            DrawText();
+
+            this.DrawBullets();
+
+            this.DrawBottles();
+
+            this.DrawIndicator();
+
+            this.sky.Draw(camera.ViewMatrix, camera.ProjectionMatrix);
+
+            this.DrawTerrain(camera.ViewMatrix, camera.ProjectionMatrix);
+
+            this.DrawText();
 
             // If there was any alpha blended translucent geometry in
             // the scene, that would be drawn here, after the sky.

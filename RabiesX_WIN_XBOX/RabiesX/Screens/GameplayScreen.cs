@@ -593,14 +593,14 @@ namespace RabiesX
             {
                 if (timeLeft == 300)
                     dogsinparkInstance.Play();
-                if (timeLeft == 285)
+                if (timeLeft == 282)
                     telepathInstance.Play();
                 if (timeLeft == 270)
                     becareful.Play();
                 if (timeLeft == 268)
                     totherescueInstance.Play();
                 if ((timeLeft % 12) == 0 && timeLeft >= 0)
-                    if (!barkInstance.IsDisposed)
+                    if (!barkInstance.IsDisposed && (dogsinparkInstance.State != SoundState.Playing))
                         barkInstance.Play();
                 if (timeLeft == 240)
                     cryInstance.Play();
@@ -1486,11 +1486,11 @@ namespace RabiesX
             
             //DrawPlayer();
 
+            DrawEnemies();
+
             DrawAraguz();
 
             DrawLevel();
-
-            DrawEnemies();
 
             DrawBullets();
 
