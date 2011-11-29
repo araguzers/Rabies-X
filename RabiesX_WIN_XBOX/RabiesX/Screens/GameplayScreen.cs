@@ -37,180 +37,186 @@ namespace RabiesX
     {
         #region Fields
 
-        private const float PLAYER_FORWARD_SPEED = 120.0f;
-        private const float PLAYER_HEADING_SPEED = 120.0f;
-        private const float PLAYER_ROLLING_SPEED = 280.0f;
+        protected const float PLAYER_FORWARD_SPEED = 120.0f;
+        protected const float PLAYER_HEADING_SPEED = 120.0f;
+        protected const float PLAYER_ROLLING_SPEED = 280.0f;
 
-        private const float TERRAIN_WIDTH = 3500.0f;
-        private const float TERRAIN_HEIGHT = 3500.0f;
+        protected const float TERRAIN_WIDTH = 3500.0f;
+        protected const float TERRAIN_HEIGHT = 3500.0f;
 
-        private const float CAMERA_FOVX = 80.0f;
-        private const float CAMERA_ZFAR = TERRAIN_WIDTH * 2.0f;
-        private const float CAMERA_ZNEAR = 1.0f;
-        private const float CAMERA_MAX_SPRING_CONSTANT = 100.0f;
-        private const float CAMERA_MIN_SPRING_CONSTANT = 1.0f;
+        protected const float CAMERA_FOVX = 80.0f;
+        protected const float CAMERA_ZFAR = TERRAIN_WIDTH * 2.0f;
+        protected const float CAMERA_ZNEAR = 1.0f;
+        protected const float CAMERA_MAX_SPRING_CONSTANT = 100.0f;
+        protected const float CAMERA_MIN_SPRING_CONSTANT = 1.0f;
 
-        private const int MAX_TIME_LEFT = 300;
-        private int timeLeft = MAX_TIME_LEFT;
-        int elapsedUpdateTime = 0;
+        protected const int MAX_TIME_LEFT = 300;
+        protected int timeLeft = MAX_TIME_LEFT;
+        protected int elapsedUpdateTime = 0;
 
-        private int TOTAL_RABID_DOGS = 10;
+        protected int level;
 
-        private int initialNumberOfDogs;
+        protected int TOTAL_RABID_DOGS = 10;
 
-        AnimationPlayer animationPlayer;
+        protected int initialNumberOfDogs;
 
-        ContentManager content;
-        SpriteFont gameFont;
+        protected AnimationPlayer animationPlayer;
+
+        protected ContentManager content;
+        protected SpriteFont gameFont;
 
         //Sets the sounds.
-        private SoundEffect sound;
-        private SoundEffectInstance soundInstance;
+        protected SoundEffect sound;
+        protected SoundEffectInstance soundInstance;
 
-        private SoundEffect cry;
-        private SoundEffectInstance cryInstance;
+        protected SoundEffect cry;
+        protected SoundEffectInstance cryInstance;
 
-        private SoundEffect win;
-        private SoundEffectInstance winInstance;
+        protected SoundEffect win;
+        protected SoundEffectInstance winInstance;
 
-        private SoundEffect bark;
-        private SoundEffectInstance barkInstance;
+        protected SoundEffect bark;
+        protected SoundEffectInstance barkInstance;
 
-        private SoundEffect gameMusic;
-        private SoundEffectInstance gameMusicInstance;
+        protected SoundEffect gameMusic;
+        protected SoundEffectInstance gameMusicInstance;
 
-        private SoundEffect donotfear;
-        private SoundEffectInstance donotfearInstance;
+        protected SoundEffect donotfear;
+        protected SoundEffectInstance donotfearInstance;
 
-        private SoundEffect motherearth;
-        private SoundEffectInstance motherearthInstance;
+        protected SoundEffect motherearth;
+        protected SoundEffectInstance motherearthInstance;
 
-        private SoundEffect callmegerry;
-        private SoundEffectInstance callmegerryInstance;
+        protected SoundEffect callmegerry;
+        protected SoundEffectInstance callmegerryInstance;
 
-        private SoundEffect jacksonwincry;
-        private SoundEffectInstance jacksonwincryInstance;
+        protected SoundEffect jacksonwincry;
+        protected SoundEffectInstance jacksonwincryInstance;
 
-        private SoundEffect jacksonlosecry;
-        private SoundEffectInstance jacksonlosecryInstance;
+        protected SoundEffect jacksonlosecry;
+        protected SoundEffectInstance jacksonlosecryInstance;
 
-        private SoundEffect taunt;
-        private SoundEffectInstance tauntInstance;
+        protected SoundEffect taunt;
+        protected SoundEffectInstance tauntInstance;
 
-        private SoundEffect becareful;
-        private SoundEffectInstance becarefulInstance;
+        protected SoundEffect becareful;
+        protected SoundEffectInstance becarefulInstance;
 
-        private SoundEffect dogsinpark;
-        private SoundEffectInstance dogsinparkInstance;
+        protected SoundEffect dogsinpark;
+        protected SoundEffectInstance dogsinparkInstance;
 
-        private SoundEffect plasmaray;
-        private SoundEffectInstance plasmarayInstance;
+        protected SoundEffect plasmaray;
+        protected SoundEffectInstance plasmarayInstance;
 
-        private SoundEffect totherescue;
-        private SoundEffectInstance totherescueInstance;
+        protected SoundEffect totherescue;
+        protected SoundEffectInstance totherescueInstance;
 
-        private SoundEffect telepath;
-        private SoundEffectInstance telepathInstance;
+        protected SoundEffect telepath;
+        protected SoundEffectInstance telepathInstance;
 
-        private SoundEffect collectsample;
-        private SoundEffectInstance collectsampleInstance;
+        protected SoundEffect collectsample;
+        protected SoundEffectInstance collectsampleInstance;
 
-        private SpriteBatch spriteBatch;
-        private SpriteFont spriteFont;
+        protected SpriteBatch spriteBatch;
+        protected SpriteFont spriteFont;
 
-        Vector2 playerPosition = new Vector2(100, 100);
-        Vector2 enemyPosition = new Vector2(100, 100);
+        protected Vector2 playerPosition = new Vector2(100, 100);
+        protected Vector2 enemyPosition = new Vector2(100, 100);
 
         // Set triangle indicator for level.
-        Effect effect;
-        Vector3 indicatorPos;
-        int indicatorScale = 5;
-        private List<VertexPositionColor[]> vertices;
+        protected Effect effect;
+        protected Vector3 indicatorPos;
+        protected int indicatorScale = 5;
+        protected List<VertexPositionColor[]> vertices;
 
-        private float angle = 0.0f;
+        protected float angle = 0.0f;
 
-        private int numberOfCollectedSamples;
+        protected int numberOfCollectedSamples;
 
         // Set bullets for level;
-        Quad quad;
-        Effect quadEffect;
-        struct Bullet
+        protected Quad quad;
+        protected Effect quadEffect;
+        protected struct Bullet
         {
             public Vector3 position;
             public Quaternion rotation;
         }
-        List<Bullet> bulletList = new List<Bullet> ();
-        double lastBulletTime = 0;
-        float bulletSpeed = 1.0f;
-        Texture2D bullets;
+        protected List<Bullet> bulletList;
+        protected double lastBulletTime = 0;
+        protected float bulletSpeed = 1.0f;
+        protected Texture2D bullets;
 
         // Set health bar for level.
-        SpriteBatch mBatch;
-        Texture2D mHealthBar;
+        protected SpriteBatch mBatch;
+        protected Texture2D mHealthBar;
 
         // Set current health for level.
-        int mCurrentHealth = 100;
-        float playerHealthDecr = 0.0f;
+        protected int mCurrentHealth = 100;
+        protected float playerHealthDecr = 0.0f;
         
         // Set sky and terrain for level.
-        Model terrain;
-        Sky sky;
+        protected Model grassy_level;
+        protected Sky sky;
 
         // Set the 3D model to draw.
-        private MyModel playerModel;
-        private List<MyModel> rabidDogModels;
+        protected MyModel playerModel;
+        protected List<MyModel> rabidDogModels;
 
         // Aspect ratio determines how to scale 3d to 2d projection.
-        float aspectRatio;
+        protected float aspectRatio;
 
-        AnimationClip clip;
-        Model dogModel;
-        Model araguzModel;
+        protected AnimationClip clip;
+        protected Model dogModel;
+        protected Model araguzModel;
+        protected MyModel levelModel;
 
-        Random random = new Random();
+        protected Random random = new Random();
 
-        float pauseAlpha;
+        protected float pauseAlpha;
 
-        int screenWidth;
-        int screenHeight;
+        protected int screenWidth;
+        protected int screenHeight;
         
-        private Vector2 fontPos;
-        private int frames;
-        private int framesPerSecond;
-        private Entity playerEntity;
-        private Entity terrainEntity;
-        private List<int> rabidDogHealths;
-        private List<float> rabidDogHealthDecrs;
-        private List<Entity> rabidDogEntities;
-        private List<Entity> bottleEntities;
-        private List<MyModel> bottleModels;
-        private List<Vector3> rabidDogPreviousPositions;
-        private float playerRadius;
-        private float terrainRadius;
-        private List<float> rabidDogRadii;
-        private List<float> bottleRadii;
-        private Matrix[] modelTransforms;
-        private List<Matrix[]> modelEnemyTransforms;
-        private bool[] healed;
-        private bool[] collected;
-        private TimeSpan elapsedTime = TimeSpan.Zero;
-        private TimeSpan prevElapsedTime = TimeSpan.Zero;
-        private bool displayHelp;
+        protected Vector2 fontPos;
+        protected int frames;
+        protected int framesPerSecond;
+        protected Entity playerEntity;
+        protected Entity terrainEntity;
+        protected Entity levelEntity;
+        protected List<int> rabidDogHealths;
+        protected List<float> rabidDogHealthDecrs;
+        protected List<Entity> rabidDogEntities;
+        protected List<Entity> bottleEntities;
+        protected List<MyModel> bottleModels;
+        protected List<Vector3> rabidDogPreviousPositions;
+        protected float playerRadius;
+        protected float terrainRadius;
+        protected float levelRadius;
+        protected List<float> rabidDogRadii;
+        protected List<float> bottleRadii;
+        protected Matrix[] modelTransforms;
+        protected List<Matrix[]> modelEnemyTransforms;
+        protected bool[] healed;
+        protected bool[] collected;
+        protected TimeSpan elapsedTime = TimeSpan.Zero;
+        protected TimeSpan prevElapsedTime = TimeSpan.Zero;
+        protected bool displayHelp;
 
-        private ThirdPersonCamera camera;
-        private Vector3 cameraUpDirection;
+        protected ThirdPersonCamera camera;
+        protected Vector3 cameraUpDirection;
 
-        private MouseState curMouseState;
-        private MouseState prevMouseState;
-        private KeyboardState curKeyboardState;
-        private KeyboardState prevKeyboardState;
+        protected MouseState curMouseState;
+        protected MouseState prevMouseState;
+        protected KeyboardState curKeyboardState;
+        protected KeyboardState prevKeyboardState;
 
-        BoundingSphere playerBounds;
-        BoundingSphere terrainBounds;
-        List<BoundingSphere> rabidDogBounds;
-        List<BoundingSphere> bottleBounds;
+        protected BoundingSphere playerBounds;
+        protected BoundingSphere terrainBounds;
+        protected BoundingSphere levelBounds;
+        protected List<BoundingSphere> rabidDogBounds;
+        protected List<BoundingSphere> bottleBounds;
 
-        private bool flicker;
+        protected bool flicker;
 
         #endregion
 
@@ -357,6 +363,7 @@ namespace RabiesX
             bottleBounds = new List<BoundingSphere>();
             bottleRadii = new List<float>();
             modelEnemyTransforms = new List<Matrix[]>();
+            bulletList = new List<Bullet>();
             rabidDogPreviousPositions = new List<Vector3>();
             for (int i = 0; i < TOTAL_RABID_DOGS; i++)
             {
@@ -400,8 +407,12 @@ namespace RabiesX
             soundInstance.Play();
 
             // Load terrain and sky.
-            terrain = content.Load<Model>("terrain");
+            grassy_level = content.Load<Model>("terrain");
+            //content.Load<Texture2D>("Textures\\parkgrass");
             sky = content.Load<Sky>("sky");
+
+            levelModel = new MyModel("Models\\grassy_level", content);
+            levelModel.Texture("Textures\\parkgrass", content);
 
             // Determine the radius of the player model.           
             BoundingSphere bounds = new BoundingSphere();
@@ -410,6 +421,13 @@ namespace RabiesX
             playerRadius = bounds.Radius;
 
             playerBounds = bounds;
+
+            BoundingSphere lbounds = new BoundingSphere();
+            foreach (ModelMesh mesh in levelModel.ModelHeld.Meshes)
+                lbounds = BoundingSphere.CreateMerged(lbounds, mesh.BoundingSphere);
+            levelRadius = lbounds.Radius;
+
+            levelBounds = lbounds;
 
             // Determine the radii of the enemy models.  
             for (int i = 0; i < TOTAL_RABID_DOGS; i++)
@@ -431,7 +449,7 @@ namespace RabiesX
 
             // Determine the radius of the height map.           
             BoundingSphere tbounds = new BoundingSphere();
-            foreach (ModelMesh mesh in terrain.Meshes)
+            foreach (ModelMesh mesh in grassy_level.Meshes)
                 tbounds = BoundingSphere.CreateMerged(tbounds, mesh.BoundingSphere);
             terrainRadius = tbounds.Radius;
 
@@ -448,13 +466,17 @@ namespace RabiesX
             playerEntity = new Entity();
             playerEntity.ConstrainToWorldYAxis = true;
             playerEntity.Position = new Vector3(0.0f, 1.0f + playerRadius, 0.0f);
-            
+
+            levelEntity = new Entity();
+            levelEntity.ConstrainToWorldYAxis = true;
+            levelEntity.Position = new Vector3(0.0f, 1.0f + levelRadius, 0.0f);
+
             // Setup the enemy and bottle entities.
             for (int i = 0; i < TOTAL_RABID_DOGS; i++)
             {
                 rabidDogEntities.Add(new Entity());
                 rabidDogEntities[i].ConstrainToWorldYAxis = true;
-                rabidDogEntities[i].Position = new Vector3(random.Next(1000) * -1.0f + 200.0f, 1.0f + rabidDogRadii[i], random.Next(500));
+                rabidDogEntities[i].Position = new Vector3(random.Next(1000) * -1.0f + 200.0f, 20.0f + rabidDogRadii[i], random.Next(1000));
 
                 bottleEntities.Add(new Entity());
                 bottleEntities[i].ConstrainToWorldYAxis = true;
@@ -486,7 +508,7 @@ namespace RabiesX
             content.Unload();
         }
 
-        private void SetUpVertices(Vector3 pos, int scale)
+        protected void SetUpVertices(Vector3 pos, int scale)
         {
             Vector3 vertex1 = new Vector3(pos.X - scale, pos.Y - scale, pos.Z + 2*scale);
             Vector3 vertex2 = new Vector3(pos.X + scale, pos.Y + scale, pos.Z);
@@ -516,7 +538,7 @@ namespace RabiesX
 
         #endregion
 
-        private void LoadAraguz()
+        protected void LoadAraguz()
         {
             playerModel = new MyModel("Models\\geraldo_araguz", content);
 
@@ -535,7 +557,7 @@ namespace RabiesX
             animationPlayer.StartClip(clip);
         }
 
-        private void LoadDog()
+        protected void LoadDog()
         {
             dogModel = content.Load<Model>("sick_dog");
 
@@ -633,12 +655,12 @@ namespace RabiesX
             }
         }
         
-        private bool KeyJustPressed(Keys key)
+        protected bool KeyJustPressed(Keys key)
         {
             return curKeyboardState.IsKeyDown(key) && prevKeyboardState.IsKeyUp(key);
         }
 
-        private void ProcessKeyboard()
+        protected void ProcessKeyboard()
         {
             prevKeyboardState = curKeyboardState;
             curKeyboardState = Keyboard.GetState();
@@ -673,7 +695,7 @@ namespace RabiesX
             }
         }
 
-        private void ToggleFullScreen()
+        protected void ToggleFullScreen()
         {
             int newWidth = 0;
             int newHeight = 0;
@@ -703,7 +725,7 @@ namespace RabiesX
             screenHeight = newHeight;
         }
 
-        private void UpdatePlayer(GameTime gameTime)
+        protected virtual void UpdatePlayer(GameTime gameTime)
         {
             float pitch = 0.0f;
             float heading = 0.0f;
@@ -860,13 +882,13 @@ namespace RabiesX
             }
         }
 
-        private void MoveForward(ref Vector3 position, Quaternion rotationQuat, float speed)
+        protected void MoveForward(ref Vector3 position, Quaternion rotationQuat, float speed)
         {
-            Vector3 addVector = Vector3.Transform(new Vector3(0, /*32*/-1, -1), rotationQuat);
+            Vector3 addVector = Vector3.Transform(new Vector3(0.0f, /*32*/-0.50f, 1.0f), rotationQuat);
             position += addVector * (speed * 10);
         }
      
-        private void UpdateBulletPositions(float moveSpeed)
+        protected void UpdateBulletPositions(float moveSpeed)
         {
             for (int i = 0; i < bulletList.Count; i++)
             {
@@ -924,7 +946,7 @@ namespace RabiesX
         }
         }
 
-        //private void UpdateBottles(GameTime gameTime)
+        //protected void UpdateBottles(GameTime gameTime)
         //{
         //    for (int i = 0; i < bottleEntities.Count; i++)
         //    {
@@ -938,7 +960,7 @@ namespace RabiesX
         //    }
         //}
 
-        private void UpdateEnemies(GameTime gameTime)
+        protected void UpdateEnemies(GameTime gameTime)
         {
             for (int i = 0; i < initialNumberOfDogs; i++)
             {
@@ -1012,7 +1034,7 @@ namespace RabiesX
             }
         }
 
-        private void UpdateFrameRate(GameTime gameTime)
+        protected virtual void UpdateFrameRate(GameTime gameTime)
         {
             elapsedTime += gameTime.ElapsedGameTime;
 
@@ -1043,12 +1065,12 @@ namespace RabiesX
             }
         }
 
-        private void IncrementFrameCounter()
+        protected void IncrementFrameCounter()
         {
             ++frames;
         }
 
-        private void DrawIndicator()
+        protected void DrawIndicator()
         {
             effect.CurrentTechnique = effect.Techniques["ColoredNoShading"];
             effect.Parameters["xView"].SetValue(camera.ViewMatrix);
@@ -1066,7 +1088,7 @@ namespace RabiesX
             }
         }
 
-        private void DrawBullets()
+        protected void DrawBullets()
         {
             if (bulletList.Count > 0)
             {
@@ -1097,7 +1119,7 @@ namespace RabiesX
             }
         }
 
-        private void DrawAraguz()
+        protected void DrawAraguz()
         {
             if (modelTransforms == null)
                 modelTransforms = new Matrix[playerModel.ModelHeld.Bones.Count];
@@ -1123,7 +1145,7 @@ namespace RabiesX
             }
         }
 
-        private void DrawPlayer()
+        protected void DrawPlayer()
         {
             if (modelTransforms == null)
                 modelTransforms = new Matrix[playerModel.ModelHeld.Bones.Count];
@@ -1146,7 +1168,7 @@ namespace RabiesX
             }
         }
 
-        private void DrawEnemies()
+        protected void DrawEnemies()
         {
             for (int i = 0; i < initialNumberOfDogs; i++)
             {
@@ -1175,7 +1197,25 @@ namespace RabiesX
             }
         }
 
-        private void DrawBottles()
+        protected void DrawLevel()
+        {
+            foreach (ModelMesh m in levelModel.ModelHeld.Meshes)
+            {
+                foreach (BasicEffect e in m.Effects)
+                {
+                    e.PreferPerPixelLighting = true;
+                    e.TextureEnabled = true;
+                    e.EnableDefaultLighting();
+                    e.World = levelEntity.WorldMatrix;
+                    e.View = camera.ViewMatrix;
+                    e.Projection = camera.ProjectionMatrix;
+                }
+
+                m.Draw();
+            }
+        }
+
+        protected void DrawBottles()
         {
             for (int i = 0; i < healed.Length; i++)
             {
@@ -1204,7 +1244,7 @@ namespace RabiesX
             }
         }
 
-        private void DrawText()
+        protected virtual void DrawText()
         {
             StringBuilder buffer = new StringBuilder();
             string jacksonTaunt = "";
@@ -1448,6 +1488,8 @@ namespace RabiesX
 
             DrawAraguz();
 
+            DrawLevel();
+
             DrawEnemies();
 
             DrawBullets();
@@ -1470,17 +1512,18 @@ namespace RabiesX
             //Draw the negative space for the health bar.
             mBatch.Draw(mHealthBar, new Rectangle(ScreenManager.Game.GraphicsDevice.Viewport.Width - mHealthBar.Width - 30, 30, mHealthBar.Width, 25), new Rectangle(0, 45, mHealthBar.Width, 25), Color.Gray);
 
-            for (int index = 0; index < rabidDogHealths.Count; index++)
-            {
-                if(rabidDogHealths[index] > 50)
-                    mBatch.Draw(mHealthBar, new Rectangle(ScreenManager.Game.GraphicsDevice.Viewport.Width - mHealthBar.Width - 30, 30, (int)(mHealthBar.Width * ((double)mCurrentHealth / 100)), 25), new Rectangle((int)rabidDogEntities[index].Position.X, (int)rabidDogEntities[index].Position.Y + 45, mHealthBar.Width, 25), Color.DarkRed);
-            }
+            //for (int index = 0; index < initialNumberOfDogs; index++)
+            //{
+            //    if (!healed[index])
+            //            mBatch.Draw(mHealthBar, new Rectangle(ScreenManager.Game.GraphicsDevice.Viewport.Width - mHealthBar.Width - 30, 30, mHealthBar.Width, 25), new Rectangle(0, 45, mHealthBar.Width, 25), Color.Gray);
+            //}
 
             // Draw the current health for the health bar.
             if (mCurrentHealth > 50)
             {
                 mBatch.Draw(mHealthBar, new Rectangle(ScreenManager.Game.GraphicsDevice.Viewport.Width - mHealthBar.Width - 30, 30, (int)(mHealthBar.Width * ((double)mCurrentHealth / 100)), 25), new Rectangle(0, 45, mHealthBar.Width, 25), Color.DarkRed);
             }
+
             else if ((mCurrentHealth <= 50) && (mCurrentHealth > 25))
             {
                 mBatch.Draw(mHealthBar, new Rectangle(ScreenManager.Game.GraphicsDevice.Viewport.Width - mHealthBar.Width - 30, 30, (int)(mHealthBar.Width * ((double)mCurrentHealth / 100)), 25), new Rectangle(0, 45, mHealthBar.Width, 25), Color.Red);
@@ -1499,6 +1542,18 @@ namespace RabiesX
                     flicker = true;
                 }
             }
+
+            //for (int index = 0; index < initialNumberOfDogs; index++)
+            //{
+            //    if (!healed[index])
+            //    {
+            //        if (rabidDogHealths[index] > 50)
+            //            mBatch.Draw(mHealthBar, new Rectangle((int)rabidDogEntities[index].Position.X - 30, (int)rabidDogEntities[index].Position.Z - 30, (int)(mHealthBar.Width * ((double)mCurrentHealth / 100)), 25), new Rectangle(0, 45, mHealthBar.Width, 25), Color.DarkRed);
+            //        else if ((rabidDogHealths[index] <= 50) && (rabidDogHealths[index] > 25))
+            //            mBatch.Draw(mHealthBar, new Rectangle((int)rabidDogEntities[index].Position.X - 30, (int)rabidDogEntities[index].Position.Z - 30, (int)(mHealthBar.Width * ((double)mCurrentHealth / 100)), 25), new Rectangle(0, 45, mHealthBar.Width, 25), Color.Red);
+            //    }
+               
+            //}
 
             // Draw the box around the health bar.
             mBatch.Draw(mHealthBar, new Rectangle(ScreenManager.Game.GraphicsDevice.Viewport.Width - mHealthBar.Width - 30, 30, mHealthBar.Width, 25), new Rectangle(0, 0, mHealthBar.Width, 25), Color.White);
@@ -1544,9 +1599,9 @@ namespace RabiesX
         /// <summary>
         /// Helper for drawing the terrain model.
         /// </summary>
-        void DrawTerrain(Matrix view, Matrix projection)
+        protected void DrawTerrain(Matrix view, Matrix projection)
         {
-            foreach (ModelMesh mesh in terrain.Meshes)
+            foreach (ModelMesh mesh in grassy_level.Meshes)
             {
                 foreach (BasicEffect effect in mesh.Effects)
                 {
@@ -1573,7 +1628,7 @@ namespace RabiesX
 
         #endregion
 
-        private bool OtherKeysUp(KeyboardState state, Keys theKey)
+        protected bool OtherKeysUp(KeyboardState state, Keys theKey)
         {
             Keys[] gameKeys = {Keys.H, Keys.Space, Keys.LeftAlt, Keys.RightAlt, Keys.Enter, Keys.Add,
                                   Keys.Subtract, Keys.A, Keys.W, Keys.S, Keys.D, Keys.Up, Keys.Left,

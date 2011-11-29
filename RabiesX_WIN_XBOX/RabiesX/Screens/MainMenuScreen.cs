@@ -21,6 +21,9 @@ namespace RabiesX
 
         #region Initialization
 
+        protected MenuEntry playGameMenuEntry;
+        protected MenuEntry optionsMenuEntry;
+        protected MenuEntry exitMenuEntry;
 
         /// <summary>
         /// Constructor fills in the menu contents.
@@ -29,9 +32,9 @@ namespace RabiesX
             : base("R.B.X.")
         {
             // Create our menu entries.
-            MenuEntry playGameMenuEntry = new MenuEntry("Play Game");
-            MenuEntry optionsMenuEntry = new MenuEntry("Options");
-            MenuEntry exitMenuEntry = new MenuEntry("Exit");
+            playGameMenuEntry = new MenuEntry("Play Game");
+            optionsMenuEntry = new MenuEntry("Options");
+            exitMenuEntry = new MenuEntry("Exit");
 
             // Hook up menu event handlers.
             playGameMenuEntry.Selected += PlayGameMenuEntrySelected;

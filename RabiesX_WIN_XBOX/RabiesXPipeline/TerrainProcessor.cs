@@ -28,7 +28,8 @@ namespace RabiesXPipeline
         const float terrainScale = 20;
         const float terrainBumpiness = 64;
         const float texCoordScale = 0.1f;
-        const string terrainTexture = "rocks.bmp";
+        const string terrainTexture = "parkgrass.bmp";
+        //const string terrainTexture = "rocks.bmp";
 
 
         /// <summary>
@@ -38,6 +39,7 @@ namespace RabiesXPipeline
                                              ContentProcessorContext context)
         {
             MeshBuilder builder = MeshBuilder.StartMesh("terrain");
+            //MeshBuilder builder = MeshBuilder.StartMesh("Models\\grassy_level");
 
             // Convert the input texture to float format, for ease of processing.
             input.ConvertBitmapType(typeof(PixelBitmapContent<float>));

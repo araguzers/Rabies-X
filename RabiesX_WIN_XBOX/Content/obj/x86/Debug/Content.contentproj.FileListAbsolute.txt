@@ -4,3 +4,4 @@ C:\Users\Nshidbaby\Documents\College\COSC 4348\Locale\RabiesX_WIN_XBOX (Backup 1
 C:\Users\Junior\Desktop\GeraldoWithoutCar\Rabies-X\RabiesX_WIN_XBOX\Content\obj\x86\Debug\ResolveAssemblyReference.cache
 C:\Users\Junior\Desktop\DogsWithHealthbars\Rabies-X\RabiesX_WIN_XBOX\Content\obj\x86\Debug\ResolveAssemblyReference.cache
 C:\Users\Junior\Desktop\NewRay\Rabies-X\RabiesX_WIN_XBOX\Content\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\Junior\Desktop\Yetanotherray\Rabies-X\RabiesX_WIN_XBOX\Content\obj\x86\Debug\ResolveAssemblyReference.cache

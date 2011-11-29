@@ -52,7 +52,7 @@ namespace RabiesX
         void PlayGameMenuEntrySelected(object sender, PlayerIndexEventArgs e)
         {
             LoadingScreen.Load(ScreenManager, true, e.PlayerIndex,
-                               new GameplayScreen());
+                               new Level2GameScreen());
         }
 
         /// <summary>
