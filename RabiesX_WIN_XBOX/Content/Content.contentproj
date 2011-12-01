@@ -415,7 +415,7 @@
       <Name>grassy_level</Name>
       <Importer>FbxImporter</Importer>
       <Processor>ModelProcessor</Processor>
-      <ProcessorParameters_Scale>75</ProcessorParameters_Scale>
+      <ProcessorParameters_Scale>200</ProcessorParameters_Scale>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -498,8 +498,20 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Audio\Waves\Menu_Theme.wav">
-      <Name>Menu_Theme</Name>
+    <Compile Include="Audio\Waves\virussamples.wav">
+      <Name>virussamples</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+    </Compile>
+    <Compile Include="Audio\Waves\zanzibarvoice.wav">
+      <Name>zanzibarvoice</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Audio\Waves\onfire.wav">
+      <Name>onfire</Name>
       <Importer>WavImporter</Importer>
       <Processor>SoundEffectProcessor</Processor>
     </Compile>

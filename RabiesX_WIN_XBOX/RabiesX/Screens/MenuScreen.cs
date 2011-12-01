@@ -28,7 +28,7 @@ namespace RabiesX
     {
         #region Fields
 
-        ContentManager content;
+        protected ContentManager content;
 
         List<MenuEntry> menuEntries = new List<MenuEntry>();
         int selectedEntry = 0;

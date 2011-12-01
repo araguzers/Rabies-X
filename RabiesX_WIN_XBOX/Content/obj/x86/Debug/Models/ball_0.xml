@@ -3,7 +3,7 @@
   <Asset Type="Graphics:NodeContent">
     <Name>Body</Name>
     <Identity>
-      <SourceFilename>C:\Users\Junior\Desktop\Yetanotherray\Rabies-X\RabiesX_WIN_XBOX\Content\Models\ball.x</SourceFilename>
+      <SourceFilename>C:\Users\Junior\Desktop\TwoLevelAraguz\Rabies-X\RabiesX_WIN_XBOX\Content\Models\ball.x</SourceFilename>
       <SourceTool>XImporter</SourceTool>
     </Identity>
     <Transform>1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1</Transform>
@@ -32,7 +32,7 @@
   <Resources>
     <Resource ID="#Resource1" Type="Graphics:BasicMaterialContent">
       <Identity>
-        <SourceFilename>C:\Users\Junior\Desktop\Yetanotherray\Rabies-X\RabiesX_WIN_XBOX\Content\Models\ball.x</SourceFilename>
+        <SourceFilename>C:\Users\Junior\Desktop\TwoLevelAraguz\Rabies-X\RabiesX_WIN_XBOX\Content\Models\ball.x</SourceFilename>
         <SourceTool>XImporter</SourceTool>
       </Identity>
       <OpaqueData>

@@ -9,6 +9,7 @@
 
 #region Using Statements
 using Microsoft.Xna.Framework;
+//using Microsoft.Xna.Framework.Audio;
 #endregion
 
 namespace RabiesX
@@ -28,6 +29,7 @@ namespace RabiesX
         public NextLevelScreen()
             : base("Level Complete")
         {
+
             // Create our menu entries.
             MenuEntry continueGameMenuEntry = new MenuEntry("Continue Game");
             MenuEntry quitGameMenuEntry = new MenuEntry("Quit Game");

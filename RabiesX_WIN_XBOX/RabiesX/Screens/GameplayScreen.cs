@@ -9,7 +9,7 @@
 
 //Joe Eid: voicing Russell Jackson
 //Danny Neumann: voicing male government agent
-//Sassa: voicing female government agent (the "be careful" phrase).
+//Sassa: voicing female government agent
 
 #region Using Statements
 using System;
@@ -41,8 +41,8 @@ namespace RabiesX
         protected const float PLAYER_HEADING_SPEED = 120.0f;
         protected const float PLAYER_ROLLING_SPEED = 280.0f;
 
-        protected const float TERRAIN_WIDTH = 3500.0f;
-        protected const float TERRAIN_HEIGHT = 3500.0f;
+        protected const float TERRAIN_WIDTH = 5000.0f;
+        protected const float TERRAIN_HEIGHT = 5000.0f;
 
         protected const float CAMERA_FOVX = 80.0f;
         protected const float CAMERA_ZFAR = TERRAIN_WIDTH * 2.0f;
@@ -50,13 +50,13 @@ namespace RabiesX
         protected const float CAMERA_MAX_SPRING_CONSTANT = 100.0f;
         protected const float CAMERA_MIN_SPRING_CONSTANT = 1.0f;
 
-        protected const int MAX_TIME_LEFT = 300;
+        protected const int MAX_TIME_LEFT = 600;
         protected int timeLeft = MAX_TIME_LEFT;
         protected int elapsedUpdateTime = 0;
 
-        protected int level;
+        protected bool played = false;
 
-        protected int TOTAL_RABID_DOGS = 10;
+        protected int TOTAL_RABID_DOGS = 20;
 
         protected int initialNumberOfDogs;
 
@@ -71,6 +71,9 @@ namespace RabiesX
 
         protected SoundEffect cry;
         protected SoundEffectInstance cryInstance;
+
+        protected SoundEffect onfire;
+        protected SoundEffectInstance onfireInstance;
 
         protected SoundEffect win;
         protected SoundEffectInstance winInstance;
@@ -116,6 +119,12 @@ namespace RabiesX
 
         protected SoundEffect collectsample;
         protected SoundEffectInstance collectsampleInstance;
+
+        protected SoundEffect virussamples;
+        protected SoundEffectInstance virussamplesInstance;
+
+        protected SoundEffect zanzibar;
+        protected SoundEffectInstance zanzibarInstance;
 
         protected SpriteBatch spriteBatch;
         protected SpriteFont spriteFont;
@@ -302,8 +311,17 @@ namespace RabiesX
             telepath = content.Load<SoundEffect>("Audio\\Waves\\telepath");
             telepathInstance = telepath.CreateInstance();
 
+            onfire = content.Load<SoundEffect>("Audio\\Waves\\onfire");
+            onfireInstance = onfire.CreateInstance();
+
             collectsample = content.Load<SoundEffect>("Audio\\Waves\\collectsample");
             collectsampleInstance = collectsample.CreateInstance();
+
+            virussamples = content.Load<SoundEffect>("Audio\\Waves\\virussamples");
+            virussamplesInstance = virussamples.CreateInstance();
+
+            zanzibar = content.Load<SoundEffect>("Audio\\Waves\\zanzibarvoice");
+            zanzibarInstance = zanzibar.CreateInstance();
 
             plasmaray = content.Load<SoundEffect>("Audio\\Waves\\plasmaray");
             plasmarayInstance = plasmaray.CreateInstance();
@@ -476,7 +494,7 @@ namespace RabiesX
             {
                 rabidDogEntities.Add(new Entity());
                 rabidDogEntities[i].ConstrainToWorldYAxis = true;
-                rabidDogEntities[i].Position = new Vector3(random.Next(1000) * -1.0f + 200.0f, 20.0f + rabidDogRadii[i], random.Next(1000));
+                rabidDogEntities[i].Position = new Vector3((random.Next(1000) * 1.0f + 200.0f) + playerEntity.Position.X, 20.0f + rabidDogRadii[i], random.Next(1000));
 
                 bottleEntities.Add(new Entity());
                 bottleEntities[i].ConstrainToWorldYAxis = true;
@@ -591,28 +609,27 @@ namespace RabiesX
             base.Update(gameTime, otherScreenHasFocus, false);
             if (IsActive)
             {
-                if (timeLeft == 300)
+                if (timeLeft == 600)
                     dogsinparkInstance.Play();
-                if (timeLeft == 282)
+                if (timeLeft == 582)
                     telepathInstance.Play();
-                if (timeLeft == 270)
-                    becareful.Play();
-                if (timeLeft == 268)
+                if (timeLeft == 572)
+                    virussamplesInstance.Play();
+                if (timeLeft == 552)
                     totherescueInstance.Play();
                 if ((timeLeft % 12) == 0 && timeLeft >= 0)
-                    if (!barkInstance.IsDisposed && (dogsinparkInstance.State != SoundState.Playing))
+                    if (!barkInstance.IsDisposed && (dogsinparkInstance.State != SoundState.Playing) && (onfireInstance.State != SoundState.Playing) && (virussamplesInstance.State != SoundState.Playing))
                         barkInstance.Play();
-                if (timeLeft == 240)
+                if (timeLeft == 500)
                     cryInstance.Play();
-                if (timeLeft == 180)
+                if (timeLeft == 400)
                     donotfearInstance.Play();
-                if (timeLeft == 120)
+                if (timeLeft == 300)
                     motherearthInstance.Play();
-                if (timeLeft == 60)
+                if (timeLeft == 200)
                     callmegerryInstance.Play();
                 if (timeLeft <= 0)
-                    if (!barkInstance.IsDisposed)
-                        barkInstance.Stop();
+                    barkInstance.Stop();
             }
 
             // Gradually fade in or out depending on whether we are covered by the pause screen.
@@ -762,7 +779,7 @@ namespace RabiesX
             if (((curMouseState.LeftButton == ButtonState.Pressed) && (prevMouseState.LeftButton == ButtonState.Released)) || curKeyboardState.IsKeyDown(Keys.RightControl))
             {
                 double currentTime = gameTime.TotalGameTime.TotalMilliseconds;
-                if ((currentTime - lastBulletTime) > 0)
+                if ((currentTime - lastBulletTime) > 100)
                 {
                     Bullet newBullet = new Bullet();
                     newBullet.position = playerEntity.Position;
@@ -848,12 +865,41 @@ namespace RabiesX
 
             if ((enemiesDeadChk == true) && (numberOfCollectedSamples == initialNumberOfDogs) && (((Math.Abs(playerEntity.Position.X - indicatorPos.X) + Math.Abs(playerEntity.Position.Z - indicatorPos.Z)) / 2) < (playerRadius + indicatorScale*2 - 19.5)))
             {
-                // player can advance to next level
+                //int time = timeLeft - 10;
+                //bool playing = true;
                 soundInstance.Stop();
-                winInstance.Play();
-                jacksonlosecryInstance.Play();
-                if (!barkInstance.IsDisposed)
-                    barkInstance.Dispose();
+                plasmarayInstance.Stop();
+                if (!played)
+                {
+                    winInstance.Play();
+                    while (winInstance.State == SoundState.Playing)
+                    {
+                        if (winInstance.State != SoundState.Playing)
+                            break;
+                        continue;
+                    }
+                    winInstance.Stop();
+                    jacksonlosecryInstance.Play();
+                    while (jacksonlosecryInstance.State == SoundState.Playing)
+                    {
+                        if (jacksonlosecryInstance.State != SoundState.Playing)
+                            break;
+                        continue;
+                    }
+                    jacksonlosecryInstance.Stop();
+                    barkInstance.Stop();
+                    if (winInstance.State == SoundState.Stopped && jacksonlosecryInstance.State == SoundState.Stopped)
+                        zanzibarInstance.Play();
+                    while (zanzibarInstance.State == SoundState.Playing)
+                    {
+                        //playing = true;
+                        if (zanzibarInstance.State != SoundState.Playing)
+                            break;
+                        continue;
+                    }
+                    zanzibarInstance.Stop();
+                    played = true;
+                }
                 ScreenManager.AddScreen(new NextLevelScreen(), ControllingPlayer);
             }
 
@@ -876,8 +922,7 @@ namespace RabiesX
             {
                 // Game is over, so go to continue or quit screen.
                 jacksonwincryInstance.Play();
-                if(!barkInstance.IsDisposed)
-                     barkInstance.Dispose();
+                barkInstance.Stop();
                 ScreenManager.AddScreen(new GameOverScreen(), ControllingPlayer);
             }
         }
@@ -925,8 +970,7 @@ namespace RabiesX
                                 TOTAL_RABID_DOGS--;
                                 if (TOTAL_RABID_DOGS == 0)
                                 {
-                                    if (!barkInstance.IsDisposed)
-                                        barkInstance.Dispose();
+                                    barkInstance.Stop();
                                 }
                                 //CreateBottle(currentPosition);
                                 break;
@@ -936,11 +980,41 @@ namespace RabiesX
             }
             if (TOTAL_RABID_DOGS == 0 && numberOfCollectedSamples == initialNumberOfDogs)
             {
+                //int time = timeLeft - 10;
+                //bool playing = true;
                 soundInstance.Stop();
-                winInstance.Play();
-                jacksonlosecryInstance.Play();
-                if (!barkInstance.IsDisposed)
-                    barkInstance.Dispose();
+                plasmarayInstance.Stop();
+                if (!played)
+                {
+                    winInstance.Play();
+                    while (winInstance.State == SoundState.Playing)
+                    {
+                        if (winInstance.State != SoundState.Playing)
+                            break;
+                        continue;
+                    }
+                    jacksonlosecryInstance.Play();
+                    while (jacksonlosecryInstance.State == SoundState.Playing)
+                    {
+                        if (jacksonlosecryInstance.State != SoundState.Playing)
+                            break;
+                        continue;
+                    }
+                    winInstance.Stop();
+                    jacksonlosecryInstance.Stop();
+                    barkInstance.Stop();
+                    if (winInstance.State == SoundState.Stopped && jacksonlosecryInstance.State == SoundState.Stopped)
+                        zanzibarInstance.Play();
+                    while (zanzibarInstance.State == SoundState.Playing)
+                    {
+                        //playing = true;
+                        if (zanzibarInstance.State != SoundState.Playing)
+                            break;
+                        continue;
+                    }
+                    zanzibarInstance.Stop();
+                    played = true;
+                }
                 ScreenManager.AddScreen(new NextLevelScreen(), ControllingPlayer);
             }
         }
@@ -1058,8 +1132,7 @@ namespace RabiesX
                 {
                     // Game is over, so go to continue or quit screen.
                     jacksonwincryInstance.Play();
-                    if(!barkInstance.IsDisposed)
-                         barkInstance.Dispose();
+                    barkInstance.Stop();
                     ScreenManager.AddScreen(new GameOverScreen(), ControllingPlayer);
                 }
             }
@@ -1247,7 +1320,7 @@ namespace RabiesX
         protected virtual void DrawText()
         {
             StringBuilder buffer = new StringBuilder();
-            string jacksonTaunt = "";
+            string jacksonTaunt = "I, Russell Jackson, challenge you, Geraldo \"Merry Gerry\" Araguz, to survive\n for 10 whole minutes in this park with these diseased dogs!\n I can guarantee that you will not survive for even five.\nGet him, boys!!\n\n";
 
             if (displayHelp)
             {
@@ -1279,18 +1352,18 @@ namespace RabiesX
                 buffer.AppendFormat("  Spring constant: {0}\n", springConstant.ToString("f2"));
                 buffer.AppendFormat("  Damping constant: {0}\n", dampingConstant.ToString("f2"));
                 buffer.AppendLine();
-                if (timeLeft <= 300 && timeLeft >= 240)
-                    jacksonTaunt = "I, Russell Jackson, challenge you, Geraldo \"Merry Gerry\" Araguz, to survive\n for 5 minutes in this park with these diseased dogs!\n I can guarantee that you will not survive for even one.\nGet him, boys!!\n\n";
-                if (timeLeft < 240 && timeLeft >= 180)
-                    jacksonTaunt = "So you survived for one minute. Big wuff. Speaking of wuff - get him, boys!\n\n";
-                if (timeLeft < 180 && timeLeft >= 120)
-                    jacksonTaunt = "Two minutes? Purrrrrrlease. Speaking of purr, pretend Gerry's a cat and get him, boys!!\n\n";
-                if (timeLeft < 120 && timeLeft >= 60)
-                    jacksonTaunt = "Geraldo Araguz, you survived for more than half the time. You got some bones.\nSpeaking of bones, pretend he's one and get him, boys!!\n\n";
-                if (timeLeft < 60 && timeLeft >= 0)
-                    jacksonTaunt = "One minute to lose, Geraldo Araguz! You still have a chance to get him, boys!!\n\n";
-                if (timeLeft <= 0)
-                    jacksonTaunt = "NOOOOOOOOOOOOOOOOOOOOOO!\n\n";
+                //if (timeLeft <= 300 && timeLeft >= 240)
+                //    jacksonTaunt = "I, Russell Jackson, challenge you, Geraldo \"Merry Gerry\" Araguz, to survive\n for 5 minutes in this park with these diseased dogs!\n I can guarantee that you will not survive for even one.\nGet him, boys!!\n\n";
+                //if (timeLeft < 240 && timeLeft >= 180)
+                //    jacksonTaunt = "So you survived for one minute. Big wuff. Speaking of wuff - get him, boys!\n\n";
+                //if (timeLeft < 180 && timeLeft >= 120)
+                //    jacksonTaunt = "Two minutes? Purrrrrrlease. Speaking of purr, pretend Gerry's a cat and get him, boys!!\n\n";
+                //if (timeLeft < 120 && timeLeft >= 60)
+                //    jacksonTaunt = "Geraldo Araguz, you survived for more than half the time. You got some bones.\nSpeaking of bones, pretend he's one and get him, boys!!\n\n";
+                //if (timeLeft < 60 && timeLeft >= 0)
+                //    jacksonTaunt = "One minute to lose, Geraldo Araguz! You still have a chance to get him, boys!!\n\n";
+                //if (timeLeft <= 0)
+                //    jacksonTaunt = "NOOOOOOOOOOOOOOOOOOOOOO!\n\n";
                 buffer.AppendFormat(jacksonTaunt);
                 buffer.AppendLine("Press H to display help");
             }

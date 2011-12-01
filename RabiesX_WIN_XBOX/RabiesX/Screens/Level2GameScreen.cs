@@ -35,7 +35,7 @@ namespace RabiesX
             if (content == null)
                 content = new ContentManager(ScreenManager.Game.Services, "Content");
 
-            TOTAL_RABID_DOGS = 20;
+            TOTAL_RABID_DOGS = 40;
             aspectRatio = (float)ScreenManager.Game.GraphicsDevice.Viewport.Width / (float)ScreenManager.Game.GraphicsDevice.Viewport.Height;
 
             // Initialize flicker for when health bar on danger.
@@ -85,6 +85,9 @@ namespace RabiesX
             dogsinpark = content.Load<SoundEffect>("Audio\\Waves\\dogsinpark");
             dogsinparkInstance = dogsinpark.CreateInstance();
 
+            onfire = content.Load<SoundEffect>("Audio\\Waves\\onfire");
+            onfireInstance = onfire.CreateInstance();
+
             totherescue = content.Load<SoundEffect>("Audio\\Waves\\totherescue");
             totherescueInstance = totherescue.CreateInstance();
 
@@ -93,6 +96,9 @@ namespace RabiesX
 
             collectsample = content.Load<SoundEffect>("Audio\\Waves\\collectsample");
             collectsampleInstance = collectsample.CreateInstance();
+
+            virussamples = content.Load<SoundEffect>("Audio\\Waves\\virussamples");
+            virussamplesInstance = virussamples.CreateInstance();
 
             plasmaray = content.Load<SoundEffect>("Audio\\Waves\\plasmaray");
             plasmarayInstance = plasmaray.CreateInstance();
@@ -265,7 +271,7 @@ namespace RabiesX
             {
                 rabidDogEntities.Add(new Entity());
                 rabidDogEntities[i].ConstrainToWorldYAxis = true;
-                rabidDogEntities[i].Position = new Vector3(random.Next(1000) * -1.0f + 200.0f, 20.0f + rabidDogRadii[i], random.Next(1000));
+                rabidDogEntities[i].Position = new Vector3((random.Next(1000) * 1.0f + 200.0f) + playerEntity.Position.X, 20.0f + rabidDogRadii[i], random.Next(1000));
 
                 bottleEntities.Add(new Entity());
                 bottleEntities[i].ConstrainToWorldYAxis = true;
@@ -299,7 +305,81 @@ namespace RabiesX
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         public override void Update(GameTime gameTime, bool otherScreenHasFocus, bool coveredByOtherScreen)
         {
-            base.Update(gameTime, otherScreenHasFocus, coveredByOtherScreen);
+            animationPlayer.Update(gameTime.ElapsedGameTime, true, playerEntity.WorldMatrix);
+            base.Update(gameTime, otherScreenHasFocus, false);
+            if (IsActive)
+            {
+                if (dogsinparkInstance.State == SoundState.Playing)
+                    dogsinparkInstance.Stop();
+                if (telepathInstance.State == SoundState.Playing)
+                    telepathInstance.Stop();
+                if (virussamplesInstance.State == SoundState.Playing)
+                    virussamplesInstance.Stop();
+                if (totherescueInstance.State == SoundState.Playing)
+                    totherescueInstance.Stop();
+            }
+            //if (IsActive)
+            //{
+            //    if (timeLeft == 582)
+            //        telepathInstance.Play();
+            //    if (timeLeft == 572)
+            //        virussamplesInstance.Play();
+            //    if (timeLeft == 552)
+            //        totherescueInstance.Play();
+            //    if ((timeLeft % 12) == 0 && timeLeft >= 0)
+            //        if (!barkInstance.IsDisposed && (dogsinparkInstance.State != SoundState.Playing) && (onfireInstance.State != SoundState.Playing) && (virussamplesInstance.State != SoundState.Playing))
+            //            barkInstance.Play();
+            //    if (timeLeft == 500)
+            //        cryInstance.Play();
+            //    if (timeLeft == 400)
+            //        donotfearInstance.Play();
+            //    if (timeLeft == 300)
+            //        motherearthInstance.Play();
+            //    if (timeLeft == 200)
+            //        callmegerryInstance.Play();
+            //    if (timeLeft <= 0)
+            //        if (!barkInstance.IsDisposed)
+            //            barkInstance.Stop();
+            //}
+
+            //// Gradually fade in or out depending on whether we are covered by the pause screen.
+            //if (coveredByOtherScreen)
+            //    pauseAlpha = Math.Min(pauseAlpha + 1f / 32, 1);
+            //else
+            //    pauseAlpha = Math.Max(pauseAlpha - 1f / 32, 0);
+
+            //if (IsActive)
+            //{
+            //    float moveSpeed = gameTime.ElapsedGameTime.Milliseconds / 500.0f * bulletSpeed;
+
+            //    ProcessKeyboard();
+            //    UpdatePlayer(gameTime);
+            //    UpdateEnemies(gameTime);
+            //    UpdateFrameRate(gameTime);
+            //    UpdateBulletPositions(moveSpeed);
+            //    //UpdateBottles(gameTime);
+
+            //    // Rotate triangle level indicator.
+            //    angle += 0.005f;
+
+            //    // Apply some random jitter to make the enemy move around.
+            //    const float randomization = 10;
+
+            //    enemyPosition.X += (float)(random.NextDouble() - 0.5) * randomization;
+            //    enemyPosition.Y += (float)(random.NextDouble() - 0.5) * randomization;
+
+            //    // Apply a stabilizing force to stop the enemy moving off the screen.
+            //    Vector2 targetPosition = new Vector2(
+            //        ScreenManager.GraphicsDevice.Viewport.Width / 2 - gameFont.MeasureString("").X / 2,
+            //        200);
+
+            //    enemyPosition = Vector2.Lerp(enemyPosition, targetPosition, 0.05f);
+
+            //    base.Update(gameTime, otherScreenHasFocus, false);
+
+            //    // TODO: this game isn't very fun! You could probably improve
+            //    // it by inserting something more interesting in this space :-)
+            //}
         }
 
         public override void HandleInput(InputState input)
@@ -458,8 +538,7 @@ namespace RabiesX
                 {
                     // Game is over, so go to continue or quit screen.
                     jacksonwincryInstance.Play();
-                    if (!barkInstance.IsDisposed)
-                        barkInstance.Dispose();
+                    barkInstance.Stop();
                     ScreenManager.AddScreen(new GameOverLevel2Screen(), ControllingPlayer);
                 }
             }
@@ -467,6 +546,8 @@ namespace RabiesX
 
         protected override void UpdatePlayer(GameTime gameTime)
         {
+            if (timeLeft == 600)
+                onfireInstance.Play();
             float pitch = 0.0f;
             float heading = 0.0f;
             float forwardSpeed = 0.0f;
@@ -502,7 +583,7 @@ namespace RabiesX
             if (((curMouseState.LeftButton == ButtonState.Pressed) && (prevMouseState.LeftButton == ButtonState.Released)) || curKeyboardState.IsKeyDown(Keys.RightControl))
             {
                 double currentTime = gameTime.TotalGameTime.TotalMilliseconds;
-                if ((currentTime - lastBulletTime) > 0)
+                if ((currentTime - lastBulletTime) > 100)
                 {
                     Bullet newBullet = new Bullet();
                     newBullet.position = playerEntity.Position;
@@ -592,8 +673,7 @@ namespace RabiesX
                 soundInstance.Stop();
                 winInstance.Play();
                 jacksonlosecryInstance.Play();
-                if (!barkInstance.IsDisposed)
-                    barkInstance.Dispose();
+                barkInstance.Stop();
                 ScreenManager.AddScreen(new NextLevelScreen(), ControllingPlayer);
             }
 
@@ -616,8 +696,7 @@ namespace RabiesX
             {
                 // Game is over, so go to continue or quit screen.
                 jacksonwincryInstance.Play();
-                if (!barkInstance.IsDisposed)
-                    barkInstance.Dispose();
+                barkInstance.Stop();
                 ScreenManager.AddScreen(new GameOverLevel2Screen(), ControllingPlayer);
             }
         }
