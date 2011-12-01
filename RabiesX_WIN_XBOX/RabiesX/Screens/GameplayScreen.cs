@@ -78,6 +78,9 @@ namespace RabiesX
         protected SoundEffect win;
         protected SoundEffectInstance winInstance;
 
+        protected SoundEffect wind;
+        protected SoundEffectInstance windInstance;
+
         protected SoundEffect bark;
         protected SoundEffectInstance barkInstance;
 
@@ -419,7 +422,7 @@ namespace RabiesX
                 //rabidDogModels[i].Texture("Textures\\wedge_p1_diff_v1", content);
             }
 
-            sound = content.Load<SoundEffect>("Audio\\Waves\\clockisticking");
+            sound = content.Load<SoundEffect>("Audio\\Waves\\wind");
             soundInstance = sound.CreateInstance();
             soundInstance.IsLooped.Equals(true);
             soundInstance.Play();
