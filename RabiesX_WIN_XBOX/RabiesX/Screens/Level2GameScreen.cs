@@ -20,9 +20,10 @@ namespace RabiesX
     /// </summary>
     class Level2GameScreen : GameplayScreen
     {
-        public Level2GameScreen() : base()
+        public Level2GameScreen()
+            : base()
         {
-            
+
         }
 
         /// <summary>
@@ -196,7 +197,7 @@ namespace RabiesX
                 //rabidDogModels[i].Texture("Textures\\wedge_p1_diff_v1", content);
             }
 
-            sound = content.Load<SoundEffect>("Audio\\Waves\\clockisticking");
+            sound = content.Load<SoundEffect>("Audio\\Waves\\wind");
             soundInstance = sound.CreateInstance();
             soundInstance.IsLooped.Equals(true);
             soundInstance.Play();
@@ -394,14 +395,14 @@ namespace RabiesX
             ScreenManager.GraphicsDevice.BlendState = BlendState.Opaque;
             ScreenManager.GraphicsDevice.DepthStencilState = DepthStencilState.Default;
             ScreenManager.GraphicsDevice.SamplerStates[0] = SamplerState.LinearWrap;
-                        
+
             // Draw the terrain first, then the sky. This is faster than
             // drawing the sky first, because the depth buffer can skip
             // bothering to draw sky pixels that are covered up by the
             // terrain. This trick works because the code used to draw
             // the sky forces all the sky vertices to be as far away as
             // possible, and turns depth testing on but depth writes off.
-            
+
             //DrawPlayer();
 
             this.DrawEnemies();
@@ -470,7 +471,7 @@ namespace RabiesX
             //        else if ((rabidDogHealths[index] <= 50) && (rabidDogHealths[index] > 25))
             //            mBatch.Draw(mHealthBar, new Rectangle((int)rabidDogEntities[index].Position.X - 30, (int)rabidDogEntities[index].Position.Z - 30, (int)(mHealthBar.Width * ((double)mCurrentHealth / 100)), 25), new Rectangle(0, 45, mHealthBar.Width, 25), Color.Red);
             //    }
-               
+
             //}
 
             // Draw the box around the health bar.
@@ -482,13 +483,13 @@ namespace RabiesX
             SpriteBatch spriteBatchAlpha = ScreenManager.SpriteBatch;
 
             spriteBatchAlpha.Begin(0, BlendState.AlphaBlend);
-            
+
             //spriteBatchAlpha.DrawString(gameFont, "// TODO", playerPosition, Color.Green);
 
             //spriteBatchAlpha.DrawString(gameFont, "Insert Gameplay Here", enemyPosition, Color.DarkRed);
 
             // Draw timer text.
-            string secs = (timeLeft%60).ToString();
+            string secs = (timeLeft % 60).ToString();
             if ((timeLeft % 60) < 10)
             {
                 secs = "0" + secs;
@@ -498,11 +499,11 @@ namespace RabiesX
             {
                 timeLeftColor = Color.Red;
             }
-            spriteBatchAlpha.DrawString(gameFont, (timeLeft / 60) + ":" + secs, new Vector2(screenWidth/2 - 45, 10), timeLeftColor);
+            spriteBatchAlpha.DrawString(gameFont, (timeLeft / 60) + ":" + secs, new Vector2(screenWidth / 2 - 45, 10), timeLeftColor);
 
             spriteBatchAlpha.End();
             base.Draw(gameTime);
-            
+
             IncrementFrameCounter(); // Increment counter for frames per second.
 
             // If the game is transitioning on or off, fade it out to black.
