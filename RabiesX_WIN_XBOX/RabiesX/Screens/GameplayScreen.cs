@@ -56,11 +56,13 @@ namespace RabiesX
 
         protected bool played = false;
 
-        protected int TOTAL_RABID_DOGS = 20;
+        protected int TOTAL_RABID_DOGS = 5;
 
         protected int initialNumberOfDogs;
 
         protected AnimationPlayer animationPlayer;
+        protected List<AnimationPlayer> dogs;
+        protected List<AnimationClip> dogClips;
 
         protected ContentManager content;
         protected SpriteFont gameFont;
@@ -385,6 +387,8 @@ namespace RabiesX
             bottleRadii = new List<float>();
             modelEnemyTransforms = new List<Matrix[]>();
             bulletList = new List<Bullet>();
+            dogs = new List<AnimationPlayer>();
+            dogClips = new List<AnimationClip>();
             rabidDogPreviousPositions = new List<Vector3>();
             for (int i = 0; i < TOTAL_RABID_DOGS; i++)
             {
@@ -408,10 +412,11 @@ namespace RabiesX
             LoadAraguz();
             for (int i = 0; i < TOTAL_RABID_DOGS; i++)
             {
-                rabidDogModels.Add(new MyModel("Models\\troubled_canine", content));
-                rabidDogModels[i].Texture("Textures\\DogEyes", content);
-                rabidDogModels[i].Texture("Textures\\DogPupil", content);
-                rabidDogModels[i].Texture("Textures\\DogSkin", content);
+                LoadDog();
+                //rabidDogModels.Add(new MyModel("Models\\troubled_canine", content));
+                //rabidDogModels[i].Texture("Textures\\DogEyes", content);
+                //rabidDogModels[i].Texture("Textures\\DogPupil", content);
+                //rabidDogModels[i].Texture("Textures\\DogSkin", content);
                 bottleModels.Add(new MyModel("Models\\sample_bottle", content));
                 bottleModels[i].Texture("Textures\\Chemical1", content);
                 bottleModels[i].Texture("Textures\\Chemical2", content);
@@ -580,21 +585,25 @@ namespace RabiesX
 
         protected void LoadDog()
         {
-            dogModel = content.Load<Model>("sick_dog");
+            rabidDogModels.Add(new MyModel("Models\\diseased_dog", content));
+
+            rabidDogModels[rabidDogModels.Count - 1].Texture("Textures\\DogEyes", content);
+            rabidDogModels[rabidDogModels.Count - 1].Texture("Textures\\DogPupil", content);
+            rabidDogModels[rabidDogModels.Count - 1].Texture("Textures\\DogSkin", content);
 
             // Look up our custom skinning information.
-            SkinningData skinningData = dogModel.Tag as SkinningData;
+            SkinningData skinningData = rabidDogModels[rabidDogModels.Count - 1].ModelHeld.Tag as SkinningData;
 
             if (skinningData == null)
                 throw new InvalidOperationException
                     ("This model does not contain a SkinningData tag.");
 
             // Create an animation player, and start decoding an animation clip.
-            AnimationPlayer animationPlayer = new AnimationPlayer(skinningData);
+            dogs.Add(new AnimationPlayer(skinningData));
 
-            AnimationClip clip = skinningData.AnimationClips["Take 001"];
+            dogClips.Add(skinningData.AnimationClips["Take 001"]);
 
-            animationPlayer.StartClip(clip);
+            dogs[dogs.Count - 1].StartClip(dogClips[dogClips.Count - 1]);
         }
 
         #region Update and Draw
@@ -609,6 +618,11 @@ namespace RabiesX
                                                        bool coveredByOtherScreen)
         {
             animationPlayer.Update(gameTime.ElapsedGameTime, true, playerEntity.WorldMatrix);
+            for (int i = 0; i < initialNumberOfDogs; i++)
+            {
+                if (!healed[i])
+                    dogs[i].Update(gameTime.ElapsedGameTime, true, rabidDogEntities[i].WorldMatrix);
+            }
             base.Update(gameTime, otherScreenHasFocus, false);
             if (IsActive)
             {
@@ -932,7 +946,7 @@ namespace RabiesX
 
         protected void MoveForward(ref Vector3 position, Quaternion rotationQuat, float speed)
         {
-            Vector3 addVector = Vector3.Transform(new Vector3(0.0f, /*32*/-0.50f, 1.0f), rotationQuat);
+            Vector3 addVector = Vector3.Transform(new Vector3(0.0f, /*32*/0.0f, 1.0f), rotationQuat);
             position += addVector * (speed * 10);
         }
      
@@ -1250,24 +1264,26 @@ namespace RabiesX
             {
                 if (!healed[i])
                 {
-                    if (modelEnemyTransforms[i] == null)
-                        modelEnemyTransforms[i] = new Matrix[rabidDogModels[i].ModelHeld.Bones.Count];
+                    if (modelTransforms == null)
+                        modelTransforms = new Matrix[rabidDogModels[i].ModelHeld.Bones.Count];
 
-                    rabidDogModels[i].ModelHeld.CopyAbsoluteBoneTransformsTo(modelEnemyTransforms[i]);
-
-                    foreach (ModelMesh m in rabidDogModels[i].ModelHeld.Meshes)
+                    //playerModel.ModelHeld.CopyAbsoluteBoneTransformsTo(modelTransforms);
+                    modelTransforms = dogs[i].GetSkinTransforms();
+                    foreach (ModelMesh mesh in rabidDogModels[i].ModelHeld.Meshes)
                     {
-                        foreach (BasicEffect e in m.Effects)
+                        foreach (SkinnedEffect effect in mesh.Effects)
                         {
-                            e.PreferPerPixelLighting = true;
-                            e.TextureEnabled = true;
-                            e.EnableDefaultLighting();
-                            e.World = modelEnemyTransforms[i][m.ParentBone.Index] * rabidDogEntities[i].WorldMatrix;
-                            e.View = camera.ViewMatrix;
-                            e.Projection = camera.ProjectionMatrix;
-                        }
+                            effect.SetBoneTransforms(modelTransforms);
 
-                        m.Draw();
+                            effect.View = camera.ViewMatrix;
+                            effect.Projection = camera.ProjectionMatrix;
+
+                            effect.EnableDefaultLighting();
+
+                            effect.SpecularColor = new Vector3(0.25f);
+                            effect.SpecularPower = 16;
+                        }
+                        mesh.Draw();
                     }
                 }
             }

@@ -68,6 +68,7 @@ Content\Audio\Waves\collectsample.xnb
 Content\Audio\Waves\virussamples.xnb
 Content\Audio\Waves\zanzibarvoice.xnb
 Content\Audio\Waves\onfire.xnb
+Content\Audio\Waves\wind.xnb
 Content\Fonts\gamefont.xnb
 Content\Fonts\menufont.xnb
 Content\Fonts\ingamefont.xnb
@@ -92,4 +93,4 @@ Content\Models\Chemical2_0.xnb
 Content\parkgrass_1.xnb
 Content\Textures\desertmud_0.xnb
 Content\Models\ball_decal_map_0.xnb
-Content\Audio\Waves\wind.xnb
+Content\Models\diseased_dog.xnb

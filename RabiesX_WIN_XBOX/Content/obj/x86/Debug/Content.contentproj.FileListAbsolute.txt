@@ -6,3 +6,4 @@ C:\Users\Junior\Desktop\DogsWithHealthbars\Rabies-X\RabiesX_WIN_XBOX\Content\obj
 C:\Users\Junior\Desktop\NewRay\Rabies-X\RabiesX_WIN_XBOX\Content\obj\x86\Debug\ResolveAssemblyReference.cache
 C:\Users\Junior\Desktop\Yetanotherray\Rabies-X\RabiesX_WIN_XBOX\Content\obj\x86\Debug\ResolveAssemblyReference.cache
 C:\Users\Junior\Desktop\TwoLevelAraguz\Rabies-X\RabiesX_WIN_XBOX\Content\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\Junior\Desktop\RBX\Rabies-X\RabiesX_WIN_XBOX\Content\obj\x86\Debug\ResolveAssemblyReference.cache

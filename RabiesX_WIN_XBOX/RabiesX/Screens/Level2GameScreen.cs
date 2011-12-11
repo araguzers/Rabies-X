@@ -160,6 +160,8 @@ namespace RabiesX
             bottleRadii = new List<float>();
             modelEnemyTransforms = new List<Matrix[]>();
             bulletList = new List<Bullet>();
+            dogs = new List<AnimationPlayer>();
+            dogClips = new List<AnimationClip>();
             rabidDogPreviousPositions = new List<Vector3>();
             for (int i = 0; i < TOTAL_RABID_DOGS; i++)
             {
@@ -183,10 +185,11 @@ namespace RabiesX
             LoadAraguz();
             for (int i = 0; i < TOTAL_RABID_DOGS; i++)
             {
-                rabidDogModels.Add(new MyModel("Models\\troubled_canine", content));
-                rabidDogModels[i].Texture("Textures\\DogEyes", content);
-                rabidDogModels[i].Texture("Textures\\DogPupil", content);
-                rabidDogModels[i].Texture("Textures\\DogSkin", content);
+                LoadDog();
+                //rabidDogModels.Add(new MyModel("Models\\troubled_canine", content));
+                //rabidDogModels[i].Texture("Textures\\DogEyes", content);
+                //rabidDogModels[i].Texture("Textures\\DogPupil", content);
+                //rabidDogModels[i].Texture("Textures\\DogSkin", content);
                 bottleModels.Add(new MyModel("Models\\sample_bottle", content));
                 bottleModels[i].Texture("Textures\\Chemical1", content);
                 bottleModels[i].Texture("Textures\\Chemical2", content);
@@ -307,6 +310,11 @@ namespace RabiesX
         public override void Update(GameTime gameTime, bool otherScreenHasFocus, bool coveredByOtherScreen)
         {
             animationPlayer.Update(gameTime.ElapsedGameTime, true, playerEntity.WorldMatrix);
+            for (int i = 0; i < initialNumberOfDogs; i++)
+            {
+                if (!healed[i])
+                    dogs[i].Update(gameTime.ElapsedGameTime, true, rabidDogEntities[i].WorldMatrix);
+            }
             base.Update(gameTime, otherScreenHasFocus, false);
             if (IsActive)
             {

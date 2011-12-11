@@ -3,7 +3,7 @@
   <Asset Type="Graphics:MeshContent">
     <Name>pPlane1</Name>
     <Identity>
-      <SourceFilename>C:\Users\Junior\Desktop\TwoLevelAraguz\Rabies-X\RabiesX_WIN_XBOX\Content\Models\desertterrain.fbx</SourceFilename>
+      <SourceFilename>C:\Users\Junior\Desktop\RBX\Rabies-X\RabiesX_WIN_XBOX\Content\Models\desertterrain.fbx</SourceFilename>
       <SourceTool>FbxImporter</SourceTool>
     </Identity>
     <Transform>2.857331 0 0 0 0 2.857331 0 0 0 0 2.857331 0 0.2355467 0 -6.89996433 1</Transform>
@@ -26,7 +26,7 @@
     <Resource ID="#Resource1" Type="Graphics:BasicMaterialContent">
       <Name>phong2</Name>
       <Identity>
-        <SourceFilename>C:\Users\Junior\Desktop\TwoLevelAraguz\Rabies-X\RabiesX_WIN_XBOX\Content\Models\desertterrain.fbx</SourceFilename>
+        <SourceFilename>C:\Users\Junior\Desktop\RBX\Rabies-X\RabiesX_WIN_XBOX\Content\Models\desertterrain.fbx</SourceFilename>
         <SourceTool>FbxImporter</SourceTool>
       </Identity>
       <OpaqueData>
